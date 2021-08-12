@@ -1,4 +1,4 @@
-# ap
+# mintane_frontend
 
 A new Flutter project.
 
