@@ -136,5 +136,79 @@ class Dashboard extends StatelessWidget {
                         )),
                       ),
                     ),
+                     SizedBox(
+                      width: 160.0,
+                      height: 160.0,
+                      child: Card(
+                        color: Colors.green[300],
+                        elevation: 2.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: Center(
+                            child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: <Widget>[
+                              Icon(
+                                Icons.flaky_outlined,
+                                color: Colors.green[100],
+                                size: 40.0,
+                                semanticLabel:
+                                    'Text to announce in accessibility modes',
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Text(
+                                "Agricultural Products",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
+                              ),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                            ],
+                          ),
+                        )),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: 160.0,
+                      height: 160.0,
+                      child: Card(
+                        color: Colors.green[300],
+                        elevation: 2.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: Center(
+                            child: Padding(
+                          padding: const EdgeInsets.all(30.0),
+                          child: Column(
+                            children: <Widget>[
+                              Icon(
+                                Icons.military_tech_outlined,
+                                color: Colors.green[100],
+                                size: 40.0,
+                                semanticLabel:
+                                    'Text to announce in accessibility modes',
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Text(
+                                "Machinery",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
+                              ),
 
                   
