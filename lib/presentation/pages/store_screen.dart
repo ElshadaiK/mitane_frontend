@@ -3,11 +3,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/models/store-model.dart';
+import 'package:mitane_frontend/presentation/pages/custome_widgets/add_icon_button.dart';
 
 class StoreDisplay extends StatefulWidget {
-  final List<Store> prices;
+  static const String routeName = '/store';
+  final List<Store> items;
 
-  const StoreDisplay({required this.prices});
+  const StoreDisplay(List<Store> list, {required this.items});
 
   @override
   _StoreDisplayState createState() => _StoreDisplayState();
@@ -27,27 +29,31 @@ class _StoreDisplayState extends State<StoreDisplay> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 8, bottom: 30),
-            margin: EdgeInsets.only(top: 30, bottom: 0.0),
+            decoration: BoxDecoration(
+                color: Color(0xFF8CC63E),
+                borderRadius: BorderRadius.circular(10)),
+            padding: const EdgeInsets.only(top: 30, bottom: 30, left: 10, right: 10),
+            margin: EdgeInsets.only(top: 30, bottom: 20, left: 30, right: 30),
+            width: MediaQuery.of(context).size.width,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Decide your share of the market",
-                  style: TextStyle(fontSize: 25, fontFamily: "RobotMono"),
+                  "Decide your share of the market!!",
+                  style: TextStyle(fontSize: 20, fontFamily: "RobotMono"),
                 ),
                 Text(
                   "Date will be displayed here",
-                  style: TextStyle(fontSize: 25, fontFamily: "RobotMono"),
+                  style: TextStyle(fontSize: 19, fontFamily: "RobotMono"),
                 ),
               ],
             ),
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: widget.prices.length,
+                itemCount: widget.items.length,
                 itemBuilder: (BuildContext context, int index) {
-                  Store curPrice = widget.prices[index];
+                  Store curPrice = widget.items[index];
                   return Container(
                     margin: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
                     child: StoreItemCard(
@@ -57,6 +63,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
                   );
                 }),
           ),
+          AddIconButton(StoreDisplay.routeName)
         ],
       ),
     );
