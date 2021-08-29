@@ -18,7 +18,7 @@ class Dashboard extends StatelessWidget {
                     color: Colors.green[600],
                     size: 52.0,
                   ),
-                   Icon(
+                  Icon(
                     Icons.person,
                     color: Colors.grey[800],
                     size: 40.0,
@@ -63,7 +63,7 @@ class Dashboard extends StatelessWidget {
                               endIndent: 20,
                             ),
                           ),
-                           Padding(
+                          Padding(
                             padding: const EdgeInsets.only(right: 80.0),
                             child: Row(
                               children: [
@@ -106,37 +106,42 @@ class Dashboard extends StatelessWidget {
                         elevation: 2.0,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
-                        child: Center(
-                            child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: <Widget>[
-                              Icon(
-                                Icons.house_outlined,
-                                color: Colors.green[100],
-                                size: 40.0,
-                                semanticLabel:
-                                    'Text to announce in accessibility modes',
-                              ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Agricultural inputs",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18.0),
-                              ),
-                              SizedBox(
-                                height: 5.0,
-                              ),
-                            ],
-                          ),
-                        )),
+                        child: new InkWell(
+                          onTap: () {
+                            print("tapped");
+                          },
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.house_outlined,
+                                  color: Colors.green[100],
+                                  size: 40.0,
+                                  semanticLabel:
+                                      'Text to announce in accessibility modes',
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text(
+                                  "Agricultural inputs",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18.0),
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                              ],
+                            ),
+                          )),
+                        ),
                       ),
                     ),
-                     SizedBox(
+                    SizedBox(
                       width: 160.0,
                       height: 160.0,
                       child: Card(
@@ -144,34 +149,39 @@ class Dashboard extends StatelessWidget {
                         elevation: 2.0,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
-                        child: Center(
-                            child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: <Widget>[
-                              Icon(
-                                Icons.flaky_outlined,
-                                color: Colors.green[100],
-                                size: 40.0,
-                                semanticLabel:
-                                    'Text to announce in accessibility modes',
-                              ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Agricultural Products",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18.0),
-                              ),
-                              SizedBox(
-                                height: 5.0,
-                              ),
-                            ],
-                          ),
-                        )),
+                        child: new InkWell(
+                          onTap: () {
+                            print("tapped");
+                          },
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.flaky_outlined,
+                                  color: Colors.green[100],
+                                  size: 40.0,
+                                  semanticLabel:
+                                      'Text to announce in accessibility modes',
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text(
+                                  "Agricultural Products",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18.0),
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                              ],
+                            ),
+                          )),
+                        ),
                       ),
                     ),
                   ],
@@ -184,39 +194,43 @@ class Dashboard extends StatelessWidget {
                       width: 160.0,
                       height: 160.0,
                       child: Card(
-                        color: Colors.green[300],
-                        elevation: 2.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        child: Center(
-                            child: Padding(
-                          padding: const EdgeInsets.all(30.0),
-                          child: Column(
-                            children: <Widget>[
-                              Icon(
-                                Icons.military_tech_outlined,
-                                color: Colors.green[100],
-                                size: 40.0,
-                                semanticLabel:
-                                    'Text to announce in accessibility modes',
+                          color: Colors.green[300],
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0)),
+                          child: new InkWell(
+                            onTap: () {
+                              print("tapped");
+                            },
+                            child: Center(
+                                child: Padding(
+                              padding: const EdgeInsets.all(30.0),
+                              child: Column(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.military_tech_outlined,
+                                    color: Colors.green[100],
+                                    size: 40.0,
+                                    semanticLabel:
+                                        'Text to announce in accessibility modes',
+                                  ),
+                                  SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Text(
+                                    "Machinery",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18.0),
+                                  ),
+                                  SizedBox(
+                                    height: 5.0,
+                                  ),
+                                ],
                               ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Machinery",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18.0),
-                              ),
-                               SizedBox(
-                                height: 5.0,
-                              ),
-                            ],
-                          ),
-                        )),
-                      ),
+                            )),
+                          )),
                     ),
                   ],
                 )
@@ -224,5 +238,5 @@ class Dashboard extends StatelessWidget {
             ),
           ],
         )));
-
-                  
+  }
+}
