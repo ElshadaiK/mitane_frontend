@@ -2,7 +2,66 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mitane_frontend/models/store-model.dart';
 
+class StoreDisplay extends StatefulWidget {
+  final List<Store> prices;
+
+  const StoreDisplay({required this.prices});
+
+  @override
+  _StoreDisplayState createState() => _StoreDisplayState();
+}
+
+class _StoreDisplayState extends State<StoreDisplay> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.only(top: 8, bottom: 30),
+            margin: EdgeInsets.only(top: 30, bottom: 0.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  "Decide your share of the market",
+                  style: TextStyle(fontSize: 25, fontFamily: "RobotMono"),
+                ),
+                Text(
+                  "Date will be displayed here",
+                  style: TextStyle(fontSize: 25, fontFamily: "RobotMono"),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: widget.prices.length,
+                itemBuilder: (BuildContext context, int index) {
+                  Store curPrice = widget.prices[index];
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                    child: StoreItemCard(
+                        productName: curPrice.productName,
+                        quantity: curPrice.quantity,
+                        price: curPrice.price),
+                  );
+                }),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 
 
