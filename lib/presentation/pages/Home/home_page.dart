@@ -63,4 +63,78 @@ class Dashboard extends StatelessWidget {
                               endIndent: 20,
                             ),
                           ),
+                           Padding(
+                            padding: const EdgeInsets.only(right: 80.0),
+                            child: Row(
+                              children: [
+                                Column(
+                                  children: [
+                                    Icon(
+                                      Icons.cloud_outlined,
+                                      color: Colors.green[100],
+                                      size: 40.0,
+                                      semanticLabel:
+                                          'Text to announce in accessibility modes',
+                                    ),
+                                    Text('25, June'),
+                                  ],
+                                ),
+                                Column(
+                                  children: [Text('Rain'), Text('25c')],
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      )),
+                    )
+                  ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Center(
+                  child: Wrap(spacing: 20, runSpacing: 20.0, children: <Widget>[
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: 160.0,
+                      height: 160.0,
+                      child: Card(
+                        color: Colors.green[300],
+                        elevation: 2.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: Center(
+                            child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: <Widget>[
+                              Icon(
+                                Icons.house_outlined,
+                                color: Colors.green[100],
+                                size: 40.0,
+                                semanticLabel:
+                                    'Text to announce in accessibility modes',
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Text(
+                                "Agricultural inputs",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
+                              ),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                            ],
+                          ),
+                        )),
+                      ),
+                    ),
+
                   
