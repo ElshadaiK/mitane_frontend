@@ -32,4 +32,35 @@ class Dashboard extends StatelessWidget {
               child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
+                      child: Container(
+                          child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                  padding: const EdgeInsets.only(left: 70.0),
+                                  child: Icon(
+                                    Icons.thermostat_outlined,
+                                    color: Colors.grey,
+                                    size: 60.0,
+                                    semanticLabel:
+                                        'Text to announce in accessibility modes',
+                                  ))
+                            ],
+                          ),
+                          Container(
+                            height: 100,
+                            width: 160,
+                            child: VerticalDivider(
+                              color: Colors.grey,
+                              thickness: 0.5,
+                              indent: 20,
+                              endIndent: 20,
+                            ),
+                          ),
                   
