@@ -210,5 +210,19 @@ class Dashboard extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18.0),
                               ),
+                               SizedBox(
+                                height: 5.0,
+                              ),
+                            ],
+                          ),
+                        )),
+                      ),
+                    ),
+                  ],
+                )
+              ])),
+            ),
+          ],
+        )));
 
                   
