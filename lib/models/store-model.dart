@@ -1,12 +1,12 @@
 class Store {
   final String productName;
-  final String quantity;
+  final int quantity;
   final int price;
 
   const Store(
       this.productName, this.quantity, this.price);
 
   String getProduct() => productName;
-  String getQuantity() => quantity;
+  int getQuantity() => quantity;
   int getPrice() => price;
 }
