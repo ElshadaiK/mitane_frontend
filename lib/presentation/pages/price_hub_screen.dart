@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/models/price-model.dart';
+import 'package:date_time_picker/date_time_picker.dart';
 
 class PriceHub extends StatefulWidget {
   final List<Price> prices;
@@ -41,15 +42,11 @@ class _PriceHubState extends State<PriceHub> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 8, bottom: 30),
-            margin: EdgeInsets.only(top: 30, bottom: 0.0),
+            padding: const EdgeInsets.only(top: 8, bottom: 5),
+            margin: EdgeInsets.only(top: 20, bottom: 0.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
-                  "Category",
-                  style: TextStyle(fontSize: 25, fontFamily: "RobotMono"),
-                ),
                 Container(
                   width: (MediaQuery.of(context).size.width * 40) / 100,
                   padding: EdgeInsets.only(left: 15.0),
@@ -78,6 +75,37 @@ class _PriceHubState extends State<PriceHub> {
                       });
                     },
                   ),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.height * 0.17,
+                  child: DateTimePicker(
+                    type: DateTimePickerType.date,
+                    dateMask: 'd MMM, yyyy',
+                    initialValue: DateTime.now().toString(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2100),
+                    icon: Icon(
+                      Icons.event,
+                      color: Color(0xFF8CC63E),
+                      size: 28.0,
+                    ),
+                    dateLabelText: 'Date',
+                    timeLabelText: "",
+                    selectableDayPredicate: (date) {
+                      // Disable weekend days to select from the calendar
+                      if (date.weekday == 6 || date.weekday == 7) {
+                        return false;
+                      }
+
+                      return true;
+                    },
+                    onChanged: (val) => print(val),
+                    validator: (val) {
+                      print(val);
+                      return null;
+                    },
+                    onSaved: (val) => print(val),
+                  ),
                 )
               ],
             ),
@@ -98,6 +126,11 @@ class _PriceHubState extends State<PriceHub> {
                 }),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+        backgroundColor: Color(0xFF8CC63E),
       ),
     );
   }
