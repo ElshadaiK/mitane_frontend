@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mitane_frontend/presentation/pages/custome_widgets/drawer.dart';
 
-class Dashboard extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _Dashboard createState() {
+    return _Dashboard();
+  }
+}
+
+class _Dashboard extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +32,6 @@ class Dashboard extends StatelessWidget {
                     Icons.person,
                     color: Colors.grey[800],
                     size: 40.0,
-                    semanticLabel: 'Text to announce in accessibility modes',
                   ),
                 ],
               ),
@@ -46,10 +53,10 @@ class Dashboard extends StatelessWidget {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(left: 70.0),
-                                child: FaIcon(
-                                  FontAwesomeIcons.googlePay,
-                                  color: Colors.deepOrange,
-                                  size: 35,
+                                child: Icon(
+                                  Icons.thermostat,
+                                  color: Colors.grey[800],
+                                  size: 50.0,
                                 ),
                               )
                             ],
@@ -71,8 +78,8 @@ class Dashboard extends StatelessWidget {
                                 Column(
                                   children: [
                                     FaIcon(
-                                      FontAwesomeIcons.googlePay,
-                                      color: Colors.deepOrange,
+                                      FontAwesomeIcons.cloud,
+                                      color: Colors.green[200],
                                       size: 35,
                                     ),
                                     Text('25, June'),
@@ -111,13 +118,13 @@ class Dashboard extends StatelessWidget {
                           },
                           child: Center(
                               child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(25.0),
                             child: Column(
                               children: <Widget>[
                                 FaIcon(
-                                  FontAwesomeIcons.googlePay,
-                                  color: Colors.deepOrange,
-                                  size: 35,
+                                  FontAwesomeIcons.home,
+                                  color: Colors.white,
+                                  size: 50,
                                 ),
                                 SizedBox(
                                   height: 10.0,
@@ -127,7 +134,7 @@ class Dashboard extends StatelessWidget {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18.0),
+                                      fontSize: 14.0),
                                 ),
                                 SizedBox(
                                   height: 5.0,
@@ -152,13 +159,13 @@ class Dashboard extends StatelessWidget {
                           },
                           child: Center(
                               child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(25.0),
                             child: Column(
                               children: <Widget>[
                                 FaIcon(
-                                  FontAwesomeIcons.googlePay,
-                                  color: Colors.deepOrange,
-                                  size: 35,
+                                  FontAwesomeIcons.pagelines,
+                                  color: Colors.white,
+                                  size: 50,
                                 ),
                                 SizedBox(
                                   height: 10.0,
@@ -168,7 +175,7 @@ class Dashboard extends StatelessWidget {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18.0),
+                                      fontSize: 14.0),
                                 ),
                                 SizedBox(
                                   height: 5.0,
@@ -199,13 +206,13 @@ class Dashboard extends StatelessWidget {
                             },
                             child: Center(
                                 child: Padding(
-                              padding: const EdgeInsets.all(30.0),
+                              padding: const EdgeInsets.all(25.0),
                               child: Column(
                                 children: <Widget>[
                                   FaIcon(
-                                    FontAwesomeIcons.googlePay,
-                                    color: Colors.deepOrange,
-                                    size: 35,
+                                    FontAwesomeIcons.fan,
+                                    color: Colors.white,
+                                    size: 50,
                                   ),
                                   SizedBox(
                                     height: 10.0,
@@ -215,7 +222,7 @@ class Dashboard extends StatelessWidget {
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 18.0),
+                                        fontSize: 14.0),
                                   ),
                                   SizedBox(
                                     height: 5.0,
@@ -230,6 +237,7 @@ class Dashboard extends StatelessWidget {
               ])),
             ),
           ],
-        )));
+        )),
+        drawer: NavDrawer());
   }
 }
