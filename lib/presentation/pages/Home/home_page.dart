@@ -106,7 +106,7 @@ class Dashboard extends StatelessWidget {
                         elevation: 2.0,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
-                        child: new InkWell(
+                        child: GestureDetector(
                           onTap: () {
                             print("tapped");
                           },
@@ -149,7 +149,7 @@ class Dashboard extends StatelessWidget {
                         elevation: 2.0,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
-                        child: new InkWell(
+                        child: GestureDetector(
                           onTap: () {
                             print("tapped");
                           },
@@ -198,7 +198,7 @@ class Dashboard extends StatelessWidget {
                           elevation: 2.0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0)),
-                          child: new InkWell(
+                          child: GestureDetector(
                             onTap: () {
                               print("tapped");
                             },
