@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class StoreEdit extends StatefulWidget {
+  static const String routeName = '/editstore';
   const StoreEdit({ Key? key }) : super(key: key);
   static const List<String> _category = [
     "Fruits",
