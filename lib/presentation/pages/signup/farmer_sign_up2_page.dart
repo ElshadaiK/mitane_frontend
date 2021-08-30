@@ -39,7 +39,7 @@ class FarmerSignUp2 extends StatelessWidget {
           ),
           Positioned(
             child: Text(
-              "Set your name and profile",
+              "Set your name and password",
               style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w300,
@@ -47,42 +47,6 @@ class FarmerSignUp2 extends StatelessWidget {
             ),
             top: 200,
             left: 110,
-          ),
-          Positioned(
-            child: Row(
-              children: [
-                Text(
-                  "Select ",
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w200,
-                      fontStyle: FontStyle.normal),
-                ),
-                Text(
-                  "Profile image",
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xB7F1).withOpacity(1),
-                      fontWeight: FontWeight.w200,
-                      fontStyle: FontStyle.normal),
-                ),
-              ],
-            ),
-            top: 270,
-            left: 130,
-          ),
-          Positioned(
-            child: Stack(
-              children: [
-                HexContainer(
-                  height: 150,
-                  width: 150,
-                ),
-                Positioned(child: Icon(Icons.person))
-              ]
-            ),
-            top: 320,
-            left: 115,
           ),
           Positioned(
             child: Container(
@@ -102,8 +66,8 @@ class FarmerSignUp2 extends StatelessWidget {
                 ),
               ),
             ),
-            top: 510,
-            left: 50,
+            top: 280,
+            left: 30,
           ),
           Positioned(
             child: Container(
@@ -123,8 +87,8 @@ class FarmerSignUp2 extends StatelessWidget {
                 ),
               ),
             ),
-            top: 570,
-            left: 50,
+            top: 350,
+            left: 30,
           ),
           Positioned(
             child: Container(
@@ -147,8 +111,8 @@ class FarmerSignUp2 extends StatelessWidget {
                     ]),
               ),
             ),
-            top: 680,
-            left: 180,
+            top: 450,
+            left: 90,
           ),
         ],
       ),
