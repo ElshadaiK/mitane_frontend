@@ -3,8 +3,7 @@ import 'package:flutter/widgets.dart';
 
 class StoreEdit extends StatefulWidget {
   static const String routeName = '/editstore';
-  const StoreEdit({ Key? key }) : super(key: key);
-  static const List<String> _category = [
+  static const List<String> category = [
     "Fruits",
     "Vegitable",
     "Dairy Product",
@@ -15,7 +14,18 @@ class StoreEdit extends StatefulWidget {
     "Ceal"
   ];
 
-  List<String> getCategory() => _category;
+  static const List<String> item = [
+    "Banana",
+    "Apple",
+    "Grapes",
+    "Maize",
+    "Corn",
+  ];
+
+
+  List<String> getCategory() => category;
+  List<String> getItem() => item;
+
 
   @override
   _StoreEditState createState() => _StoreEditState();
@@ -25,11 +35,16 @@ class _StoreEditState extends State<StoreEdit> {
   String? selectedCategory = "";
 
   String? get() => selectedCategory;
+  String? selectedItem = "";
+
+  String? getI() => selectedItem;
 
   @override
   void initState() {
     super.initState();
     selectedCategory = widget.getCategory()[0];
+    selectedItem = widget.getItem()[0];
+
   }
 
   @override
@@ -38,14 +53,35 @@ class _StoreEditState extends State<StoreEdit> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          component(context, "Category", StoreEdit.category, selectedCategory),
+          component(context, "Item", StoreEdit.item, selectedItem),
+          Column(
+            children: [
+              TextFormField(
+                initialValue: '150 Birr',
+                decoration: InputDecoration(
+                  labelText: "Price",
+                  border: OutlineInputBorder()
+                ),
+              ),
+            
+            ],
+          )
+          
+        ],
+      ),
+    );
+  }
+
+  Widget component(BuildContext context,String title, List<String> values, String? selected ){
+    return Container(
             padding: const EdgeInsets.only(top: 8, bottom: 30),
-            margin: EdgeInsets.only(top: 30, bottom: 0.0),
+            margin: EdgeInsets.only(top: 20, bottom: 0.0, left: 40, right: 40),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Category",
+                  "$title",
                   style: TextStyle(fontSize: 25, fontFamily: "RobotMono"),
                 ),
                 Container(
@@ -56,11 +92,10 @@ class _StoreEditState extends State<StoreEdit> {
                       borderRadius: BorderRadius.circular(20)),
                   child: DropdownButton(
                     menuMaxHeight: 5 * 48,
-                    value: selectedCategory,
+                    value: selected,
                     dropdownColor: Colors.white,
                     underline: Container(color: Colors.transparent),
-                    items: widget
-                        .getCategory()
+                    items: values
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -72,17 +107,16 @@ class _StoreEditState extends State<StoreEdit> {
                     }).toList(),
                     onChanged: (String? value) {
                       setState(() {
-                        selectedCategory = value;
+                        selected = value;
                       });
                     },
                   ),
                 )
               ],
             ),
-          ),
-        ],
-      ),
-    );
+          );
+  
   }
+
 }
 

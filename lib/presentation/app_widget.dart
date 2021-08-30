@@ -16,7 +16,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: StoreDisplay.routeName,
+      initialRoute: StoreEdit.routeName,
       routes: {
         StoreDisplay.routeName: (BuildContext context) => StoreDisplay([], items: [new Store("Banana", 80, 25)],),
         StoreEdit.routeName: (BuildContext context) => StoreEdit(),
