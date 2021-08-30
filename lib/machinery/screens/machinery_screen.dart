@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custome_widgets/custome_list_tile.dart';
+import 'package:mitane_frontend/presentation/pages/custome_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
 
 class MachineryScreen extends StatefulWidget {
@@ -19,10 +20,7 @@ class _MachineryScreenState extends State<MachineryScreen> {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
-            leading: Icon(
-              Icons.menu,
-              color: Colors.black,
-            ),
+            iconTheme: IconThemeData(color: Colors.black),
             title: Container(
               height: 35.0,
               child: TextField(
@@ -36,6 +34,7 @@ class _MachineryScreenState extends State<MachineryScreen> {
               ),
             ),
           ),
+          drawer: NavDrawer(),
           body: Stack(children: [
             Positioned(
               child: Bubble(
@@ -99,7 +98,7 @@ Widget horizontalScrollList(BuildContext context) {
                   ),
                   Center(
                     child: Text(
-                      "Crop",
+                      "Tractor",
                       style: TextStyle(
                           color: Colors.white,
                           fontFamily: "RobotMono",
@@ -127,10 +126,11 @@ Widget verticalScrollList(BuildContext context) {
               padding:
                   const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
               child: CustomeTile(
-                  product: "Tractor",
-                  quantity: "10",
-                  price: "300000",
-                  borderColor: Colors.green),
+                product: "Tractor",
+                quantity: "10",
+                price: "300000",
+                category: "vechile",
+              ),
             ),
           );
         },
