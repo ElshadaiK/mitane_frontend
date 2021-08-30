@@ -92,11 +92,11 @@ class _StoreDisplayState extends State<StoreDisplay> {
               children: [
                 Text(
                   "Decide your share of the market!!",
-                  style: TextStyle(fontSize: 20, fontFamily: "RobotMono"),
+                  style: TextStyle(fontSize: 20, fontFamily: "RobotMono", color: Colors.white),                  
                 ),
                 Text(
                   "Date will be displayed here",
-                  style: TextStyle(fontSize: 19, fontFamily: "RobotMono"),
+                  style: TextStyle(fontSize: 19, fontFamily: "RobotMono", color: Colors.white),
                 ),
               ],
             ),
@@ -131,8 +131,8 @@ class _StoreDisplayState extends State<StoreDisplay> {
                                         "Cancel",
                                         style: TextStyle(color: Colors.black),
                                       ),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
+                                      onPressed: () {                                        
+                                        Navigator.pop(context, false);
                                       },
                                     ),
                                     TextButton(
@@ -144,7 +144,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
                                         setState(() {
                                           widget.items.removeAt(index);
                                         });
-                                        Navigator.of(context).pop();
+                                        Navigator.pop(context, true);
                                       },
                                     ),
                                   ],
