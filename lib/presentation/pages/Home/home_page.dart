@@ -13,231 +13,201 @@ class _Dashboard extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.lightGreen[100],
-        body: SingleChildScrollView(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+      appBar: AppBar(
+        title: Text(
+          "Home",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
+      drawer: NavDrawer(),
+      body: Container(
+        padding:
+            EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05),
+        margin: EdgeInsets.symmetric(horizontal: 30),
+        child: Column(
+          children: [
             Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Icon(
-                    Icons.menu,
-                    color: Colors.green[600],
-                    size: 52.0,
-                  ),
-                  Icon(
-                    Icons.person,
-                    color: Colors.grey[800],
-                    size: 40.0,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      child: Container(
-                          child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 70.0),
-                                child: Icon(
-                                  Icons.thermostat,
-                                  color: Colors.grey[800],
-                                  size: 50.0,
-                                ),
-                              )
-                            ],
+              padding: const EdgeInsets.only(bottom: 30.0),
+              child: Card(
+                color: Colors.green[200],
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+                child: Container(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(
+                          Icons.thermostat,
+                          color: Colors.grey[800],
+                          size: 50.0,
+                        ),
+                        Container(
+                          child: VerticalDivider(
+                            color: Colors.black,
+                            thickness: 1,
+                            indent: 20,
+                            endIndent: 20,
                           ),
-                          Container(
-                            height: 100,
-                            width: 160,
-                            child: VerticalDivider(
-                              color: Colors.grey,
-                              thickness: 0.5,
-                              indent: 20,
-                              endIndent: 20,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 80.0),
-                            child: Row(
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Column(
+                                Row(
                                   children: [
                                     FaIcon(
                                       FontAwesomeIcons.cloud,
-                                      color: Colors.green[200],
+                                      color: Colors.white,
                                       size: 35,
                                     ),
-                                    Text('25, June'),
+                                    Column(
+                                      children: [
+                                        Text('Cloud',
+                                            style: TextStyle(
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.bold)),
+                                        Text('25' + " \u2103")
+                                      ],
+                                    ),
                                   ],
                                 ),
-                                Column(
-                                  children: [Text('Rain'), Text('25c')],
+                                Text(
+                                  '25, June',
+                                  style: TextStyle(fontSize: 16.0),
                                 ),
                               ],
                             ),
-                          )
-                        ],
-                      )),
-                    )
-                  ]),
+                          ],
+                        ),
+                      ],
+                    )),
+              ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Center(
-                  child: Wrap(spacing: 20, runSpacing: 20.0, children: <Widget>[
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      width: 160.0,
-                      height: 160.0,
+            Center(
+                child: Wrap(spacing: 20, runSpacing: 20.0, children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: 160.0,
+                    height: 160.0,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/inputs');
+                      },
                       child: Card(
-                        color: Colors.green[300],
-                        elevation: 2.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        child: GestureDetector(
-                          onTap: () {
-                            print("tapped");
-                          },
+                          color: Colors.green[300],
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0)),
                           child: Center(
-                              child: Padding(
-                            padding: const EdgeInsets.all(25.0),
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 FaIcon(
                                   FontAwesomeIcons.home,
                                   color: Colors.white,
                                   size: 50,
                                 ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
                                 Text(
-                                  "Agricultural inputs",
+                                  "Agricultural Inputs",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 14.0),
-                                ),
-                                SizedBox(
-                                  height: 5.0,
+                                      fontSize: 18.0),
                                 ),
                               ],
                             ),
                           )),
-                        ),
-                      ),
                     ),
-                    SizedBox(
-                      width: 160.0,
-                      height: 160.0,
-                      child: Card(
-                        color: Colors.green[300],
-                        elevation: 2.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        child: GestureDetector(
-                          onTap: () {
-                            print("tapped");
-                          },
-                          child: Center(
-                              child: Padding(
-                            padding: const EdgeInsets.all(25.0),
-                            child: Column(
-                              children: <Widget>[
-                                FaIcon(
-                                  FontAwesomeIcons.pagelines,
-                                  color: Colors.white,
-                                  size: 50,
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  "Agricultural Products",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14.0),
-                                ),
-                                SizedBox(
-                                  height: 5.0,
-                                ),
-                              ],
-                            ),
-                          )),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SizedBox(
-                      width: 160.0,
-                      height: 160.0,
+                  ),
+                  SizedBox(
+                    width: 160.0,
+                    height: 160.0,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/product');
+                      },
                       child: Card(
                           color: Colors.green[300],
                           elevation: 2.0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0)),
-                          child: GestureDetector(
-                            onTap: () {
-                              print("tapped");
-                            },
-                            child: Center(
-                                child: Padding(
-                              padding: const EdgeInsets.all(25.0),
-                              child: Column(
-                                children: <Widget>[
-                                  FaIcon(
-                                    FontAwesomeIcons.fan,
-                                    color: Colors.white,
-                                    size: 50,
-                                  ),
-                                  SizedBox(
-                                    height: 10.0,
-                                  ),
-                                  Text(
-                                    "Machinery",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14.0),
-                                  ),
-                                  SizedBox(
-                                    height: 5.0,
-                                  ),
-                                ],
-                              ),
-                            )),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                FaIcon(
+                                  FontAwesomeIcons.home,
+                                  color: Colors.white,
+                                  size: 50,
+                                ),
+                                Text(
+                                  "Agricultural Product",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18.0),
+                                ),
+                              ],
+                            ),
                           )),
                     ),
-                  ],
-                )
-              ])),
-            ),
+                  ),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: 160.0,
+                    height: 160.0,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/machinery');
+                      },
+                      child: Card(
+                          color: Colors.green[300],
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0)),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                FaIcon(
+                                  FontAwesomeIcons.home,
+                                  color: Colors.white,
+                                  size: 50,
+                                ),
+                                Text(
+                                  "Machinery",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18.0),
+                                ),
+                              ],
+                            ),
+                          )),
+                    ),
+                  ),
+                ],
+              )
+            ])),
           ],
-        )),
-        drawer: NavDrawer());
+        ),
+      ),
+    );
   }
 }
