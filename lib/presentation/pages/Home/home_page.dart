@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -43,14 +45,13 @@ class Dashboard extends StatelessWidget {
                           Column(
                             children: [
                               Padding(
-                                  padding: const EdgeInsets.only(left: 70.0),
-                                  child: Icon(
-                                    Icons.thermostat_outlined,
-                                    color: Colors.grey,
-                                    size: 60.0,
-                                    semanticLabel:
-                                        'Text to announce in accessibility modes',
-                                  ))
+                                padding: const EdgeInsets.only(left: 70.0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.googlePay,
+                                  color: Colors.deepOrange,
+                                  size: 35,
+                                ),
+                              )
                             ],
                           ),
                           Container(
@@ -69,12 +70,10 @@ class Dashboard extends StatelessWidget {
                               children: [
                                 Column(
                                   children: [
-                                    Icon(
-                                      Icons.cloud_outlined,
-                                      color: Colors.green[100],
-                                      size: 40.0,
-                                      semanticLabel:
-                                          'Text to announce in accessibility modes',
+                                    FaIcon(
+                                      FontAwesomeIcons.googlePay,
+                                      color: Colors.deepOrange,
+                                      size: 35,
                                     ),
                                     Text('25, June'),
                                   ],
@@ -115,12 +114,10 @@ class Dashboard extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
                               children: <Widget>[
-                                Icon(
-                                  Icons.house_outlined,
-                                  color: Colors.green[100],
-                                  size: 40.0,
-                                  semanticLabel:
-                                      'Text to announce in accessibility modes',
+                                FaIcon(
+                                  FontAwesomeIcons.googlePay,
+                                  color: Colors.deepOrange,
+                                  size: 35,
                                 ),
                                 SizedBox(
                                   height: 10.0,
@@ -158,12 +155,10 @@ class Dashboard extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
                               children: <Widget>[
-                                Icon(
-                                  Icons.flaky_outlined,
-                                  color: Colors.green[100],
-                                  size: 40.0,
-                                  semanticLabel:
-                                      'Text to announce in accessibility modes',
+                                FaIcon(
+                                  FontAwesomeIcons.googlePay,
+                                  color: Colors.deepOrange,
+                                  size: 35,
                                 ),
                                 SizedBox(
                                   height: 10.0,
@@ -207,12 +202,10 @@ class Dashboard extends StatelessWidget {
                               padding: const EdgeInsets.all(30.0),
                               child: Column(
                                 children: <Widget>[
-                                  Icon(
-                                    Icons.military_tech_outlined,
-                                    color: Colors.green[100],
-                                    size: 40.0,
-                                    semanticLabel:
-                                        'Text to announce in accessibility modes',
+                                  FaIcon(
+                                    FontAwesomeIcons.googlePay,
+                                    color: Colors.deepOrange,
+                                    size: 35,
                                   ),
                                   SizedBox(
                                     height: 10.0,
