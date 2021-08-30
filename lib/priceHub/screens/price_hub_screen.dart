@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/models/price-model.dart';
 import 'package:date_time_picker/date_time_picker.dart';
+import 'package:mitane_frontend/presentation/pages/custome_widgets/drawer.dart';
 
 class PriceHub extends StatefulWidget {
   @override
@@ -27,11 +28,9 @@ class _PriceHubState extends State<PriceHub> {
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
-        leading: Icon(
-          Icons.menu,
-          color: Colors.black,
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
       ),
+      drawer: NavDrawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
