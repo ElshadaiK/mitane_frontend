@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mitane_frontend/presentation/pages/store_screen.dart';
 
 class StoreEdit extends StatefulWidget {
   static const String routeName = '/editstore';
@@ -80,14 +81,27 @@ class _StoreEditState extends State<StoreEdit> {
                 ),
                 SizedBox(height: 40.0,),
                 ElevatedButton(
-                  onPressed: () {
-                      // Respond to button press
-                  },
-                  
+                  onPressed: () async {
+                    final result = await Navigator.pushNamed(
+                      context,
+                      StoreDisplay.routeName,
+                      arguments: "This is my message",
+                    );
+                    // this line
+                    print("result:: $result");
+                  },  
                   child: Text('Update'),
+                  style:  ElevatedButton.styleFrom(
+                            primary: Color(0xFF8CC63E),
+                            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                            textStyle: TextStyle(
+                              fontSize: 20
+                            ),
+                  )
                 )
-            
-            ],
+                        
+              ],
+
             )
             
           )

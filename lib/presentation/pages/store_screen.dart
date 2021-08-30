@@ -22,6 +22,58 @@ class _StoreDisplayState extends State<StoreDisplay> {
     super.initState();
   }
 
+  Widget slideRightBackground() {
+  return Container(
+      child: Align(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              width: 40,
+            ),
+            Icon(
+              Icons.align_horizontal_right_rounded,
+              color: Colors.green,
+              size: 30,
+            ),
+            Icon(
+              Icons.edit,
+              color: Colors.green,
+              size: 30,
+            ),            
+          ],
+        ),
+        alignment: Alignment.centerLeft,
+      ),
+    );
+  }
+
+  Widget slideLeftBackground() {
+    return Container(
+      child: Align(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Icon(
+              Icons.delete,
+              color: Colors.red,
+              size: 30,
+            ),
+            Icon(
+              Icons.align_horizontal_left_rounded,
+              color: Colors.red,
+              size: 30,
+            ),
+            SizedBox(
+              width: 40,
+            ),
+          ],
+        ),
+        alignment: Alignment.centerRight,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,11 +108,56 @@ class _StoreDisplayState extends State<StoreDisplay> {
                   Store curPrice = widget.items[index];
                   return Container(
                     margin: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-                    child: StoreItemCard(
-                        productName: curPrice.productName,
-                        quantity: curPrice.quantity,
-                        price: curPrice.price),
+                    child: Dismissible(                    
+                        child: StoreItemCard(
+                            productName: curPrice.productName,
+                            quantity: curPrice.quantity,
+                            price: curPrice.price
+                        ),
+                        background: slideRightBackground(),
+                        secondaryBackground: slideLeftBackground(),
+                        key: ValueKey<Store>(widget.items[index]),
+                        confirmDismiss: (direction) async {
+                        if (direction == DismissDirection.endToStart) {
+                          final bool res = await showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  content: Text(
+                                      "Are you sure you want to delete ${widget.items[index]}?"),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text(
+                                        "Cancel",
+                                        style: TextStyle(color: Colors.black),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    TextButton(
+                                      child: Text(
+                                        "Delete",
+                                        style: TextStyle(color: Colors.red),
+                                      ),
+                                      onPressed: () {
+                                        setState(() {
+                                          widget.items.removeAt(index);
+                                        });
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                );
+                              });
+                          return res;
+                        } else {
+                          // TODO: Navigate to edit page;
+                        }
+                      },
+                      ),
                   );
+                   
                 }),
           ),
           AddIconButton(StoreDisplay.routeName, "Adding Item")
