@@ -4,9 +4,7 @@ import 'package:mitane_frontend/presentation/home.dart';
 import 'package:mitane_frontend/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/agri_product/screens/product_display_screen.dart';
 import 'package:mitane_frontend/agri_product/screens/create_product_screen.dart';
-import 'package:mitane_frontend/presentation/price.dart';
 
-import 'package:mitane_frontend/presentation/setting.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -17,14 +15,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => AppWidget());
       case '/home':
         return MaterialPageRoute(builder: (_) => ProductScreen());
-      case '/service':
-        return MaterialPageRoute(builder: (_) => SettingPage());
       case '/login':
         return MaterialPageRoute(builder: (_) => ProductScreen());
       case '/register':
         return MaterialPageRoute(builder: (_) => ProductScreen());
       case '/productDetail':
-        return MaterialPageRoute(builder: (_) => SettingPage());
+        return MaterialPageRoute(builder: (_) => HomePage());
 
       case '/pricehub':
         return MaterialPageRoute(builder: (_) => PriceHub());
