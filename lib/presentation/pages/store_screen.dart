@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/models/store-model.dart';
 import 'package:mitane_frontend/presentation/pages/custome_widgets/add_icon_button.dart';
+import 'package:mitane_frontend/presentation/pages/store_edit_screen.dart';
 
 class StoreDisplay extends StatefulWidget {
   static const String routeName = '/store';
   final List<Store> items;
 
-  const StoreDisplay(List<Store> list, {required this.items});
+  const StoreDisplay({required this.items});
 
   @override
   _StoreDisplayState createState() => _StoreDisplayState();
@@ -124,7 +125,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
                               builder: (BuildContext context) {
                                 return AlertDialog(
                                   content: Text(
-                                      "Are you sure you want to delete ${widget.items[index]}?"),
+                                      "Are you sure you want to delete ${widget.items[index].productName}?"),
                                   actions: <Widget>[
                                     TextButton(
                                       child: Text(
@@ -152,7 +153,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
                               });
                           return res;
                         } else {
-                          // TODO: Navigate to edit page;
+                          Navigator.pushNamed(context, StoreEdit.routeName, arguments: curPrice);
                         }
                       },
                       ),

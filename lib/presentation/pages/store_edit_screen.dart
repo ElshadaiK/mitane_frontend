@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mitane_frontend/models/store-model.dart';
 import 'package:mitane_frontend/presentation/pages/store_screen.dart';
 
 class StoreEdit extends StatefulWidget {
@@ -23,6 +24,10 @@ class StoreEdit extends StatefulWidget {
     "Corn",
   ];
 
+  Navigator.pop(context);
+  StoreEdit({required this.items});
+
+  
 
   List<String> getCategory() => category;
   List<String> getItem() => item;
