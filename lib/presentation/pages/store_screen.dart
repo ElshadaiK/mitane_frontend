@@ -63,7 +63,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
                   );
                 }),
           ),
-          AddIconButton(StoreDisplay.routeName)
+          AddIconButton(StoreDisplay.routeName, "Adding Item")
         ],
       ),
     );

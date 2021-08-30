@@ -50,22 +50,46 @@ class _StoreEditState extends State<StoreEdit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: Column(
+        
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           component(context, "Category", StoreEdit.category, selectedCategory),
           component(context, "Item", StoreEdit.item, selectedItem),
-          Column(
-            children: [
-              TextFormField(
-                initialValue: '150 Birr',
-                decoration: InputDecoration(
-                  labelText: "Price",
-                  border: OutlineInputBorder()
+          Container(
+            margin: EdgeInsets.all(40),
+            child: Column(
+              children: [
+                TextFormField(
+                  initialValue: '150 Birr',
+                  textAlign: TextAlign.right,
+                  decoration: InputDecoration(
+                    labelText: "Price",
+                    border: OutlineInputBorder(),
+                  ),
                 ),
-              ),
+                SizedBox(height: 40.0,),
+                TextFormField(
+                  initialValue: 'kg',
+                  textAlign: TextAlign.right,
+                  decoration: InputDecoration(
+                    labelText: "Quantity Unit",
+                    border: OutlineInputBorder()
+                  ),
+                ),
+                SizedBox(height: 40.0,),
+                ElevatedButton(
+                  onPressed: () {
+                      // Respond to button press
+                  },
+                  
+                  child: Text('Update'),
+                )
             
             ],
+            )
+            
           )
           
         ],
@@ -76,7 +100,7 @@ class _StoreEditState extends State<StoreEdit> {
   Widget component(BuildContext context,String title, List<String> values, String? selected ){
     return Container(
             padding: const EdgeInsets.only(top: 8, bottom: 30),
-            margin: EdgeInsets.only(top: 20, bottom: 0.0, left: 40, right: 40),
+            margin: EdgeInsets.only(top: 10, bottom: 0.0, left: 40, right: 40),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
