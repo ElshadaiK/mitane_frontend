@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/pages/signup/farmer_sign_up2_page.dart';
 
 class FarmerSignUp extends StatelessWidget {
   const FarmerSignUp({Key? key}) : super(key: key);
@@ -66,7 +67,7 @@ class FarmerSignUp extends StatelessWidget {
               ),
             ),
             top: 280,
-            left: 50,
+            left: 30,
           ),
           Positioned(
             child: Container(
@@ -87,27 +88,36 @@ class FarmerSignUp extends StatelessWidget {
               ),
             ),
             top: 350,
-            left: 50,
+            left: 30,
           ),
           Positioned(
-            child: Container(
-              height: 46,
-              width: 174,
-              child: Align(child: Text('Next')),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(28),
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0x8CC63E).withOpacity(1),
-                    Color(0x709E2F).withOpacity(1),
-                  ]
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FarmerSignUp2()),
+                );
+              }, // handle your onTap here
+              child: Container(
+                height: 46,
+                width: 174,
+                child: Align(child: Text('Next')),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(28),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0x8CC63E).withOpacity(1),
+                      Color(0x709E2F).withOpacity(1),
+                    ]
+                  ),
                 ),
-              ),
+              )
             ),
             top: 450,
-            left: 110,
+            left: 90,
           ),
         ],
       ),
