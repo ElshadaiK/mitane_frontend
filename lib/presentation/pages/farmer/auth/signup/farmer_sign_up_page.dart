@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
-import 'package:mitane_frontend/presentation/pages/signup/widgets/hexagon_container.dart';
-import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
+import 'package:mitane_frontend/presentation/pages/custome_widgets/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/auth/signup/farmer_sign_up2_page.dart';
 
-class FarmerSignUp2 extends StatelessWidget {
-  const FarmerSignUp2({Key? key}) : super(key: key);
+class FarmerSignUp extends StatelessWidget {
+  const FarmerSignUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,36 +12,36 @@ class FarmerSignUp2 extends StatelessWidget {
         children: [
           Positioned(
             child: Bubble(
-              height: 300.0,
-              width: 300.0,
+              height: 160.0,
+              width: 160.0,
             ),
-            top: -218,
-            left: 95,
+            top: -5,
+            left: -160,
           ),
           Positioned(
             child: Bubble(
-              height: 151.0,
-              width: 150.0,
+              height: 300.0,
+              width: 300,
             ),
-            top: 400,
-            left: -165,
+            top: 120,
+            left: 180,
           ),
           Positioned(
             child: Text(
-              "Last Step!",
+              "Verify your phone number",
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
             ),
             top: 150,
-            left: 125,
+            left: 50,
           ),
           Positioned(
             child: Text(
-              "Set your name and password",
+              "Confirm the country code and Enter \n          Your Phone number",
               style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 12,
                   fontWeight: FontWeight.w300,
                   fontStyle: FontStyle.italic),
             ),
@@ -63,7 +62,7 @@ class FarmerSignUp2 extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5),
                         borderSide: BorderSide.none,
                       ),
-                      hintText: 'Name'),
+                      hintText: 'ETH'),
                 ),
               ),
             ),
@@ -84,7 +83,7 @@ class FarmerSignUp2 extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5),
                         borderSide: BorderSide.none,
                       ),
-                      hintText: 'Password'),
+                      hintText: '+251'),
                 ),
               ),
             ),
@@ -97,29 +96,25 @@ class FarmerSignUp2 extends StatelessWidget {
                 Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Home()),
+                  builder: (context) => FarmerSignUp2()),
                 );
-              }, 
+              }, // handle your onTap here
               child: Container(
-              height: 46,
-              width: 174,
-              child: Align(
-                child: Text(
-                  "That's it",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(28),
-                gradient: LinearGradient(
+                height: 46,
+                width: 174,
+                child: Align(child: Text('Next')),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(28),
+                  gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
                       Color(0x8CC63E).withOpacity(1),
                       Color(0x709E2F).withOpacity(1),
-                    ]),
+                    ]
+                  ),
                 ),
-              ),
+              )
             ),
             top: 450,
             left: 90,

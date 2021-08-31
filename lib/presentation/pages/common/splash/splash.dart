@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
-import 'package:mitane_frontend/presentation/pages/signup/farmer_sign_up_page.dart';
+import 'package:mitane_frontend/presentation/pages/custome_widgets/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/welcome.dart';
 
 class Splash extends StatelessWidget {
   const Splash({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class Splash extends StatelessWidget {
       body: GestureDetector(
           onTap: () {
             Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => FarmerSignUp()));
+                MaterialPageRoute(builder: (context) => WelcomePage()));
           },
           child: Stack(
             children: [
