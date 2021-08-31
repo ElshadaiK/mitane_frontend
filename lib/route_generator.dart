@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/agri_inputs/inputs.dart';
 import 'package:mitane_frontend/machinery/screens/machinery_screen.dart';
+import 'package:mitane_frontend/presentation/pages/common/splash/splash.dart';
+import 'package:mitane_frontend/presentation/pages/common/welcome.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/app_widget.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home.dart';
 import 'package:mitane_frontend/priceHub/screens/price_hub_screen.dart';
@@ -15,7 +17,10 @@ class RouteGenerator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => AppWidget());
-
+      case '/splash':
+        return MaterialPageRoute(builder: (_) => Splash());
+      case '/welcome':
+        return MaterialPageRoute(builder: (_) => WelcomePage());
       case '/login':
         return MaterialPageRoute(builder: (_) => ProductScreen());
       case '/register':
@@ -28,22 +33,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => MachineryScreen());
       case '/inputs':
         return MaterialPageRoute(builder: (_) => IngredientScreen());
-      case '/postProduct':
-        return MaterialPageRoute(builder: (_) => CreateProductScreen());
-      case '/postInput':
-        return MaterialPageRoute(builder: (_) => ProductScreen());
-      case '/postMachinery':
-        return MaterialPageRoute(builder: (_) => ProductScreen());
-      case '/updateProduct':
-        return MaterialPageRoute(builder: (_) => ProductScreen());
-      case '/updateMachinery':
-        return MaterialPageRoute(builder: (_) => ProductScreen());
-      case '/updateInput':
-        return MaterialPageRoute(builder: (_) => ProductScreen());
-      case '/profile':
-        return MaterialPageRoute(builder: (_) => ProductScreen());
-      case '/service':
-        return MaterialPageRoute(builder: (_) => ProductScreen());
       default:
         return MaterialPageRoute(builder: (_) => ProductScreen());
     }

@@ -21,6 +21,9 @@ class _ProductScreenState extends State<ProductScreen> {
           appBar: AppBar(
             backgroundColor: Colors.white,
             iconTheme: IconThemeData(color: Colors.black),
+            leading: IconButton(onPressed: (){
+              Navigator.of(context).pushNamed('/');
+            }, icon: Icon(Icons.arrow_back)),
             title: Container(
               height: 35.0,
               child: TextField(
@@ -34,7 +37,6 @@ class _ProductScreenState extends State<ProductScreen> {
               ),
             ),
           ),
-          drawer: NavDrawer(),
           body: Stack(children: [
             Positioned(
               child: Bubble(
@@ -78,7 +80,7 @@ Widget horizontalScrollList(BuildContext context) {
         itemCount: 10,
         itemBuilder: (BuildContext context, int itemCount) {
           return GestureDetector(
-            onTap: () => Navigator.of(context).pushNamed("/productDetail"),
+            onTap: () => {},
             child: Container(
               child: Stack(
                 alignment: AlignmentDirectional.center,
@@ -121,7 +123,7 @@ Widget verticalScrollList(BuildContext context) {
         itemCount: 20,
         itemBuilder: (BuildContext context, int itemCount) {
           return GestureDetector(
-            onTap: () => Navigator.of(context).pushNamed("/productDetail"),
+            onTap: () => {},
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
