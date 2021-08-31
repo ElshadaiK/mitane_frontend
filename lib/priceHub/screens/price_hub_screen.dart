@@ -39,7 +39,7 @@ class _PriceHubState extends State<PriceHub> {
                 itemCount: 20,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                    margin: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     child: PriceCard(
                         product: "Product Name",
                         unit: "Kg",

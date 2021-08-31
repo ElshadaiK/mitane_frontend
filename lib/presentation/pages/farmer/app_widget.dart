@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mitane_frontend/agri_inputs/inputs.dart';
 import 'package:mitane_frontend/agri_product/product.dart';
 import 'package:mitane_frontend/machinery/screens/machinery_screen.dart';
+import 'package:mitane_frontend/trending/screens/trending_screen.dart';
 import 'package:mitane_frontend/models/price-model.dart';
 import 'package:mitane_frontend/models/store-model.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/bottom_nav.dart';
