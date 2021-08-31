@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/animation/FadeAnimation.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/auth/signup/farmer_sign_up_page.dart';
+import 'package:mitane_frontend/presentation/pages/user/auth/signup/user_sign_up_page.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -153,7 +154,7 @@ class WelcomePage extends StatelessWidget {
                       paddingHorizontal: 50,
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => FarmerSignUp()));
+                            builder: (context) => UserSignUp()));
                       },
                       title: 'Accept and Continue',
                     ),

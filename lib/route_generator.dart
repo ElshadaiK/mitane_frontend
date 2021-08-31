@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/agri_inputs/inputs.dart';
 import 'package:mitane_frontend/machinery/screens/machinery_screen.dart';
-import 'package:mitane_frontend/presentation/app_widget.dart';
-import 'package:mitane_frontend/presentation/home.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/app_widget.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/home.dart';
 import 'package:mitane_frontend/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/agri_product/screens/product_display_screen.dart';
 import 'package:mitane_frontend/agri_product/screens/create_product_screen.dart';

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custome_widgets/widgets/bubbles.dart';
-import 'package:mitane_frontend/presentation/pages/custome_widgets/widgets/hexagon_container.dart';
-import 'package:mitane_frontend/presentation/pages/farmer/app_widget.dart';
-import 'package:mitane_frontend/presentation/pages/farmer/app_widget.dart';
+import 'package:mitane_frontend/presentation/pages/user/app_widget.dart';
 
-class FarmerSignUp2 extends StatelessWidget {
-  const FarmerSignUp2({Key? key}) : super(key: key);
+class UserSignUp2 extends StatelessWidget {
+  const UserSignUp2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

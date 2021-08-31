@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custome_widgets/widgets/bubbles.dart';
-import 'package:mitane_frontend/presentation/welcome.dart';
+import 'package:mitane_frontend/presentation/pages/common/welcome.dart';
 
 class Splash extends StatelessWidget {
   const Splash({Key? key}) : super(key: key);
