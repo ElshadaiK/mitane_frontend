@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/appBar.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/common/with_search_bar.dart';
 
@@ -14,9 +15,12 @@ class Home extends StatefulWidget {
 class _Dashboard extends State {
   @override
   Widget build(BuildContext context) {
-    return FarmerWithSearchBar(
-      floaters: [],
-      child: SingleChildScrollView(
+    return Scaffold(
+
+      appBar: AppBarWidget(),
+      drawer: NavDrawer(),
+      body:
+       SingleChildScrollView(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

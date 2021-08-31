@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/custom_widgets/navbar.dart';
 
+import 'package:mitane_frontend/presentation/pages/custom_widgets/appBar.dart';
 class FarmerWithSearchBar extends StatelessWidget {
   FarmerWithSearchBar({Key? key, required this.child, required this.floaters})
       : super(key: key);
@@ -27,7 +27,7 @@ class FarmerWithSearchBar extends StatelessWidget {
                   Padding(
                       padding: EdgeInsets.only(
                           left: 10, right: 10, top: 10, bottom: 10),
-                      child: NavBar()),
+                      child: AppBarWidget()),
                   Expanded(child: child),
                 ],
               ),
