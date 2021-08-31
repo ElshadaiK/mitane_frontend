@@ -12,45 +12,46 @@ class FarmerSignUp extends StatelessWidget {
         children: [
           Positioned(
             child: Bubble(
-              height: 160.0,
-              width: 160.0,
+              height: MediaQuery.of(context).size.height * 0.189,
+              width: (MediaQuery.of(context).size.width * 0.410),
             ),
-            top: -5,
-            left: -160,
+            top: -MediaQuery.of(context).size.height * 0.005,
+            left: -(MediaQuery.of(context).size.width * 0.410), //160
           ),
           Positioned(
             child: Bubble(
-              height: 300.0,
-              width: 300,
+              height: (MediaQuery.of(context).size.height * 0.355), //300.0
+              width: (MediaQuery.of(context).size.height * 0.355), //300
             ),
-            top: 120,
-            left: 180,
+            top: (MediaQuery.of(context).size.height * 0.142), //120
+            left: (MediaQuery.of(context).size.width * 0.461), //180
           ),
           Positioned(
             child: Text(
               "Verify your phone number",
               style: TextStyle(
-                fontSize: 25,
+                fontSize: (MediaQuery.of(context).size.width * 0.064),
                 fontWeight: FontWeight.bold,
               ),
             ),
-            top: 150,
-            left: 50,
+            top: (MediaQuery.of(context).size.height * 0.177), //150
+            left: (MediaQuery.of(context).size.width * 0.128), //50
           ),
           Positioned(
             child: Text(
               "Confirm the country code and Enter \n          Your Phone number",
               style: TextStyle(
-                  fontSize: 12,
+                  fontSize: (MediaQuery.of(context).size.width * 0.037), //12,
                   fontWeight: FontWeight.w300,
                   fontStyle: FontStyle.italic),
             ),
-            top: 200,
-            left: 110,
+            top: (MediaQuery.of(context).size.height * 0.236), //200,
+            left: (MediaQuery.of(context).size.width * 0.200), //110,
           ),
           Positioned(
             child: Container(
-              width: 300,
+              height: (MediaQuery.of(context).size.height * 0.060),//50,
+              width: (MediaQuery.of(context).size.width * 0.769), //300,
               child: Material(
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
@@ -66,12 +67,13 @@ class FarmerSignUp extends StatelessWidget {
                 ),
               ),
             ),
-            top: 280,
-            left: 30,
+            top: (MediaQuery.of(context).size.height * 0.331), //280,
+            left: (MediaQuery.of(context).size.width * 0.128), //50,
           ),
           Positioned(
             child: Container(
-              width: 300,
+              height: (MediaQuery.of(context).size.height * 0.060),//50,
+              width: (MediaQuery.of(context).size.width * 0.769), //300,
               child: Material(
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
@@ -87,8 +89,8 @@ class FarmerSignUp extends StatelessWidget {
                 ),
               ),
             ),
-            top: 350,
-            left: 30,
+            top: (MediaQuery.of(context).size.height * 0.414), //350,
+            left: (MediaQuery.of(context).size.width * 0.128), //50,
           ),
           Positioned(
             child: InkWell(
@@ -100,8 +102,8 @@ class FarmerSignUp extends StatelessWidget {
                 );
               }, // handle your onTap here
               child: Container(
-                height: 46,
-                width: 174,
+                height: (MediaQuery.of(context).size.height * 0.054),//46,
+                width: (MediaQuery.of(context).size.width * 0.453), //174,
                 child: Align(child: Text('Next')),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(28),
@@ -116,8 +118,8 @@ class FarmerSignUp extends StatelessWidget {
                 ),
               )
             ),
-            top: 450,
-            left: 90,
+            top: (MediaQuery.of(context).size.height * 0.533),//450,
+            left: (MediaQuery.of(context).size.width * 0.282),//110,
           ),
         ],
       ),
