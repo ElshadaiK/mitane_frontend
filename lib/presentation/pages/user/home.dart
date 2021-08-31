@@ -1,44 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomePage extends StatelessWidget{
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      onTap: (int index){},
+      onTap: (int index) {},
       currentIndex: 0,
       items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home"
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart),
-            label: "Price Hub"
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Service"
-          ),
-        ],
-        type: BottomNavigationBarType.fixed,
-
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.bar_chart), label: "Price Hub"),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Service"),
+      ],
+      type: BottomNavigationBarType.fixed,
     );
   }
 }
 
-
-
-
-
-class CustomeT extends StatelessWidget {
+class CustomT extends StatelessWidget {
   final String product;
   final String quantity;
   final String price;
   final String category;
 
-  CustomeT(
+  CustomT(
       {Key? key,
       required this.product,
       required this.quantity,

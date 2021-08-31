@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/custome_widgets/custome_list_tile.dart';
-import 'package:mitane_frontend/presentation/pages/custome_widgets/drawer.dart';
-import 'package:mitane_frontend/presentation/pages/custome_widgets/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/custom_list_tile.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 
 class MachineryScreen extends StatefulWidget {
   const MachineryScreen({Key? key}) : super(key: key);
@@ -125,7 +125,7 @@ Widget verticalScrollList(BuildContext context) {
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
-              child: CustomeTile(
+              child: CustomTile(
                 product: "Tractor",
                 quantity: "10",
                 price: "300000",

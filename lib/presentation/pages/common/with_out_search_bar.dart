@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/navbar_wo_search.dart';
 
 class FarmerWithOutSearchBar extends StatelessWidget {
-  const FarmerWithOutSearchBar({Key? key, required this.child, required this.floaters})
+  FarmerWithOutSearchBar(
+      {Key? key, required this.child, required this.floaters})
       : super(key: key);
   final Widget child;
   final List<Positioned> floaters;
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -24,6 +25,10 @@ class FarmerWithOutSearchBar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Padding(
+                      padding: EdgeInsets.only(
+                          left: 10, right: 10, top: 10, bottom: 10),
+                      child: NavBarWO()),
                   Expanded(child: child),
                 ],
               ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/custome_widgets/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/user/app_widget.dart';
 
 class UserSignUp2 extends StatelessWidget {
@@ -94,29 +94,28 @@ class UserSignUp2 extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AppWidget()),
+                  context,
+                  MaterialPageRoute(builder: (context) => AppWidget()),
                 );
-              }, 
+              },
               child: Container(
-              height: 46,
-              width: 174,
-              child: Align(
-                child: Text(
-                  "That's it",
-                  style: TextStyle(color: Colors.white),
+                height: 46,
+                width: 174,
+                child: Align(
+                  child: Text(
+                    "That's it",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(28),
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0x8CC63E).withOpacity(1),
-                      Color(0x709E2F).withOpacity(1),
-                    ]),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(28),
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0x8CC63E).withOpacity(1),
+                        Color(0x709E2F).withOpacity(1),
+                      ]),
                 ),
               ),
             ),

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-class CustomeTile extends StatelessWidget {
+class CustomTile extends StatelessWidget {
   final String product;
   final String quantity;
   final String price;
   final String category;
 
-  CustomeTile(
+  CustomTile(
       {Key? key,
       required this.product,
       required this.quantity,

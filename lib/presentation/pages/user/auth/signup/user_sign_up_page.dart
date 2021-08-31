@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/custome_widgets/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/user/auth/signup/user_sign_up2_page.dart';
 
 class UserSignUp extends StatelessWidget {
@@ -92,30 +92,27 @@ class UserSignUp extends StatelessWidget {
           ),
           Positioned(
             child: InkWell(
-              onTap: () {
-                Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => UserSignUp2()),
-                );
-              }, // handle your onTap here
-              child: Container(
-                height: 46,
-                width: 174,
-                child: Align(child: Text('Next')),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28),
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0x8CC63E).withOpacity(1),
-                      Color(0x709E2F).withOpacity(1),
-                    ]
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => UserSignUp2()),
+                  );
+                }, // handle your onTap here
+                child: Container(
+                  height: 46,
+                  width: 174,
+                  child: Align(child: Text('Next')),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(28),
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color(0x8CC63E).withOpacity(1),
+                          Color(0x709E2F).withOpacity(1),
+                        ]),
                   ),
-                ),
-              )
-            ),
+                )),
             top: 450,
             left: 90,
           ),

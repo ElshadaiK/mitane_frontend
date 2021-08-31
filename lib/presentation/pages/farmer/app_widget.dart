@@ -4,10 +4,10 @@ import 'package:mitane_frontend/agri_product/product.dart';
 import 'package:mitane_frontend/machinery/screens/machinery_screen.dart';
 import 'package:mitane_frontend/models/price-model.dart';
 import 'package:mitane_frontend/models/store-model.dart';
-import 'package:mitane_frontend/presentation/pages/custome_widgets/bottom_nav.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/bottom_nav.dart';
 
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
-import 'package:mitane_frontend/presentation/pages/custome_widgets/drawer.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/priceHub/priceHub.dart';
 import 'package:mitane_frontend/presentation/pages/common/splash/splash.dart';
 
