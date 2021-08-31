@@ -14,12 +14,17 @@ class AddIconButton extends StatelessWidget {
       padding: EdgeInsets.only(top: 24),
       margin: EdgeInsets.all(24),
       alignment: Alignment.bottomRight,
-      child: 
-          IconButton(
+      child:  Ink(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black12),
+          borderRadius: BorderRadius.circular(100)
+        ),
+        child: IconButton(            
                 icon: Icon(
                   Icons.add,
                 ),
-                iconSize: 50,                
+                iconSize: 50,  
+                splashColor: Colors.black,              
                 color: Colors.green,
                 onPressed: () async {
                   final result = await Navigator.pushNamed(
@@ -30,6 +35,8 @@ class AddIconButton extends StatelessWidget {
                   print("result:: $result");
                 },
           ),
+    ),
+          
     );
   }
 }
