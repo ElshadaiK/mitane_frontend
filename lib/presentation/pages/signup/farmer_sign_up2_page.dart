@@ -148,6 +148,9 @@ class FarmerSignUp2 extends StatelessWidget {
             top: (MediaQuery.of(context).size.height * 0.675),
             left: (MediaQuery.of(context).size.width * 0.128),
           ),
+
+          //That's it button on farmers sign up page
+
           Positioned(
             child: Container(
               height: (MediaQuery.of(context).size.height * 0.054),
