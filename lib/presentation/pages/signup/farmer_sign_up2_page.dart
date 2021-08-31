@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/signup/widgets/hexagon_container.dart';
-import 'package:mitane_frontend/presentation/pages/Home/home_page.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 
 class FarmerSignUp2 extends StatelessWidget {
   const FarmerSignUp2({Key? key}) : super(key: key);
@@ -97,7 +97,7 @@ class FarmerSignUp2 extends StatelessWidget {
                 Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Dashboard()),
+                  builder: (context) => Home()),
                 );
               }, 
               child: Container(

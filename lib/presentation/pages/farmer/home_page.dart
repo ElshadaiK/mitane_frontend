@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/presentation/pages/custome_widgets/drawer.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/with_search_bar.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -12,30 +13,12 @@ class Home extends StatefulWidget {
 class _Dashboard extends State {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.lightGreen[100],
-        body: SingleChildScrollView(
+    return FarmerWithSearchBar(
+        floaters: [],
+        child: SingleChildScrollView(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Icon(
-                    Icons.menu,
-                    color: Colors.green[600],
-                    size: 52.0,
-                  ),
-                  Icon(
-                    Icons.person,
-                    color: Colors.grey[800],
-                    size: 40.0,
-                  ),
-                ],
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: Row(
@@ -238,6 +221,7 @@ class _Dashboard extends State {
             ),
           ],
         )),
-        drawer: NavDrawer());
+        // drawer: NavDrawer(), floaters: [],
+        );
   }
 }
