@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/pages/signup/farmer_sign_up_page.dart';
 
 class Splash extends StatelessWidget {
   const Splash({Key? key}) : super(key: key);
@@ -8,8 +9,13 @@ class Splash extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0x709E2F).withOpacity(0.2),
-      body: Stack(
-        children: [
+      body: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => FarmerSignUp()));
+          },
+          child: Stack(
+            children: [
           Positioned(
             child: Bubble(
               height: (MediaQuery.of(context).size.height * 0.142), //120,
@@ -44,7 +50,8 @@ class Splash extends StatelessWidget {
             left: (MediaQuery.of(context).size.width * 0.153),//60,
           ),
         ],
-      ),
+          ),
+      )
     );
   }
 }

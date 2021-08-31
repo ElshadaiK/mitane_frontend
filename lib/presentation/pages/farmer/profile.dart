@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/farmer/with_out_search_bar.dart';
+import 'package:mitane_frontend/presentation/pages/common/with_out_search_bar.dart';
 
 class SmileFarmerProfilePage extends StatelessWidget {
   const SmileFarmerProfilePage({ Key? key}) : super(key: key);

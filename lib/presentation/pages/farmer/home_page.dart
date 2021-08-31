@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/presentation/pages/custome_widgets/drawer.dart';
-import 'package:mitane_frontend/presentation/pages/farmer/with_search_bar.dart';
+import 'package:mitane_frontend/presentation/pages/common/with_search_bar.dart';
 
 class Home extends StatefulWidget {
   @override
