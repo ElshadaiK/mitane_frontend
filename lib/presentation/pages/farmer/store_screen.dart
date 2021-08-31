@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/models/store-model.dart';
-import 'package:mitane_frontend/presentation/pages/custom_widgets/add_icon_button.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_add_screen.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_edit_screen.dart';
 
@@ -160,7 +159,10 @@ class _StoreDisplayState extends State<StoreDisplay> {
                           return res;
                         } else if (direction == DismissDirection.startToEnd){
                             //user swiped right to edit so undo the delete required by flutter
-                            Navigator.pushNamed(context, StoreEdit.routeName);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => StoreEdit()),
+                            );
                           }
                         },
                       ),
@@ -168,7 +170,23 @@ class _StoreDisplayState extends State<StoreDisplay> {
                    
                 }),
           ),
-          AddIconButton(StoreAdd.routeName)
+          FloatingActionButton(  
+            backgroundColor: Colors.white, 
+            onPressed: () {  },
+            child: IconButton(
+              icon: Icon(
+                    Icons.add,
+                  ),
+                  iconSize: 50,               
+                  color: Colors.green,
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => StoreAdd()),
+                    );
+                  },
+            ),         
+          )
         ],
       ),
     );
