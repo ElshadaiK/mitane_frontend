@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/pages/custome_widgets/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/welcome.dart';
 
 class Splash extends StatelessWidget {
   const Splash({Key? key}) : super(key: key);
@@ -9,7 +10,12 @@ class Splash extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Color(0x709E2F).withOpacity(0.2),
-        child: Stack(
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => WelcomePage()));
+          },
+          child: Stack(
           children: [
             Positioned(
               child: Bubble(
@@ -45,6 +51,7 @@ class Splash extends StatelessWidget {
               left: (MediaQuery.of(context).size.width * 0.153),//60,
             ),
           ],
+        ),
         ),
       ),
     );

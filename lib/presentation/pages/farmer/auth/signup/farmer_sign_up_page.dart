@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
-import 'package:mitane_frontend/presentation/pages/signup/farmer_sign_up2_page.dart';
+import 'package:mitane_frontend/presentation/pages/custome_widgets/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/auth/signup/farmer_sign_up2_page.dart';
 
 class FarmerSignUp extends StatelessWidget {
   const FarmerSignUp({Key? key}) : super(key: key);
@@ -12,46 +12,45 @@ class FarmerSignUp extends StatelessWidget {
         children: [
           Positioned(
             child: Bubble(
-              height: MediaQuery.of(context).size.height * 0.189,
-              width: (MediaQuery.of(context).size.width * 0.410),
+              height: 160.0,
+              width: 160.0,
             ),
-            top: -MediaQuery.of(context).size.height * 0.005,
-            left: -(MediaQuery.of(context).size.width * 0.410), //160
+            top: -5,
+            left: -160,
           ),
           Positioned(
             child: Bubble(
-              height: (MediaQuery.of(context).size.height * 0.355), //300.0
-              width: (MediaQuery.of(context).size.height * 0.355), //300
+              height: 300.0,
+              width: 300,
             ),
-            top: (MediaQuery.of(context).size.height * 0.142), //120
-            left: (MediaQuery.of(context).size.width * 0.461), //180
+            top: 120,
+            left: 180,
           ),
           Positioned(
             child: Text(
               "Verify your phone number",
               style: TextStyle(
-                fontSize: (MediaQuery.of(context).size.width * 0.064),
+                fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            top: (MediaQuery.of(context).size.height * 0.177), //150
-            left: (MediaQuery.of(context).size.width * 0.128), //50
+            top: 150,
+            left: 50,
           ),
           Positioned(
             child: Text(
               "Confirm the country code and Enter \n          Your Phone number",
               style: TextStyle(
-                  fontSize: (MediaQuery.of(context).size.width * 0.037), //12,
+                  fontSize: 12,
                   fontWeight: FontWeight.w300,
                   fontStyle: FontStyle.italic),
             ),
-            top: (MediaQuery.of(context).size.height * 0.236), //200,
-            left: (MediaQuery.of(context).size.width * 0.200), //110,
+            top: 200,
+            left: 110,
           ),
           Positioned(
             child: Container(
-              height: (MediaQuery.of(context).size.height * 0.060),//50,
-              width: (MediaQuery.of(context).size.width * 0.769), //300,
+              width: 300,
               child: Material(
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
@@ -67,13 +66,12 @@ class FarmerSignUp extends StatelessWidget {
                 ),
               ),
             ),
-            top: (MediaQuery.of(context).size.height * 0.331), //280,
-            left: (MediaQuery.of(context).size.width * 0.128), //50,
+            top: 280,
+            left: 30,
           ),
           Positioned(
             child: Container(
-              height: (MediaQuery.of(context).size.height * 0.060),//50,
-              width: (MediaQuery.of(context).size.width * 0.769), //300,
+              width: 300,
               child: Material(
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
@@ -89,8 +87,8 @@ class FarmerSignUp extends StatelessWidget {
                 ),
               ),
             ),
-            top: (MediaQuery.of(context).size.height * 0.414), //350,
-            left: (MediaQuery.of(context).size.width * 0.128), //50,
+            top: 350,
+            left: 30,
           ),
           Positioned(
             child: InkWell(
@@ -102,8 +100,8 @@ class FarmerSignUp extends StatelessWidget {
                 );
               }, // handle your onTap here
               child: Container(
-                height: (MediaQuery.of(context).size.height * 0.054),//46,
-                width: (MediaQuery.of(context).size.width * 0.453), //174,
+                height: 46,
+                width: 174,
                 child: Align(child: Text('Next')),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(28),
@@ -118,8 +116,8 @@ class FarmerSignUp extends StatelessWidget {
                 ),
               )
             ),
-            top: (MediaQuery.of(context).size.height * 0.533),//450,
-            left: (MediaQuery.of(context).size.width * 0.282),//110,
+            top: 450,
+            left: 90,
           ),
         ],
       ),

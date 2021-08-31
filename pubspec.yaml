@@ -31,6 +31,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   get_it: ^7.2.0
   flutter_zoom_drawer: ^2.1.1
+  supercharged: ^2.0.0
+  simple_animations: ^3.1.1
 
 dev_dependencies:
   flutter_test:
@@ -41,8 +43,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  assets:
-    - assets/METANE.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -53,6 +53,7 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
+    - assets/METANE.png
     - assets/
     - assets/messages.json
     - assets/images/
