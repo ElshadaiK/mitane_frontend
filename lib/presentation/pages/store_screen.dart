@@ -110,7 +110,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
                 itemBuilder: (BuildContext context, int index) {
                   Store curPrice = widget.items[index];
                   return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                    margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
                     child: Dismissible(                    
                         child: StoreItemCard(
                             productName: curPrice.productName,

@@ -18,7 +18,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: StoreDisplay.routeName,
       routes: {
-        StoreDisplay.routeName: (BuildContext context) => StoreDisplay(items: [new Store("Banana", 80, 25)],),
+        StoreDisplay.routeName: (BuildContext context) => StoreDisplay(items: [new Store("Banana", 80, 25), new Store("Banana", 80, 25), new Store("Banana", 80, 25), ],),
         StoreEdit.routeName: (BuildContext context) => StoreEdit(),
 
       },
