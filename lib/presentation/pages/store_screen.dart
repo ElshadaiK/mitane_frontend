@@ -81,6 +81,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,    
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -114,7 +115,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
                   return Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10)),
-                    margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),                    
+                    margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),                    
                     child: Dismissible(                    
                         child: StoreItemCard(
                             productName: curPrice.productName,
@@ -193,7 +194,7 @@ class StoreItemCard extends StatelessWidget {
     return Card(
       elevation: 8,
       child: Container(
-        padding: EdgeInsets.only(left: 20, right: 50),
+        padding: EdgeInsets.only(left: 20, right: 20),
         decoration: BoxDecoration(
             border: Border(left: BorderSide(color: Colors.primaries[Random().nextInt(Colors.primaries.length)], width: 5))),
         height: 100,

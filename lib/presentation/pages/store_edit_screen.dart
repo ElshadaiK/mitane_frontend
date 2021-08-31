@@ -7,13 +7,10 @@ class StoreEdit extends StatefulWidget {
   static const String routeName = '/editstore';
   static const List<String> category = [
     "Fruits",
-    "Vegitable",
+    "Vegetable",
     "Dairy Product",
-    "Ceral",
-    "Fruit",
-    "Vegiable",
-    "Daiy Product",
-    "Ceal"
+    "Cereal",
+    "Fruit"
   ];
 
   static const List<String> item = [
@@ -52,11 +49,13 @@ class _StoreEditState extends State<StoreEdit> {
 
   @override
   Widget build(BuildContext context) {   
-    return Scaffold(      
-      body: Column(
-        
+    return Scaffold(    
+      resizeToAvoidBottomInset: false,    
+
+      body: Column(        
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 50,),
           component(context, "Category", StoreEdit.category, selectedCategory),
           component(context, "Item", StoreEdit.item, selectedItem),
           Container(
@@ -81,20 +80,30 @@ class _StoreEditState extends State<StoreEdit> {
                   ),
                 ),
                 SizedBox(height: 40.0,),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },  
-                  child: Text('Update'),
-                  style:  ElevatedButton.styleFrom(
-                            primary: Color(0xFF8CC63E),
-                            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                            textStyle: TextStyle(
-                              fontSize: 20
-                            ),
-                  )
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },  
+                      child: Text('Update'),              
+                      style:  
+                        ElevatedButton.styleFrom(
+                          primary: Color(0xFF8CC63E),
+                          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),                       
+                          textStyle: TextStyle(
+                            fontSize: 20
+                          ),
+                          shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0),
+                          ),
+                        ),
+                    ),
+                  ],
                 )
-                        
+                
+                                       
               ],
 
             )
@@ -134,13 +143,13 @@ class _StoreEditState extends State<StoreEdit> {
                         value: value,
                         child: Text(
                           value,
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.black45),
                         ),
                       );
                     }).toList(),
-                    onChanged: (String? value) {
+                    onChanged: (String? newvalue) {
                       setState(() {
-                        selected = value;
+                        selected = newvalue;
                       });
                     },
                   ),

@@ -7,13 +7,10 @@ class StoreAdd extends StatefulWidget {
   static const String routeName = '/addstore';
   static const List<String> category = [
     "Fruits",
-    "Vegitable",
+    "Vegetable",
     "Dairy Product",
-    "Ceral",
+    "Cereal",
     "Fruit",
-    "Vegiable",
-    "Daiy Product",
-    "Ceal"
   ];
 
   static const List<String> item = [
@@ -52,12 +49,12 @@ class _StoreAddState extends State<StoreAdd> {
   @override
   Widget build(BuildContext context) {   
     return Scaffold(  
-      resizeToAvoidBottomInset: false,    
-      body: Column(
-        
+      resizeToAvoidBottomInset: false,   
+
+      body: Column(        
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 40,),
+          SizedBox(height: 50,),
           component(context, "Category", StoreAdd.category, selectedCategory),
           component(context, "Item", StoreAdd.item, selectedItem),
           Container(
@@ -80,20 +77,27 @@ class _StoreAddState extends State<StoreAdd> {
                   ),
                 ),
                 SizedBox(height: 30.0,),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },  
-                  child: Text('Add to Store'),
-                  style:  ElevatedButton.styleFrom(
-                            primary: Color(0xFF8CC63E),
-                            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                            textStyle: TextStyle(
-                              fontSize: 20
-                            ),
-                  )
-                )
-                        
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },  
+                      child: Text('Add to Store'),
+                      style:  ElevatedButton.styleFrom(
+                                primary: Color(0xFF8CC63E),
+                                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                                textStyle: TextStyle(
+                                  fontSize: 20
+                                ),
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0),
+                                ),
+                      )
+                    )
+                  ]
+                )                        
               ],
 
             )
@@ -133,7 +137,7 @@ class _StoreAddState extends State<StoreAdd> {
                         value: value,
                         child: Text(
                           value,
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.white),
                         ),
                       );
                     }).toList(),
