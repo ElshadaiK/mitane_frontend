@@ -11,17 +11,28 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return 
+    Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(
-          onPressed: () =>
-              locator<NavigationService>().drawerController.toggle!(),
-          icon: ImageIcon(
-            AssetImage("assets/images/humburger.png"),
-            color: Colors.green[600],
+         InkWell(
+          onTap: (){
+             Scaffold.of(context).openDrawer();
+          },
+                  child: Icon(
+            Icons.menu,
+           
           ),
         ),
+ 
+        // IconButton(
+        //   onPressed: () =>
+        //       locator<NavigationService>().drawerController.toggle!(),
+        //   icon: ImageIcon(
+        //     AssetImage("assets/images/humburger.png"),
+        //     color: Colors.green[600],
+        //   ),
+        // ),
         Expanded(
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
