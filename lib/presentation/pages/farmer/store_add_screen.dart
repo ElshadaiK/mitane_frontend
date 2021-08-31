@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mitane_frontend/models/store-model.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
 
 class StoreAdd extends StatefulWidget {
@@ -49,12 +50,21 @@ class _StoreAddState extends State<StoreAdd> {
   @override
   Widget build(BuildContext context) {   
     return Scaffold(  
+      appBar: AppBar(
+        title: Text(
+          "My Store",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
+      drawer: NavDrawer(),
       resizeToAvoidBottomInset: false,   
 
       body: Column(        
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 50,),
+          SizedBox(height: 15,),
           component(context, "Category", StoreAdd.category, selectedCategory),
           component(context, "Item", StoreAdd.item, selectedItem),
           Container(
