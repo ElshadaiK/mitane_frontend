@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/common/with_out_search_bar.dart';
 
-class FarmerProfilePage extends StatelessWidget {
-  const FarmerProfilePage({ Key? key}) : super(key: key);
+class UserProfilePage extends StatelessWidget {
+  const UserProfilePage({ Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
