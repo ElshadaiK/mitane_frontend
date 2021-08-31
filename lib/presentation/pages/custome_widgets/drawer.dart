@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/Home/home_page.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
