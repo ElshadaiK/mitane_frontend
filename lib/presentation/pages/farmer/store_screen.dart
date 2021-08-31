@@ -79,7 +79,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,    
+      resizeToAvoidBottomInset: false,  
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -170,24 +170,19 @@ class _StoreDisplayState extends State<StoreDisplay> {
                    
                 }),
           ),
-          FloatingActionButton(  
-            backgroundColor: Colors.white, 
-            onPressed: () {  },
-            child: IconButton(
-              icon: Icon(
-                    Icons.add,
-                  ),
-                  iconSize: 50,               
-                  color: Colors.green,
-                  onPressed: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => StoreAdd()),
-                    );
-                  },
-            ),         
-          )
+          
         ],
+        
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => StoreAdd()),
+          );
+        },        
+        child: const Icon(Icons.add, color: Colors.green,),
+        backgroundColor: Colors.white,
       ),
     );
   }

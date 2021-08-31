@@ -87,7 +87,7 @@ class _StoreAddState extends State<StoreAdd> {
                       child: Text('Add to Store'),
                       style:  ElevatedButton.styleFrom(
                                 primary: Color(0xFF8CC63E),
-                                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                                 textStyle: TextStyle(
                                   fontSize: 20
                                 ),
