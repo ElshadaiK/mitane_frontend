@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custome_widgets/gradient_mask.dart';
 import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/signup/widgets/hexagon_container.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 
 class FarmerSignUp2 extends StatelessWidget {
   const FarmerSignUp2({Key? key}) : super(key: key);
@@ -40,7 +41,7 @@ class FarmerSignUp2 extends StatelessWidget {
           ),
           Positioned(
             child: Text(
-              "Set your name and profile",
+              "Set your name and password",
               style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w300,
@@ -152,9 +153,17 @@ class FarmerSignUp2 extends StatelessWidget {
           //That's it button on farmers sign up page
 
           Positioned(
-            child: Container(
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Home()),
+                );
+              }, 
+              child: Container(
               height: (MediaQuery.of(context).size.height * 0.054),
-              width: (MediaQuery.of(context).size.width * 0.328),
+              width:  (MediaQuery.of(context).size.width * 0.328),
               child: Align(
                 child: Text(
                   "That's it",
@@ -170,6 +179,7 @@ class FarmerSignUp2 extends StatelessWidget {
                       Color(0x8CC63E).withOpacity(1),
                       Color(0x709E2F).withOpacity(1),
                     ]),
+                ),
               ),
             ),
             top: (MediaQuery.of(context).size.height * 0.805),

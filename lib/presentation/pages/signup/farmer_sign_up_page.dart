@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
+import 'package:mitane_frontend/presentation/pages/signup/farmer_sign_up2_page.dart';
 
 class FarmerSignUp extends StatelessWidget {
   const FarmerSignUp({Key? key}) : super(key: key);
@@ -92,20 +93,30 @@ class FarmerSignUp extends StatelessWidget {
             left: (MediaQuery.of(context).size.width * 0.128), //50,
           ),
           Positioned(
-            child: Container(
-              height: (MediaQuery.of(context).size.height * 0.054),//46,
-              width: (MediaQuery.of(context).size.width * 0.453), //174,
-              child: Align(child: Text('Next')),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(28),
-                gradient: LinearGradient(
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FarmerSignUp2()),
+                );
+              }, // handle your onTap here
+              child: Container(
+                height: (MediaQuery.of(context).size.height * 0.054),//46,
+                width: (MediaQuery.of(context).size.width * 0.453), //174,
+                child: Align(child: Text('Next')),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(28),
+                  gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
                       Color(0x8CC63E).withOpacity(1),
                       Color(0x709E2F).withOpacity(1),
-                    ]),
-              ),
+                    ]
+                  ),
+                ),
+              )
             ),
             top: (MediaQuery.of(context).size.height * 0.533),//450,
             left: (MediaQuery.of(context).size.width * 0.282),//110,
