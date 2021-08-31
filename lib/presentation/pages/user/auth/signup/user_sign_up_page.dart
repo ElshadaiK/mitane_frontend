@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
-import 'package:mitane_frontend/presentation/pages/farmer/auth/signup/farmer_sign_up2_page.dart';
+import 'package:mitane_frontend/presentation/pages/user/auth/signup/user_sign_up2_page.dart';
 
-
-class FarmerSignUp extends StatelessWidget {
-  const FarmerSignUp({Key? key}) : super(key: key);
+class UserSignUp extends StatelessWidget {
+  const UserSignUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,21 +50,19 @@ class FarmerSignUp extends StatelessWidget {
           ),
           Positioned(
             child: Container(
-              width: 60,
+              width: 300,
               child: Material(
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
                 child: TextField(
-                  controller: TextEditingController()..text = '+251',
-                  readOnly: true,
                   decoration: InputDecoration(
-                      fillColor: Colors.grey,
+                      fillColor: Colors.white,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
                         borderSide: BorderSide.none,
                       ),
-                    ),
+                      hintText: 'ETH'),
                 ),
               ),
             ),
@@ -74,13 +71,11 @@ class FarmerSignUp extends StatelessWidget {
           ),
           Positioned(
             child: Container(
-              width: 220,
+              width: 300,
               child: Material(
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
                 child: TextField(
-                  keyboardType: TextInputType.phone,
-                  autocorrect: false,
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
@@ -88,19 +83,19 @@ class FarmerSignUp extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5),
                         borderSide: BorderSide.none,
                       ),
-                      hintText: '(###) ###-####'),
+                      hintText: '+251'),
                 ),
               ),
             ),
-            top: 280,
-            left: 100,
+            top: 350,
+            left: 30,
           ),
           Positioned(
             child: InkWell(
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => FarmerSignUp2()),
+                    MaterialPageRoute(builder: (context) => UserSignUp2()),
                   );
                 }, // handle your onTap here
                 child: Container(

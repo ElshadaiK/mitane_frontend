@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/custome_widgets/navbar.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/navbar.dart';
 
 class FarmerWithSearchBar extends StatelessWidget {
   FarmerWithSearchBar({Key? key, required this.child, required this.floaters})

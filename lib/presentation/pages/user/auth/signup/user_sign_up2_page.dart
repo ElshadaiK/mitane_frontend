@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
-import 'package:mitane_frontend/presentation/pages/farmer/auth/signup/farmer_sign_up3_page.dart';
+import 'package:mitane_frontend/presentation/pages/user/app_widget.dart';
 
-class FarmerSignUp2 extends StatelessWidget {
-  const FarmerSignUp2({Key? key}) : super(key: key);
+class UserSignUp2 extends StatelessWidget {
+  const UserSignUp2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,32 +28,74 @@ class FarmerSignUp2 extends StatelessWidget {
           ),
           Positioned(
             child: Text(
-              "Tell us what you do",
+              "Last Step!",
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            top: 200,
-            left: 50,
+            top: 150,
+            left: 125,
           ),
           Positioned(
             child: Text(
-              "Please pick your role",
+              "Set your name and password",
               style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w300,
                   fontStyle: FontStyle.italic),
             ),
-            top: 250,
+            top: 200,
             left: 110,
+          ),
+          Positioned(
+            child: Container(
+              width: 300,
+              child: Material(
+                elevation: 2,
+                borderRadius: BorderRadius.circular(5),
+                child: TextField(
+                  decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide.none,
+                      ),
+                      hintText: 'Name'),
+                ),
+              ),
+            ),
+            top: 280,
+            left: 30,
+          ),
+          Positioned(
+            child: Container(
+              width: 300,
+              child: Material(
+                elevation: 2,
+                borderRadius: BorderRadius.circular(5),
+                child: TextField(
+                  decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide.none,
+                      ),
+                      hintText: 'Password'),
+                ),
+              ),
+            ),
+            top: 350,
+            left: 30,
           ),
           Positioned(
             child: InkWell(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => FarmerSignUp3()),
+                  MaterialPageRoute(builder: (context) => AppWidget()),
                 );
               },
               child: Container(
@@ -61,7 +103,7 @@ class FarmerSignUp2 extends StatelessWidget {
                 width: 174,
                 child: Align(
                   child: Text(
-                    "Next",
+                    "That's it",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
