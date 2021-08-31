@@ -19,7 +19,7 @@ class AppWidget extends StatelessWidget {
       initialRoute: StoreDisplay.routeName,
       routes: {
         StoreDisplay.routeName: (BuildContext context) => StoreDisplay(items: [new Store("Banana", 80, 25)],),
-        StoreEdit.routeName: (BuildContext context) => StoreEdit(items: [new Store("Banana", 80, 25)],),
+        StoreEdit.routeName: (BuildContext context) => StoreEdit(),
 
       },
     );

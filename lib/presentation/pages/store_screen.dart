@@ -12,6 +12,8 @@ class StoreDisplay extends StatefulWidget {
 
   const StoreDisplay({required this.items});
 
+  get curPrice => null;
+
   @override
   _StoreDisplayState createState() => _StoreDisplayState();
 }
@@ -152,10 +154,11 @@ class _StoreDisplayState extends State<StoreDisplay> {
                                 );
                               });
                           return res;
-                        } else {
-                          Navigator.pushNamed(context, StoreEdit.routeName, arguments: curPrice);
-                        }
-                      },
+                        } else if (direction == DismissDirection.startToEnd){
+                            //user swiped right to edit so undo the delete required by flutter
+                            Navigator.pushNamed(context, StoreEdit.routeName);
+                          }
+                        },
                       ),
                   );
                    

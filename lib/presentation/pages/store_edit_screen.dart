@@ -24,10 +24,7 @@ class StoreEdit extends StatefulWidget {
     "Corn",
   ];
 
-  Navigator.pop(context);
-  StoreEdit({required this.items});
-
-  
+  // StoreEdit.pop(context);
 
   List<String> getCategory() => category;
   List<String> getItem() => item;
@@ -54,9 +51,8 @@ class _StoreEditState extends State<StoreEdit> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      
+  Widget build(BuildContext context) {   
+    return Scaffold(      
       body: Column(
         
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,14 +82,8 @@ class _StoreEditState extends State<StoreEdit> {
                 ),
                 SizedBox(height: 40.0,),
                 ElevatedButton(
-                  onPressed: () async {
-                    final result = await Navigator.pushNamed(
-                      context,
-                      StoreDisplay.routeName,
-                      arguments: "This is my message",
-                    );
-                    // this line
-                    print("result:: $result");
+                  onPressed: () {
+                    Navigator.pop(context);
                   },  
                   child: Text('Update'),
                   style:  ElevatedButton.styleFrom(
