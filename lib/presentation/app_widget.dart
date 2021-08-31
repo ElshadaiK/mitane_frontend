@@ -13,7 +13,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FarmerSignUp(),
+      home: Home(),
       // initialRoute: StoreDisplay.routeName,
       // routes: {
       //   StoreDisplay.routeName: (BuildContext context) => StoreDisplay(

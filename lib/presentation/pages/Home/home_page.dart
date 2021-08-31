@@ -37,63 +37,70 @@ class _Dashboard extends State {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      child: Container(
-                          child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 70.0),
-                                child: Icon(
-                                  Icons.thermostat,
-                                  color: Colors.grey[800],
-                                  size: 50.0,
-                                ),
-                              )
-                            ],
-                          ),
-                          Container(
-                            height: 100,
-                            width: 160,
-                            child: VerticalDivider(
-                              color: Colors.grey,
-                              thickness: 0.5,
-                              indent: 20,
-                              endIndent: 20,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 80.0),
-                            child: Row(
+                    Expanded(
+                      child: SizedBox(
+                          width: 300.0,
+                          height: 100.0,
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0)),
+                            child: Container(
+                                child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Column(
                                   children: [
-                                    FaIcon(
-                                      FontAwesomeIcons.cloud,
-                                      color: Colors.green[200],
-                                      size: 35,
-                                    ),
-                                    Text('25, June'),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 20.0, top: 30),
+                                      child: Icon(
+                                        Icons.thermostat,
+                                        color: Colors.grey[800],
+                                        size: 40.0,
+                                      ),
+                                    )
                                   ],
                                 ),
-                                Column(
-                                  children: [Text('Rain'), Text('25c')],
+                                Container(
+                                  height: 100,
+                                  width: 10,
+                                  child: VerticalDivider(
+                                    color: Colors.grey,
+                                    thickness: 0.5,
+                                    indent: 20,
+                                    endIndent: 20,
+                                  ),
                                 ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 25.0, top: 30),
+                                  child: Row(
+                                    children: [
+                                      Column(
+                                        children: [
+                                          FaIcon(
+                                            FontAwesomeIcons.cloud,
+                                            color: Colors.green[200],
+                                            size: 30,
+                                          ),
+                                          Text('25, June'),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [Text('Rain'), Text('25c')],
+                                      ),
+                                    ],
+                                  ),
+                                )
                               ],
-                            ),
-                          )
-                        ],
-                      )),
-                    )
+                            )),
+                          )),
+                    ),
                   ]),
             ),
             Padding(
