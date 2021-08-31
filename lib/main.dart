@@ -5,8 +5,7 @@ import 'package:mitane_frontend/route_generator.dart';
  
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
-  // initialRoute: '/',
-  home: Splash(),
-  // onGenerateRoute: RouteGenerator.generateRoute,
+  initialRoute: '/',
+  onGenerateRoute: RouteGenerator.generateRoute,
 ));
  
