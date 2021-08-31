@@ -95,7 +95,7 @@ class UserSignUp2 extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AppWidget()),
+                  MaterialPageRoute(builder: (context) => AppWidget2()),
                 );
               },
               child: Container(

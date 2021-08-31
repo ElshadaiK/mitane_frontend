@@ -21,6 +21,11 @@ class _MachineryScreenState extends State<MachineryScreen> {
           appBar: AppBar(
             backgroundColor: Colors.white,
             iconTheme: IconThemeData(color: Colors.black),
+            leading: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/');
+                },
+                icon: Icon(Icons.arrow_back)),
             title: Container(
               height: 35.0,
               child: TextField(
@@ -34,7 +39,6 @@ class _MachineryScreenState extends State<MachineryScreen> {
               ),
             ),
           ),
-          drawer: NavDrawer(),
           body: Stack(children: [
             Positioned(
               child: Bubble(
