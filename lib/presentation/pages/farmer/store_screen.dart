@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/models/store-model.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/bottom_nav.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_add_screen.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_edit_screen.dart';
@@ -178,8 +179,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
                   );
                    
                 }),
-          ),
-          
+          ),         
         ],
         
       ),
