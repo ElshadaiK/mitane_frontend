@@ -51,11 +51,13 @@ class _StoreAddState extends State<StoreAdd> {
 
   @override
   Widget build(BuildContext context) {   
-    return Scaffold(      
+    return Scaffold(  
+      resizeToAvoidBottomInset: false,    
       body: Column(
         
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 40,),
           component(context, "Category", StoreAdd.category, selectedCategory),
           component(context, "Item", StoreAdd.item, selectedItem),
           Container(
@@ -77,7 +79,7 @@ class _StoreAddState extends State<StoreAdd> {
                     border: OutlineInputBorder()
                   ),
                 ),
-                SizedBox(height: 40.0,),
+                SizedBox(height: 30.0,),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);

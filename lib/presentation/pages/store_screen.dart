@@ -84,12 +84,13 @@ class _StoreDisplayState extends State<StoreDisplay> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 40,),
           Container(
             decoration: BoxDecoration(
                 color: Color(0xFF8CC63E),
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(20)),
             padding: const EdgeInsets.only(top: 30, bottom: 30, left: 10, right: 10),
-            margin: EdgeInsets.only(top: 30, bottom: 20, left: 30, right: 30),
+            margin: EdgeInsets.only(top: 30, bottom: 0, left: 30, right: 30),
             width: MediaQuery.of(context).size.width,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -111,7 +112,9 @@ class _StoreDisplayState extends State<StoreDisplay> {
                 itemBuilder: (BuildContext context, int index) {
                   Store curPrice = widget.items[index];
                   return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10)),
+                    margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),                    
                     child: Dismissible(                    
                         child: StoreItemCard(
                             productName: curPrice.productName,
