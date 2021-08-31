@@ -158,7 +158,6 @@ class _StoreDisplayState extends State<StoreDisplay> {
                               });
                           return res;
                         } else if (direction == DismissDirection.startToEnd){
-                            //user swiped right to edit so undo the delete required by flutter
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => StoreEdit()),
