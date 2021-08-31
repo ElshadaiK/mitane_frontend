@@ -49,25 +49,14 @@ class _PriceHubState extends State<PriceHub> {
               top: 130,
               left: 180,
             ),
-            Positioned(
-              child: Container(
-                width: 400,
-                height: 200,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/trending.png"))),
-              ),
-              bottom: -15,
-              left: -20,
-            ),
             SingleChildScrollView(
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 child: ListView.builder(
-                itemCount: 20,
+                itemCount: 8,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                     child: PriceCard(
                         product: "Product Name",
                         unit: "Kg",
@@ -105,7 +94,7 @@ class PriceCard extends StatelessWidget {
         padding: EdgeInsets.only(left: 20, right: 50),
         decoration: BoxDecoration(
             border: Border(left: BorderSide(color: Colors.blue, width: 5))),
-        height: 100,
+        height: 80,
         width: MediaQuery.of(context).size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
