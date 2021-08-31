@@ -44,9 +44,9 @@ class WelcomePage extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: 'Smile',
+                            text: 'Mitane',
                             style: TextStyle(
-                              color: const Color(0xff00b7eb),
+                              color: Colors.green[400],
                               fontWeight: FontWeight.w700,
                             ),
                           ),
@@ -63,7 +63,7 @@ class WelcomePage extends StatelessWidget {
                   FadeAnimation(
                     1.2,
                     Text(
-                      'Your Only Dental Solution',
+                      'Your Only Agricultural Solution',
                       style: TextStyle(
                         fontFamily: 'Ubuntu',
                         fontSize: 12,
@@ -114,7 +114,7 @@ class WelcomePage extends StatelessWidget {
                         TextSpan(
                           text: 'privacy policy',
                           style: TextStyle(
-                            color: const Color(0xff00b8f1),
+                            color: Colors.green[200],
                             fontWeight: FontWeight.w300,
                           ),
                         ),
@@ -128,7 +128,7 @@ class WelcomePage extends StatelessWidget {
                         TextSpan(
                           text: 'Terms and Services',
                           style: TextStyle(
-                            color: const Color(0xff00b8f1),
+                            color: Colors.green[200],
                             fontWeight: FontWeight.w300,
                           ),
                         ),
@@ -186,7 +186,7 @@ class WelcomePage extends StatelessWidget {
                                 TextSpan(
                                   text: 'Farmer',
                                   style: TextStyle(
-                                    color: const Color(0xff01acea),
+                                    color: Colors.green[200],
                                     fontWeight: FontWeight.w300,
                                   ),
                                 ),

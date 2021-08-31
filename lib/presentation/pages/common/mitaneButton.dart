@@ -31,7 +31,8 @@ class MitaneButton extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment(0.0, -1.0),
               end: Alignment(0.0, 1.0),
-              colors: [const Color(0xff00b7f1), const Color(0xff0399de)],
+              colors: [ Color(0x8CC63E).withOpacity(1),
+                      Color(0x709E2F).withOpacity(1)],
               stops: [0.0, 1.0],
             ),
             boxShadow: [
