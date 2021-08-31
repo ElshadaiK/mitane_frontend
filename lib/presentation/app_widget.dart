@@ -3,6 +3,7 @@ import 'package:mitane_frontend/models/price-model.dart';
 import 'package:mitane_frontend/models/store-model.dart';
 
 import 'package:mitane_frontend/presentation/pages/signup/farmer_sign_up_page.dart';
+import 'package:mitane_frontend/presentation/pages/splash/splash.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 import 'package:mitane_frontend/presentation/pages/custome_widgets/drawer.dart';
