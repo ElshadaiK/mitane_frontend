@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 class AddIconButton extends StatelessWidget {
 
   final String routeName;
-  final String arguments;
 
-  const AddIconButton(this.routeName, this.arguments);
+  const AddIconButton(this.routeName);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,6 @@ class AddIconButton extends StatelessWidget {
                   final result = await Navigator.pushNamed(
                     context,
                     routeName,
-                    arguments: arguments,
                   );
                   // this line
                   print("result:: $result");

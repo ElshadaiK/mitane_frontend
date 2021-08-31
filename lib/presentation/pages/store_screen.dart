@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/models/store-model.dart';
 import 'package:mitane_frontend/presentation/pages/custome_widgets/add_icon_button.dart';
+import 'package:mitane_frontend/presentation/pages/store_add_screen.dart';
 import 'package:mitane_frontend/presentation/pages/store_edit_screen.dart';
 
 class StoreDisplay extends StatefulWidget {
@@ -164,7 +165,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
                    
                 }),
           ),
-          AddIconButton(StoreDisplay.routeName, "Adding Item")
+          AddIconButton(StoreAdd.routeName)
         ],
       ),
     );

@@ -4,7 +4,7 @@ import 'package:mitane_frontend/models/store-model.dart';
 import 'package:mitane_frontend/presentation/pages/store_screen.dart';
 
 class StoreAdd extends StatefulWidget {
-  static const String routeName = '/editstore';
+  static const String routeName = '/addstore';
   static const List<String> category = [
     "Fruits",
     "Vegitable",
@@ -24,7 +24,6 @@ class StoreAdd extends StatefulWidget {
     "Corn",
   ];
 
-  // StoreAdd.pop(context);
 
   List<String> getCategory() => category;
   List<String> getItem() => item;
@@ -82,7 +81,6 @@ class _StoreAddState extends State<StoreAdd> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
-                    Navigator.pushNamed(context, StoreDisplay.routeName, arguments: Store("Apple", 20, 12));
                   },  
                   child: Text('Add to Store'),
                   style:  ElevatedButton.styleFrom(
