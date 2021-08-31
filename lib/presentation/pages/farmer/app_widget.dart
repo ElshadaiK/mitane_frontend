@@ -11,6 +11,9 @@ import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/priceHub/priceHub.dart';
 import 'package:mitane_frontend/presentation/pages/common/splash/splash.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
+import 'package:mitane_frontend/models/price-model.dart';
+import 'package:mitane_frontend/models/store-model.dart';
 
 class AppWidget extends StatefulWidget {
   @override
@@ -18,7 +21,8 @@ class AppWidget extends StatefulWidget {
 }
 
 class _AppWidgetState extends State<AppWidget> {
-  List<Widget> pages = [Home(), PriceHub(), MachineryScreen()];
+  List<Widget> pages = [Home(), PriceHub(), StoreDisplay(items: [new Store("Banana", 80, 25), new Store("Banana", 80, 25), new Store("Banana", 80, 25), ],)];
+  // List<Widget> pages = [Home(), PriceHub(), MachineryScreen()];
   int selectedPage = 0;
   @override
   void initState() {
