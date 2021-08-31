@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/signup/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/signup/widgets/hexagon_container.dart';
+import 'package:mitane_frontend/presentation/pages/Home/home_page.dart';
 
 class FarmerSignUp2 extends StatelessWidget {
   const FarmerSignUp2({Key? key}) : super(key: key);
@@ -91,7 +92,15 @@ class FarmerSignUp2 extends StatelessWidget {
             left: 30,
           ),
           Positioned(
-            child: Container(
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Dashboard()),
+                );
+              }, 
+              child: Container(
               height: 46,
               width: 174,
               child: Align(
@@ -109,6 +118,7 @@ class FarmerSignUp2 extends StatelessWidget {
                       Color(0x8CC63E).withOpacity(1),
                       Color(0x709E2F).withOpacity(1),
                     ]),
+                ),
               ),
             ),
             top: 450,
