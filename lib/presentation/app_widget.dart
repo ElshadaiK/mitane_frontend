@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/presentation/pages/splash/splash.dart';
+import 'package:mitane_frontend/presentation/pages/common/splash/splash.dart';
 
 class AppWidget extends StatelessWidget {
   @override
