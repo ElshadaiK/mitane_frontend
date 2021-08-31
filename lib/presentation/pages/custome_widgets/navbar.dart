@@ -74,6 +74,8 @@ class NavBar extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => SmileFarmerProfilePage()));
           },
           child: Container(
             width: 40,

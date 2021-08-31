@@ -96,8 +96,8 @@ class _Dashboard extends State {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SizedBox(
-                      width: 160.0,
-                      height: 160.0,
+                      width: 120.0,
+                      height: 120.0,
                       child: Card(
                         color: Colors.green[300],
                         elevation: 2.0,
