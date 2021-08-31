@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/auth/signup/farmer_sign_up2_page.dart';
 
+
 class FarmerSignUp extends StatelessWidget {
   const FarmerSignUp({Key? key}) : super(key: key);
 
@@ -50,19 +51,21 @@ class FarmerSignUp extends StatelessWidget {
           ),
           Positioned(
             child: Container(
-              width: 300,
+              width: 60,
               child: Material(
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
                 child: TextField(
+                  controller: TextEditingController()..text = '+251',
+                  readOnly: true,
                   decoration: InputDecoration(
-                      fillColor: Colors.white,
+                      fillColor: Colors.grey,
                       filled: true,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
                         borderSide: BorderSide.none,
                       ),
-                      hintText: 'ETH'),
+                    ),
                 ),
               ),
             ),
@@ -71,11 +74,13 @@ class FarmerSignUp extends StatelessWidget {
           ),
           Positioned(
             child: Container(
-              width: 300,
+              width: 220,
               child: Material(
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
                 child: TextField(
+                  keyboardType: TextInputType.phone,
+                  autocorrect: false,
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
@@ -83,12 +88,12 @@ class FarmerSignUp extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5),
                         borderSide: BorderSide.none,
                       ),
-                      hintText: '+251'),
+                      hintText: '(###) ###-####'),
                 ),
               ),
             ),
-            top: 350,
-            left: 30,
+            top: 280,
+            left: 100,
           ),
           Positioned(
             child: InkWell(

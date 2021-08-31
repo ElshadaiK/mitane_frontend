@@ -185,7 +185,7 @@ class WelcomePage extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: 'Farmer',
+                                  text: 'Farmer/Trader',
                                   style: TextStyle(
                                     color: Colors.green[200],
                                     fontWeight: FontWeight.w300,
