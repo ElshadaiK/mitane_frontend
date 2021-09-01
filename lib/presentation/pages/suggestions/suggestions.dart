@@ -5,6 +5,7 @@ import 'package:mitane_frontend/presentation/pages/custom_widgets/navbar.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/vertical_tiles.dart';
 
 class Suggestions extends StatelessWidget {
+  static const String routeName = '/suggestions';
   const Suggestions({Key? key}) : super(key: key);
 
   @override
