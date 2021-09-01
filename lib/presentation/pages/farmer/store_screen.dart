@@ -99,19 +99,19 @@ class _StoreDisplayState extends State<StoreDisplay> {
             decoration: BoxDecoration(
                 color: Color(0xFF8CC63E),
                 borderRadius: BorderRadius.circular(20)),
-            padding: const EdgeInsets.only(top: 30, bottom: 30, left: 10, right: 10),
-            margin: EdgeInsets.only(top: 30, bottom: 0, left: 30, right: 30),
+            padding: const EdgeInsets.only(top: 10, bottom: 10, left: 2, right: 2),
+            margin: EdgeInsets.only(top: 10, bottom: 0, left: 10, right: 10),
             width: MediaQuery.of(context).size.width,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "Decide your share of the market!!",
+                  "Decide your share of the market!",
                   style: TextStyle(fontSize: 20, fontFamily: "RobotMono", color: Colors.white),                  
                 ),
                 Text(
                   "Date will be displayed here",
-                  style: TextStyle(fontSize: 19, fontFamily: "RobotMono", color: Colors.white),
+                  style: TextStyle(fontSize: 10, fontFamily: "RobotMono", color: Colors.white),
                 ),
               ],
             ),
