@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:mitane_frontend/models/store-model.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
+import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
 import 'package:mitane_frontend/priceHub/priceHub.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
-
+import 'package:mitane_frontend/trending/screens/trending_screen.dart';
 
 class AppWidget extends StatefulWidget {
   @override
@@ -12,7 +13,17 @@ class AppWidget extends StatefulWidget {
 }
 
 class _AppWidgetState extends State<AppWidget> {
-  List<Widget> pages = [Home(), PriceHub(), StoreDisplay(items: [new Store("Banana", 80, 25), new Store("Banana", 80, 25), new Store("Banana", 80, 25), ],)];
+  List<Widget> pages = [
+    Home(),
+    PriceHub(),
+    StoreDisplay(
+      items: [
+        new Store("Banana", 80, 25),
+        new Store("Banana", 80, 25),
+        new Store("Banana", 80, 25),
+      ],
+    ),
+  ];
   int selectedPage = 0;
   @override
   void initState() {
@@ -25,10 +36,64 @@ class _AppWidgetState extends State<AppWidget> {
     return Scaffold(
       body: pages[selectedPage],
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (int index) {
-          setState(() {
-            selectedPage = index;
-          });
+        onTap: (int index) async {
+          if (index == 2) {
+            await showMenu(
+              context: context,
+              position: RelativeRect.fromLTRB(1000.0, 1000.0, 0.0, 0.0),
+              items: [
+                PopupMenuItem(
+                  child: GestureDetector(
+                    child: Container(
+                      child: Text("My store"),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        pages[2] = StoreDisplay(
+                          items: [
+                            new Store("Banana", 80, 25),
+                            new Store("Banana", 80, 25),
+                            new Store("Banana", 80, 25),
+                          ],
+                        );
+                        selectedPage = 2;
+                      });
+                    },
+                  ),
+                ),
+                PopupMenuItem(
+                  child: GestureDetector(
+                    child: Text("Suggestions"),
+                    onTap: () {
+                      setState(() {
+                        pages[2] = Suggestions();
+                        selectedPage = 2;
+                      });
+                    },
+                  ),
+                ),
+                PopupMenuItem(
+                  child: GestureDetector(
+                    child: Text("Trending"),
+                    onTap: () {
+                      setState(() {
+                        pages[2] = TrendingScreen();
+                        selectedPage = 2;
+                      });
+                    },
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Text("Coalition"),
+                ),
+              ],
+              elevation: 8.0,
+            );
+          } else {
+            setState(() {
+              selectedPage = index;
+            });
+          }
         },
         currentIndex: selectedPage,
         selectedItemColor: Colors.green,
