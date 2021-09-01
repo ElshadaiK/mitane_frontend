@@ -46,25 +46,6 @@ class _AppWidgetState extends State<AppWidget2> {
               items: [
                 PopupMenuItem(
                   child: GestureDetector(
-                    child: Container(
-                      child: Text("My store"),
-                    ),
-                    onTap: () {
-                      setState(() {
-                        pages[2] = StoreDisplay(
-                          items: [
-                            new Store("Banana", 80, 25),
-                            new Store("Banana", 80, 25),
-                            new Store("Banana", 80, 25),
-                          ],
-                        );
-                        selectedPage = 2;
-                      });
-                    },
-                  ),
-                ),
-                PopupMenuItem(
-                  child: GestureDetector(
                     child: Text("Trending"),
                     onTap: () {
                       setState(() {
@@ -73,20 +54,6 @@ class _AppWidgetState extends State<AppWidget2> {
                       });
                     },
                   ),
-                ),
-                PopupMenuItem(
-                  child: GestureDetector(
-                    child: Text("Suggestions"),
-                    onTap: () {
-                      setState(() {
-                        pages[2] = Suggestions();
-                        selectedPage = 2;
-                      });
-                    },
-                  ),
-                ),
-                PopupMenuItem(
-                  child: Text("Coalition"),
                 ),
               ],
               elevation: 8.0,
