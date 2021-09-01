@@ -91,7 +91,7 @@ Widget horizontalScrollList(BuildContext context) {
                     height: MediaQuery.of(context).size.width * 0.2,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("images/crop.jpg"),
+                          image: AssetImage("assets/crop.jpg"),
                           colorFilter: ColorFilter.mode(
                               Colors.black.withOpacity(1.0), BlendMode.dstATop),
                           fit: BoxFit.cover,
