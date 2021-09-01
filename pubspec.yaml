@@ -25,7 +25,6 @@ dependencies:
   date_time_picker: ^2.1.0
   flutter:
     sdk: flutter
-  flutter_zoom_drawer: ^2.1.1
   font_awesome_flutter: ^9.1.0
   get_it: ^7.2.0
   vertical_card_pager: ^1.5.0
