@@ -7,6 +7,7 @@ import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
 import 'package:mitane_frontend/priceHub/priceHub.dart';
+import 'package:mitane_frontend/trending/screens/trending_screen.dart';
 
 class AppWidget2 extends StatefulWidget {
   @override
@@ -46,7 +47,7 @@ class _AppWidgetState extends State<AppWidget2> {
                 PopupMenuItem(
                   child: GestureDetector(
                     child: Container(
-                      child: Text("Services"),
+                      child: Text("My store"),
                     ),
                     onTap: () {
                       setState(() {
@@ -57,6 +58,17 @@ class _AppWidgetState extends State<AppWidget2> {
                             new Store("Banana", 80, 25),
                           ],
                         );
+                        selectedPage = 2;
+                      });
+                    },
+                  ),
+                ),
+                PopupMenuItem(
+                  child: GestureDetector(
+                    child: Text("Trending"),
+                    onTap: () {
+                      setState(() {
+                        pages[2] = TrendingScreen();
                         selectedPage = 2;
                       });
                     },
