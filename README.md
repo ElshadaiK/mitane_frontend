@@ -1,14 +1,5 @@
 # mintane_frontend
 This is a farming digitization flutter app. It serves as pricehub and markethub for users (farmers, traders, farming accessories' traders/renters)
-
-# installation: 
-    
-        cd src && npm install
-        
-# starting the server: 
-        
-        nodemon start
-        go to http://localhost:3000/api-docs#/
         
 # Group members:
         Dagmawit Getachew - ATR/3566/11 - Section 1
