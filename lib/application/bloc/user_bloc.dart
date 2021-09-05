@@ -6,7 +6,7 @@ import 'package:mitane_frontend/application/states/auth_state.dart';
 import 'package:mitane_frontend/domain/validation/auth/invalid_validation.dart';
 import 'package:mitane_frontend/domain/validation/auth/password_validation.dart';
 import 'package:mitane_frontend/domain/validation/auth/phone_validation.dart';
-import 'package:mitane_frontend/infrastucture/repository/auth_repository.dart';
+import 'package:mitane_frontend/infrastructure/repository/auth_repository.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository authRepository;
