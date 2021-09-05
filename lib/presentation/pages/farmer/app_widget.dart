@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:mitane_frontend/models/store-model.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
+import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
-import 'package:mitane_frontend/priceHub/priceHub.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
 import 'package:mitane_frontend/trending/screens/trending_screen.dart';
 

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mitane_frontend/agri_inputs/inputs.dart';
-import 'package:mitane_frontend/machinery/screens/machinery_screen.dart';
+import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/ingredient_page.dart';
+import 'package:mitane_frontend/presentation/pages/agri_product/screens/product_display_screen.dart';
 import 'package:mitane_frontend/presentation/pages/common/splash/splash.dart';
 import 'package:mitane_frontend/presentation/pages/common/welcome.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/app_widget.dart';
+import 'package:mitane_frontend/presentation/pages/machinery/screens/machinery_screen.dart';
+import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
-import 'package:mitane_frontend/priceHub/screens/price_hub_screen.dart';
-import 'package:mitane_frontend/agri_product/screens/product_display_screen.dart';
-import 'package:mitane_frontend/agri_product/screens/create_product_screen.dart';
+
 
 
 class RouteGenerator {
