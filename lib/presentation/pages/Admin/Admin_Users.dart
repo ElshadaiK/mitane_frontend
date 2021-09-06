@@ -7,6 +7,8 @@ import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dar
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_edit_screen.dart';
 
+import 'Admin_Users_Add.dart';
+
 class AdminUsers extends StatefulWidget {
 
   final List<User> items;
@@ -140,10 +142,10 @@ class _AdminUsersState extends State<AdminUsers> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          // await Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => StoreAdd()),
-          // );
+          await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AdminUserAdd()),
+          );
         },        
         child: const Icon(Icons.add, color: Colors.green,),
         backgroundColor: Colors.white,
