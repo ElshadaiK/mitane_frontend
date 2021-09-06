@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
 
 class AdminUserAdd extends StatefulWidget {
   static const String routeName = '/addstore';
@@ -39,7 +40,7 @@ class _AdminUserAddState extends State<AdminUserAdd> {
         iconTheme: IconThemeData(color: Colors.black),
         leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pushNamed('/');
+              Navigator.of(context).pushNamed('/adminusers');
             },
             icon: Icon(Icons.arrow_back)),
       ),
@@ -84,20 +85,7 @@ class _AdminUserAddState extends State<AdminUserAdd> {
                     height: 30.0,
                   ),
                   Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text('Add to Store'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Color(0xFF8CC63E),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 40, vertical: 20),
-                          textStyle: TextStyle(fontSize: 20),
-                          shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0),
-                          ),
-                        ))
+                    MitaneButton(onPressed: () => { Navigator.pop(context) }, title: "Add User", )
                   ])
                 ],
               ))
