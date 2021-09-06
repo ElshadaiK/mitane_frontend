@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mitane_frontend/models/store-model.dart';
+import 'package:mitane_frontend/domain/entity/user_model.dart';
+import 'package:mitane_frontend/presentation/pages/Admin/Admin_Users.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
-import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
 import 'package:mitane_frontend/trending/screens/trending_screen.dart';
@@ -225,7 +225,10 @@ class _AdminHomeState extends State<AdminHome> {
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
-                        // Navigator.of(context).pushNamed('/machinery');
+                         Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AdminUsers(items: [User(name: "Named", token: "", phone: "+25100000000000", role: "Farmer", password: "")])),
+                        );
                       },
                       child: Card(
                           color: Color(0xDD8CC63E),
