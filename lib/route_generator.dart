@@ -6,6 +6,7 @@ import 'package:mitane_frontend/presentation/pages/common/welcome.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/app_widget.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/machinery_screen.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
+import 'package:mitane_frontend/presentation/pages/sign_in/Login_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
 
 
@@ -19,6 +20,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => AppWidget());
       case '/splash':
         return MaterialPageRoute(builder: (_) => Splash());
+      case '/Login':
+        return MaterialPageRoute(builder: (_) => LogIn());
       case '/welcome':
         return MaterialPageRoute(builder: (_) => WelcomePage());
       case '/login':
