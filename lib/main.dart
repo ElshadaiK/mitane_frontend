@@ -16,7 +16,7 @@ void main() => runApp(MultiRepositoryProvider(
     providers: [BlocProvider(create: (ctx)=>AuthBloc(authRepository: ctx.read<AuthRepository>()))],
     child:   MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/adminhome',
+      initialRoute: '/splash',
       onGenerateRoute: RouteGenerator.generateRoute,
     ),
   ),
