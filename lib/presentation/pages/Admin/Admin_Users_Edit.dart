@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
 
-class AdminUserAdd extends StatefulWidget {
-  static const String routeName = '/adduser';
+class AdminUserEdit extends StatefulWidget {
+  static const String routeName = '/edituser';
   static const List<String> role = [
     "Farmer",
     "User",
@@ -13,10 +13,10 @@ class AdminUserAdd extends StatefulWidget {
 
 
   @override
-  _AdminUserAddState createState() => _AdminUserAddState();
+  _AdminUserEditState createState() => _AdminUserEditState();
 }
 
-class _AdminUserAddState extends State<AdminUserAdd> {
+class _AdminUserEditState extends State<AdminUserEdit> {
   String? selectedrole = "";
 
   String? get() => selectedrole;
@@ -51,12 +51,13 @@ class _AdminUserAddState extends State<AdminUserAdd> {
           SizedBox(
             height: 15,
           ),
-          component(context, "Role", AdminUserAdd.role, selectedrole),
+          component(context, "Role", AdminUserEdit.role, selectedrole),
           Container(
               margin: EdgeInsets.all(40),
               child: Column(
                 children: [
                   TextFormField(
+                    initialValue: "Named",
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
                       labelText: "User Name",
@@ -67,6 +68,7 @@ class _AdminUserAddState extends State<AdminUserAdd> {
                     height: 40.0,
                   ),
                   TextFormField(
+                    initialValue: "+251900000000",
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
                         labelText: "Phone No",
@@ -76,6 +78,7 @@ class _AdminUserAddState extends State<AdminUserAdd> {
                     height: 40.0,
                   ),
                   TextFormField(
+                    initialValue: "********",
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
                         labelText: "Password",
@@ -85,7 +88,7 @@ class _AdminUserAddState extends State<AdminUserAdd> {
                     height: 30.0,
                   ),
                   Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                    MitaneButton(onPressed: () => { Navigator.pop(context) }, title: "Add User", )
+                    MitaneButton(onPressed: () => { Navigator.pop(context) }, title: "Edit User Profile", )
                   ])
                 ],
               ))
