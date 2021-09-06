@@ -7,6 +7,7 @@ import 'package:mitane_frontend/presentation/pages/agri_product/screens/product_
 import 'package:mitane_frontend/presentation/pages/common/splash/splash.dart';
 import 'package:mitane_frontend/presentation/pages/common/welcome.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/app_widget.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/store_edit_screen.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/machinery_screen.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
@@ -42,6 +43,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => AdminHome());
       case '/adminusers':
         return MaterialPageRoute(builder: (_) => AdminUsers(items: [User(name: "Named", token: "", phone: "+25100000000000", role: "Farmer", password: "")]));
+      case '/editstore':
+        return MaterialPageRoute(builder: (_) => StoreEdit());
       default:
         return MaterialPageRoute(builder: (_) => ProductScreen());
     }
