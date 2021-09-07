@@ -128,7 +128,7 @@ Widget verticalScrollList(BuildContext context) {
               child: CustomTile(
                 product: "Tractor",
                 quantity: "10",
-                price: "300000",
+                price: "300",
                 category: "vechile",
               ),
             ),

@@ -21,19 +21,10 @@ class _TrendingScreenState extends State<TrendingScreen> {
           appBar: AppBar(
             backgroundColor: Colors.white,
             iconTheme: IconThemeData(color: Colors.black),
-            title: Container(
-              height: 35.0,
-              child: TextField(
-                showCursor: false,
-                textAlignVertical: TextAlignVertical.bottom,
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.0)
-                      ),
-                    ),
-              ),
-            ),
+            title: Text(
+          "Trending Products",
+          style: TextStyle(color: Colors.black),
+        ),
           ),
           drawer: NavDrawer(),
           body: Stack(children: [
@@ -55,14 +46,14 @@ class _TrendingScreenState extends State<TrendingScreen> {
             ),
             Positioned(
               child: Container(
-                width: 40,
-                height: 40,
+                width: 400,
+                height: 200,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage("assets/images/trending.png"))),
               ),
               bottom: -15,
-              left: 20,
+              left: -20,
             ),
             SingleChildScrollView(
               child: Container(
@@ -86,7 +77,7 @@ Widget verticalScrollList(BuildContext context) {
     child: Container(
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: ListView.builder(
-        itemCount: 20,
+        itemCount: 3,
         itemBuilder: (BuildContext context, int itemCount) {
           return GestureDetector(
             onTap: () => Navigator.of(context).pushNamed("/productDetail"),
@@ -96,7 +87,7 @@ Widget verticalScrollList(BuildContext context) {
               child: CustomTile(
                 product: "Tractor",
                 quantity: "10",
-                price: "300000",
+                price: "1000",
                 category: "vechile",
               ),
             ),

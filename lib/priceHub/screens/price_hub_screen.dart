@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/models/price-model.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 
@@ -31,15 +32,31 @@ class _PriceHubState extends State<PriceHub> {
         iconTheme: IconThemeData(color: Colors.black),
       ),
       drawer: NavDrawer(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: ListView.builder(
-                itemCount: 20,
+      body: Stack(children: [
+            Positioned(
+              child: Bubble(
+                height: 160.0,
+                width: 160.0,
+              ),
+              top: -5,
+              left: -160,
+            ),
+            Positioned(
+              child: Bubble(
+                height: 250.0,
+                width: 250,
+              ),
+              top: 130,
+              left: 180,
+            ),
+            SingleChildScrollView(
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                child: ListView.builder(
+                itemCount: 8,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                     child: PriceCard(
                         product: "Product Name",
                         unit: "Kg",
@@ -47,9 +64,11 @@ class _PriceHubState extends State<PriceHub> {
                         prevDayPrice: 120),
                   );
                 }),
-          ),
-        ],
-      ),
+
+              ),
+            ),
+          ]),
+
     );
   }
 }
@@ -75,7 +94,7 @@ class PriceCard extends StatelessWidget {
         padding: EdgeInsets.only(left: 20, right: 50),
         decoration: BoxDecoration(
             border: Border(left: BorderSide(color: Colors.blue, width: 5))),
-        height: 100,
+        height: 80,
         width: MediaQuery.of(context).size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
