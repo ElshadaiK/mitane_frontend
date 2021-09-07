@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mitane_frontend/models/store-model.dart';
+import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
 
@@ -69,8 +70,8 @@ class _StoreEditState extends State<StoreEdit> {
           SizedBox(
             height: 15,
           ),
-          component(context, "Category", StoreEdit.category, selectedCategory),
-          component(context, "Item", StoreEdit.item, selectedItem),
+          DropDownComponent(context: context, title: "Category", values: StoreEdit.category, selected: selectedCategory),
+          DropDownComponent(context: context, title: "Item", values: StoreEdit.item, selected: selectedItem),
           Container(
               margin: EdgeInsets.all(40),
               child: Column(
@@ -123,47 +124,4 @@ class _StoreEditState extends State<StoreEdit> {
     );
   }
 
-  Widget component(BuildContext context, String title, List<String> values,
-      String? selected) {
-    return Container(
-      padding: const EdgeInsets.only(top: 8, bottom: 30),
-      margin: EdgeInsets.only(top: 10, bottom: 0.0, left: 40, right: 40),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            "$title",
-            style: TextStyle(fontSize: 25, fontFamily: "RobotMono"),
-          ),
-          Container(
-            width: (MediaQuery.of(context).size.width * 40) / 100,
-            padding: EdgeInsets.only(left: 15.0),
-            decoration: BoxDecoration(
-                color: Color(0xFF8CC63E),
-                borderRadius: BorderRadius.circular(20)),
-            child: DropdownButton(
-              menuMaxHeight: 5 * 48,
-              value: selected,
-              dropdownColor: Colors.white,
-              underline: Container(color: Colors.transparent),
-              items: values.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                    style: TextStyle(color: Colors.black45),
-                  ),
-                );
-              }).toList(),
-              onChanged: (String? newvalue) {
-                setState(() {
-                  selected = newvalue;
-                });
-              },
-            ),
-          )
-        ],
-      ),
-    );
-  }
 }
