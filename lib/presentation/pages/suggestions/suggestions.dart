@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
-import 'package:mitane_frontend/presentation/pages/custom_widgets/navbar.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/vertical_tiles.dart';
 
 class Suggestions extends StatelessWidget {

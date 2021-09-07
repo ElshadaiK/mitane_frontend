@@ -84,7 +84,7 @@ class _AdminUsersState extends State<AdminUsers> {
                         child: UserCard(
                             userName: curPrice.name,
                             phoneNo: curPrice.phone,
-                            role: curPrice.role
+                            role: curPrice.roles[0]
                         ),
                         background: slideRightBackground(),
                         secondaryBackground: slideLeftBackground(),

@@ -6,19 +6,17 @@ class PhoneNumber {
   List<String> get props => [phoneNum];
 
   factory PhoneNumber(String phone) {
-    assert(phone != null);
 
     return PhoneNumber._(phoneNum: validatePhone(phone));
   }
 
   PhoneNumber._({required this.phoneNum});
 
-  static String validatePhone(String phone) {
-    if (phone.length == 10) {
-      return phone;
-    } else {
+  static validatePhone(String phone) {
+    if (phone.length != 10) {
       throw InvalidPhone(failedValue: "Phone nubmer length must be 10");
-    }
+      
+    } 
   }
 
   @override

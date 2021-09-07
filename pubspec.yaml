@@ -34,6 +34,8 @@ dependencies:
   http: ^0.13.3
   equatable: ^2.0.0
   flutter_bloc: ^7.2.0
+  flutter_secure_storage: ^4.2.1
+  dio: ^4.0.0
 
   
 dev_dependencies:

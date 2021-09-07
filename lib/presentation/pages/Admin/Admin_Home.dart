@@ -227,7 +227,7 @@ class _AdminHomeState extends State<AdminHome> {
                       onTap: () {
                          Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AdminUsers(items: [User(name: "Named", token: "", phone: "+25100000000000", role: "Farmer", password: "")])),
+                          MaterialPageRoute(builder: (context) => AdminUsers(items: [User(name: "Named", token: "", phone: "+25100000000000", roles: ["Farmer"], password: "")])),
                         );
                       },
                       child: Card(

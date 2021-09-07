@@ -4,7 +4,6 @@ class Password{
   final String password;
 
   factory Password(String password) {
-    assert(password != null);
     return Password._(password: validatePassword(password));
   }
 

@@ -5,12 +5,12 @@ abstract class AuthEvent{
   AuthEvent({required this.props});
 }
 
-class LogginEvent extends AuthEvent{
+class LoginEvent extends AuthEvent{
   final Login login;
 
   Login get props => login;
 
-  LogginEvent({required this.login}):super(props: login);
+  LoginEvent({required this.login}):super(props: login);
 }
 
 class LogoutEvent extends AuthEvent{
@@ -20,10 +20,9 @@ class LogoutEvent extends AuthEvent{
 }
 
 class RegisterEvent extends AuthEvent{
-  final String name;
-  final String phone;
-  final String password;
+  final Register register;
+  Register get props=> register;
 
-  RegisterEvent({required this.name,required this.phone ,required this.password}):super(props: "");
+  RegisterEvent({required this.register }):super(props: "");
 }
 
