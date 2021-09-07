@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mitane_frontend/domain/entity/user_model.dart';
 import 'package:mitane_frontend/presentation/pages/Admin/Admin_Home.dart';
+import 'package:mitane_frontend/presentation/pages/Admin/Admin_Users.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/ingredient_page.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/product_display_screen.dart';
 import 'package:mitane_frontend/presentation/pages/common/splash/splash.dart';
@@ -41,6 +43,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Suggestions());
       case '/adminhome':
         return MaterialPageRoute(builder: (_) => AdminHome());
+      case '/adminusers':
+        return MaterialPageRoute(builder: (_) => AdminUsers(items: [User(name: "Named", token: "", phone: "+25100000000000", role: "Farmer", password: "")]));
       default:
         return MaterialPageRoute(builder: (_) => ProductScreen());
     }
