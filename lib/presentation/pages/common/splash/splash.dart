@@ -1,9 +1,23 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/common/welcome.dart';
 
-class Splash extends StatelessWidget {
+class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
+
+  @override
+  _SplashState createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), (){Navigator.of(context).pushNamed('/welcome');});
+  }
 
   @override
   Widget build(BuildContext context) {

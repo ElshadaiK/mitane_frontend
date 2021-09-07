@@ -27,7 +27,7 @@ class _Dashboard extends State {
             Padding(
               padding: const EdgeInsets.only(bottom: 30.0),
               child: Card(
-                color: Colors.green[200],
+                color: Colors.white30,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0)),
                 child: Container(
@@ -58,14 +58,14 @@ class _Dashboard extends State {
                                   children: [
                                     FaIcon(
                                       FontAwesomeIcons.cloud,
-                                      color: Colors.white,
-                                      size: 35,
+                                      color: Colors.green[100],
+                                      size: 30,
                                     ),
                                     Column(
                                       children: [
                                         Text('Cloud',
                                             style: TextStyle(
-                                                fontSize: 18.0,
+                                                fontSize: 15.0,
                                                 fontWeight: FontWeight.bold)),
                                         Text('25' + " \u2103")
                                       ],
@@ -91,14 +91,14 @@ class _Dashboard extends State {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    width: 160.0,
+                    width: 150.0,
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.of(context).pushNamed('/inputs');
+                        Navigator.of(context).pushNamed('/product');
                       },
                       child: Card(
-                          color: Colors.green[300],
+                          color: Color(0xDD8CC63E),
                           elevation: 2.0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0)),
@@ -107,12 +107,12 @@ class _Dashboard extends State {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 FaIcon(
-                                  FontAwesomeIcons.home,
+                                  FontAwesomeIcons.spa,
                                   color: Colors.white,
-                                  size: 50,
+                                  size: 80,
                                 ),
                                 Text(
-                                  "Agricultural Inputs",
+                                  "Agricultural Products",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.white,
@@ -125,14 +125,14 @@ class _Dashboard extends State {
                     ),
                   ),
                   SizedBox(
-                    width: 160.0,
+                    width: 150.0,
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.of(context).pushNamed('/product');
+                        Navigator.of(context).pushNamed('/inputs');
                       },
                       child: Card(
-                          color: Colors.green[300],
+                          color: Color(0xDD8CC63E),
                           elevation: 2.0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0)),
@@ -141,12 +141,12 @@ class _Dashboard extends State {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 FaIcon(
-                                  FontAwesomeIcons.home,
+                                  FontAwesomeIcons.handsHelping,
                                   color: Colors.white,
-                                  size: 50,
+                                  size: 80,
                                 ),
                                 Text(
-                                  "Agricultural Product",
+                                  "Agricultural Inputs",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Colors.white,
@@ -165,14 +165,14 @@ class _Dashboard extends State {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    width: 160.0,
+                    width: 150.0,
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
                         Navigator.of(context).pushNamed('/machinery');
                       },
                       child: Card(
-                          color: Colors.green[300],
+                          color: Color(0xDD8CC63E),
                           elevation: 2.0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0)),
@@ -181,9 +181,9 @@ class _Dashboard extends State {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
                                 FaIcon(
-                                  FontAwesomeIcons.home,
+                                  FontAwesomeIcons.cogs,
                                   color: Colors.white,
-                                  size: 50,
+                                  size: 80,
                                 ),
                                 Text(
                                   "Machinery",
