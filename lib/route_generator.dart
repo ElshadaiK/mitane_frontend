@@ -12,8 +12,10 @@ import 'package:mitane_frontend/presentation/pages/machinery/screens/machinery_s
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/sign_in/Login_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
-
-
+import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_data_encoder_screen.dart';
+import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_edit.dart';
+import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_add_screen.dart';
+import 'package:mitane_frontend/presentation/pages/Data_encoder/data_encoder_home.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -45,9 +47,23 @@ class RouteGenerator {
       case '/adminhome':
         return MaterialPageRoute(builder: (_) => AdminHome());
       case '/adminusers':
-        return MaterialPageRoute(builder: (_) => AdminUsers(items: [User(name: "Named", token: "", phone: "+25100000000000", role: "Farmer", password: "")]));
+        return MaterialPageRoute(
+            builder: (_) => AdminUsers(items: [
+                  User(
+                      name: "Named",
+                      token: "",
+                      phone: "+25100000000000",
+                      role: "Farmer",
+                      password: "")
+                ]));
       case '/editstore':
         return MaterialPageRoute(builder: (_) => StoreEdit());
+      case '/editPrice':
+        return MaterialPageRoute(builder: (_) => PriceHubEdit());
+      case '/addPrice':
+        return MaterialPageRoute(builder: (_) => PriceHubAdd());
+      case '/priceHub':
+        return MaterialPageRoute(builder: (_) => PriceHubDisplay());
       default:
         return MaterialPageRoute(builder: (_) => ProductScreen());
     }
