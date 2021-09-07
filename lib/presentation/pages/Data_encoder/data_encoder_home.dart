@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/appBar.dart';
-import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
-import 'package:mitane_frontend/presentation/pages/common/with_search_bar.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -18,10 +17,10 @@ class _Dashboard extends State {
     return Scaffold(
       appBar: AppBarWidget(),
       drawer: NavDrawer(),
-      body: SingleChildScrollView(
+      body: Container(
         padding:
             EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05),
-        // margin: EdgeInsets.symmetric(horizontal: 30),
+        margin: EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           children: [
             Padding(
