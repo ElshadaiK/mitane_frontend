@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/user/app_widget.dart';
+import 'package:mitane_frontend/presentation/pages/Data_encoder/app_widget.dart';
 
 class UserSignUp2 extends StatelessWidget {
   const UserSignUp2({Key? key}) : super(key: key);
@@ -122,6 +123,39 @@ class UserSignUp2 extends StatelessWidget {
             top: 450,
             left: 90,
           ),
+           Positioned(
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AppWidget3()),
+                );
+              },
+              child: Container(
+                height: 46,
+                width: 174,
+                child: Align(
+                  child: Text(
+                    "Data encoder",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(28),
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0x8CC63E).withOpacity(1),
+                        Color(0x709E2F).withOpacity(1),
+                      ]),
+                ),
+              ),
+            ),
+            top: 550,
+            left: 90,
+          ),
+
         ],
       ),
     );

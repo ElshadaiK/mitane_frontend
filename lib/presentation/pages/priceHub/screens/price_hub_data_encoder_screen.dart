@@ -9,7 +9,7 @@ import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_add_screen.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_edit.dart';
 class PriceHubDisplay extends StatefulWidget {
-  static const String routeName = '/priceHub';
+  static const String routeName = '/priceHubDE';
   final List<Price> items;
 
   const PriceHubDisplay({required this.items});

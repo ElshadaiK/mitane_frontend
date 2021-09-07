@@ -16,6 +16,8 @@ import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_da
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_edit.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_add_screen.dart';
 import 'package:mitane_frontend/presentation/pages/Data_encoder/data_encoder_home.dart';
+import 'package:mitane_frontend/presentation/pages/Data_encoder/app_widget.dart';
+import 'package:mitane_frontend/models/price-model.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -62,8 +64,15 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => PriceHubEdit());
       case '/addPrice':
         return MaterialPageRoute(builder: (_) => PriceHubAdd());
-      case '/priceHub':
-        return MaterialPageRoute(builder: (_) => PriceHubDisplay());
+      case '/priceHubDE':
+        return MaterialPageRoute(builder: (_) => PriceHubDisplay(
+                items: [
+                  
+              new Price("Banana", 'kg', 25, 30),
+              new Price("Banana", 'kg', 25, 30),
+              new Price("Banana", 'kg', 25, 30),
+            ],
+        ));
       default:
         return MaterialPageRoute(builder: (_) => ProductScreen());
     }
