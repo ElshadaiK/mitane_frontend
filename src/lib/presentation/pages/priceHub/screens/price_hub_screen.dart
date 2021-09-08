@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mitane_frontend/models/price-model.dart';
+import 'package:mitane_frontend/application/bloc/price_bloc.dart';
+import 'package:mitane_frontend/application/events/price_event.dart';
+import 'package:mitane_frontend/application/states/price_state.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 
 class PriceHub extends StatefulWidget {
@@ -33,42 +35,57 @@ class _PriceHubState extends State<PriceHub> {
       ),
       drawer: NavDrawer(),
       body: Stack(children: [
-            Positioned(
-              child: Bubble(
-                height: 160.0,
-                width: 160.0,
-              ),
-              top: -5,
-              left: -160,
-            ),
-            Positioned(
-              child: Bubble(
-                height: 250.0,
-                width: 250,
-              ),
-              top: 130,
-              left: 180,
-            ),
-            SingleChildScrollView(
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                child: ListView.builder(
-                itemCount: 8,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                    child: PriceCard(
-                        product: "Product Name",
-                        unit: "Kg",
-                        todayPrice: 124,
-                        prevDayPrice: 120),
-                  );
-                }),
+        Positioned(
+          child: Bubble(
+            height: 160.0,
+            width: 160.0,
+          ),
+          top: -5,
+          left: -160,
+        ),
+        Positioned(
+          child: Bubble(
+            height: 250.0,
+            width: 250,
+          ),
+          top: 130,
+          left: 180,
+        ),
+        SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            child:
+                BlocBuilder<PriceBloc, PriceState>(builder: (context, state) {
+              print(state);
+              if (state is PriceFetching) {
+                return CircularProgressIndicator();
+              }
+              if (state is PriceFetched) {
+                return ListView.builder(
+                    itemCount: state.priceDaily.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final price = state.priceDaily[index];
 
-              ),
-            ),
-          ]),
-
+                      return Container(
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                        child: PriceCard(
+                            product: price.product['name'],
+                            unit: "Kg",
+                            todayPrice: int.parse(price.price[0]['price']),
+                            prevDayPrice: 120),
+                      );
+                    });
+              }
+              return Center(
+                  child: Text(
+                "No result",
+                style: TextStyle(fontSize: 30),
+              ));
+            }),
+          ),
+        ),
+      ]),
     );
   }
 }
@@ -118,24 +135,8 @@ class PriceCard extends StatelessWidget {
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      FaIcon(
-                        FontAwesomeIcons.projectDiagram,
-                        size: 16,
-                        color: Colors.red,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Text(
-                          "$prevDayPrice birr",
-                          style: TextStyle(fontSize: 16.0),
-                        ),
-                      ),
-                    ]),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

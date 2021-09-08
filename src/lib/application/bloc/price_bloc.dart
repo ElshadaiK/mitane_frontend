@@ -13,14 +13,19 @@ class PriceBloc extends Bloc<PriceEvent, PriceState> {
   Stream<PriceState> mapEventToState(PriceEvent event) async* {
     if (event is PriceFetch) {
       DateTime date = DateTime.now();
-      List<dynamic> price = await priceRepository.getPrice(date);
+      try {
+        final price = await priceRepository.getPrice(date);
       if (price is List<dynamic>) {
-        yield PriceFetched(priceDaily: price);
+        if(price[0] is PriceDaily)
+          yield PriceFetched(priceDaily: price);
+        else
+          yield PriceFetchFailed();
+      } 
+      } catch (e) {
+        yield PriceFetchFailed();
       }
-      yield PriceFetchFailed();
     } else if (event is PriceCreate) {
     } else if (event is PriceUpdate) {
     } else if (event is PriceDelete) {}
-    throw Exception("Event not found");
   }
 }
