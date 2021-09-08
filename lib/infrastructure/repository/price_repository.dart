@@ -5,10 +5,23 @@ class PriceRepository {
   PriceProvider priceProvider = PriceProvider(dio: Dio());
   PriceRepository();
 
-  Future<dynamic> getPrice(DateTime date) async {
+  Future<List<dynamic>> getPrice(DateTime date) async {
     String year = date.year.toString();
-    String month = date.month.toString();
-    String day = date.day.toString();
-    return await priceProvider.getPrice('$year-0$month-06');
+    String month = '';
+    String day = '';
+
+    if (date.day < 10) {
+      day = '0' + date.day.toString();
+    }
+    if (date.month < 10) {
+      month = '0' + date.month.toString();
+    }
+
+    try {
+      final result = await priceProvider.getPrice('$year-$month-06');
+      return result;
+    } catch (e) {
+      throw Exception();
+    }
   }
 }

@@ -8,23 +8,22 @@ class PriceProvider {
 
   PriceProvider({required this.dio});
 
-  Future<dynamic> getPrice(String date) async {
+  Future<List<dynamic>> getPrice(String date) async {
     try {
-      
       Response response =
-          await dio.get("http://10.6.214.137:3000/price/$date");
+          await dio.get("http://localhost:3000/price/$date");
       if (response.statusCode == 200) {
-        final prices = response.data;
-        return prices['data']
+        if(response.data['count']==0) {return [EmptyPrice("No result")];}
+        final prices = response.data['data']
             .map((price) => PriceDaily(
                 price: price['price_of_the_day'], product: price['product']))
             .toList();
+        return prices;
       } else {
-        return [EmptyPrice()];
+       throw Exception();
       }
     } catch (e) {
-      print(e);
-      throw Exception("Error");
+      return [EmptyPrice("No result")];
     }
   }
 }
