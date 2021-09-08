@@ -6,20 +6,17 @@ import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
-import 'package:mitane_frontend/trending/screens/trending_screen.dart';
+import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
 
 class AdminHome extends StatefulWidget {
-  const AdminHome({ Key? key }) : super(key: key);
+  const AdminHome({Key? key}) : super(key: key);
 
   @override
   _AdminHomeState createState() => _AdminHomeState();
 }
 
 class _AdminHomeState extends State<AdminHome> {
-   List<Widget> pages = [
-    Home(),
-    PriceHub()
-  ];
+  List<Widget> pages = [Home(), PriceHub()];
   int selectedPage = 0;
   @override
   void initState() {
@@ -29,7 +26,7 @@ class _AdminHomeState extends State<AdminHome> {
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text(
           "Home",
@@ -219,15 +216,22 @@ class _AdminHomeState extends State<AdminHome> {
                           )),
                     ),
                   ),
-
                   SizedBox(
                     width: 150.0,
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
-                         Navigator.push(
+                        Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AdminUsers(items: [User(name: "Named", token: "", phone: "+25100000000000", roles: ["Farmer"], password: "")])),
+                          MaterialPageRoute(
+                              builder: (context) => AdminUsers(items: [
+                                    User(
+                                        name: "Named",
+                                        token: "",
+                                        phone: "+25100000000000",
+                                        roles: ["Farmer"],
+                                        password: "")
+                                  ])),
                         );
                       },
                       child: Card(
@@ -325,7 +329,6 @@ class _AdminHomeState extends State<AdminHome> {
         ],
         type: BottomNavigationBarType.fixed,
       ),
-    
     );
   }
 }

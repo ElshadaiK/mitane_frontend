@@ -7,7 +7,7 @@ import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
 
-import 'package:mitane_frontend/trending/screens/trending_screen.dart';
+import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
 
 class AppWidget2 extends StatefulWidget {
   @override
