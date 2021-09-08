@@ -18,7 +18,7 @@ class PriceRepository {
     }
 
     try {
-      final result = await priceProvider.getPrice('$year-$month-06');
+      final result = await priceProvider.getPrice('$year-$month-$day');
       return result;
     } catch (e) {
       throw Exception();
