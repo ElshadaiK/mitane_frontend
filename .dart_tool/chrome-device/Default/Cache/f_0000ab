@@ -1,0 +1,193 @@
+define(['dart_sdk', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/curves.dart', 'packages/supercharged_dart/supercharged_dart.dart'], (function load__packages__supercharged__supercharged_dart(dart_sdk, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__curves$46dart, packages__supercharged_dart__supercharged_dart$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const supercharged_dart = packages__supercharged_dart__supercharged_dart$46dart.supercharged_dart;
+  var supercharged = Object.create(dart.library);
+  var $startsWith = dartx.startsWith;
+  var $substring = dartx.substring;
+  var $toLowerCase = dartx.toLowerCase;
+  var $containsKey = dartx.containsKey;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    AnimationOfdouble: () => (T.AnimationOfdouble = dart.constFn(animation.Animation$(core.double)))(),
+    CurveN: () => (T.CurveN = dart.constFn(dart.nullable(curves.Curve)))(),
+    doubleAnddouble__ToAnimationOfdouble: () => (T.doubleAnddouble__ToAnimationOfdouble = dart.constFn(dart.fnType(T.AnimationOfdouble(), [core.double, core.double], {curve: T.CurveN()}, {})))(),
+    CurveToAnimationOfdouble: () => (T.CurveToAnimationOfdouble = dart.constFn(dart.fnType(T.AnimationOfdouble(), [curves.Curve])))(),
+    ColorToColorTween: () => (T.ColorToColorTween = dart.constFn(dart.fnType(tween.ColorTween, [ui.Color])))(),
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    doubleToTweenOfdouble: () => (T.doubleToTweenOfdouble = dart.constFn(dart.fnType(T.TweenOfdouble(), [core.double])))(),
+    intToIntTween: () => (T.intToIntTween = dart.constFn(dart.fnType(tween.IntTween, [core.int])))(),
+    TweenOfOffset: () => (T.TweenOfOffset = dart.constFn(tween.Tween$(ui.Offset)))(),
+    OffsetToTweenOfOffset: () => (T.OffsetToTweenOfOffset = dart.constFn(dart.fnType(T.TweenOfOffset(), [ui.Offset])))(),
+    RectToRectTween: () => (T.RectToRectTween = dart.constFn(dart.fnType(tween.RectTween, [ui.Rect])))(),
+    SizeToSizeTween: () => (T.SizeToSizeTween = dart.constFn(dart.fnType(tween.SizeTween, [ui.Size])))(),
+    VoidToColor: () => (T.VoidToColor = dart.constFn(dart.fnType(ui.Color, [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.constMap(core.String, core.String, ["aliceblue", "#f0f8ff", "antiquewhite", "#faebd7", "aqua", "#00ffff", "aquamarine", "#7fffd4", "azure", "#f0ffff", "beige", "#f5f5dc", "bisque", "#ffe4c4", "black", "#000000", "blanchedalmond", "#ffebcd", "blue", "#0000ff", "blueviolet", "#8a2be2", "brown", "#a52a2a", "burlywood", "#deb887", "cadetblue", "#5f9ea0", "chartreuse", "#7fff00", "chocolate", "#d2691e", "coral", "#ff7f50", "cornflowerblue", "#6495ed", "cornsilk", "#fff8dc", "crimson", "#dc143c", "cyan", "#00ffff", "darkblue", "#00008b", "darkcyan", "#008b8b", "darkgoldenrod", "#b8860b", "darkgray", "#a9a9a9", "darkgrey", "#a9a9a9", "darkgreen", "#006400", "darkkhaki", "#bdb76b", "darkmagenta", "#8b008b", "darkolivegreen", "#556b2f", "darkorange", "#ff8c00", "darkorchid", "#9932cc", "darkred", "#8b0000", "darksalmon", "#e9967a", "darkseagreen", "#8fbc8f", "darkslateblue", "#483d8b", "darkslategray", "#2f4f4f", "darkslategrey", "#2f4f4f", "darkturquoise", "#00ced1", "darkviolet", "#9400d3", "deeppink", "#ff1493", "deepskyblue", "#00bfff", "dimgray", "#696969", "dimgrey", "#696969", "dodgerblue", "#1e90ff", "firebrick", "#b22222", "floralwhite", "#fffaf0", "forestgreen", "#228b22", "fuchsia", "#ff00ff", "gainsboro", "#dcdcdc", "ghostwhite", "#f8f8ff", "gold", "#ffd700", "goldenrod", "#daa520", "gray", "#808080", "grey", "#808080", "green", "#008000", "greenyellow", "#adff2f", "honeydew", "#f0fff0", "hotpink", "#ff69b4", "indianred ", "#cd5c5c", "indigo ", "#4b0082", "ivory", "#fffff0", "khaki", "#f0e68c", "lavender", "#e6e6fa", "lavenderblush", "#fff0f5", "lawngreen", "#7cfc00", "lemonchiffon", "#fffacd", "lightblue", "#add8e6", "lightcoral", "#f08080", "lightcyan", "#e0ffff", "lightgoldenrodyellow", "#fafad2", "lightgray", "#d3d3d3", "lightgrey", "#d3d3d3", "lightgreen", "#90ee90", "lightpink", "#ffb6c1", "lightsalmon", "#ffa07a", "lightseagreen", "#20b2aa", "lightskyblue", "#87cefa", "lightslategray", "#778899", "lightslategrey", "#778899", "lightsteelblue", "#b0c4de", "lightyellow", "#ffffe0", "lime", "#00ff00", "limegreen", "#32cd32", "linen", "#faf0e6", "magenta", "#ff00ff", "maroon", "#800000", "mediumaquamarine", "#66cdaa", "mediumblue", "#0000cd", "mediumorchid", "#ba55d3", "mediumpurple", "#9370db", "mediumseagreen", "#3cb371", "mediumslateblue", "#7b68ee", "mediumspringgreen", "#00fa9a", "mediumturquoise", "#48d1cc", "mediumvioletred", "#c71585", "midnightblue", "#191970", "mintcream", "#f5fffa", "mistyrose", "#ffe4e1", "moccasin", "#ffe4b5", "navajowhite", "#ffdead", "navy", "#000080", "oldlace", "#fdf5e6", "olive", "#808000", "olivedrab", "#6b8e23", "orange", "#ffa500", "orangered", "#ff4500", "orchid", "#da70d6", "palegoldenrod", "#eee8aa", "palegreen", "#98fb98", "paleturquoise", "#afeeee", "palevioletred", "#db7093", "papayawhip", "#ffefd5", "peachpuff", "#ffdab9", "peru", "#cd853f", "pink", "#ffc0cb", "plum", "#dda0dd", "powderblue", "#b0e0e6", "purple", "#800080", "rebeccapurple", "#663399", "red", "#ff0000", "rosybrown", "#bc8f8f", "royalblue", "#4169e1", "saddlebrown", "#8b4513", "salmon", "#fa8072", "sandybrown", "#f4a460", "seagreen", "#2e8b57", "seashell", "#fff5ee", "sienna", "#a0522d", "silver", "#c0c0c0", "skyblue", "#87ceeb", "slateblue", "#6a5acd", "slategray", "#708090", "slategrey", "#708090", "snow", "#fffafa", "springgreen", "#00ff7f", "steelblue", "#4682b4", "tan", "#d2b48c", "teal", "#008080", "thistle", "#d8bfd8", "tomato", "#ff6347", "turquoise", "#40e0d0", "violet", "#ee82ee", "wheat", "#f5deb3", "white", "#ffffff", "whitesmoke", "#f5f5f5", "yellow", "#ffff00", "yellowgreen", "#9acd32"]);
+    }
+  }, false);
+  var C = [void 0];
+  var I = ["file:///C:/Users/Dagi's%20PC/Documents/3rd%20Year%202nd%20Semester/Flutter_STABLE/flutter/.pub-cache/hosted/pub.dartlang.org/supercharged-2.0.0/lib/animation/animation.dart"];
+  supercharged['AnimatableSCF|animatedBy'] = function AnimatableSCF$124animatedBy(T, $this, controller) {
+    return $this.animate(controller);
+  };
+  supercharged['AnimatableSCF|get#animatedBy'] = function AnimatableSCF$124get$35animatedBy(T, $this) {
+    return dart.fn(controller => supercharged['AnimatableSCF|animatedBy'](T, $this, controller), dart.fnType(animation.Animation$(T), [animation_controller.AnimationController]));
+  };
+  supercharged['AnimatableSCF|curved'] = function AnimatableSCF$124curved(T, $this, curve) {
+    return $this.chain(new tween.CurveTween.new({curve: curve}));
+  };
+  supercharged['AnimatableSCF|get#curved'] = function AnimatableSCF$124get$35curved(T, $this) {
+    return dart.fn(curve => supercharged['AnimatableSCF|curved'](T, $this, curve), dart.fnType(tween.Animatable$(T), [curves.Curve]));
+  };
+  supercharged['AnimationSCF|interval'] = function AnimationSCF$124interval($this, begin, end, opts) {
+    let t5;
+    let curve = opts && 'curve' in opts ? opts.curve : null;
+    if (!(begin >= 0 && end <= 1)) dart.assertFailed(null, I[0], 13, 12, "begin >= 0 && end <= 1");
+    return $this.drive(core.double, new tween.CurveTween.new({curve: new curves.Interval.new(begin, end, {curve: (t5 = curve, t5 == null ? curves.Curves.linear : t5)})}));
+  };
+  supercharged['AnimationSCF|get#interval'] = function AnimationSCF$124get$35interval($this) {
+    return dart.fn((begin, end, opts) => {
+      let curve = opts && 'curve' in opts ? opts.curve : null;
+      return supercharged['AnimationSCF|interval']($this, begin, end, {curve: curve});
+    }, T.doubleAnddouble__ToAnimationOfdouble());
+  };
+  supercharged['AnimationSCF|curve'] = function AnimationSCF$124curve($this, curve) {
+    return $this.drive(core.double, new tween.CurveTween.new({curve: curve}));
+  };
+  supercharged['AnimationSCF|get#curve'] = function AnimationSCF$124get$35curve($this) {
+    return dart.fn(curve => supercharged['AnimationSCF|curve']($this, curve), T.CurveToAnimationOfdouble());
+  };
+  supercharged['ColorSCF|tweenTo'] = function ColorSCF$124tweenTo($this, end) {
+    return new tween.ColorTween.new({begin: $this, end: end});
+  };
+  supercharged['ColorSCF|get#tweenTo'] = function ColorSCF$124get$35tweenTo($this) {
+    return dart.fn(end => supercharged['ColorSCF|tweenTo']($this, end), T.ColorToColorTween());
+  };
+  supercharged['DoubleSCF|tweenTo'] = function DoubleSCF$124tweenTo($this, end) {
+    return new (T.TweenOfdouble()).new({begin: $this, end: end});
+  };
+  supercharged['DoubleSCF|get#tweenTo'] = function DoubleSCF$124get$35tweenTo($this) {
+    return dart.fn(end => supercharged['DoubleSCF|tweenTo']($this, end), T.doubleToTweenOfdouble());
+  };
+  supercharged['IntSCF|tweenTo'] = function IntSCF$124tweenTo($this, end) {
+    return new tween.IntTween.new({begin: $this, end: end});
+  };
+  supercharged['IntSCF|get#tweenTo'] = function IntSCF$124get$35tweenTo($this) {
+    return dart.fn(end => supercharged['IntSCF|tweenTo']($this, end), T.intToIntTween());
+  };
+  supercharged['OffsetSCF|tweenTo'] = function OffsetSCF$124tweenTo($this, end) {
+    return new (T.TweenOfOffset()).new({begin: $this, end: end});
+  };
+  supercharged['OffsetSCF|get#tweenTo'] = function OffsetSCF$124get$35tweenTo($this) {
+    return dart.fn(end => supercharged['OffsetSCF|tweenTo']($this, end), T.OffsetToTweenOfOffset());
+  };
+  supercharged['RectSCF|tweenTo'] = function RectSCF$124tweenTo($this, end) {
+    return new tween.RectTween.new({begin: $this, end: end});
+  };
+  supercharged['RectSCF|get#tweenTo'] = function RectSCF$124get$35tweenTo($this) {
+    return dart.fn(end => supercharged['RectSCF|tweenTo']($this, end), T.RectToRectTween());
+  };
+  supercharged['SizeSCF|tweenTo'] = function SizeSCF$124tweenTo($this, end) {
+    return new tween.SizeTween.new({begin: $this, end: end});
+  };
+  supercharged['SizeSCF|get#tweenTo'] = function SizeSCF$124get$35tweenTo($this) {
+    return dart.fn(end => supercharged['SizeSCF|tweenTo']($this, end), T.SizeToSizeTween());
+  };
+  supercharged['StringSCF|toColor'] = function StringSCF$124toColor($this) {
+    if (supercharged['StringSCF|_isHtmlColorName']($this)) {
+      return supercharged['StringSCF|_getColorByHtmlColorName']($this);
+    }
+    try {
+      let color = supercharged['StringSCF|_removeLeadingHash']($this);
+      if (color.length === 6) {
+        return supercharged['StringSCF|_sixCharHexToColor'](color);
+      }
+      if (color.length === 3) {
+        return supercharged['StringSCF|_threeCharHexToColor'](color);
+      }
+      if (color.length === 8) {
+        return supercharged['StringSCF|_eightCharHexToColor'](color);
+      }
+      if (color.length === 4) {
+        return supercharged['StringSCF|_fourCharHexToColor'](color);
+      }
+    } catch (e) {
+      let error = dart.getThrown(e);
+      if (core.Object.is(error)) {
+      } else
+        throw e;
+    }
+    return new ui.Color.fromARGB(255, 0, 0, 0);
+  };
+  supercharged['StringSCF|get#toColor'] = function StringSCF$124get$35toColor($this) {
+    return dart.fn(() => supercharged['StringSCF|toColor']($this), T.VoidToColor());
+  };
+  supercharged['StringSCF|_removeLeadingHash'] = function StringSCF$124_removeLeadingHash(color) {
+    if (color[$startsWith]("#")) {
+      return color[$substring](1);
+    }
+    return color;
+  };
+  supercharged['StringSCF|_sixCharHexToColor'] = function StringSCF$124_sixCharHexToColor(color) {
+    let r = supercharged_dart['StringSC|toInt'](color[$substring](0, 2), {radix: 16});
+    let g = supercharged_dart['StringSC|toInt'](color[$substring](2, 4), {radix: 16});
+    let b = supercharged_dart['StringSC|toInt'](color[$substring](4, 6), {radix: 16});
+    return new ui.Color.fromARGB(255, dart.nullCheck(r), dart.nullCheck(g), dart.nullCheck(b));
+  };
+  supercharged['StringSCF|_threeCharHexToColor'] = function StringSCF$124_threeCharHexToColor(color) {
+    let r = supercharged_dart['StringSC|toInt'](supercharged_dart['StringSC|repeat'](color[$substring](0, 1), 2), {radix: 16});
+    let g = supercharged_dart['StringSC|toInt'](supercharged_dart['StringSC|repeat'](color[$substring](1, 2), 2), {radix: 16});
+    let b = supercharged_dart['StringSC|toInt'](supercharged_dart['StringSC|repeat'](color[$substring](2, 3), 2), {radix: 16});
+    return new ui.Color.fromARGB(255, dart.nullCheck(r), dart.nullCheck(g), dart.nullCheck(b));
+  };
+  supercharged['StringSCF|_eightCharHexToColor'] = function StringSCF$124_eightCharHexToColor(color) {
+    let r = supercharged_dart['StringSC|toInt'](color[$substring](0, 2), {radix: 16});
+    let g = supercharged_dart['StringSC|toInt'](color[$substring](2, 4), {radix: 16});
+    let b = supercharged_dart['StringSC|toInt'](color[$substring](4, 6), {radix: 16});
+    let a = supercharged_dart['StringSC|toInt'](color[$substring](6, 8), {radix: 16});
+    return new ui.Color.fromARGB(dart.nullCheck(a), dart.nullCheck(r), dart.nullCheck(g), dart.nullCheck(b));
+  };
+  supercharged['StringSCF|_fourCharHexToColor'] = function StringSCF$124_fourCharHexToColor(color) {
+    let r = supercharged_dart['StringSC|toInt'](supercharged_dart['StringSC|repeat'](color[$substring](0, 1), 2), {radix: 16});
+    let g = supercharged_dart['StringSC|toInt'](supercharged_dart['StringSC|repeat'](color[$substring](1, 2), 2), {radix: 16});
+    let b = supercharged_dart['StringSC|toInt'](supercharged_dart['StringSC|repeat'](color[$substring](2, 3), 2), {radix: 16});
+    let a = supercharged_dart['StringSC|toInt'](supercharged_dart['StringSC|repeat'](color[$substring](3, 4), 2), {radix: 16});
+    return new ui.Color.fromARGB(dart.nullCheck(a), dart.nullCheck(r), dart.nullCheck(g), dart.nullCheck(b));
+  };
+  supercharged['StringSCF|_isHtmlColorName'] = function StringSCF$124_isHtmlColorName(name) {
+    return supercharged._HTML_COLOR_NAMES[$containsKey](name[$toLowerCase]());
+  };
+  supercharged['StringSCF|_getColorByHtmlColorName'] = function StringSCF$124_getColorByHtmlColorName(name) {
+    return supercharged['StringSCF|toColor'](dart.nullCheck(supercharged._HTML_COLOR_NAMES[$_get](name[$toLowerCase]())));
+  };
+  dart.defineLazy(supercharged, {
+    /*supercharged._HTML_COLOR_NAMES*/get _HTML_COLOR_NAMES() {
+      return C[0] || CT.C0;
+    }
+  }, false);
+  dart.trackLibraries("packages/supercharged/supercharged.dart", {
+    "package:supercharged/supercharged.dart": supercharged
+  }, {
+    "package:supercharged/supercharged.dart": ["animatable/animatable.dart", "animation/animation.dart", "color/color.dart", "double/double.dart", "int/int.dart", "offset/offset.dart", "rect/rect.dart", "size/size.dart", "string/string.dart"]
+  }, '{"version":3,"sourceRoot":"","sources":["animatable/animatable.dart","animation/animation.dart","color/color.dart","double/double.dart","int/int.dart","offset/offset.dart","rect/rect.dart","size/size.dart","string/string.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../packages/supercharged/supercharged.dart.lib.js"}');
+  // Exports:
+  return {
+    supercharged: supercharged
+  };
+}));
+
+//# sourceMappingURL=supercharged.dart.lib.js.map

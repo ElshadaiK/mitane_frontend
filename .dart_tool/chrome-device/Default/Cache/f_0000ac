@@ -1,0 +1,842 @@
+define(['dart_sdk'], (function load__packages__supercharged_dart__supercharged_dart_dart(dart_sdk) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const math = dart_sdk.math;
+  const async = dart_sdk.async;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const convert = dart_sdk.convert;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  var supercharged_dart = Object.create(dart.library);
+  var $round = dartx.round;
+  var $toDouble = dartx.toDouble;
+  var $abs = dartx.abs;
+  var $sign = dartx.sign;
+  var $forEach = dartx.forEach;
+  var $compareTo = dartx.compareTo;
+  var $map = dartx.map;
+  var $fold = dartx.fold;
+  var $isEmpty = dartx.isEmpty;
+  var $length = dartx.length;
+  var $ceil = dartx.ceil;
+  var $skip = dartx.skip;
+  var $take = dartx.take;
+  var $toList = dartx.toList;
+  var $add = dartx.add;
+  var $reduce = dartx.reduce;
+  var $where = dartx.where;
+  var $iterator = dartx.iterator;
+  var $elementAt = dartx.elementAt;
+  var $firstWhere = dartx.firstWhere;
+  var $lastWhere = dartx.lastWhere;
+  var $containsKey = dartx.containsKey;
+  var $_set = dartx._set;
+  var $_get = dartx._get;
+  var $sort = dartx.sort;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $shuffle = dartx.shuffle;
+  var $first = dartx.first;
+  var $entries = dartx.entries;
+  var $reversed = dartx.reversed;
+  var $split = dartx.split;
+  var $allMatches = dartx.allMatches;
+  var $substring = dartx.substring;
+  dart._checkModuleNullSafetyMode(true);
+  var T$ = {
+    SyncIterableOfDateTime: () => (T$.SyncIterableOfDateTime = dart.constFn(_js_helper.SyncIterable$(core.DateTime)))(),
+    IterableOfDateTime: () => (T$.IterableOfDateTime = dart.constFn(core.Iterable$(core.DateTime)))(),
+    DateTime__ToIterableOfDateTime: () => (T$.DateTime__ToIterableOfDateTime = dart.constFn(dart.fnType(T$.IterableOfDateTime(), [core.DateTime], {by: core.Duration}, {})))(),
+    VoidToDuration: () => (T$.VoidToDuration = dart.constFn(dart.fnType(core.Duration, [])))(),
+    DateTimeAndDateTimeTobool: () => (T$.DateTimeAndDateTimeTobool = dart.constFn(dart.fnType(core.bool, [core.DateTime, core.DateTime])))(),
+    numAndnumTobool: () => (T$.numAndnumTobool = dart.constFn(dart.fnType(core.bool, [core.num, core.num])))(),
+    VoidToDateTime: () => (T$.VoidToDateTime = dart.constFn(dart.fnType(core.DateTime, [])))(),
+    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    IterableOfint: () => (T$.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
+    intToint: () => (T$.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
+    intToIterableOfint: () => (T$.intToIterableOfint = dart.constFn(dart.fnType(T$.IterableOfint(), [core.int])))(),
+    EmptyIterableOfint: () => (T$.EmptyIterableOfint = dart.constFn(_internal.EmptyIterable$(core.int)))(),
+    intTovoid: () => (T$.intTovoid = dart.constFn(dart.fnType(dart.void, [core.int])))(),
+    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    FnTovoid: () => (T$.FnTovoid = dart.constFn(dart.fnType(dart.void, [T$.VoidTovoid()])))(),
+    doubleTodouble: () => (T$.doubleTodouble = dart.constFn(dart.fnType(core.double, [core.double])))(),
+    VoidTodouble: () => (T$.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
+    doubleN: () => (T$.doubleN = dart.constFn(dart.nullable(core.double)))(),
+    VoidTodoubleN: () => (T$.VoidTodoubleN = dart.constFn(dart.fnType(T$.doubleN(), [])))(),
+    doubleAnddoubleToint: () => (T$.doubleAnddoubleToint = dart.constFn(dart.fnType(core.int, [core.double, core.double])))(),
+    VoidToint: () => (T$.VoidToint = dart.constFn(dart.fnType(core.int, [])))(),
+    intAndintToint: () => (T$.intAndintToint = dart.constFn(dart.fnType(core.int, [core.int, core.int])))(),
+    intN: () => (T$.intN = dart.constFn(dart.nullable(core.int)))(),
+    VoidTointN: () => (T$.VoidTointN = dart.constFn(dart.fnType(T$.intN(), [])))(),
+    doubleAndnumTodouble: () => (T$.doubleAndnumTodouble = dart.constFn(dart.fnType(core.double, [core.double, core.num])))(),
+    ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    RandomN: () => (T$.RandomN = dart.constFn(dart.nullable(math.Random)))(),
+    ObjectNToObjectN: () => (T$.ObjectNToObjectN = dart.constFn(dart.fnType(T$.ObjectN(), [T$.ObjectN()])))(),
+    ObjectNToNObjectN: () => (T$.ObjectNToNObjectN = dart.constFn(dart.nullable(T$.ObjectNToObjectN())))(),
+    __ToString: () => (T$.__ToString = dart.constFn(dart.fnType(core.String, [], {toEncodable: T$.ObjectNToNObjectN()}, {})))(),
+    int__ToString: () => (T$.int__ToString = dart.constFn(dart.fnType(core.String, [core.int], {separator: core.String}, {})))(),
+    VoidToArgumentError: () => (T$.VoidToArgumentError = dart.constFn(dart.fnType(core.ArgumentError, [])))(),
+    StringAndStringToString: () => (T$.StringAndStringToString = dart.constFn(dart.fnType(core.String, [core.String, core.String])))(),
+    ListOfString: () => (T$.ListOfString = dart.constFn(core.List$(core.String)))(),
+    VoidToListOfString: () => (T$.VoidToListOfString = dart.constFn(dart.fnType(T$.ListOfString(), [])))(),
+    ObjectNAndObjectNToObjectN: () => (T$.ObjectNAndObjectNToObjectN = dart.constFn(dart.fnType(T$.ObjectN(), [T$.ObjectN(), T$.ObjectN()])))(),
+    ObjectNAndObjectNToNObjectN: () => (T$.ObjectNAndObjectNToNObjectN = dart.constFn(dart.nullable(T$.ObjectNAndObjectNToObjectN())))(),
+    __Todynamic: () => (T$.__Todynamic = dart.constFn(dart.fnType(dart.dynamic, [], {reviver: T$.ObjectNAndObjectNToNObjectN()}, {})))(),
+    PatternToString: () => (T$.PatternToString = dart.constFn(dart.fnType(core.String, [core.Pattern])))(),
+    PatternAndPatternToString: () => (T$.PatternAndPatternToString = dart.constFn(dart.fnType(core.String, [core.Pattern, core.Pattern])))(),
+    __TointN: () => (T$.__TointN = dart.constFn(dart.fnType(T$.intN(), [], {radix: core.int}, {})))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 86400000000.0
+      });
+    }
+  }, false);
+  var C = [void 0];
+  var I = ["package:supercharged_dart/supercharged_dart.dart"];
+  supercharged_dart.Supercharged = class Supercharged extends core.Object {};
+  (supercharged_dart.Supercharged.new = function() {
+    ;
+  }).prototype = supercharged_dart.Supercharged.prototype;
+  dart.addTypeTests(supercharged_dart.Supercharged);
+  dart.addTypeCaches(supercharged_dart.Supercharged);
+  dart.setLibraryUri(supercharged_dart.Supercharged, I[0]);
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  supercharged_dart['DateTimeSC|+'] = function DateTimeSC$124$43($this, duration) {
+    return $this.add(duration);
+  };
+  supercharged_dart['DateTimeSC|-'] = function DateTimeSC$124$45($this, duration) {
+    return $this.subtract(duration);
+  };
+  supercharged_dart['DateTimeSC|rangeTo'] = function DateTimeSC$124rangeTo($this, to, opts) {
+    let by = opts && 'by' in opts ? opts.by : C[0] || CT.C0;
+    return new (T$.SyncIterableOfDateTime()).new(function* DateTimeSC$124rangeTo() {
+      yield $this;
+      if ($this.isAtSameMomentAs(to)) return;
+      if ($this.isBefore(to)) {
+        let value = supercharged_dart['DateTimeSC|+']($this, by);
+        yield value;
+        let count = 1;
+        while (value.isBefore(to)) {
+          value = supercharged_dart['DateTimeSC|+']($this, by['*'](count = count + 1));
+          yield value;
+        }
+      } else {
+        let value = supercharged_dart['DateTimeSC|-']($this, by);
+        yield value;
+        let count = 1;
+        while (value.isAfter(to)) {
+          value = supercharged_dart['DateTimeSC|-']($this, by['*'](count = count + 1));
+          yield value;
+        }
+      }
+    });
+  };
+  supercharged_dart['DateTimeSC|get#rangeTo'] = function DateTimeSC$124get$35rangeTo($this) {
+    return dart.fn((to, opts) => {
+      let by = opts && 'by' in opts ? opts.by : C[0] || CT.C0;
+      return supercharged_dart['DateTimeSC|rangeTo']($this, to, {by: by});
+    }, T$.DateTime__ToIterableOfDateTime());
+  };
+  supercharged_dart['DateTimeSC|until'] = function DateTimeSC$124until($this, to, opts) {
+    let by = opts && 'by' in opts ? opts.by : C[0] || CT.C0;
+    return new (T$.SyncIterableOfDateTime()).new(function* DateTimeSC$124until() {
+      for (let date of supercharged_dart['IterableSC|withoutLast'](core.DateTime, supercharged_dart['DateTimeSC|rangeTo']($this, to, {by: by}))) {
+        yield date;
+      }
+    });
+  };
+  supercharged_dart['DateTimeSC|get#until'] = function DateTimeSC$124get$35until($this) {
+    return dart.fn((to, opts) => {
+      let by = opts && 'by' in opts ? opts.by : C[0] || CT.C0;
+      return supercharged_dart['DateTimeSC|until']($this, to, {by: by});
+    }, T$.DateTime__ToIterableOfDateTime());
+  };
+  supercharged_dart['DateTimeSC|duration'] = function DateTimeSC$124duration($this) {
+    return new core.Duration.new({milliseconds: $this.millisecondsSinceEpoch});
+  };
+  supercharged_dart['DateTimeSC|get#duration'] = function DateTimeSC$124get$35duration($this) {
+    return dart.fn(() => supercharged_dart['DateTimeSC|duration']($this), T$.VoidToDuration());
+  };
+  supercharged_dart['DateTimeSC|isBetween'] = function DateTimeSC$124isBetween($this, from, to) {
+    return $this.isAfter(from) && $this.isBefore(to) || $this._equals(from) || $this._equals(to);
+  };
+  supercharged_dart['DateTimeSC|get#isBetween'] = function DateTimeSC$124get$35isBetween($this) {
+    return dart.fn((from, to) => supercharged_dart['DateTimeSC|isBetween']($this, from, to), T$.DateTimeAndDateTimeTobool());
+  };
+  supercharged_dart['DoubleSC|get#seconds'] = function DoubleSC$124get$35seconds($this) {
+    return new core.Duration.new({microseconds: (1000000 * $this)[$round]()});
+  };
+  supercharged_dart['DoubleSC|get#minutes'] = function DoubleSC$124get$35minutes($this) {
+    return new core.Duration.new({milliseconds: (1000 * 60 * $this)[$round]()});
+  };
+  supercharged_dart['DoubleSC|get#hours'] = function DoubleSC$124get$35hours($this) {
+    return new core.Duration.new({milliseconds: (1000 * 60 * 60 * $this)[$round]()});
+  };
+  supercharged_dart['DoubleSC|get#days'] = function DoubleSC$124get$35days($this) {
+    return new core.Duration.new({milliseconds: (1000 * 60 * 60 * 24 * $this)[$round]()});
+  };
+  supercharged_dart['DoubleSC|get#isBetween'] = function DoubleSC$124get$35isBetween($this) {
+    return dart.fn((first, second) => supercharged_dart['DoubleSC|isBetween']($this, first, second), T$.numAndnumTobool());
+  };
+  supercharged_dart['DoubleSC|isBetween'] = function DoubleSC$124isBetween($this, first, second) {
+    let lower = math.min(core.num, first, second);
+    let upper = math.max(core.num, first, second);
+    return $this >= lower && $this <= upper;
+  };
+  supercharged_dart['DurationSC|fromNow'] = function DurationSC$124fromNow($this) {
+    return supercharged_dart['DateTimeSC|+'](new core.DateTime.now(), $this);
+  };
+  supercharged_dart['DurationSC|get#fromNow'] = function DurationSC$124get$35fromNow($this) {
+    return dart.fn(() => supercharged_dart['DurationSC|fromNow']($this), T$.VoidToDateTime());
+  };
+  supercharged_dart['DurationSC|ago'] = function DurationSC$124ago($this) {
+    return supercharged_dart['DateTimeSC|-'](new core.DateTime.now(), $this);
+  };
+  supercharged_dart['DurationSC|get#ago'] = function DurationSC$124get$35ago($this) {
+    return dart.fn(() => supercharged_dart['DurationSC|ago']($this), T$.VoidToDateTime());
+  };
+  supercharged_dart['DurationSC|/'] = function DurationSC$124$47($this, otherDuration) {
+    return $this.inMicroseconds[$toDouble]() / otherDuration.inMicroseconds[$toDouble]();
+  };
+  supercharged_dart['DurationSC|get#delay'] = function DurationSC$124get$35delay($this) {
+    return T$.FutureOfvoid().delayed($this);
+  };
+  supercharged_dart.throwIf = function throwIf(test, errorFactoryFunc) {
+    return supercharged_dart.throwIfNot(!test, errorFactoryFunc);
+  };
+  supercharged_dart.throwIfNot = function throwIfNot(test, errorFactoryFunc) {
+    if (!test) {
+      dart.throw(errorFactoryFunc());
+    }
+  };
+  supercharged_dart['IntSC|rangeTo'] = function IntSC$124rangeTo($this, n) {
+    let count = (n - $this)[$abs]() + 1;
+    let direction = (n - $this)[$sign];
+    let i = $this - direction;
+    return T$.IterableOfint().generate(count, dart.fn(index => i = i + direction, T$.intToint()));
+  };
+  supercharged_dart['IntSC|get#rangeTo'] = function IntSC$124get$35rangeTo($this) {
+    return dart.fn(n => supercharged_dart['IntSC|rangeTo']($this, n), T$.intToIterableOfint());
+  };
+  supercharged_dart['IntSC|until'] = function IntSC$124until($this, n) {
+    if ($this < n) {
+      return supercharged_dart['IntSC|rangeTo']($this, n - 1);
+    } else if ($this > n) {
+      return supercharged_dart['IntSC|rangeTo']($this, n + 1);
+    } else {
+      return new (T$.EmptyIterableOfint()).new();
+    }
+  };
+  supercharged_dart['IntSC|get#until'] = function IntSC$124get$35until($this) {
+    return dart.fn(n => supercharged_dart['IntSC|until']($this, n), T$.intToIterableOfint());
+  };
+  supercharged_dart['IntSC|times'] = function IntSC$124times($this, action) {
+    supercharged_dart['IntSC|until'](0, $this)[$forEach](dart.fn(_ => action(), T$.intTovoid()));
+  };
+  supercharged_dart['IntSC|get#times'] = function IntSC$124get$35times($this) {
+    return dart.fn(action => supercharged_dart['IntSC|times']($this, action), T$.FnTovoid());
+  };
+  supercharged_dart['IntSC|get#microseconds'] = function IntSC$124get$35microseconds($this) {
+    return new core.Duration.new({microseconds: $this});
+  };
+  supercharged_dart['IntSC|get#milliseconds'] = function IntSC$124get$35milliseconds($this) {
+    return new core.Duration.new({milliseconds: $this});
+  };
+  supercharged_dart['IntSC|get#seconds'] = function IntSC$124get$35seconds($this) {
+    return new core.Duration.new({seconds: $this});
+  };
+  supercharged_dart['IntSC|get#minutes'] = function IntSC$124get$35minutes($this) {
+    return new core.Duration.new({minutes: $this});
+  };
+  supercharged_dart['IntSC|get#hours'] = function IntSC$124get$35hours($this) {
+    return new core.Duration.new({hours: $this});
+  };
+  supercharged_dart['IntSC|get#days'] = function IntSC$124get$35days($this) {
+    return new core.Duration.new({days: $this});
+  };
+  supercharged_dart['IntSC|isBetween'] = function IntSC$124isBetween($this, first, second) {
+    if (first <= second) {
+      return $this >= first && $this <= second;
+    } else {
+      return $this >= second && $this <= first;
+    }
+  };
+  supercharged_dart['IntSC|get#isBetween'] = function IntSC$124get$35isBetween($this) {
+    return dart.fn((first, second) => supercharged_dart['IntSC|isBetween']($this, first, second), T$.numAndnumTobool());
+  };
+  supercharged_dart['IterableOfDoubleSC|sumSC'] = function IterableOfDoubleSC$124sumSC($this) {
+    return supercharged_dart['IterableSC|sumByDouble'](core.double, $this, dart.fn(n => n, T$.doubleTodouble()));
+  };
+  supercharged_dart['IterableOfDoubleSC|get#sumSC'] = function IterableOfDoubleSC$124get$35sumSC($this) {
+    return dart.fn(() => supercharged_dart['IterableOfDoubleSC|sumSC']($this), T$.VoidTodouble());
+  };
+  supercharged_dart['IterableOfDoubleSC|averageSC'] = function IterableOfDoubleSC$124averageSC($this) {
+    return supercharged_dart['IterableSC|averageBy'](core.double, $this, dart.fn(n => n, T$.doubleTodouble()));
+  };
+  supercharged_dart['IterableOfDoubleSC|get#averageSC'] = function IterableOfDoubleSC$124get$35averageSC($this) {
+    return dart.fn(() => supercharged_dart['IterableOfDoubleSC|averageSC']($this), T$.VoidTodoubleN());
+  };
+  supercharged_dart['IterableOfDoubleSC|max'] = function IterableOfDoubleSC$124max($this) {
+    return supercharged_dart['IterableSC|maxBy'](core.double, $this, dart.fn((a, b) => a[$compareTo](b), T$.doubleAnddoubleToint()));
+  };
+  supercharged_dart['IterableOfDoubleSC|get#max'] = function IterableOfDoubleSC$124get$35max($this) {
+    return dart.fn(() => supercharged_dart['IterableOfDoubleSC|max']($this), T$.VoidTodoubleN());
+  };
+  supercharged_dart['IterableOfDoubleSC|min'] = function IterableOfDoubleSC$124min($this) {
+    return supercharged_dart['IterableSC|minBy'](core.double, $this, dart.fn((a, b) => a[$compareTo](b), T$.doubleAnddoubleToint()));
+  };
+  supercharged_dart['IterableOfDoubleSC|get#min'] = function IterableOfDoubleSC$124get$35min($this) {
+    return dart.fn(() => supercharged_dart['IterableOfDoubleSC|min']($this), T$.VoidTodoubleN());
+  };
+  supercharged_dart['IterableOfIntSC|get#sumSC'] = function IterableOfIntSC$124get$35sumSC($this) {
+    return dart.fn(() => supercharged_dart['IterableOfIntSC|sumSC']($this), T$.VoidToint());
+  };
+  supercharged_dart['IterableOfIntSC|sumSC'] = function IterableOfIntSC$124sumSC($this) {
+    return supercharged_dart['IterableSC|sumBy'](core.int, $this, dart.fn(n => n, T$.intToint()));
+  };
+  supercharged_dart['IterableOfIntSC|averageSC'] = function IterableOfIntSC$124averageSC($this) {
+    return supercharged_dart['IterableSC|averageBy'](core.int, $this, dart.fn(n => n, T$.intToint()));
+  };
+  supercharged_dart['IterableOfIntSC|get#averageSC'] = function IterableOfIntSC$124get$35averageSC($this) {
+    return dart.fn(() => supercharged_dart['IterableOfIntSC|averageSC']($this), T$.VoidTodoubleN());
+  };
+  supercharged_dart['IterableOfIntSC|max'] = function IterableOfIntSC$124max($this) {
+    return supercharged_dart['IterableSC|maxBy'](core.int, $this, dart.fn((a, b) => a[$compareTo](b), T$.intAndintToint()));
+  };
+  supercharged_dart['IterableOfIntSC|get#max'] = function IterableOfIntSC$124get$35max($this) {
+    return dart.fn(() => supercharged_dart['IterableOfIntSC|max']($this), T$.VoidTointN());
+  };
+  supercharged_dart['IterableOfIntSC|min'] = function IterableOfIntSC$124min($this) {
+    return supercharged_dart['IterableSC|minBy'](core.int, $this, dart.fn((a, b) => a[$compareTo](b), T$.intAndintToint()));
+  };
+  supercharged_dart['IterableOfIntSC|get#min'] = function IterableOfIntSC$124get$35min($this) {
+    return dart.fn(() => supercharged_dart['IterableOfIntSC|min']($this), T$.VoidTointN());
+  };
+  supercharged_dart['IterableOfMapEntrySC|toMap'] = function IterableOfMapEntrySC$124toMap(K, V, $this) {
+    return core.Map$(K, V).fromEntries($this);
+  };
+  supercharged_dart['IterableOfMapEntrySC|get#toMap'] = function IterableOfMapEntrySC$124get$35toMap(K, V, $this) {
+    return dart.fn(() => supercharged_dart['IterableOfMapEntrySC|toMap'](K, V, $this), dart.fnType(core.Map$(K, V), []));
+  };
+  supercharged_dart['IterableSC|sumBy'] = function IterableSC$124sumBy(T, $this, selector) {
+    return $this[$map](core.int, selector)[$fold](core.int, 0, dart.fn((prev, curr) => prev + curr, T$.intAndintToint()));
+  };
+  supercharged_dart['IterableSC|get#sumBy'] = function IterableSC$124get$35sumBy(T, $this) {
+    return dart.fn(selector => supercharged_dart['IterableSC|sumBy'](T, $this, selector), dart.fnType(core.int, [dart.fnType(core.int, [T])]));
+  };
+  supercharged_dart['IterableSC|sumByDouble'] = function IterableSC$124sumByDouble(T, $this, selector) {
+    return $this[$map](core.num, selector)[$fold](core.double, 0.0, dart.fn((prev, curr) => prev + curr, T$.doubleAndnumTodouble()));
+  };
+  supercharged_dart['IterableSC|get#sumByDouble'] = function IterableSC$124get$35sumByDouble(T, $this) {
+    return dart.fn(selector => supercharged_dart['IterableSC|sumByDouble'](T, $this, selector), dart.fnType(core.double, [dart.fnType(core.num, [T])]));
+  };
+  supercharged_dart['IterableSC|averageBy'] = function IterableSC$124averageBy(T, $this, selector) {
+    if ($this[$isEmpty]) {
+      return null;
+    }
+    return supercharged_dart['IterableSC|sumByDouble'](T, $this, selector) / $this[$length];
+  };
+  supercharged_dart['IterableSC|get#averageBy'] = function IterableSC$124get$35averageBy(T, $this) {
+    return dart.fn(selector => supercharged_dart['IterableSC|averageBy'](T, $this, selector), dart.fnType(T$.doubleN(), [dart.fnType(core.num, [T])]));
+  };
+  supercharged_dart['IterableSC|chunked'] = function IterableSC$124chunked(T, $this, size, opts) {
+    let fill = opts && 'fill' in opts ? opts.fill : null;
+    if (size <= 0) {
+      dart.throw(new core.ArgumentError.new("chunkSize must be positive integer greater than 0."));
+    }
+    if ($this[$isEmpty]) {
+      return new (_internal.EmptyIterable$(core.List$(T))).new();
+    }
+    let countOfChunks = ($this[$length] / size[$toDouble]())[$ceil]();
+    return core.Iterable$(core.List$(T)).generate(countOfChunks, dart.fn(index => {
+      let chunk = $this[$skip](index * size)[$take](size)[$toList]();
+      if (fill != null) {
+        while (chunk[$length] < size) {
+          chunk[$add](fill());
+        }
+      }
+      return chunk;
+    }, dart.fnType(core.List$(T), [core.int])));
+  };
+  supercharged_dart['IterableSC|get#chunked'] = function IterableSC$124get$35chunked(T, $this) {
+    return dart.fn((size, opts) => {
+      let fill = opts && 'fill' in opts ? opts.fill : null;
+      return supercharged_dart['IterableSC|chunked'](T, $this, size, {fill: fill});
+    }, dart.fnType(core.Iterable$(core.List$(T)), [core.int], {fill: dart.nullable(dart.fnType(T, []))}, {}));
+  };
+  supercharged_dart['IterableSC|count'] = function IterableSC$124count(T, $this, test = null) {
+    let t63;
+    let testFn = (t63 = test, t63 == null ? dart.fn(_ => true, dart.fnType(core.bool, [T])) : t63);
+    if ($this[$isEmpty]) {
+      return 0;
+    }
+    return $this[$map](core.int, dart.fn(element => testFn(element) ? 1 : 0, dart.fnType(core.int, [T])))[$reduce](dart.fn((value, element) => value + element, T$.intAndintToint()));
+  };
+  supercharged_dart['IterableSC|get#count'] = function IterableSC$124get$35count(T, $this) {
+    return dart.fn((test = null) => supercharged_dart['IterableSC|count'](T, $this, test), dart.fnType(core.int, [], [dart.nullable(dart.fnType(core.bool, [T]))]));
+  };
+  supercharged_dart['IterableSC|filter'] = function IterableSC$124filter(T, $this, test) {
+    return $this[$where](test);
+  };
+  supercharged_dart['IterableSC|get#filter'] = function IterableSC$124get$35filter(T, $this) {
+    return dart.fn(test => supercharged_dart['IterableSC|filter'](T, $this, test), dart.fnType(core.Iterable$(T), [dart.fnType(core.bool, [T])]));
+  };
+  supercharged_dart['IterableSC|forEachIndexedSC'] = function IterableSC$124forEachIndexedSC(T, $this, funcIndexValue) {
+    let t67;
+    let index = 0;
+    let iter = $this[$iterator];
+    while (iter.moveNext()) {
+      funcIndexValue((t67 = index, index = t67 + 1, t67), iter.current);
+    }
+  };
+  supercharged_dart['IterableSC|get#forEachIndexedSC'] = function IterableSC$124get$35forEachIndexedSC(T, $this) {
+    return dart.fn(funcIndexValue => supercharged_dart['IterableSC|forEachIndexedSC'](T, $this, funcIndexValue), dart.fnType(dart.void, [dart.fnType(dart.void, [core.int, T])]));
+  };
+  supercharged_dart['IterableSC|elementAtOrElse'] = function IterableSC$124elementAtOrElse(T, $this, index, orElse) {
+    try {
+      return $this[$elementAt](index);
+    } catch (e) {
+      let error = dart.getThrown(e);
+      if (core.Object.is(error)) {
+        return orElse();
+      } else
+        throw e;
+    }
+  };
+  supercharged_dart['IterableSC|get#elementAtOrElse'] = function IterableSC$124get$35elementAtOrElse(T, $this) {
+    return dart.fn((index, orElse) => supercharged_dart['IterableSC|elementAtOrElse'](T, $this, index, orElse), dart.fnType(T, [core.int, dart.fnType(T, [])]));
+  };
+  supercharged_dart['IterableSC|elementAtOrNull'] = function IterableSC$124elementAtOrNull(T, $this, index) {
+    try {
+      return $this[$elementAt](index);
+    } catch (e) {
+      let error = dart.getThrown(e);
+      if (core.Object.is(error)) {
+        return null;
+      } else
+        throw e;
+    }
+  };
+  supercharged_dart['IterableSC|get#elementAtOrNull'] = function IterableSC$124get$35elementAtOrNull(T, $this) {
+    return dart.fn(index => supercharged_dart['IterableSC|elementAtOrNull'](T, $this, index), dart.fnType(dart.nullable(T), [core.int]));
+  };
+  supercharged_dart['IterableSC|firstOrElse'] = function IterableSC$124firstOrElse(T, $this, orElse) {
+    return $this[$firstWhere](dart.fn(_ => true, dart.fnType(core.bool, [T])), {orElse: orElse});
+  };
+  supercharged_dart['IterableSC|get#firstOrElse'] = function IterableSC$124get$35firstOrElse(T, $this) {
+    return dart.fn(orElse => supercharged_dart['IterableSC|firstOrElse'](T, $this, orElse), dart.fnType(T, [dart.fnType(T, [])]));
+  };
+  supercharged_dart['IterableSC|firstOrNullSC'] = function IterableSC$124firstOrNullSC(T, $this) {
+    if ($this[$isEmpty]) {
+      return null;
+    }
+    return $this[$firstWhere](dart.fn(_ => true, dart.fnType(core.bool, [T])), {orElse: null});
+  };
+  supercharged_dart['IterableSC|get#firstOrNullSC'] = function IterableSC$124get$35firstOrNullSC(T, $this) {
+    return dart.fn(() => supercharged_dart['IterableSC|firstOrNullSC'](T, $this), dart.fnType(dart.nullable(T), []));
+  };
+  supercharged_dart['IterableSC|get#lastOrElse'] = function IterableSC$124get$35lastOrElse(T, $this) {
+    return dart.fn(orElse => supercharged_dart['IterableSC|lastOrElse'](T, $this, orElse), dart.fnType(T, [dart.fnType(T, [])]));
+  };
+  supercharged_dart['IterableSC|lastOrElse'] = function IterableSC$124lastOrElse(T, $this, orElse) {
+    return $this[$lastWhere](dart.fn(_ => true, dart.fnType(core.bool, [T])), {orElse: orElse});
+  };
+  supercharged_dart['IterableSC|lastOrNullSC'] = function IterableSC$124lastOrNullSC(T, $this) {
+    if ($this[$isEmpty]) {
+      return null;
+    }
+    return $this[$lastWhere](dart.fn(_ => true, dart.fnType(core.bool, [T])), {orElse: null});
+  };
+  supercharged_dart['IterableSC|get#lastOrNullSC'] = function IterableSC$124get$35lastOrNullSC(T, $this) {
+    return dart.fn(() => supercharged_dart['IterableSC|lastOrNullSC'](T, $this), dart.fnType(dart.nullable(T), []));
+  };
+  supercharged_dart['IterableSC|groupBy'] = function IterableSC$124groupBy(T, K, V, $this, keySelector, opts) {
+    let t83;
+    let valueTransform = opts && 'valueTransform' in opts ? opts.valueTransform : null;
+    let transformFn = (t83 = valueTransform, t83 == null ? dart.fn(element => V.as(element), dart.fnType(V, [T])) : t83);
+    let map = new (_js_helper.LinkedMap$(K, core.List$(V))).new();
+    $this[$forEach](dart.fn(element => {
+      let key = keySelector(element);
+      if (!map[$containsKey](key)) {
+        map[$_set](key, _interceptors.JSArray$(V).of([]));
+      }
+      dart.nullCheck(map[$_get](key))[$add](transformFn(element));
+    }, dart.fnType(dart.void, [T])));
+    return map;
+  };
+  supercharged_dart['IterableSC|get#groupBy'] = function IterableSC$124get$35groupBy(T, $this) {
+    return dart.fn((K, V, keySelector, opts) => {
+      let valueTransform = opts && 'valueTransform' in opts ? opts.valueTransform : null;
+      return supercharged_dart['IterableSC|groupBy'](T, K, V, $this, keySelector, {valueTransform: valueTransform});
+    }, dart.gFnType((K, V) => {
+      var MapOfK$ListOfV = () => (MapOfK$ListOfV = dart.constFn(core.Map$(K, ListOfV())))();
+      var ListOfV = () => (ListOfV = dart.constFn(core.List$(V)))();
+      return [MapOfK$ListOfV(), [dart.fnType(K, [T])], {valueTransform: dart.nullable(dart.fnType(V, [T]))}, {}];
+    }, (K, V) => {
+      var MapOfK$ListOfV = () => (MapOfK$ListOfV = dart.constFn(core.Map$(K, ListOfV())))();
+      var ListOfV = () => (ListOfV = dart.constFn(core.List$(V)))();
+      return [T$.ObjectN(), T$.ObjectN()];
+    }));
+  };
+  supercharged_dart['IterableSC|associate'] = function IterableSC$124associate(T, K, V, $this, transform) {
+    return core.Map$(K, V).fromEntries($this[$map](core.MapEntry$(K, V), transform));
+  };
+  supercharged_dart['IterableSC|get#associate'] = function IterableSC$124get$35associate(T, $this) {
+    return dart.fn((K, V, transform) => supercharged_dart['IterableSC|associate'](T, K, V, $this, transform), dart.gFnType((K, V) => {
+      var MapOfK$V = () => (MapOfK$V = dart.constFn(core.Map$(K, V)))();
+      var MapEntryOfK$V = () => (MapEntryOfK$V = dart.constFn(core.MapEntry$(K, V)))();
+      return [MapOfK$V(), [dart.fnType(MapEntryOfK$V(), [T])]];
+    }, (K, V) => {
+      var MapOfK$V = () => (MapOfK$V = dart.constFn(core.Map$(K, V)))();
+      var MapEntryOfK$V = () => (MapEntryOfK$V = dart.constFn(core.MapEntry$(K, V)))();
+      return [T$.ObjectN(), T$.ObjectN()];
+    }));
+  };
+  supercharged_dart['IterableSC|associateBy'] = function IterableSC$124associateBy(T, K, $this, keySelector) {
+    let map = new (_js_helper.LinkedMap$(K, T)).new();
+    $this[$forEach](dart.fn(element => {
+      let key = keySelector(element);
+      map[$_set](key, element);
+    }, dart.fnType(dart.void, [T])));
+    return map;
+  };
+  supercharged_dart['IterableSC|get#associateBy'] = function IterableSC$124get$35associateBy(T, $this) {
+    return dart.fn((K, keySelector) => supercharged_dart['IterableSC|associateBy'](T, K, $this, keySelector), dart.gFnType(K => [core.Map$(K, T), [dart.fnType(K, [T])]], K => [T$.ObjectN()]));
+  };
+  supercharged_dart['IterableSC|associateWith'] = function IterableSC$124associateWith(T, V, $this, valueSelector) {
+    let map = new (_js_helper.LinkedMap$(T, V)).new();
+    $this[$forEach](dart.fn(element => {
+      map[$_set](element, valueSelector(element));
+    }, dart.fnType(dart.void, [T])));
+    return map;
+  };
+  supercharged_dart['IterableSC|get#associateWith'] = function IterableSC$124get$35associateWith(T, $this) {
+    return dart.fn((V, valueSelector) => supercharged_dart['IterableSC|associateWith'](T, V, $this, valueSelector), dart.gFnType(V => [core.Map$(T, V), [dart.fnType(V, [T])]], V => [T$.ObjectN()]));
+  };
+  supercharged_dart['IterableSC|minBy'] = function IterableSC$124minBy(T, $this, comparator) {
+    if ($this[$isEmpty]) {
+      return null;
+    }
+    return $this[$reduce](dart.fn((value, element) => comparator(value, element) < 0 ? value : element, dart.fnType(T, [T, T])));
+  };
+  supercharged_dart['IterableSC|get#minBy'] = function IterableSC$124get$35minBy(T, $this) {
+    return dart.fn(comparator => supercharged_dart['IterableSC|minBy'](T, $this, comparator), dart.fnType(dart.nullable(T), [dart.fnType(core.int, [T, T])]));
+  };
+  supercharged_dart['IterableSC|maxBy'] = function IterableSC$124maxBy(T, $this, comparator) {
+    if ($this[$isEmpty]) {
+      return null;
+    }
+    return $this[$reduce](dart.fn((value, element) => comparator(value, element) > 0 ? value : element, dart.fnType(T, [T, T])));
+  };
+  supercharged_dart['IterableSC|get#maxBy'] = function IterableSC$124get$35maxBy(T, $this) {
+    return dart.fn(comparator => supercharged_dart['IterableSC|maxBy'](T, $this, comparator), dart.fnType(dart.nullable(T), [dart.fnType(core.int, [T, T])]));
+  };
+  supercharged_dart['IterableSC|sortedBySC'] = function IterableSC$124sortedBySC(T, $this, comparator) {
+    let list = $this[$toList]();
+    list[$sort](comparator);
+    return list;
+  };
+  supercharged_dart['IterableSC|get#sortedBySC'] = function IterableSC$124get$35sortedBySC(T, $this) {
+    return dart.fn(comparator => supercharged_dart['IterableSC|sortedBySC'](T, $this, comparator), dart.fnType(core.List$(T), [dart.fnType(core.int, [T, T])]));
+  };
+  supercharged_dart['IterableSC|sortedByNumSC'] = function IterableSC$124sortedByNumSC(T, $this, valueProvider) {
+    return supercharged_dart['IterableSC|sortedBySC'](T, $this, dart.fn((a, b) => valueProvider(a)[$compareTo](valueProvider(b)), dart.fnType(core.int, [T, T])));
+  };
+  supercharged_dart['IterableSC|get#sortedByNumSC'] = function IterableSC$124get$35sortedByNumSC(T, $this) {
+    return dart.fn(valueProvider => supercharged_dart['IterableSC|sortedByNumSC'](T, $this, valueProvider), dart.fnType(core.List$(T), [dart.fnType(core.num, [T])]));
+  };
+  supercharged_dart['IterableSC|sortedByStringSC'] = function IterableSC$124sortedByStringSC(T, $this, valueProvider) {
+    return supercharged_dart['IterableSC|sortedBySC'](T, $this, dart.fn((a, b) => valueProvider(a)[$compareTo](valueProvider(b)), dart.fnType(core.int, [T, T])));
+  };
+  supercharged_dart['IterableSC|get#sortedByStringSC'] = function IterableSC$124get$35sortedByStringSC(T, $this) {
+    return dart.fn(valueProvider => supercharged_dart['IterableSC|sortedByStringSC'](T, $this, valueProvider), dart.fnType(core.List$(T), [dart.fnType(core.String, [T])]));
+  };
+  supercharged_dart['IterableSC|get#lastIndex'] = function IterableSC$124get$35lastIndex(T, $this) {
+    if ($this[$isNotEmpty]) {
+      return $this[$length] - 1;
+    } else {
+      return null;
+    }
+  };
+  supercharged_dart['IterableSC|withoutFirst'] = function IterableSC$124withoutFirst(T, $this) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124withoutFirst() {
+      let iter = $this[$iterator];
+      iter.moveNext();
+      while (iter.moveNext()) {
+        yield iter.current;
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#withoutFirst'] = function IterableSC$124get$35withoutFirst(T, $this) {
+    return dart.fn(() => supercharged_dart['IterableSC|withoutFirst'](T, $this), dart.fnType(core.Iterable$(T), []));
+  };
+  supercharged_dart['IterableSC|withoutLast'] = function IterableSC$124withoutLast(T, $this) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124withoutLast() {
+      let iter = $this[$iterator];
+      let hasFirst = iter.moveNext();
+      if (!hasFirst) {
+        return;
+      }
+      while (true) {
+        let value = iter.current;
+        let isLastOne = !iter.moveNext();
+        if (!isLastOne) {
+          yield value;
+        } else {
+          break;
+        }
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#withoutLast'] = function IterableSC$124get$35withoutLast(T, $this) {
+    return dart.fn(() => supercharged_dart['IterableSC|withoutLast'](T, $this), dart.fnType(core.Iterable$(T), []));
+  };
+  supercharged_dart['IterableSC|replaceWhere'] = function IterableSC$124replaceWhere(T, $this, comparator, newValue) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124replaceWhere() {
+      let it = $this[$iterator];
+      while (it.moveNext()) {
+        if (comparator(it.current)) {
+          yield newValue;
+        } else {
+          yield it.current;
+        }
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#replaceWhere'] = function IterableSC$124get$35replaceWhere(T, $this) {
+    return dart.fn((comparator, newValue) => supercharged_dart['IterableSC|replaceWhere'](T, $this, comparator, newValue), dart.fnType(core.Iterable$(T), [dart.fnType(core.bool, [T]), T]));
+  };
+  supercharged_dart['IterableSC|replaceFirstWhere'] = function IterableSC$124replaceFirstWhere(T, $this, comparator, newValue) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124replaceFirstWhere() {
+      let it = $this[$iterator];
+      while (it.moveNext()) {
+        if (comparator(it.current)) {
+          yield newValue;
+          while (it.moveNext()) {
+            yield it.current;
+          }
+        } else {
+          yield it.current;
+        }
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#replaceFirstWhere'] = function IterableSC$124get$35replaceFirstWhere(T, $this) {
+    return dart.fn((comparator, newValue) => supercharged_dart['IterableSC|replaceFirstWhere'](T, $this, comparator, newValue), dart.fnType(core.Iterable$(T), [dart.fnType(core.bool, [T]), T]));
+  };
+  supercharged_dart['IterableSC|mapIndexedSC'] = function IterableSC$124mapIndexedSC(T, U, $this, transformer) {
+    return new (_js_helper.SyncIterable$(U)).new(function* IterableSC$124mapIndexedSC() {
+      let t110;
+      let it = $this[$iterator];
+      let index = 0;
+      while (it.moveNext()) {
+        yield transformer(it.current, (t110 = index, index = t110 + 1, t110));
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#mapIndexedSC'] = function IterableSC$124get$35mapIndexedSC(T, $this) {
+    return dart.fn((U, transformer) => supercharged_dart['IterableSC|mapIndexedSC'](T, U, $this, transformer), dart.gFnType(U => {
+      var IterableOfU = () => (IterableOfU = dart.constFn(core.Iterable$(U)))();
+      return [IterableOfU(), [dart.fnType(U, [T, core.int])]];
+    }, U => {
+      var IterableOfU = () => (IterableOfU = dart.constFn(core.Iterable$(U)))();
+      return [T$.ObjectN()];
+    }));
+  };
+  supercharged_dart['IterableSC|onEach'] = function IterableSC$124onEach(T, $this, action) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124onEach() {
+      let it = $this[$iterator];
+      while (it.moveNext()) {
+        action(it.current);
+        yield it.current;
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#onEach'] = function IterableSC$124get$35onEach(T, $this) {
+    return dart.fn(action => supercharged_dart['IterableSC|onEach'](T, $this, action), dart.fnType(core.Iterable$(T), [dart.fnType(dart.void, [T])]));
+  };
+  supercharged_dart['IterableSC|onEachIndexed'] = function IterableSC$124onEachIndexed(T, $this, action) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableSC$124onEachIndexed() {
+      let t114;
+      let it = $this[$iterator];
+      let index = 0;
+      while (it.moveNext()) {
+        action(it.current, (t114 = index, index = t114 + 1, t114));
+        yield it.current;
+      }
+    });
+  };
+  supercharged_dart['IterableSC|get#onEachIndexed'] = function IterableSC$124get$35onEachIndexed(T, $this) {
+    return dart.fn(action => supercharged_dart['IterableSC|onEachIndexed'](T, $this, action), dart.fnType(core.Iterable$(T), [dart.fnType(dart.void, [T, core.int])]));
+  };
+  supercharged_dart['IterableSC|pickOne'] = function IterableSC$124pickOne(T, $this, random = null) {
+    let list = $this[$toList]();
+    list[$shuffle](random);
+    return list[$first];
+  };
+  supercharged_dart['IterableSC|get#pickOne'] = function IterableSC$124get$35pickOne(T, $this) {
+    return dart.fn((random = null) => supercharged_dart['IterableSC|pickOne'](T, $this, random), dart.fnType(T, [], [T$.RandomN()]));
+  };
+  supercharged_dart['IterableSC|pickSome'] = function IterableSC$124pickSome(T, $this, count, random = null) {
+    let list = $this[$toList]();
+    list[$shuffle](random);
+    return list[$take](math.min(core.int, count, $this[$length]))[$toList]();
+  };
+  supercharged_dart['IterableSC|get#pickSome'] = function IterableSC$124get$35pickSome(T, $this) {
+    return dart.fn((count, random = null) => supercharged_dart['IterableSC|pickSome'](T, $this, count, random), dart.fnType(core.List$(T), [core.int], [T$.RandomN()]));
+  };
+  supercharged_dart['ListSC|toJSON'] = function ListSC$124toJSON(T, $this, opts) {
+    let toEncodable = opts && 'toEncodable' in opts ? opts.toEncodable : null;
+    return convert.jsonEncode($this, {toEncodable: toEncodable});
+  };
+  supercharged_dart['ListSC|get#toJSON'] = function ListSC$124get$35toJSON(T, $this) {
+    return dart.fn(opts => {
+      let toEncodable = opts && 'toEncodable' in opts ? opts.toEncodable : null;
+      return supercharged_dart['ListSC|toJSON'](T, $this, {toEncodable: toEncodable});
+    }, T$.__ToString());
+  };
+  supercharged_dart['MapSC|filter'] = function MapSC$124filter(K, V, $this, test) {
+    return supercharged_dart['IterableSC|filter'](core.MapEntry$(K, V), $this[$entries], test);
+  };
+  supercharged_dart['MapSC|get#filter'] = function MapSC$124get$35filter(K, V, $this) {
+    return dart.fn(test => supercharged_dart['MapSC|filter'](K, V, $this, test), dart.fnType(core.Iterable$(core.MapEntry$(K, V)), [dart.fnType(core.bool, [core.MapEntry$(K, V)])]));
+  };
+  supercharged_dart['MapSC|count'] = function MapSC$124count(K, V, $this, test = null) {
+    return supercharged_dart['IterableSC|count'](core.MapEntry$(K, V), $this[$entries], test);
+  };
+  supercharged_dart['MapSC|get#count'] = function MapSC$124get$35count(K, V, $this) {
+    return dart.fn((test = null) => supercharged_dart['MapSC|count'](K, V, $this, test), dart.fnType(core.int, [], [dart.nullable(dart.fnType(core.bool, [core.MapEntry$(K, V)]))]));
+  };
+  supercharged_dart['MapSC|toJSON'] = function MapSC$124toJSON(K, V, $this, opts) {
+    let toEncodable = opts && 'toEncodable' in opts ? opts.toEncodable : null;
+    return convert.jsonEncode($this, {toEncodable: toEncodable});
+  };
+  supercharged_dart['MapSC|get#toJSON'] = function MapSC$124get$35toJSON(K, V, $this) {
+    return dart.fn(opts => {
+      let toEncodable = opts && 'toEncodable' in opts ? opts.toEncodable : null;
+      return supercharged_dart['MapSC|toJSON'](K, V, $this, {toEncodable: toEncodable});
+    }, T$.__ToString());
+  };
+  supercharged_dart['StringSC|get#repeat'] = function StringSC$124get$35repeat($this) {
+    return dart.fn((n, opts) => {
+      let separator = opts && 'separator' in opts ? opts.separator : "";
+      return supercharged_dart['StringSC|repeat']($this, n, {separator: separator});
+    }, T$.int__ToString());
+  };
+  supercharged_dart['StringSC|repeat'] = function StringSC$124repeat($this, n, opts) {
+    let separator = opts && 'separator' in opts ? opts.separator : "";
+    supercharged_dart.throwIfNot(n > 0, dart.fn(() => new core.ArgumentError.new("n must be a positive value greater then 0"), T$.VoidToArgumentError()));
+    let repeatedString = "";
+    for (let i = 0; i < n; i = i + 1) {
+      if (i > 0) {
+        repeatedString = repeatedString + separator;
+      }
+      repeatedString = repeatedString + $this;
+    }
+    return repeatedString;
+  };
+  supercharged_dart['StringSC|get#reverse'] = function StringSC$124get$35reverse($this) {
+    if ($this[$isEmpty]) {
+      return "";
+    }
+    return supercharged_dart['StringSC|toList']($this)[$reversed][$reduce](dart.fn((value, element) => value = value + element, T$.StringAndStringToString()));
+  };
+  supercharged_dart['StringSC|toList'] = function StringSC$124toList($this) {
+    return $this[$split]("");
+  };
+  supercharged_dart['StringSC|get#toList'] = function StringSC$124get$35toList($this) {
+    return dart.fn(() => supercharged_dart['StringSC|toList']($this), T$.VoidToListOfString());
+  };
+  supercharged_dart['StringSC|parseJSON'] = function StringSC$124parseJSON($this, opts) {
+    let reviver = opts && 'reviver' in opts ? opts.reviver : null;
+    return convert.jsonDecode($this, {reviver: reviver});
+  };
+  supercharged_dart['StringSC|get#parseJSON'] = function StringSC$124get$35parseJSON($this) {
+    return dart.fn(opts => {
+      let reviver = opts && 'reviver' in opts ? opts.reviver : null;
+      return supercharged_dart['StringSC|parseJSON']($this, {reviver: reviver});
+    }, T$.__Todynamic());
+  };
+  supercharged_dart['StringSC|allAfter'] = function StringSC$124allAfter($this, pattern) {
+    let matchIterator = pattern[$allMatches]($this)[$iterator];
+    if (matchIterator.moveNext()) {
+      let match = matchIterator.current;
+      let length = match.end - match.start;
+      return $this[$substring](match.start + length);
+    }
+    return "";
+  };
+  supercharged_dart['StringSC|get#allAfter'] = function StringSC$124get$35allAfter($this) {
+    return dart.fn(pattern => supercharged_dart['StringSC|allAfter']($this, pattern), T$.PatternToString());
+  };
+  supercharged_dart['StringSC|allBefore'] = function StringSC$124allBefore($this, pattern) {
+    let matchIterator = pattern[$allMatches]($this)[$iterator];
+    let match = null;
+    while (matchIterator.moveNext()) {
+      match = matchIterator.current;
+    }
+    if (match != null) {
+      return $this[$substring](0, match.start);
+    }
+    return "";
+  };
+  supercharged_dart['StringSC|get#allBefore'] = function StringSC$124get$35allBefore($this) {
+    return dart.fn(pattern => supercharged_dart['StringSC|allBefore']($this, pattern), T$.PatternToString());
+  };
+  supercharged_dart['StringSC|allBetween'] = function StringSC$124allBetween($this, startPattern, endPattern) {
+    return supercharged_dart['StringSC|allBefore'](supercharged_dart['StringSC|allAfter']($this, startPattern), endPattern);
+  };
+  supercharged_dart['StringSC|get#allBetween'] = function StringSC$124get$35allBetween($this) {
+    return dart.fn((startPattern, endPattern) => supercharged_dart['StringSC|allBetween']($this, startPattern, endPattern), T$.PatternAndPatternToString());
+  };
+  supercharged_dart['StringSC|toInt'] = function StringSC$124toInt($this, opts) {
+    let radix = opts && 'radix' in opts ? opts.radix : 10;
+    try {
+      return core.int.parse($this, {radix: radix});
+    } catch (e) {
+      let error = dart.getThrown(e);
+      if (core.Object.is(error)) {
+        return null;
+      } else
+        throw e;
+    }
+  };
+  supercharged_dart['StringSC|get#toInt'] = function StringSC$124get$35toInt($this) {
+    return dart.fn(opts => {
+      let radix = opts && 'radix' in opts ? opts.radix : 10;
+      return supercharged_dart['StringSC|toInt']($this, {radix: radix});
+    }, T$.__TointN());
+  };
+  supercharged_dart['StringSC|toDouble'] = function StringSC$124toDouble($this) {
+    try {
+      return core.double.parse($this);
+    } catch (e) {
+      let error = dart.getThrown(e);
+      if (core.Object.is(error)) {
+        return null;
+      } else
+        throw e;
+    }
+  };
+  supercharged_dart['StringSC|get#toDouble'] = function StringSC$124get$35toDouble($this) {
+    return dart.fn(() => supercharged_dart['StringSC|toDouble']($this), T$.VoidTodoubleN());
+  };
+  dart.trackLibraries("packages/supercharged_dart/supercharged_dart.dart", {
+    "package:supercharged_dart/supercharged_dart.dart": supercharged_dart
+  }, {
+    "package:supercharged_dart/supercharged_dart.dart": ["datetime/datetime.dart", "double/double.dart", "duration/duration.dart", "error/throw_if.dart", "int/int.dart", "iterable/iterable_double.dart", "iterable/iterable_int.dart", "iterable/iterable_mapentry.dart", "iterable/iterable_object.dart", "list/list_object.dart", "map/map.dart", "string/string.dart"]
+  }, '{"version":3,"sourceRoot":"","sources":["supercharged_dart.dart","datetime/datetime.dart","double/double.dart","duration/duration.dart","error/throw_if.dart","int/int.dart","iterable/iterable_double.dart","iterable/iterable_int.dart","iterable/iterable_mapentry.dart","iterable/iterable_object.dart","list/list_object.dart","map/map.dart","string/string.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../packages/supercharged_dart/supercharged_dart.dart.lib.js"}');
+  // Exports:
+  return {
+    supercharged_dart: supercharged_dart
+  };
+}));
+
+//# sourceMappingURL=supercharged_dart.dart.lib.js.map
