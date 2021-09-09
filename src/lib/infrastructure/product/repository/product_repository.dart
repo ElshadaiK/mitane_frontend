@@ -1,5 +1,5 @@
 import 'package:location/location.dart';
-import 'package:mitane_frontend/domain/entity/product_model.dart';
+import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 import 'package:mitane_frontend/infrastructure/product/data_provider/product_provider.dart';
 
 import '../../core/get_location.dart';

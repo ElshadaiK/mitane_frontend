@@ -1,4 +1,4 @@
-import 'package:mitane_frontend/domain/validation/auth/invalid_validation.dart';
+import 'package:mitane_frontend/domain/auth/validation/invalid_validation.dart';
 
 class PhoneNumber {
   final String phoneNum;

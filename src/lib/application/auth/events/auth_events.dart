@@ -1,4 +1,4 @@
-import 'package:mitane_frontend/domain/entity/user_model.dart';
+import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
 
 abstract class AuthEvent{
   final props;

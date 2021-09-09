@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:mitane_frontend/domain/entity/product_model.dart';
+import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 
 class ProductProvider {
   final Dio dio;

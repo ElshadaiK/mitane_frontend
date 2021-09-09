@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mitane_frontend/application/auth/bloc/auth_bloc.dart';
 import 'package:mitane_frontend/application/auth/events/auth_events.dart';
 import 'package:mitane_frontend/application/auth/states/auth_state.dart';
-import 'package:mitane_frontend/domain/entity/user_model.dart';
+import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
 import 'package:mitane_frontend/presentation/pages/sign_in/Forgot_password.dart';
 
 class LogIn extends StatefulWidget {

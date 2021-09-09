@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:mitane_frontend/domain/entity/price_model.dart';
+import 'package:mitane_frontend/domain/price/entity/price_model.dart';
 
 class PriceProvider {
   final Dio dio;

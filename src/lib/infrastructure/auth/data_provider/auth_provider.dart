@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:mitane_frontend/domain/entity/user_model.dart';
+import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
 // import 'package:http/http.dart' as http;
 import 'package:mitane_frontend/infrastructure/core/data_provider.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
