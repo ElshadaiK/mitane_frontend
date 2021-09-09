@@ -71,8 +71,16 @@ class _PriceHubEditState extends State<PriceHubEdit> {
           SizedBox(
             height: 15,
           ),
-          DropDownComponent(context: context, title: "Category", values: PriceHubEdit.category, selected: selectedCategory),
-          DropDownComponent(context: context, title: "Item", values: PriceHubEdit.item, selected: selectedItem),
+          DropDownComponent(
+              context: context,
+              title: "Category",
+              values: PriceHubEdit.category,
+              selected: selectedCategory),
+          DropDownComponent(
+              context: context,
+              title: "Item",
+              values: PriceHubEdit.item,
+              selected: selectedItem),
           Container(
               margin: EdgeInsets.all(40),
               child: Column(
@@ -81,27 +89,9 @@ class _PriceHubEditState extends State<PriceHubEdit> {
                     initialValue: '150 Birr',
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
-                      labelText: "Yesterday's Price",
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  TextFormField(
-                    initialValue: '150 Birr',
-                    textAlign: TextAlign.right,
-                    decoration: InputDecoration(
                       labelText: "Today's Price",
                       border: OutlineInputBorder(),
                     ),
-                  ),
-                  SizedBox(
-                    height: 40.0,
-                  ),
-                  TextFormField(
-                    initialValue: 'kg',
-                    textAlign: TextAlign.right,
-                    decoration: InputDecoration(
-                        labelText: "Quantity Unit",
-                        border: OutlineInputBorder()),
                   ),
                   SizedBox(
                     height: 40.0,
@@ -132,5 +122,4 @@ class _PriceHubEditState extends State<PriceHubEdit> {
       ),
     );
   }
-
 }
