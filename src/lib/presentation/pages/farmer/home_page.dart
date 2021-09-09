@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/appBar.dart';
-import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
-import 'package:mitane_frontend/presentation/pages/common/with_search_bar.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -16,7 +15,11 @@ class _Dashboard extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(),
+      appBar: AppBar(
+            backgroundColor: Colors.white,
+            iconTheme: IconThemeData(color: Colors.black),
+            title: Text("Home"),
+          ),
       drawer: NavDrawer(),
       body: SingleChildScrollView(
         padding:
