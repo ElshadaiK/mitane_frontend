@@ -15,7 +15,7 @@ class UserAdminDataProvider {
 
   Future<User> create(User user) async {
     try {
-      // dio.options.headers["authorization"] = AuthDataProvider.getStringToken();
+      // dio.options.headers["authorization"] = AuthDataProvider.getToken().then((value) => value);
       final response = await dio.post("http://localhost:3000/users/create",
           data: jsonEncode({
             "name": user.name,
@@ -28,32 +28,13 @@ class UserAdminDataProvider {
         print(User.fromJson(jsonDecode(response.data)));
         return User.fromJson(jsonDecode(response.data));
       }
-      print("Unsuccessful");
+      print("Unsuccessful creation");
       return User(id: "", name: "", phoneNo: 0, password: "", roles: "");
     } catch(e) {
       print(e);
       throw e;
     }
-    // try {
-    //   final response = await dio.get("http://localhost:3000/users");
-    //   return (response.data as List)
-    //     .map((u) => User.fromJson(u))
-    //     .toList();
-    // } catch (e) {
-    //   print(e);
-    //   throw e;
-    // }
   }
-
-  // Future<User> fetchByCode() async {
-  //   final response = await http.get(Uri.parse(_baseUrl));
-
-  //   if (response.statusCode == 200) {
-  //     return User.fromJson(jsonDecode(response.body));
-  //   } else {
-  //     throw Exception("Fetching Course by code failed");
-  //   }
-  // }
 
 
   Future<List<User>> fetchAll() async {
@@ -70,6 +51,28 @@ class UserAdminDataProvider {
   }
 
   Future<User> update(String id, User user) async {
+    try {
+      // dio.options.headers["authorization"] = AuthDataProvider.getToken().then((value) => value);
+      final response = await dio.put("http://localhost:3000/users/update/$id",
+          data: jsonEncode({
+            "id": id,
+            "name": user.name,
+            "phoneNo": user.phoneNo,
+            "roles": user.roles,
+            "password": user.password
+          }));
+
+      if (response.statusCode == 200) {
+        print(User.fromJson(jsonDecode(response.data)));
+        print("Successful updation");
+        return User.fromJson(jsonDecode(response.data));
+      }
+      print("Unsuccessful updation");
+      return User(id: "", name: "", phoneNo: 0, password: "", roles: "");
+    } catch(e) {
+      print(e);
+      throw e;
+    }
     // final response = await http.put(Uri.parse("$_baseUrl/$id"),
     //     headers: <String, String>{"Content-Type": "application/json"},
     //     body: jsonEncode({
@@ -83,15 +86,17 @@ class UserAdminDataProvider {
     // if (response.statusCode == 200) {
     //   return User.fromJson(jsonDecode(response.body));
     // } else {
-    //   throw Exception("Could not update the course");
+    //   throw Exception("Could not update the user");
     // }
-    return user;
+    // return user;
   }
 
   Future<void> delete(String id) async {
+    final response = await dio.delete("http://localhost:3000/users/delete/$id");    
     // final response = await http.delete(Uri.parse("$_baseUrl/$id"));
-    // if (response.statusCode != 204) {
-    //   throw Exception("Field to delete the course");
-    // }
+    if (response.statusCode != 204) {
+      throw Exception("Failed to delete the user");
+    }
+    print("Successful deletion");
   }
 }

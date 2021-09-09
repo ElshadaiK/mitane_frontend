@@ -108,7 +108,7 @@ class _AdminUserAddState extends State<AdminUserAdd> {
                   TextFormField(
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
-                        labelText: "Roles",
+                        labelText: "Role",
                         border: OutlineInputBorder()),
                     validator: (value) {
                       if (value != null && value.isEmpty) {
