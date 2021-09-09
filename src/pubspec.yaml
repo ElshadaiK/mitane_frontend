@@ -38,6 +38,8 @@ dependencies:
   dio: ^4.0.0
   freezed_annotation: ^0.14.2
   location: ^4.3.0
+  test: ^1.16.8
+  bloc_test: ^8.1.0
 
   
 dev_dependencies:
