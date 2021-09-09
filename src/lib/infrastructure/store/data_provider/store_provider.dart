@@ -5,12 +5,12 @@ import 'package:mitane_frontend/domain/store/entity/store_model.dart';
 
 class StoreProvider {
   final Dio dio;
-
+  final baseUrl = 'http://192.168.127.1:3000';
   StoreProvider({required this.dio});
 
   Future<bool> getSelfStore(Store store) async {
     try {
-      final response = await dio.get("http://localhost:3000/store/self");
+      final response = await dio.get("$baseUrl/store/self");
       if (response.statusCode == 200) return true;
       return false;
     } catch (e) {
@@ -22,7 +22,7 @@ class StoreProvider {
     final latitude = store.latitude;
     final longitude = store.longitude;
     try {
-      final response = await dio.post("http://localhost:3000/store/",
+      final response = await dio.post("$baseUrl/store/",
           data: {'latitude': latitude, 'longitude': longitude});
       if (response.statusCode == 200) return true;
       return false;
