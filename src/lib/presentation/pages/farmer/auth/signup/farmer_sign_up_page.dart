@@ -11,7 +11,7 @@ class FarmerSignUp extends StatefulWidget {
 }
 class _FarmerSignUpState extends State<FarmerSignUp> {
   final myController = TextEditingController();
-  
+  int _value = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +35,7 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
           ),
           Positioned(
             child: Text(
-              "Verify your phone number",
+              "Please fill your \ninformation",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -45,15 +45,39 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
             left: 50,
           ),
           Positioned(
-            child: Text(
-              "Confirm the country code and Enter \n          Your Phone number",
-              style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w300,
-                  fontStyle: FontStyle.italic),
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.5,
+              padding: EdgeInsets.all(20),
+              child: DropdownButton(
+                value: _value,
+                items: [
+                  DropdownMenuItem(
+                    child: Text("Farmer"),
+                    value: 1,
+                  ),
+                  DropdownMenuItem(
+                    child: Text("Accessory Trader"),
+                    value: 2,
+                  ),
+                  DropdownMenuItem(
+                    child: Text("Product Trader"),
+                    value: 3,
+                  ),
+                  DropdownMenuItem(
+                    child: Text("Tool Trader"),
+                    value: 4,
+                  ),
+                ],
+                onChanged: (int? value) {
+                  setState(() {
+                    _value = value!;
+                  });
+                },
+                isExpanded: true,
+              ),
             ),
             top: 200,
-            left: 110,
+            left: MediaQuery.of(context).size.width * 0.2,
           ),
           Positioned(
             child: Container(
@@ -129,8 +153,52 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                         ]),
                   ),
                 )),
-            top: 450,
+            top: 480,
             left: 90,
+          ),
+          Positioned(
+            child: Container(
+              width: 300,
+              child: Material(
+                elevation: 2,
+                borderRadius: BorderRadius.circular(5),
+                child: TextField(
+                  controller: myController,
+                  decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide.none,
+                      ),
+                      hintText: 'Name'),
+                ),
+              ),
+            ),
+            top: 350,
+            left: 30,
+          ),
+          Positioned(
+            child: Container(
+              width: 300,
+              child: Material(
+                elevation: 2,
+                borderRadius: BorderRadius.circular(5),
+                child: TextField(
+                  controller: myController,
+                  decoration: InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide.none,
+                      ),
+                      hintText: 'Password'),
+                ),
+              ),
+            ),
+            top: 410,
+            left: 30,
           ),
         ],
       ),
