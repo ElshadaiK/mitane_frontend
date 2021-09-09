@@ -6,12 +6,12 @@ class UserAdminRepository {
   final UserAdminDataProvider dataProvider;
   UserAdminRepository({required this.dataProvider});
 
-  Future<User> create(User course) async {
-    return this.dataProvider.create(course);
+  Future<User> create(User user) async {
+    return this.dataProvider.create(user);
   }
 
-  Future<User> update(String id, User course) async {
-    return this.dataProvider.update(id, course);
+  Future<User> update(String id, User user) async {
+    return this.dataProvider.update(id, user);
   }
 
   Future<List<User>> fetchAll() async {
