@@ -1,7 +1,7 @@
 class Product{
   final String? id;
   final String name;
-  final Map<String,dynamic> category;
+  final String category;
 
 
   Product({required this.id, required this.name, required this.category});
@@ -10,7 +10,7 @@ class Product{
     return Product(
       id: json['_id'],
       name: json['name'],
-      category: json['category']);
+      category: json['category'][0]['name']);
   }
 
 
