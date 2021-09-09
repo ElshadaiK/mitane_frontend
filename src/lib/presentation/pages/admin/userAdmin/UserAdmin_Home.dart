@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
-import 'package:mitane_frontend/presentation/pages/Admin/Admin_Users.dart';
+import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
@@ -224,15 +224,8 @@ class _AdminHomeState extends State<AdminHome> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AdminUsers(items: [
-                                    User(
-                                        name: "Named",
-                                        token: "",
-                                        phone: "+25100000000000",
-                                        roles: ["Farmer"],
-                                        password: "")
-                                  ])),
-                        );
+                              builder: (context) => AdminUsers(),
+                        ));
                       },
                       child: Card(
                           color: Color(0xDD8CC63E),

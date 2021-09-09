@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/Admin/blocs/UserAdmin_Blocs.dart';
-import 'package:mitane_frontend/Admin/models/User.dart';
-import 'package:mitane_frontend/Admin/screens/UserAdmin_Lists.dart';
+import 'package:mitane_frontend/application/admin/userAdmin/bloc/UserAdmin_Blocs.dart';
+import 'package:mitane_frontend/domain/admin/userAdmin/entity/UserAdminModels.dart';
+import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
 
 class AdminUserAdd extends StatefulWidget {

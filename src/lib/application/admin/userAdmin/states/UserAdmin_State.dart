@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:mitane_frontend/Admin/models/User.dart';
+import 'package:mitane_frontend/domain/admin/userAdmin/entity/UserAdminModels.dart';
 
 abstract class UserAdminState extends Equatable {
   const UserAdminState();

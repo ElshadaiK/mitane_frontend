@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/Admin/blocs/UserAdmin_Event.dart';
-import 'package:mitane_frontend/Admin/blocs/UserAdmin_State.dart';
-import 'package:mitane_frontend/Admin/repository/UserAdmin_Repository.dart';
+import 'package:mitane_frontend/application/admin/userAdmin/events/UserAdmin_Event.dart';
+import 'package:mitane_frontend/application/admin/userAdmin/states/UserAdmin_State.dart';
+import 'package:mitane_frontend/infrastructure/admin/userAdmin/repository/UserAdmin_Repository.dart';
 
 class UserAdminBloc extends Bloc<UserAdminEvent, UserAdminState> {
   final UserAdminRepository userAdminRepository;

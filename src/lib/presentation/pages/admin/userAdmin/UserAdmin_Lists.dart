@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mitane_frontend/Admin/blocs/UserAdmin_Blocs.dart';
-import 'package:mitane_frontend/Admin/models/User.dart';
+import 'package:mitane_frontend/application/admin/userAdmin/bloc/UserAdmin_Blocs.dart';
+import 'package:mitane_frontend/domain/admin/userAdmin/entity/UserAdminModels.dart';
 // import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
-import 'package:mitane_frontend/presentation/pages/Admin/Admin_Users_Edit.dart';
+import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/route_generator.dart';

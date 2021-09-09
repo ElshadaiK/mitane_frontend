@@ -3,10 +3,10 @@ import 'dart:js';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/Admin/blocs/UserAdmin_Bloc.dart';
-import 'package:mitane_frontend/Admin/blocs/UserAdmin_Blocs.dart';
-import 'package:mitane_frontend/Admin/data-providers/UserAdmin_Data-Provider.dart';
-import 'package:mitane_frontend/Admin/repository/UserAdmin_Repository.dart';
+import 'package:mitane_frontend/application/admin/userAdmin/bloc/UserAdmin_Bloc.dart';
+import 'package:mitane_frontend/application/admin/userAdmin/bloc/UserAdmin_Blocs.dart';
+import 'package:mitane_frontend/infrastructure/admin/userAdmin/data_provider/UserAdmin_Data-Provider.dart';
+import 'package:mitane_frontend/infrastructure/admin/userAdmin/repository/UserAdmin_Repository.dart';
 import 'package:mitane_frontend/application/price/bloc/price_bloc.dart';
 import 'package:mitane_frontend/application/product/bloc/product_bloc.dart';
 import 'package:mitane_frontend/application/auth/bloc/auth_bloc.dart';
@@ -41,7 +41,7 @@ void main() => runApp(MultiRepositoryProvider(
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: '/admin/users',
+          initialRoute: '/login',
           onGenerateRoute: RouteGenerator.generateRoute,
         ),
       ),

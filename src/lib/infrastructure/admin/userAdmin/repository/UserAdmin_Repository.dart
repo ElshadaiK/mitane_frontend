@@ -1,5 +1,6 @@
-import 'package:mitane_frontend/Admin/data-providers/UserAdmin_Data-Provider.dart';
-import 'package:mitane_frontend/Admin/models/User.dart';
+import 'package:mitane_frontend/infrastructure/admin/userAdmin/data_provider/UserAdmin_Data-Provider.dart';
+import 'package:mitane_frontend/domain/admin/userAdmin/entity/UserAdmin.dart';
+
 
 class UserAdminRepository {
   final UserAdminDataProvider dataProvider;

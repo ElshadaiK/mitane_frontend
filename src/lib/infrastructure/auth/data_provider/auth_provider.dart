@@ -88,4 +88,8 @@ class AuthDataProvider extends DataProvider {
 
   static Future<String?> getToken() async => storage.read(key: "token");
 
+  // static String? getStringToken() {
+  //   AuthDataProvider.getToken().then((value) => value);
+  // }
+
 }

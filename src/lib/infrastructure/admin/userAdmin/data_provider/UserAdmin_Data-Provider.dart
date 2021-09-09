@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
-import 'package:mitane_frontend/Admin/models/Models.dart';
+import 'package:mitane_frontend/domain/admin/userAdmin/entity/UserAdminModels.dart';
 import 'package:mitane_frontend/infrastructure/auth/data_provider/auth_provider.dart';
 
 class UserAdminDataProvider {
@@ -14,21 +14,35 @@ class UserAdminDataProvider {
   UserAdminDataProvider({required this.dio});
 
   Future<User> create(User user) async {
-    final http.Response response = await http.post(Uri.parse(_baseUrl),
-        headers: <String, String>{"Content-Type": "application/json"},
-        body: jsonEncode({
-          "name": user.name,
-          "phoneNo": user.phoneNo,
-          "roles": user.roles,
-          "password": user.password
-        }));
+    try {
+      // dio.options.headers["authorization"] = AuthDataProvider.getStringToken();
+      final response = await dio.post("http://localhost:3000/users/create",
+          data: jsonEncode({
+            "name": user.name,
+            "phoneNo": user.phoneNo,
+            "roles": user.roles,
+            "password": user.password
+          }));
 
-    if (response.statusCode == 201) {
-      return User.fromJson(jsonDecode(response.body));
+      if (response.statusCode == 201) {
+        print(User.fromJson(jsonDecode(response.data)));
+        return User.fromJson(jsonDecode(response.data));
+      }
+      print("Unsuccessful");
+      return User(id: "", name: "", phoneNo: 0, password: "", roles: "");
+    } catch(e) {
+      print(e);
+      throw e;
     }
-    {
-      throw Exception("Failed to create course");
-    }
+    // try {
+    //   final response = await dio.get("http://localhost:3000/users");
+    //   return (response.data as List)
+    //     .map((u) => User.fromJson(u))
+    //     .toList();
+    // } catch (e) {
+    //   print(e);
+    //   throw e;
+    // }
   }
 
   // Future<User> fetchByCode() async {
@@ -54,26 +68,6 @@ class UserAdminDataProvider {
       throw e;
     }
   }
-
-  // Future<List<User>> fetchAll() async {
-  //   // return [User(id: "0", name: "name", phoneNo: 5789929282, password: "password", roles: ["heeb"]),
-  //   // User(id: "1", name: "named", phoneNo: 2489008653, password: "password1", roles: ["roles"])];
-  //   try {
-  //     final response = await http.get(Uri.parse(_baseUrl));
-  //     if (response.statusCode == 200) {
-  //       // print(response.body);
-  //       final users = jsonDecode(response.body) as List;
-  //       print("Success");
-  //       print(users.map((e) => User.fromJson(e)).toList());
-  //       return users.map((c) => User.fromJson(c)).toList();
-  //     } 
-  //     print(response.statusCode);
-  //     return [];
-  //   } catch (e) {
-  //     print(e);
-  //     return [];
-  //   }
-  // }
 
   Future<User> update(String id, User user) async {
     // final response = await http.put(Uri.parse("$_baseUrl/$id"),
