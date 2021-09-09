@@ -92,6 +92,7 @@ class UserAdminDataProvider {
   }
 
   Future<void> delete(String id) async {
+    // dio.options.headers["authorization"] = AuthDataProvider.getToken().then((value) => value);
     final response = await dio.delete("http://localhost:3000/users/delete/$id");    
     // final response = await http.delete(Uri.parse("$_baseUrl/$id"));
     if (response.statusCode != 204) {
