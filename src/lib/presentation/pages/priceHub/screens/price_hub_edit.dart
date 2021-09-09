@@ -85,6 +85,7 @@ class _PriceHubEditState extends State<PriceHubEdit> {
               margin: EdgeInsets.all(40),
               child: Column(
                 children: [
+                  
                   TextFormField(
                     initialValue: '150 Birr',
                     textAlign: TextAlign.right,
@@ -96,6 +97,7 @@ class _PriceHubEditState extends State<PriceHubEdit> {
                   SizedBox(
                     height: 40.0,
                   ),
+                  
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
