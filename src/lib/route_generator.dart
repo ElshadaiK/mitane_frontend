@@ -8,6 +8,7 @@ import 'package:mitane_frontend/presentation/pages/machinery/screens/machinery_s
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/sign_in/Login_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
+import 'package:mitane_frontend/presentation/pages/suggestions/suggestions_display.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -33,7 +34,7 @@ class RouteGenerator {
       case '/inputs':
         return MaterialPageRoute(builder: (_) => IngredientScreen());
       case '/suggestions':
-        return MaterialPageRoute(builder: (_) => Suggestions());
+        return MaterialPageRoute(builder: (_) => SuggestionsDisplay());
       default:
         return MaterialPageRoute(builder: (_) => ProductScreen());
     }
