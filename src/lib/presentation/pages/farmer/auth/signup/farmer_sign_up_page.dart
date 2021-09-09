@@ -10,7 +10,8 @@ class FarmerSignUp extends StatefulWidget {
   _FarmerSignUpState createState() => _FarmerSignUpState();
 }
 class _FarmerSignUpState extends State<FarmerSignUp> {
-
+  final myController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,6 +87,7 @@ class _FarmerSignUpState extends State<FarmerSignUp> {
                 child: TextField(
                   keyboardType: TextInputType.phone,
                   autocorrect: false,
+                  controller: myController,
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,

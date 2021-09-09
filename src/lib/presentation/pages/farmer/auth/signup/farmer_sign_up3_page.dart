@@ -10,7 +10,7 @@ class FarmerSignUp3 extends StatefulWidget {
 }
 
 class _FarmerSignUp3State extends State<FarmerSignUp3>  {
-  
+  final myController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +61,7 @@ class _FarmerSignUp3State extends State<FarmerSignUp3>  {
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
                 child: TextField(
+                  controller: myController,
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
@@ -82,6 +83,7 @@ class _FarmerSignUp3State extends State<FarmerSignUp3>  {
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
                 child: TextField(
+                  controller: myController,
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
