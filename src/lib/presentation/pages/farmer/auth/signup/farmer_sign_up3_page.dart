@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/app_widget.dart';
 
-class FarmerSignUp3 extends StatelessWidget {
-  const FarmerSignUp3({Key? key}) : super(key: key);
+class FarmerSignUp3 extends StatefulWidget {
+  FarmerSignUp3({Key? key}) : super(key: key);
 
+  @override
+  _FarmerSignUp3State createState() => _FarmerSignUp3State();
+}
+
+class _FarmerSignUp3State extends State<FarmerSignUp3>  {
+  final myController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +61,7 @@ class FarmerSignUp3 extends StatelessWidget {
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
                 child: TextField(
+                  controller: myController,
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
@@ -76,6 +83,7 @@ class FarmerSignUp3 extends StatelessWidget {
                 elevation: 2,
                 borderRadius: BorderRadius.circular(5),
                 child: TextField(
+                  controller: myController,
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
