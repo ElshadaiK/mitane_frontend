@@ -15,11 +15,12 @@ class AuthDataProvider extends DataProvider {
     final String password = login.password;
     var user;
     try {
-      Response response = await dio.post("http://10.6.157.15:3000/auth/login",
+      Response response = await dio.post("http:/localhost:3000/auth/login",
           data: {'phone_no': phone, 'password': password});
-      print(response.data);
       if (response.statusCode == 200 || response.statusCode == 204) {
+     
         user = User.fromJson(response.data);
+        saveUserOnLocal(user);
       }
     } catch (e) {
       print(e);
@@ -28,38 +29,7 @@ class AuthDataProvider extends DataProvider {
     return user;
   }
 
-  // Future<User> loginUser(Login login) async {
-  //   final String phone = login.phone;
-  //   final String password = login.password;
 
-  //   try {
-  //     final http.Response response = await httpClient.post(
-  //         Uri.http('10.6.157.15:3000', '/auth/login'),
-  //         headers: <String, String>{
-  //           'Content-Type': 'application/json; charset=UTF-8'
-  //         },
-  //         body: jsonEncode(<String, dynamic>{
-  //           'phone_no': '$phone',
-  //           'password': "$password"
-  //         }));
-  //     if (response.statusCode == 200) {
-  //       final res = jsonDecode(response.body);
-  //       User user = User.fromJson(res);
-  //       // if (await saveUserOnLocal(user)) return user;
-  //       return user;
-  //     } else {
-  //       print("empty response");
-  //     }
-  //   } catch (e) {
-  //     print(e);
-  //     throw Exception('Failed to login user.');
-  //   }
-  //   throw Exception('Failed to login user.');
-  // }
-
-  // bool logout() {
-  //   return true;
-  // }
 
   Future<bool> registerUser(Register register) async {
     final String name = register.name;
@@ -68,7 +38,7 @@ class AuthDataProvider extends DataProvider {
     final String role = register.role;
     final String password = register.password;
 
-    String route = 'http://10.6.157.15:3000/auth';
+    String route = 'http://localhost/auth';
     switch (role) {
       case 'farmer':
         route += '/f/signup';

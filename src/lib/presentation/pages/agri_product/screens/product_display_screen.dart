@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mitane_frontend/application/bloc/product_bloc.dart';
+import 'package:mitane_frontend/application/states/product_state.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/custom_list_tile.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
@@ -21,9 +24,11 @@ class _ProductScreenState extends State<ProductScreen> {
           appBar: AppBar(
             backgroundColor: Colors.white,
             iconTheme: IconThemeData(color: Colors.black),
-            leading: IconButton(onPressed: (){
-              Navigator.of(context).pushNamed('/');
-            }, icon: Icon(Icons.arrow_back)),
+            leading: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/');
+                },
+                icon: Icon(Icons.arrow_back)),
             title: Container(
               height: 35.0,
               child: TextField(
@@ -119,24 +124,38 @@ Widget verticalScrollList(BuildContext context) {
   return Expanded(
     child: Container(
       padding: EdgeInsets.symmetric(horizontal: 20.0),
-      child: ListView.builder(
-        itemCount: 20,
-        itemBuilder: (BuildContext context, int itemCount) {
-          return GestureDetector(
-            onTap: () => {},
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
-              child: CustomTile(
-                product: "Wheat",
-                quantity: "100Kg",
-                price: "300",
-                category: "crop",
-              ),
-            ),
+      child: BlocBuilder<ProductBloc, ProductState>(builder: (context, state) {
+        print(state);
+        if (state is ProductFetching) {
+          return CircularProgressIndicator();
+        }
+
+        if (state is ProductFetched) {
+          return ListView.builder(
+            itemCount: 20,
+            itemBuilder: (BuildContext context, int itemCount) {
+              return GestureDetector(
+                onTap: () => {},
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0, vertical: 3.0),
+                  child: CustomTile(
+                    product: "Wheat",
+                    quantity: "100Kg",
+                    price: "300",
+                    category: "crop",
+                  ),
+                ),
+              );
+            },
           );
-        },
-      ),
+        }
+        return Center(
+            child: Text(
+          "No result",
+          style: TextStyle(fontSize: 30),
+        ));
+      }),
     ),
   );
 }
