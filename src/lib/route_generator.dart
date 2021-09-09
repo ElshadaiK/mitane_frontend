@@ -12,6 +12,16 @@ import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_sc
 import 'package:mitane_frontend/presentation/pages/sign_in/Login_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
 
+import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_data_encoder_screen.dart';
+import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_edit.dart';
+import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_add_screen.dart';
+import 'package:mitane_frontend/presentation/pages/Data_encoder/data_encoder_home.dart';
+import 'package:mitane_frontend/presentation/pages/Data_encoder/app_widget.dart';
+import 'package:mitane_frontend/models/price-model.dart';
+
+import 'package:mitane_frontend/presentation/pages/suggestions/suggestions_display.dart';
+
+
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;

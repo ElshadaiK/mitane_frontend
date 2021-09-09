@@ -3,10 +3,10 @@ abstract class Authentication{}
 
 class Register extends Authentication{
   final String name;
-  final String phone;
+  String phone;
   final String password;
   final String confirm;
-  final String role;
+  String role;
   Register({required this.name, required this.phone,required this.password,required this.confirm,required this.role});
 
   List<Object> get props => [name,phone,password,confirm,role];

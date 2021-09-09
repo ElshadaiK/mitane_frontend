@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mitane_frontend/application/auth/bloc/auth_bloc.dart';
@@ -84,7 +82,12 @@ class _LogInState extends State<LogIn> {
                         fontWeight: FontWeight.bold),
                   );
                   if (state is LoggingIn) {
-                    button = CircularProgressIndicator();
+                    button = Center(
+                        child: SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(),
+                    ));
                   }
 
                   return InkWell(

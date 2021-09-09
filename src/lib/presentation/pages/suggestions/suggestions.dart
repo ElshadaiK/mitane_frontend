@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/vertical_tiles.dart';
-
+import 'package:mitane_frontend/presentation/pages/custom_widgets/appBar.dart';
 class Suggestions extends StatelessWidget {
   static const String routeName = '/suggestions';
   const Suggestions({Key? key}) : super(key: key);
@@ -11,14 +11,7 @@ class Suggestions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Suggestions",
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
-      ),
+      appBar: AppBarWidget(),
       drawer: NavDrawer(),
       body: SafeArea(
         child: Container(

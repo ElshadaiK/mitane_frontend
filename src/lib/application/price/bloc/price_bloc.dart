@@ -30,7 +30,6 @@
 //   }
 // }
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:location/location.dart';
 import 'package:mitane_frontend/application/price/events/price_event.dart';
 import 'package:mitane_frontend/application/price/states/price_state.dart';
 import 'package:mitane_frontend/domain/price/entity/price_model.dart';
@@ -43,29 +42,6 @@ class PriceBloc extends Bloc<PriceEvent, PriceState> {
 
   @override
   Stream<PriceState> mapEventToState(PriceEvent event) async* {
-    Location location = new Location();
-
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
-    LocationData _locationData;
-
-    _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) {
-        return;
-      }
-    }
-
-    _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await location.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) {
-        return;
-      }
-    }
-
-    _locationData = await location.getLocation();
 
     if (event is PriceFetch) {
       DateTime date = DateTime.now();

@@ -1,16 +1,15 @@
-import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:mitane_frontend/domain/price/entity/price_model.dart';
 
 class PriceProvider {
   final Dio dio;
-
+final baseUrl = 'http://192.168.127.1:3000';
   PriceProvider({required this.dio});
 
   Future<List<dynamic>> getPrice(String date) async {
     try {
-      Response response = await dio.get("http://10.6.206.173:3000/price/$date");
+      Response response = await dio.get("$baseUrl/price/$date");
       if (response.statusCode == 200) {
         if (response.data['count'] == 0) {
           return [EmptyPrice("No result")];
@@ -21,7 +20,7 @@ class PriceProvider {
             .toList();
         return prices;
       } else {
-        throw Exception();
+        return [];
       }
     } catch (e) {
       return [EmptyPrice("No result")];
@@ -33,7 +32,7 @@ class PriceProvider {
     final price = priceAdd.price;
     try {
       final response = await dio
-          .post("http://localhost:3000/price/$product", data: {'price': price});
+          .post("$baseUrl/price/$product", data: {'price': price});
       if (response.statusCode == 200) return true;
       return false;
     } catch (e) {
@@ -43,7 +42,7 @@ class PriceProvider {
 
   Future<bool> deleteSpecificPrice(PriceAdd priceAdd) async {
     try {
-      final response = await dio.post("http://localhost:3000/price",
+      final response = await dio.post("$baseUrl/price",
           data: {'product': priceAdd.product, 'date': priceAdd.date});
       if (response.statusCode == 200) return true;
       return false;
@@ -54,7 +53,7 @@ class PriceProvider {
 
   Future<bool> createProduct(ProductPrice productPrice) async {
     try {
-      final response = await dio.post("http://localhost:3000/price", data: {
+      final response = await dio.post("$baseUrl/price", data: {
         'product': productPrice.product,
         'category': productPrice.category
       });

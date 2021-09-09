@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/appBar.dart';
-
-
+import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_data_encoder_screen.dart';
+import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
+import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
 class Home extends StatefulWidget {
   @override
   _Dashboard createState() {
@@ -11,7 +12,10 @@ class Home extends StatefulWidget {
   }
 }
 
-class _Dashboard extends State {
+class _Dashboard extends State<Home> {
+  
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -203,6 +207,9 @@ class _Dashboard extends State {
           ],
         ),
       ),
+
+      
+
     );
   }
 }
