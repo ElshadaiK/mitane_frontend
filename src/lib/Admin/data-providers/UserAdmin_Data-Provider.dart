@@ -10,37 +10,37 @@ import 'package:mitane_frontend/infrastructure/auth/data_provider/auth_provider.
 class UserAdminDataProvider {
   static final String _baseUrl = "http://localhost:3000/users";
 
+  final Dio dio;
+  UserAdminDataProvider({required this.dio});
+
   Future<User> create(User user) async {
-    // final http.Response response = await http.post(Uri.parse(_baseUrl),
-    //     headers: <String, String>{"Content-Type": "application/json"},
-    //     body: jsonEncode({
-    //       "name": user.name,
-    //       "phoneNo": user.phoneNo,
-    //       "roles": user.roles,
-    //       "password": user.password
-    //     }));
+    final http.Response response = await http.post(Uri.parse(_baseUrl),
+        headers: <String, String>{"Content-Type": "application/json"},
+        body: jsonEncode({
+          "name": user.name,
+          "phoneNo": user.phoneNo,
+          "roles": user.roles,
+          "password": user.password
+        }));
 
-    // if (response.statusCode == 201) {
-    //   return User.fromJson(jsonDecode(response.body));
-    // }
-    // {
-    //   throw Exception("Failed to create course");
-    // }
-    return user;
-  }
-
-  Future<User> fetchByCode() async {
-    final response = await http.get(Uri.parse(_baseUrl));
-
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return User.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception("Fetching Course by code failed");
+    }
+    {
+      throw Exception("Failed to create course");
     }
   }
 
-  final Dio dio;
-  UserAdminDataProvider({required this.dio});
+  // Future<User> fetchByCode() async {
+  //   final response = await http.get(Uri.parse(_baseUrl));
+
+  //   if (response.statusCode == 200) {
+  //     return User.fromJson(jsonDecode(response.body));
+  //   } else {
+  //     throw Exception("Fetching Course by code failed");
+  //   }
+  // }
+
 
   Future<List<User>> fetchAll() async {
 
@@ -49,16 +49,6 @@ class UserAdminDataProvider {
       return (response.data as List)
         .map((u) => User.fromJson(u))
         .toList();
-      // if(response.statusCode == 200){
-      //   // if(response.data['count'] == 0) return [UserEmpty()];
-      //   // print(response.data);
-      //   print(response);
-      //   final products = response.data.map((product)=> User(id: product['id'],name: product['name'], roles: product["roles"], password: product['password'], phoneNo: product["phone_no"])).toList();
-      //   print(products.toString());
-      //   return products;
-      // }
-      // print("error");
-      // return[];
     } catch (e) {
       print(e);
       throw e;

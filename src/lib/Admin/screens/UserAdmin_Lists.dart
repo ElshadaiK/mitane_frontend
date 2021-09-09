@@ -37,41 +37,41 @@ class _AdminUsersState extends State<AdminUsers> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 15,),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.15,
-            padding: EdgeInsets.symmetric(vertical: 5.0),
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 6,
-                itemBuilder: (BuildContext context, int itemCount) {
-                  return GestureDetector(
-                    // onTap: () => Navigator.of(context).pushNamed("/productDetail"),
-                    child: Container(
-                      child: Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 5),
-                            width: MediaQuery.of(context).size.width * 0.4,                 
-                            decoration: BoxDecoration(
-                                color: Color(0xDD8CC63E),
-                                borderRadius: BorderRadius.circular(20)),
-                          ),
-                          Center(
-                            child: Text(
-                              "User Role",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: "RobotMono",
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  );
-                }),
-          ),
+          // Container(
+          //   height: MediaQuery.of(context).size.height * 0.15,
+          //   padding: EdgeInsets.symmetric(vertical: 5.0),
+          //   child: ListView.builder(
+          //       scrollDirection: Axis.horizontal,
+          //       itemCount: 6,
+          //       itemBuilder: (BuildContext context, int itemCount) {
+          //         return GestureDetector(
+          //           // onTap: () => Navigator.of(context).pushNamed("/productDetail"),
+          //           child: Container(
+          //             child: Stack(
+          //               alignment: AlignmentDirectional.center,
+          //               children: [
+          //                 Container(
+          //                   margin: EdgeInsets.symmetric(horizontal: 5),
+          //                   width: MediaQuery.of(context).size.width * 0.4,                 
+          //                   decoration: BoxDecoration(
+          //                       color: Color(0xDD8CC63E),
+          //                       borderRadius: BorderRadius.circular(20)),
+          //                 ),
+          //                 Center(
+          //                   child: Text(
+          //                     "User Role",
+          //                     style: TextStyle(
+          //                         color: Colors.white,
+          //                         fontFamily: "RobotMono",
+          //                         fontWeight: FontWeight.bold),
+          //                   ),
+          //                 )
+          //               ],
+          //             ),
+          //           ),
+          //         );
+          //       }),
+          // ),
           Expanded(
             child: BlocBuilder<UserAdminBloc, UserAdminState>(
               builder: (_, state) {
@@ -94,7 +94,7 @@ class _AdminUsersState extends State<AdminUsers> {
                             child: UserCard(
                                 userName: users.elementAt(index).name,
                                 phoneNo: users.elementAt(index).phoneNo,
-                                role: users.elementAt(index).roles.toString(),
+                                role: users.elementAt(index).roles,
                             ),
                             background: slideRightBackground(),
                             secondaryBackground: slideLeftBackground(),
@@ -227,21 +227,21 @@ class UserCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Row(
-                  //     mainAxisAlignment: MainAxisAlignment.start,
-                  //     children: [
-                  //       Text(
-                  //         "Role:",
-                  //         style: TextStyle(fontSize: 16, fontFamily: "RobotMono"),
-                  //       ),
-                  //       Padding(
-                  //         padding: const EdgeInsets.only(left: 8.0),
-                  //         child: Text(
-                  //           "$role",
-                  //           style: TextStyle(fontSize: 16.0),
-                  //         ),
-                  //       ),
-                  //     ]),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Role:",
+                          style: TextStyle(fontSize: 16, fontFamily: "RobotMono"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "$role",
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                        ),
+                      ]),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -252,7 +252,7 @@ class UserCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
                         child: Text(
-                          "$phoneNo",
+                          "+$phoneNo",
                           style: TextStyle(fontSize: 16.0),
                         ),
                       )

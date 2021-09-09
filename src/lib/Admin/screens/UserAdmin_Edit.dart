@@ -161,7 +161,7 @@ class _AdminUserEditState extends State<AdminUserEdit> {
                                 name: this._user["name"],
                                 phoneNo: double.parse(this._user["phoneNo"]),
                                 password: this._user["password"],
-                                roles: this._user["roles"].split(','),
+                                roles: this._user["roles"],
                               ),
                             );
                       BlocProvider.of<UserAdminBloc>(context).add(event);

@@ -3,7 +3,7 @@ class User {
   final String name;
   final double phoneNo;
   final String password;
-  final List<dynamic> roles;
+  final String roles;
 
   User(
       {required this.id,
@@ -17,7 +17,7 @@ class User {
         id: json['_id'],
         name: json['name'],
         phoneNo: json['phone_no'],
-        roles: json['roles'],
+        roles: json['roles'][0]['name'],
         password: json['password']);
   }
 }
