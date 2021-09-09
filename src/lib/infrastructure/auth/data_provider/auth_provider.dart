@@ -7,7 +7,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class AuthDataProvider extends DataProvider {
   // final http.Client httpClient;
   final Dio dio;
-
+  final baseUrl = 'http://192.168.127.1:3000';
   AuthDataProvider({required this.dio});
 
   Future<User> loginUser(Login login) async {
@@ -15,10 +15,11 @@ class AuthDataProvider extends DataProvider {
     final String password = login.password;
     var user;
     try {
-      Response response = await dio.post("http://localhost:3000/auth/login",
+      Response response = await dio.post("$baseUrl/auth/login",
           data: {'phone_no': phone, 'password': password});
       if (response.statusCode == 200 || response.statusCode == 204) {
         user = User.fromJson(response.data);
+        saveUserOnLocal(user);
       } else {
         throw Exception("Invalid login");
       }
@@ -36,7 +37,7 @@ class AuthDataProvider extends DataProvider {
     final String role = register.role;
     final String password = register.password;
 
-    String route = 'http://localhost:3000/auth';
+    String route = '$baseUrl/auth';
     switch (role) {
       case 'farmer':
         route += '/f/signup';
