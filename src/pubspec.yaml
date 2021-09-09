@@ -37,6 +37,7 @@ dependencies:
   flutter_secure_storage: ^4.2.1
   dio: ^4.0.0
   freezed_annotation: ^0.14.2
+  location: ^4.3.0
 
   
 dev_dependencies:
