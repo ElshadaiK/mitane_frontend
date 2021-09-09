@@ -34,7 +34,7 @@ import 'package:location/location.dart';
 import 'package:mitane_frontend/application/price/events/price_event.dart';
 import 'package:mitane_frontend/application/price/states/price_state.dart';
 import 'package:mitane_frontend/domain/entity/price_model.dart';
-import 'package:mitane_frontend/infrastructure/repository/price_repository.dart';
+import 'package:mitane_frontend/infrastructure/price/repository/price_repository.dart';
 
 class PriceBloc extends Bloc<PriceEvent, PriceState> {
   PriceRepository priceRepository = PriceRepository();

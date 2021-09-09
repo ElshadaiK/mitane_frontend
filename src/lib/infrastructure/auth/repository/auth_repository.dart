@@ -1,5 +1,5 @@
 import 'package:mitane_frontend/domain/entity/user_model.dart';
-import 'package:mitane_frontend/infrastructure/data_provider/auth_provider.dart';
+import 'package:mitane_frontend/infrastructure/auth/data_provider/auth_provider.dart';
 
 class AuthRepository {
   final AuthDataProvider authDataProvider;

@@ -1,4 +1,4 @@
-import 'package:mitane_frontend/infrastructure/data_provider/machinery_provider.dart';
+import 'package:mitane_frontend/infrastructure/machinery/data_provider/machinery_provider.dart';
 
 class MachineryRepository{
 

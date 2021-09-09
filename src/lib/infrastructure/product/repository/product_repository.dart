@@ -1,8 +1,8 @@
 import 'package:location/location.dart';
 import 'package:mitane_frontend/domain/entity/product_model.dart';
-import 'package:mitane_frontend/infrastructure/data_provider/product_provider.dart';
+import 'package:mitane_frontend/infrastructure/product/data_provider/product_provider.dart';
 
-import 'get_location.dart';
+import '../../core/get_location.dart';
 
 class ProductRepository {
   final ProductProvider productProvider;

@@ -6,13 +6,13 @@ import 'package:mitane_frontend/application/product/bloc/product_bloc.dart';
 import 'package:mitane_frontend/application/auth/bloc/auth_bloc.dart';
 import 'package:mitane_frontend/application/price/events/price_event.dart';
 import 'package:mitane_frontend/application/product/events/product_events.dart';
-import 'package:mitane_frontend/infrastructure/repository/auth_repository.dart';
-import 'package:mitane_frontend/infrastructure/repository/price_repository.dart';
-import 'package:mitane_frontend/infrastructure/repository/product_repository.dart';
+import 'package:mitane_frontend/infrastructure/auth/repository/auth_repository.dart';
+import 'package:mitane_frontend/infrastructure/price/repository/price_repository.dart';
+import 'package:mitane_frontend/infrastructure/product/repository/product_repository.dart';
 import 'package:mitane_frontend/route_generator.dart';
 
-import 'infrastructure/data_provider/auth_provider.dart';
-import 'infrastructure/data_provider/product_provider.dart';
+import 'infrastructure/auth/data_provider/auth_provider.dart';
+import 'infrastructure/product/data_provider/product_provider.dart';
 
 void main() => runApp(MultiRepositoryProvider(
       providers: [

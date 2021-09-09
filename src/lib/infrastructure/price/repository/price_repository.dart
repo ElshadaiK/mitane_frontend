@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mitane_frontend/domain/entity/price_model.dart';
-import 'package:mitane_frontend/infrastructure/data_provider/price_provider.dart';
+import 'package:mitane_frontend/infrastructure/price/data_provider/price_provider.dart';
 
 class PriceRepository {
   PriceProvider priceProvider = PriceProvider(dio: Dio());
