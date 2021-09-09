@@ -1,7 +1,7 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/events/machinery_events.dart';
-import 'package:mitane_frontend/application/states/machinery_state.dart';
+import 'package:mitane_frontend/application/machinery/events/machinery_events.dart';
+import 'package:mitane_frontend/application/machinery/states/machinery_state.dart';
 
 class MachineryBloc extends Bloc<MachineryEvent,MachineryState>{
 

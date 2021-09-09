@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mitane_frontend/application/bloc/price_bloc.dart';
-import 'package:mitane_frontend/application/events/price_event.dart';
-import 'package:mitane_frontend/application/states/price_state.dart';
+import 'package:mitane_frontend/application/price/bloc/price_bloc.dart';
+import 'package:mitane_frontend/application/price/events/price_event.dart';
+import 'package:mitane_frontend/application/price/states/price_state.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 

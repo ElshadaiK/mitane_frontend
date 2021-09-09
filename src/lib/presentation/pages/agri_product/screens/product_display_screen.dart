@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/bloc/product_bloc.dart';
-import 'package:mitane_frontend/application/states/product_state.dart';
+import 'package:mitane_frontend/application/product/bloc/product_bloc.dart';
+import 'package:mitane_frontend/application/product/states/product_state.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/custom_list_tile.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';

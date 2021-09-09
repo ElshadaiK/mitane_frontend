@@ -1,4 +1,4 @@
-import 'package:mitane_frontend/application/events/price_event.dart';
+import 'package:mitane_frontend/application/price/events/price_event.dart';
 import 'package:mitane_frontend/domain/entity/price_model.dart';
 
 abstract class PriceState {}

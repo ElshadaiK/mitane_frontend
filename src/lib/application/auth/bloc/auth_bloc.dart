@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/events/auth_events.dart';
-import 'package:mitane_frontend/application/states/auth_state.dart';
+import 'package:mitane_frontend/application/auth/events/auth_events.dart';
+import 'package:mitane_frontend/application/auth/states/auth_state.dart';
 import 'package:mitane_frontend/domain/entity/user_model.dart';
 import 'package:mitane_frontend/domain/validation/auth/invalid_validation.dart';
 import 'package:mitane_frontend/infrastructure/repository/auth_repository.dart';

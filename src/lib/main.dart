@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/bloc/price_bloc.dart';
-import 'package:mitane_frontend/application/bloc/product_bloc.dart';
-import 'package:mitane_frontend/application/bloc/user_bloc.dart';
-import 'package:mitane_frontend/application/events/price_event.dart';
-import 'package:mitane_frontend/application/events/product_events.dart';
+import 'package:mitane_frontend/application/price/bloc/price_bloc.dart';
+import 'package:mitane_frontend/application/product/bloc/product_bloc.dart';
+import 'package:mitane_frontend/application/auth/bloc/auth_bloc.dart';
+import 'package:mitane_frontend/application/price/events/price_event.dart';
+import 'package:mitane_frontend/application/product/events/product_events.dart';
 import 'package:mitane_frontend/infrastructure/repository/auth_repository.dart';
 import 'package:mitane_frontend/infrastructure/repository/price_repository.dart';
 import 'package:mitane_frontend/infrastructure/repository/product_repository.dart';
