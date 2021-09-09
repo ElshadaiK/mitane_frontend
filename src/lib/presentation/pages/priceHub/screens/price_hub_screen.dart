@@ -72,8 +72,8 @@ class _PriceHubState extends State<PriceHub> {
                         child: PriceCard(
                             product: price.product['name'],
                             unit: "Kg",
-                            todayPrice: int.parse(price.price[0]['price']),
-                            prevDayPrice: 120),
+                            todayPrice:
+                                price.price[0]['price'].toStringAsFixed(2)),
                       );
                     });
               }
@@ -92,16 +92,14 @@ class _PriceHubState extends State<PriceHub> {
 
 class PriceCard extends StatelessWidget {
   final String product;
-  final int todayPrice;
-  final int prevDayPrice;
+  final String todayPrice;
   final String unit;
-  const PriceCard(
-      {Key? key,
-      required this.product,
-      required this.unit,
-      required this.todayPrice,
-      required this.prevDayPrice})
-      : super(key: key);
+  const PriceCard({
+    Key? key,
+    required this.product,
+    required this.unit,
+    required this.todayPrice,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

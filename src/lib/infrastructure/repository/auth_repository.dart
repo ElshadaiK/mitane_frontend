@@ -7,6 +7,7 @@ class AuthRepository {
   AuthRepository({required this.authDataProvider});
 
   Future<User> signIn(Login login) async {
+    print(login.phone);
     return await authDataProvider.loginUser(login);
   }
 
