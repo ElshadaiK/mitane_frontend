@@ -14,6 +14,7 @@ class UserAdminRepository {
   }
 
   Future<List<User>> fetchAll() async {
+    print("Fetched");
     return this.dataProvider.fetchAll();
   }
 

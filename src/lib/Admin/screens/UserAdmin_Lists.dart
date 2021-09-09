@@ -136,9 +136,9 @@ class _AdminUsersState extends State<AdminUsers> {
                                   });
                               return res;
                             } else if (direction == DismissDirection.startToEnd){
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => AdminUserEdit()),
+                                Navigator.of(context).pushNamed(
+                                  AdminUserEdit.routeName,
+                                  arguments: UserArgument(user: users.elementAt(index)),
                                 );
                               }
                             },
@@ -161,13 +161,13 @@ class _AdminUsersState extends State<AdminUsers> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed(
           AdminUserAdd.routeName,
-          arguments: UserArgument(edit: false),
         ),      
         child: const Icon(Icons.add, color: Colors.green,),
         backgroundColor: Colors.white,
       ),
+      
     );
-  
+      
   }
 }
 
@@ -227,21 +227,21 @@ class UserCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Role:",
-                          style: TextStyle(fontSize: 16, fontFamily: "RobotMono"),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Text(
-                            "$role",
-                            style: TextStyle(fontSize: 16.0),
-                          ),
-                        ),
-                      ]),
+                  // Row(
+                  //     mainAxisAlignment: MainAxisAlignment.start,
+                  //     children: [
+                  //       Text(
+                  //         "Role:",
+                  //         style: TextStyle(fontSize: 16, fontFamily: "RobotMono"),
+                  //       ),
+                  //       Padding(
+                  //         padding: const EdgeInsets.only(left: 8.0),
+                  //         child: Text(
+                  //           "$role",
+                  //           style: TextStyle(fontSize: 16.0),
+                  //         ),
+                  //       ),
+                  //     ]),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [

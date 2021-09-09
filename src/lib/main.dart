@@ -26,7 +26,7 @@ void main() => runApp(MultiRepositoryProvider(
         RepositoryProvider(
             create: (context) =>
                 AuthRepository(authDataProvider: AuthDataProvider(dio: Dio()))),
-        RepositoryProvider(create: (context) => UserAdminRepository(dataProvider: UserAdminDataProvider())),
+        RepositoryProvider(create: (context) => UserAdminRepository(dataProvider: UserAdminDataProvider(dio: Dio()))),
         RepositoryProvider(create: (context) => PriceRepository()),
         RepositoryProvider(create:(context)=>ProductRepository(productProvider:ProductProvider(dio:Dio()))),
       ],

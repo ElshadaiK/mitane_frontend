@@ -3,7 +3,7 @@ class User {
   final String name;
   final double phoneNo;
   final String password;
-  final List<String> roles;
+  final List<dynamic> roles;
 
   User(
       {required this.id,
@@ -21,3 +21,5 @@ class User {
         password: json['password']);
   }
 }
+
+// class UserEmpty{}

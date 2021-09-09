@@ -11,11 +11,10 @@ class UserAdminBloc extends Bloc<UserAdminEvent, UserAdminState> {
   @override
   Stream<UserAdminState> mapEventToState(UserAdminEvent event) async* {
     if (event is UserAdminLoad) {
-      print("Hey");
       yield UserAdminLoading();
       try {
         final userAdmins = await userAdminRepository.fetchAll();
-        print("Yes");
+        print("Successfully listed");
         yield UserAdminOperationSuccess(userAdmins);
       } catch (_) {
         yield UserAdminOperationFailure();
@@ -25,7 +24,9 @@ class UserAdminBloc extends Bloc<UserAdminEvent, UserAdminState> {
     if (event is UserAdminCreate) {
       try {
         await userAdminRepository.create(event.user);
+        print(event.user);
         final userAdmins = await userAdminRepository.fetchAll();
+        print("Successfully created and listed");
         yield UserAdminOperationSuccess(userAdmins);
       } catch (_) {
         yield UserAdminOperationFailure();
@@ -36,6 +37,7 @@ class UserAdminBloc extends Bloc<UserAdminEvent, UserAdminState> {
       try {
         await userAdminRepository.update(event.user.id ?? "", event.user);
         final userAdmins = await userAdminRepository.fetchAll();
+        print("Successfully updated and listed");
         yield UserAdminOperationSuccess(userAdmins);
       } catch (_) {
         yield UserAdminOperationFailure();
@@ -46,6 +48,7 @@ class UserAdminBloc extends Bloc<UserAdminEvent, UserAdminState> {
       try {
         await userAdminRepository.delete(event.id);
         final userAdmins = await userAdminRepository.fetchAll();
+        print("Successfully deleted and listed");
         yield UserAdminOperationSuccess(userAdmins);
       } catch (_) {
         yield UserAdminOperationFailure();

@@ -11,7 +11,7 @@ abstract class UserAdminState extends Equatable {
 class UserAdminLoading extends UserAdminState {}
 
 class UserAdminOperationSuccess extends UserAdminState {
-  final Iterable<User> users;
+  final Iterable<dynamic> users;
 
   UserAdminOperationSuccess([this.users = const []]);
 
