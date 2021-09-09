@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mitane_frontend/presentation/pages/common/welcome.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
+import 'package:mitane_frontend/presentation/pages/sign_in/Login_screen.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -37,31 +39,39 @@ class NavDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text("Settings"),
+            title: Text("Logout"),
             leading: IconButton(
-              icon: Icon(Icons.settings),
+              icon: Icon(Icons.logout),
               onPressed: () {},
             ),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (BuildContext context) => Home()));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => LogIn()));
             },
           ),
           Divider(
             color: Colors.grey,
           ),
           ListTile(
-            title: Text("Help"),
+            title: Text("About"),
             leading: IconButton(
               icon: Icon(Icons.help),
               onPressed: () {},
             ),
-            onTap: () {
-              Navigator.of(context).pop();
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (BuildContext context) => Home()));
-            },
+            onTap: () => showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Mitane 1.0'),
+                  content: const Text('A farming digitization flutter app. It serves as pricehub and markethub for users (farmers, traders, farming, accessories, traders/renters)'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, 'OK'),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              ),
           ),
           Divider(
             color: Colors.grey,
@@ -72,11 +82,19 @@ class NavDrawer extends StatelessWidget {
               icon: Icon(Icons.note),
               onPressed: () {},
             ),
-            onTap: () {
-              Navigator.of(context).pop();
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (BuildContext context) => Home()));
-            },
+             onTap: () => showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: const Text('Terms & Conditions'),
+                  content: const Text('A farming digitization flutter app. It serves as pricehub and markethub for users (farmers, traders, farming, accessories, traders/renters) A farming digitization flutter app. It serves as pricehub and markethub for users (farmers, traders, farming, accessories, traders/renters) A farming digitization flutter app. It serves as pricehub and markethub for users (farmers, traders, farming, accessories, traders/renters) A farming digitization flutter app. It serves as pricehub and markethub for users (farmers, traders, farming, accessories, traders/renters)'),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, 'Agree'),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                ),
+              ),
           )
         ],
       ),

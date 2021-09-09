@@ -5,6 +5,7 @@ import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
+import 'package:mitane_frontend/presentation/pages/suggestions/suggestions_display.dart';
 import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
 
 class AppWidget extends StatefulWidget {
@@ -66,7 +67,7 @@ class _AppWidgetState extends State<AppWidget> {
                     child: Text("Suggestions"),
                     onTap: () {
                       setState(() {
-                        pages[2] = Suggestions();
+                        pages[2] = SuggestionsDisplay();
                         selectedPage = 2;
                       });
                     },
