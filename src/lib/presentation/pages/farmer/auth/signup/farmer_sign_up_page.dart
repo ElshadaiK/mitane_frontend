@@ -3,8 +3,13 @@ import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubble
 import 'package:mitane_frontend/presentation/pages/farmer/auth/signup/farmer_sign_up2_page.dart';
 
 
-class FarmerSignUp extends StatelessWidget {
-  const FarmerSignUp({Key? key}) : super(key: key);
+class FarmerSignUp extends StatefulWidget {
+  FarmerSignUp({Key? key}) : super(key: key);
+
+  @override
+  _FarmerSignUpState createState() => _FarmerSignUpState();
+}
+class _FarmerSignUpState extends State<FarmerSignUp> {
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +64,13 @@ class FarmerSignUp extends StatelessWidget {
                   controller: TextEditingController()..text = '+251',
                   readOnly: true,
                   decoration: InputDecoration(
-                      fillColor: Colors.grey,
-                      filled: true,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: BorderSide.none,
-                      ),
+                    fillColor: Colors.grey,
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      borderSide: BorderSide.none,
                     ),
+                  ),
                 ),
               ),
             ),
@@ -106,7 +111,11 @@ class FarmerSignUp extends StatelessWidget {
                 child: Container(
                   height: 46,
                   width: 174,
-                  child: Align(child: Text('Next')),
+                  child: Align(
+                      child: Text(
+                    'Next',
+                    style: TextStyle(color: Colors.white),
+                  )),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(28),
                     gradient: LinearGradient(
