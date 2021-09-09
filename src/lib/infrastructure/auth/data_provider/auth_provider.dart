@@ -22,6 +22,9 @@ class AuthDataProvider extends DataProvider {
         user = User.fromJson(response.data);
         saveUserOnLocal(user);
       }
+      else {
+        throw Exception("Invalid login");
+      }
     } catch (e) {
       print(e);
       throw Exception("Failed login");
@@ -51,6 +54,9 @@ class AuthDataProvider extends DataProvider {
         break;
       case 'product trader':
         route += '/pt/signup';
+        break;
+      case 'machinery trader':
+        route += '/tt/signup';
         break;
     }
     try {
