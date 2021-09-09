@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\Users\Dagi's PC\Documents\3rd Year 2nd Semester\Flutter_STABLE\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\Users\Dagi's PC\Documents\mitane_frontend"
+export "FLUTTER_ROOT=C:\src\flutter"
+export "FLUTTER_APPLICATION_PATH=C:\Users\Teddy\Documents\vs_code\Y3S2\advanced android\project\mitane_frontend"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"

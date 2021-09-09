@@ -58,7 +58,12 @@ class _PriceHubState extends State<PriceHub> {
                 BlocBuilder<PriceBloc, PriceState>(builder: (context, state) {
               print(state);
               if (state is PriceFetching) {
-                return CircularProgressIndicator();
+                return  Center(
+                        child: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: CircularProgressIndicator(),
+                    ));
               }
               if (state is PriceFetched) {
                 return ListView.builder(

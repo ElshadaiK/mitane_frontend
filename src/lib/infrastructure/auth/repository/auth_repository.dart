@@ -12,6 +12,24 @@ class AuthRepository {
   }
 
   Future<bool> signUp(Register register) async {
-    return authDataProvider.registerUser(register);
+    switch(register.role){
+      case '1':
+        register.role = 'farmer';
+        break;
+      case '2':
+        register.role = 'accesory trader';
+        break;
+      case '3':
+        register.role = 'product trader';
+        break;
+      case '4':
+        register.role = 'tool trader';
+        break;
+      default:
+        register.role = 'user';
+        break;
+    }
+    register.phone = '+251'+register.phone;
+    return await authDataProvider.registerUser(register);
   }
 }
