@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mitane_frontend/application/bloc/price_bloc.dart';
-import 'package:mitane_frontend/application/events/price_event.dart';
-import 'package:mitane_frontend/application/states/price_state.dart';
+import 'package:mitane_frontend/application/price/bloc/price_bloc.dart';
+import 'package:mitane_frontend/application/price/events/price_event.dart';
+import 'package:mitane_frontend/application/price/states/price_state.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 
@@ -58,7 +58,12 @@ class _PriceHubState extends State<PriceHub> {
                 BlocBuilder<PriceBloc, PriceState>(builder: (context, state) {
               print(state);
               if (state is PriceFetching) {
-                return CircularProgressIndicator();
+                return  Center(
+                        child: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: CircularProgressIndicator(),
+                    ));
               }
               if (state is PriceFetched) {
                 return ListView.builder(
@@ -72,8 +77,8 @@ class _PriceHubState extends State<PriceHub> {
                         child: PriceCard(
                             product: price.product['name'],
                             unit: "Kg",
-                            todayPrice: int.parse(price.price[0]['price']),
-                            prevDayPrice: 120),
+                            todayPrice:
+                                price.price[0]['price'].toStringAsFixed(2)),
                       );
                     });
               }
@@ -92,16 +97,14 @@ class _PriceHubState extends State<PriceHub> {
 
 class PriceCard extends StatelessWidget {
   final String product;
-  final int todayPrice;
-  final int prevDayPrice;
+  final String todayPrice;
   final String unit;
-  const PriceCard(
-      {Key? key,
-      required this.product,
-      required this.unit,
-      required this.todayPrice,
-      required this.prevDayPrice})
-      : super(key: key);
+  const PriceCard({
+    Key? key,
+    required this.product,
+    required this.unit,
+    required this.todayPrice,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
