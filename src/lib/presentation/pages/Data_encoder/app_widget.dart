@@ -16,7 +16,7 @@ class AppWidget3 extends StatefulWidget {
 
 class _AppWidgetState extends State<AppWidget3> {
   List<Widget> pages = [
-    Home(),
+    HomeDE(),
     PriceHubDisplay(
       items: [
         new Price("Banana", 'kg', 25, 30),

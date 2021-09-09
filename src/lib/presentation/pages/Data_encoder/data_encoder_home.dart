@@ -5,14 +5,14 @@ import 'package:mitane_frontend/presentation/pages/custom_widgets/appBar.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_data_encoder_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
 import 'package:mitane_frontend/trending/screens/trending_screen.dart';
-class Home extends StatefulWidget {
+class HomeDE extends StatefulWidget {
   @override
   _Dashboard createState() {
     return _Dashboard();
   }
 }
 
-class _Dashboard extends State<Home> {
+class _Dashboard extends State<HomeDE> {
   
   
 
