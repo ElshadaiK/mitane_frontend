@@ -32,7 +32,7 @@ void main() => runApp(MultiRepositoryProvider(
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: '/login',
+          initialRoute: '/welcome',
           onGenerateRoute: RouteGenerator.generateRoute,
         ),
       ),
