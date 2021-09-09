@@ -15,14 +15,11 @@ class AuthDataProvider extends DataProvider {
     final String password = login.password;
     var user;
     try {
-      Response response = await dio.post("http:/localhost:3000/auth/login",
+      Response response = await dio.post("http://localhost:3000/auth/login",
           data: {'phone_no': phone, 'password': password});
       if (response.statusCode == 200 || response.statusCode == 204) {
-     
         user = User.fromJson(response.data);
-        saveUserOnLocal(user);
-      }
-      else {
+      } else {
         throw Exception("Invalid login");
       }
     } catch (e) {
@@ -32,8 +29,6 @@ class AuthDataProvider extends DataProvider {
     return user;
   }
 
-
-
   Future<bool> registerUser(Register register) async {
     final String name = register.name;
     final String phone = register.phone;
@@ -41,13 +36,10 @@ class AuthDataProvider extends DataProvider {
     final String role = register.role;
     final String password = register.password;
 
-    String route = 'http://localhost/auth';
+    String route = 'http://localhost:3000/auth';
     switch (role) {
       case 'farmer':
         route += '/f/signup';
-        break;
-      case 'user':
-        route += '/u/signup';
         break;
       case 'accessory trader':
         route += '/at/signup';
@@ -55,10 +47,14 @@ class AuthDataProvider extends DataProvider {
       case 'product trader':
         route += '/pt/signup';
         break;
-      case 'machinery trader':
+      case 'tool trader':
         route += '/tt/signup';
         break;
+      default:
+        route += '/u/signup';
+        break;
     }
+
     try {
       Response response = await dio.post(route, data: {
         'name': name,
@@ -66,6 +62,7 @@ class AuthDataProvider extends DataProvider {
         'password': password,
         'repeat_password': confirm
       });
+      print('here');
       if (response.statusCode == 200) {
         print(response.data);
         return true;
@@ -73,7 +70,7 @@ class AuthDataProvider extends DataProvider {
       return false;
     } catch (e) {
       print(e);
-      throw Exception("Register Failed");
+      return false;
     }
   }
 

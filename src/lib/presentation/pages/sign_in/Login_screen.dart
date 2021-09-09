@@ -80,7 +80,12 @@ class _LogInState extends State<LogIn> {
                         fontWeight: FontWeight.bold),
                   );
                   if (state is LoggingIn) {
-                    button = CircularProgressIndicator();
+                    button = Center(
+                        child: SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(),
+                    ));
                   }
 
                   return InkWell(
