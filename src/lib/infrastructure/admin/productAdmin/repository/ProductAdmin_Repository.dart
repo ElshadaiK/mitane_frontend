@@ -3,7 +3,7 @@ import 'package:mitane_frontend/domain/admin/productAdmin/entity/ProductAdmin.da
 
 
 class ProductAdminRepository {
-  final UserAdminDataProvider dataProvider;
+  final ProductAdminDataProvider dataProvider;
   ProductAdminRepository({required this.dataProvider});
 
   Future<Product> create(Product product) async {

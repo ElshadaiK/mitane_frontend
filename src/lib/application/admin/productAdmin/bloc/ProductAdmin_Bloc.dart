@@ -13,9 +13,9 @@ class ProductAdminBloc extends Bloc<ProductAdminEvent, ProductAdminState> {
     if (event is ProductAdminLoad) {
       yield ProductAdminLoading();
       try {
-        final userAdmins = await productAdminRepository.fetchAll();
+        final productAdmins = await productAdminRepository.fetchAll();
         print("Successfully listed");
-        yield ProductAdminOperationSuccess(userAdmins);
+        yield ProductAdminOperationSuccess(productAdmins);
       } catch (_) {
         yield ProductAdminOperationFailure();
       }
@@ -25,9 +25,9 @@ class ProductAdminBloc extends Bloc<ProductAdminEvent, ProductAdminState> {
       try {
         await productAdminRepository.create(event.product);
         print(event.product);
-        final userAdmins = await productAdminRepository.fetchAll();
+        final productAdmins = await productAdminRepository.fetchAll();
         print("Successfully created and listed");
-        yield ProductAdminOperationSuccess(userAdmins);
+        yield ProductAdminOperationSuccess(productAdmins);
       } catch (_) {
         yield ProductAdminOperationFailure();
       }
