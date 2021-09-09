@@ -71,9 +71,10 @@ class AuthDataProvider extends DataProvider {
     }
   }
 
-  Future<bool> saveUserOnLocal(User user) async {
+  static final storage = FlutterSecureStorage();
+
+  static Future<bool> saveUserOnLocal(User user) async {
     try {
-      final storage = FlutterSecureStorage();
       await storage.write(key: "name", value: user.name);
       await storage.write(key: "phone", value: user.phone);
       await storage.write(key: "role", value: user.roles[0].toString());
@@ -84,4 +85,7 @@ class AuthDataProvider extends DataProvider {
       throw e;
     }
   }
+
+  static Future<String?> getToken() async => storage.read(key: "token");
+
 }

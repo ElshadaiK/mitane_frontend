@@ -37,7 +37,7 @@ class UserAdminUpdate extends UserAdminEvent {
 }
 
 class UserAdminDelete extends UserAdminEvent {
-  final int id;
+  final String id;
 
   const UserAdminDelete(this.id);
 

@@ -19,4 +19,4 @@ class UserAdminOperationSuccess extends UserAdminState {
   List<Object> get props => [users];
 }
 
-class UserOperationFailure extends UserAdminState {}
+class UserAdminOperationFailure extends UserAdminState {}
