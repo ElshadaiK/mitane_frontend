@@ -3,11 +3,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/suggestions/suggestions_display.dart';
 import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
-import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
 import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
 
 class AdminHome extends StatefulWidget {
@@ -290,7 +290,7 @@ class _AdminHomeState extends State<AdminHome> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Suggestions(),
+                            builder: (context) => SuggestionsDisplay(),
                       ));
                     },
                   ),
