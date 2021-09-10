@@ -4,6 +4,7 @@ import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
 import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 
 import 'package:mitane_frontend/domain/user/entity/user_model.dart';
+import 'package:mitane_frontend/presentation/pages/admin/screens/Admin_Home.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Add.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Lists.dart';
@@ -61,6 +62,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => IngredientScreen());
       case '/suggestions':
         return MaterialPageRoute(builder: (_) => Suggestions());
+      case '/admin':
+        return MaterialPageRoute(builder: (_) => AdminHome());
       case '/admin/users':
         return MaterialPageRoute(builder: (_) => AdminUsers());
       case '/admin/users/add':

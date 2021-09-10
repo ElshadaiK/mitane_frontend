@@ -13,6 +13,8 @@ import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart
 class AdminHome extends StatefulWidget {
   const AdminHome({Key? key}) : super(key: key);
 
+  static String routeName = '/admin';
+
   @override
   _AdminHomeState createState() => _AdminHomeState();
 }
@@ -285,10 +287,11 @@ class _AdminHomeState extends State<AdminHome> {
                   child: GestureDetector(
                     child: Text("Suggestions"),
                     onTap: () {
-                      setState(() {
-                        pages[2] = Suggestions();
-                        selectedPage = 2;
-                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Suggestions(),
+                      ));
                     },
                   ),
                 ),
@@ -296,15 +299,13 @@ class _AdminHomeState extends State<AdminHome> {
                   child: GestureDetector(
                     child: Text("Trending"),
                     onTap: () {
-                      setState(() {
-                        pages[2] = TrendingScreen();
-                        selectedPage = 2;
-                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TrendingScreen(),
+                      ));
                     },
                   ),
-                ),
-                PopupMenuItem(
-                  child: Text("Coalition"),
                 ),
               ],
               elevation: 8.0,
@@ -319,13 +320,27 @@ class _AdminHomeState extends State<AdminHome> {
         selectedItemColor: Colors.green,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
+              icon: IconButton(
+                icon: Icon(Icons.home),
+                onPressed: () {
+                   Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AdminHome(),
+                        ));
+                },
               ),
               label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.bar_chart,
+              icon: IconButton(
+                icon: Icon(Icons.bar_chart),
+                onPressed: () {
+                   Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PriceHub(),
+                        ));
+                },
               ),
               label: "Price Hub"),
           BottomNavigationBarItem(
