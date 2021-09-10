@@ -62,7 +62,7 @@ void main() => runApp(MultiRepositoryProvider(
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: '/splash',
+          initialRoute: '/welcome',
           onGenerateRoute: RouteGenerator.generateRoute,
         ),
       ),
