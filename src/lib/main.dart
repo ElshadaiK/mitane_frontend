@@ -1,11 +1,11 @@
-import 'dart:js';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mitane_frontend/application/auth/bloc/status_bloc.dart';
+import 'package:mitane_frontend/application/auth/events/status_events.dart';
+import 'package:mitane_frontend/application/auth/states/status_state.dart';
 import 'package:mitane_frontend/application/ingredient/bloc/ingredient_blocs.dart';
 import 'package:mitane_frontend/application/machinery/bloc/machinery_blocs.dart';
-
 import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
 import 'package:mitane_frontend/infrastructure/ingredient/data_provider/ingredient_provider.dart';
 import 'package:mitane_frontend/infrastructure/ingredient/repository/ingredient_repository.dart';
@@ -25,6 +25,11 @@ import 'package:mitane_frontend/infrastructure/price/repository/price_repository
 import 'package:mitane_frontend/infrastructure/product/repository/product_repository.dart';
 import 'package:mitane_frontend/infrastructure/suggestion/data_provider/suggestion_provider.dart';
 import 'package:mitane_frontend/infrastructure/suggestion/repository/suggestion_repository.dart';
+import 'package:mitane_frontend/presentation/pages/Data_encoder/app_widget.dart';
+import 'package:mitane_frontend/presentation/pages/admin/screens/Admin_Home.dart';
+import 'package:mitane_frontend/presentation/pages/common/welcome.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/app_widget.dart';
+import 'package:mitane_frontend/presentation/pages/user/app_widget.dart';
 import 'package:mitane_frontend/route_generator.dart';
 
 import 'infrastructure/auth/data_provider/auth_provider.dart';
@@ -39,18 +44,18 @@ void main() => runApp(MultiRepositoryProvider(
             create: (context) =>
                 UserRepository(dataProvider: UserDataProvider(dio: Dio()))),
         RepositoryProvider(
-            create: (context) =>
-                MachineryRepository(dataProvider: MachineryDataProvider(dio: Dio()))),
+            create: (context) => MachineryRepository(
+                dataProvider: MachineryDataProvider(dio: Dio()))),
         RepositoryProvider(
-            create: (context) =>
-                IngredientRepository(dataProvider: IngredientDataProvider(dio: Dio()))),
+            create: (context) => IngredientRepository(
+                dataProvider: IngredientDataProvider(dio: Dio()))),
         RepositoryProvider(create: (context) => PriceRepository()),
         RepositoryProvider(
             create: (context) => ProductRepository(
                 dataProvider: ProductDataProvider(dio: Dio()))),
         RepositoryProvider(
             create: (context) => SuggestionRepository(
-                suggestionProvider: SuggestionProvider(dio: Dio())))
+                suggestionProvider: SuggestionProvider(dio: Dio()))),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -62,13 +67,13 @@ void main() => runApp(MultiRepositoryProvider(
                   UserBloc(userRepository: context.read<UserRepository>())
                     ..add(UserAdminLoad())),
           BlocProvider(
-              create: (context) =>
-                  MachineryBloc(machineryRepository: context.read<MachineryRepository>())
-                    ..add(MachineryAdminLoad())),
+              create: (context) => MachineryBloc(
+                  machineryRepository: context.read<MachineryRepository>())
+                ..add(MachineryAdminLoad())),
           BlocProvider(
-              create: (context) =>
-                  IngredientBloc(ingredientRepository: context.read<IngredientRepository>())
-                    ..add(IngredientAdminLoad())),
+              create: (context) => IngredientBloc(
+                  ingredientRepository: context.read<IngredientRepository>())
+                ..add(IngredientAdminLoad())),
           BlocProvider(create: (context) => PriceBloc()..add(PriceFetch())),
           BlocProvider(
               create: (context) => ProductBloc(
@@ -78,10 +83,33 @@ void main() => runApp(MultiRepositoryProvider(
               create: (context) => SuggestionBloc(
                   suggestionRepository: context.read<SuggestionRepository>())
                 ..add(FetchSuggestion())),
+          BlocProvider(
+              create: (context) => LoginStatusBloc()..add(CheckStatus())),
         ],
         child: MaterialApp(
+          home: BlocBuilder<LoginStatusBloc, StatusState>(
+            builder: (context, state) {
+              print(state);
+              if (state is LoggedInState) {
+                final userData = state.userData;
+                switch (userData['role']) {
+                  case 'user':
+                    return UserHome();
+                  case 'farmer':
+                    return FarmerHome();
+                  case 'admin':
+                    return AdminHome();
+                  case 'data_encoder':
+                    return EncoderHome();
+                }
+              }
+              if (state is LoggedOutState) {
+                return WelcomePage();
+              }
+              return Scaffold(body: Center(child: SizedBox(width: 15,height: 15,child: CircularProgressIndicator(),),),);
+            },
+          ),
           debugShowCheckedModeBanner: false,
-          initialRoute: '/welcome',
           onGenerateRoute: RouteGenerator.generateRoute,
         ),
       ),
