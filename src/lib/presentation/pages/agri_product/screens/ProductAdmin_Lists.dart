@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/application/product/bloc/product_blocs.dart';
 import 'package:mitane_frontend/domain/product/entity/product_model.dart';
+import 'package:mitane_frontend/presentation/pages/admin/screens/Admin_Home.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
@@ -32,8 +33,12 @@ class _AdminProductsState extends State<AdminProducts> {
         ),
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(AdminHome.routeName);
+            },
+            icon: Icon(Icons.arrow_back)),
       ),
-      drawer: NavDrawer(),
       resizeToAvoidBottomInset: false,  
       body: Stack(children: [
         Positioned(
