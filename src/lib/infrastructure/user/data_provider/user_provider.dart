@@ -65,22 +65,6 @@ class UserDataProvider {
       print(e);
       throw e;
     }
-    // final response = await http.put(Uri.parse("$_baseUrl/$id"),
-    //     headers: <String, String>{"Content-Type": "application/json"},
-    //     body: jsonEncode({
-    //       "id": id,
-    //       "name": user.name,
-    //       "phoneNo": user.phoneNo,
-    //       "roles": user.roles,
-    //       "password": user.password
-    //     }));
-
-    // if (response.statusCode == 200) {
-    //   return User.fromJson(jsonDecode(response.body));
-    // } else {
-    //   throw Exception("Could not update the user");
-    // }
-    // return user;
   }
 
   Future<void> delete(String id) async {
