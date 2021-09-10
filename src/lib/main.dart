@@ -3,7 +3,7 @@ import 'dart:js';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/user/bloc/user_bloc.dart';
+
 import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
 import 'package:mitane_frontend/infrastructure/user/data_provider/user_provider.dart';
 import 'package:mitane_frontend/infrastructure/user/repository/user_repository.dart';
