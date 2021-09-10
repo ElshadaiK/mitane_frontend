@@ -33,6 +33,7 @@ class MachineryDataProvider {
 
   Future<List<Machinery>> fetchAll() async {
     try {
+      // Couln't check token is a requirement here
       final response = await dio.get("http://localhost:3000/machinery");
       return (response.data as List).map((u) => Machinery.fromJson(u)).toList();
     } catch (e) {

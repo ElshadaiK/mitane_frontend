@@ -21,7 +21,6 @@ import 'package:mitane_frontend/application/product/events/product_events.dart';
 import 'package:mitane_frontend/application/suggestion/bloc/suggestion_bloc.dart';
 import 'package:mitane_frontend/application/suggestion/events/suggestion_events.dart';
 import 'package:mitane_frontend/infrastructure/auth/repository/auth_repository.dart';
-import 'package:mitane_frontend/infrastructure/core/data_provider.dart';
 import 'package:mitane_frontend/infrastructure/price/repository/price_repository.dart';
 import 'package:mitane_frontend/infrastructure/product/repository/product_repository.dart';
 import 'package:mitane_frontend/infrastructure/suggestion/data_provider/suggestion_provider.dart';
