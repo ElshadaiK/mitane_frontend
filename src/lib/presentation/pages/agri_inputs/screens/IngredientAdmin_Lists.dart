@@ -175,7 +175,12 @@ class _AdminIngredientsState extends State<AdminIngredients> {
                   });
                 }
 
-                return CircularProgressIndicator();
+                return  Center(
+                  child: SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: CircularProgressIndicator(),
+                ));
               },
             ),
             

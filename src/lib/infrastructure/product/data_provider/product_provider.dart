@@ -1,11 +1,7 @@
 import 'dart:convert';
-import 'dart:html';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
 import 'package:mitane_frontend/domain/product/entity/product_model.dart';
-import 'package:mitane_frontend/infrastructure/auth/data_provider/auth_provider.dart';
 
 class ProductDataProvider {
   final Dio dio;
@@ -35,6 +31,7 @@ class ProductDataProvider {
   Future<List<Product>> fetchAll() async {
     try {
       final response = await dio.get("http://localhost:3000/products");
+      print(response);
       return (response.data as List).map((u) => Product.fromJson(u)).toList();
     } catch (e) {
       print(e);
