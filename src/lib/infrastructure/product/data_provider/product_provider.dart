@@ -31,7 +31,7 @@ class ProductDataProvider {
   Future<List<Product>> fetchAll() async {
     try {
       final response = await dio.get("http://localhost:3000/products");
-      print(response.data);
+      print(response);
       return (response.data as List).map((u) => Product.fromJson(u)).toList();
     } catch (e) {
       print(e);
