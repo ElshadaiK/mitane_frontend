@@ -109,14 +109,14 @@ class _LogInState extends State<LogIn> {
                 if (state is LoginSuccess) {
                   final role = state.user.roles[0];
                   print(role);
-                  if(role == 'user')
-                    Navigator.pushNamed(context, '/');
-                  else if(role == 'farmer')
-                    Navigator.pushNamed(context, '/farmer');
-                  else if(role == 'encoder')
-                    Navigator.pushNamed(context, '/encoder');
+                  if (role == 'user')
+                    Navigator.pushReplacementNamed(context, '/');
+                  else if (role == 'farmer')
+                    Navigator.pushReplacementNamed(context, '/farmer');
+                  else if (role == 'encoder')
+                    Navigator.pushReplacementNamed(context, '/encoder');
                   else
-                    Navigator.pushNamed(context, '/admin');
+                    Navigator.pushReplacementNamed(context, '/admin');
                 }
               },
             ),
