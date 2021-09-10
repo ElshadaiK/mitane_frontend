@@ -4,35 +4,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
 import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
 
 class AdminUserAdd extends StatefulWidget {
   static const String routeName = '/admin/users/add';
-  // static const List<String> role = [
-  //   "Farmer",
-  //   "User",
-  //   "Data Encoder",
-  // ];
-  // List<String> getrole() => role;
 
   @override
   _AdminUserAddState createState() => _AdminUserAddState();
 }
 
 class _AdminUserAddState extends State<AdminUserAdd> {
-  // String? selectedrole = "";
-
-  // String? get() => selectedrole;
 
   final Map<String, dynamic> _user = {};
   final _formKey = GlobalKey<FormState>();
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   selectedrole = widget.getrole()[0];
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +38,27 @@ class _AdminUserAddState extends State<AdminUserAdd> {
               icon: Icon(Icons.arrow_back)),
         ),
         resizeToAvoidBottomInset: false,
-        body: Form(
+        body: Stack(children: [
+        Positioned(
+          child: Bubble(
+            height: 160.0,
+            width: 160.0,
+          ),
+          top: -5,
+          left: -160,
+        ),
+        Positioned(
+          child: Bubble(
+            height: 250.0,
+            width: 250,
+          ),
+          top: 130,
+          left: 180,
+        ),
+        SingleChildScrollView(
+          child:  Container(
+            height: MediaQuery.of(context).size.height,
+            child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +66,6 @@ class _AdminUserAddState extends State<AdminUserAdd> {
               SizedBox(
                 height: 15,
               ),
-              // DropDownComponent(context: context, title: "Role", values: AdminUserAdd.role, selected: selectedrole),
               Container(
                   margin: EdgeInsets.all(40),
                   child: Column(
@@ -167,6 +173,7 @@ class _AdminUserAddState extends State<AdminUserAdd> {
                   ))
             ],
           ),
-        ));
+        ))
+        )]));
   }
 }

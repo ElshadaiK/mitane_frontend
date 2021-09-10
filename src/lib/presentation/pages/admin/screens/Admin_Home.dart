@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Lists.dart';

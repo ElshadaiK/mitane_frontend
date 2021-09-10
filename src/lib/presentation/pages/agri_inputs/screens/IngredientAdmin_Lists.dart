@@ -6,12 +6,15 @@ import 'package:mitane_frontend/domain/ingredient/entity/ingredient_model.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/route_generator.dart';
 
 import 'IngredientAdmin_Add.dart';
 
 class AdminIngredients extends StatefulWidget {
   static const routeName = '/admin/ingredients';
+
+  static Ingredient editArg = Ingredient(id: "", name: "", category: "");
 
   get curPrice => null;
   @override
@@ -24,7 +27,7 @@ class _AdminIngredientsState extends State<AdminIngredients> {
         return Scaffold(
       appBar: AppBar(
         title: Text(
-          "ingredients",
+          "Ingredients",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -32,7 +35,27 @@ class _AdminIngredientsState extends State<AdminIngredients> {
       ),
       drawer: NavDrawer(),
       resizeToAvoidBottomInset: false,  
-      body: Column(
+      body: Stack(children: [
+        Positioned(
+          child: Bubble(
+            height: 160.0,
+            width: 160.0,
+          ),
+          top: -5,
+          left: -160,
+        ),
+        Positioned(
+          child: Bubble(
+            height: 250.0,
+            width: 250,
+          ),
+          top: 130,
+          left: 180,
+        ),
+        SingleChildScrollView(
+          child:  Container(
+            height: MediaQuery.of(context).size.height,
+            child:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 15,),
@@ -134,6 +157,7 @@ class _AdminIngredientsState extends State<AdminIngredients> {
                                   });
                               return res;
                             } else if (direction == DismissDirection.startToEnd){
+                              AdminIngredients.editArg = ingredients.elementAt(index);
                                 Navigator.of(context).pushNamed(
                                   AdminIngredientEdit.routeName,
                                   arguments: IngredientArgument(ingredient: ingredients.elementAt(index)),
@@ -156,6 +180,7 @@ class _AdminIngredientsState extends State<AdminIngredients> {
         ],
         
       ),
+      ))]),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed(
           AdminIngredientAdd.routeName,
@@ -163,8 +188,7 @@ class _AdminIngredientsState extends State<AdminIngredients> {
         child: const Icon(Icons.add, color: Colors.green,),
         backgroundColor: Colors.white,
       ),
-      
-    );
+      );
       
   }
 }

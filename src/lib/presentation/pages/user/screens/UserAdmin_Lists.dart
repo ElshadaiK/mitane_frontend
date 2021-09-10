@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
 import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Edit.dart';
 
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
@@ -14,6 +15,7 @@ import 'UserAdmin_Add.dart';
 class AdminUsers extends StatefulWidget {
   static const routeName = '/admin/users';
 
+  static User editArg = User(id: "", name: "", phoneNo: 0, password: "", roles: "");
   get curPrice => null;
   @override
   _AdminUsersState createState() => _AdminUsersState();
@@ -33,47 +35,32 @@ class _AdminUsersState extends State<AdminUsers> {
       ),
       drawer: NavDrawer(),
       resizeToAvoidBottomInset: false,
-      body: Column(
+      body: Stack(children: [
+        Positioned(
+          child: Bubble(
+            height: 160.0,
+            width: 160.0,
+          ),
+          top: -5,
+          left: -160,
+        ),
+        Positioned(
+          child: Bubble(
+            height: 250.0,
+            width: 250,
+          ),
+          top: 130,
+          left: 180,
+        ),
+        SingleChildScrollView(
+          child:  Container(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: 15,
           ),
-          // Container(
-          //   height: MediaQuery.of(context).size.height * 0.15,
-          //   padding: EdgeInsets.symmetric(vertical: 5.0),
-          //   child: ListView.builder(
-          //       scrollDirection: Axis.horizontal,
-          //       itemCount: 6,
-          //       itemBuilder: (BuildContext context, int itemCount) {
-          //         return GestureDetector(
-          //           // onTap: () => Navigator.of(context).pushNamed("/productDetail"),
-          //           child: Container(
-          //             child: Stack(
-          //               alignment: AlignmentDirectional.center,
-          //               children: [
-          //                 Container(
-          //                   margin: EdgeInsets.symmetric(horizontal: 5),
-          //                   width: MediaQuery.of(context).size.width * 0.4,
-          //                   decoration: BoxDecoration(
-          //                       color: Color(0xDD8CC63E),
-          //                       borderRadius: BorderRadius.circular(20)),
-          //                 ),
-          //                 Center(
-          //                   child: Text(
-          //                     "User Role",
-          //                     style: TextStyle(
-          //                         color: Colors.white,
-          //                         fontFamily: "RobotMono",
-          //                         fontWeight: FontWeight.bold),
-          //                   ),
-          //                 )
-          //               ],
-          //             ),
-          //           ),
-          //         );
-          //       }),
-          // ),
           Expanded(
             child: BlocBuilder<UserBloc, UserState>(
               builder: (_, state) {
@@ -147,6 +134,7 @@ class _AdminUsersState extends State<AdminUsers> {
                                 return res;
                               } else if (direction ==
                                   DismissDirection.startToEnd) {
+                                     AdminUsers.editArg = users.elementAt(index);
                                 Navigator.of(context).pushNamed(
                                   AdminUserEdit.routeName,
                                   arguments: UserArgument(
@@ -165,6 +153,7 @@ class _AdminUsersState extends State<AdminUsers> {
           ),
         ],
       ),
+      ))]),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed(
           AdminUserAdd.routeName,

@@ -6,12 +6,15 @@ import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/route_generator.dart';
 
 import 'ProductAdmin_Add.dart';
 
 class AdminProducts extends StatefulWidget {
   static const routeName = '/admin/products';
+
+  static Product editArg = Product(id: "", name: "", category: "");
 
   get curPrice => null;
   @override
@@ -32,7 +35,27 @@ class _AdminProductsState extends State<AdminProducts> {
       ),
       drawer: NavDrawer(),
       resizeToAvoidBottomInset: false,  
-      body: Column(
+      body: Stack(children: [
+        Positioned(
+          child: Bubble(
+            height: 160.0,
+            width: 160.0,
+          ),
+          top: -5,
+          left: -160,
+        ),
+        Positioned(
+          child: Bubble(
+            height: 250.0,
+            width: 250,
+          ),
+          top: 130,
+          left: 180,
+        ),
+        SingleChildScrollView(
+          child:  Container(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 15,),
@@ -134,6 +157,7 @@ class _AdminProductsState extends State<AdminProducts> {
                                   });
                               return res;
                             } else if (direction == DismissDirection.startToEnd){
+                              AdminProducts.editArg = products.elementAt(index);
                                 Navigator.of(context).pushNamed(
                                   AdminProductEdit.routeName,
                                   arguments: ProductArgument(product: products.elementAt(index)),
@@ -156,6 +180,7 @@ class _AdminProductsState extends State<AdminProducts> {
         ],
         
       ),
+      ))]),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed(
           AdminProductAdd.routeName,
