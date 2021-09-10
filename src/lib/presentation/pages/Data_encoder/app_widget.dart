@@ -9,12 +9,12 @@ import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_ed
 
 import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
 
-class AppWidget3 extends StatefulWidget {
+class EncoderHome extends StatefulWidget {
   @override
   _AppWidgetState createState() => _AppWidgetState();
 }
 
-class _AppWidgetState extends State<AppWidget3> {
+class _AppWidgetState extends State<EncoderHome> {
   List<Widget> pages = [
     Home(),
     PriceHubDisplay(
