@@ -4,8 +4,14 @@ import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
 import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 
 import 'package:mitane_frontend/domain/user/entity/user_models.dart';
-import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Add.dart';
-import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Add.dart';
+import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Add.dart';
+import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Add.dart';
+import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Add.dart';
+import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/ingredient_page.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/product_display_screen.dart';
 import 'package:mitane_frontend/presentation/pages/common/splash/splash.dart';
@@ -55,6 +61,18 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => AdminUsers());
       case '/admin/users/add':
         return MaterialPageRoute(builder: (_) => AdminUserAdd());
+      case '/admin/machineries':
+        return MaterialPageRoute(builder: (_) => AdminMachineries());
+      case '/admin/machineries/add':
+        return MaterialPageRoute(builder: (_) => AdminMachineryAdd());
+      case '/admin/products':
+        return MaterialPageRoute(builder: (_) => AdminProducts());
+      case '/admin/products/add':
+        return MaterialPageRoute(builder: (_) => AdminProductAdd());
+      case '/admin/ingredients':
+        return MaterialPageRoute(builder: (_) => AdminIngredients());
+      case '/admin/ingredients/add':
+        return MaterialPageRoute(builder: (_) => AdminIngredientAdd());
       // case '/admin/users/edit':
       //   return MaterialPageRoute(builder: (_) => AdminUserEdit(argument: ,));
       default:

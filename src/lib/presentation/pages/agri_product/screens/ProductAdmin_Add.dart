@@ -1,49 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/machinery/bloc/machinery_blocs.dart';
-import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
-import 'package:mitane_frontend/presentation/pages/admin/machineryAdmin/MachineryAdmin_Lists.dart';
-// import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
+import 'package:mitane_frontend/application/product/bloc/product_blocs.dart';
+import 'package:mitane_frontend/domain/product/entity/product_model.dart';
+import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
-import 'package:mitane_frontend/route_generator.dart';
 
-class AdminMachineryEdit extends StatefulWidget {
-  static const String routeName = '/admin/machineries/edit';
+class AdminProductAdd extends StatefulWidget {
+  static const String routeName = '/admin/products/add';
 
-  final MachineryArgument argument;
-  AdminMachineryEdit({ required this.argument });
 
   @override
-  _AdminMachineryEditState createState() => _AdminMachineryEditState();
+  _AdminProductAddState createState() => _AdminProductAddState();
 }
 
-class _AdminMachineryEditState extends State<AdminMachineryEdit> {
+class _AdminProductAddState extends State<AdminProductAdd> {
 
+  final Map<String, dynamic> _product = {};
   final _formKey = GlobalKey<FormState>();
-
-  final Map<String, dynamic> _machinery = {};
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Edit Machinery",
+          "Add New Product",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
         leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pushNamed(AdminMachineries.routeName);
+              Navigator.of(context).pushNamed(AdminProducts.routeName);
             },
             icon: Icon(Icons.arrow_back)),
       ),
       resizeToAvoidBottomInset: false,
       body: Form(
         key: _formKey,
-        child:  Column(
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
@@ -54,21 +50,39 @@ class _AdminMachineryEditState extends State<AdminMachineryEdit> {
               child: Column(
                 children: [
                   TextFormField(
-                    initialValue: widget.argument.machinery.name,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
-                      labelText: "Machinery Name",
+                      labelText: "Product Name",
                       border: OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (value != null && value.isEmpty) {
-                        return 'Please enter machinery name';
+                        return 'Please enter product name';
                       }
                       return null;
                     },
                     onSaved: (value) {
                       setState(() {
-                        this._machinery["name"] = value;
+                        this._product["name"] = value;
+                      });
+                  }),
+                  SizedBox(
+                    height: 40.0,
+                  ),
+                  TextFormField(
+                    textAlign: TextAlign.right,
+                    decoration: InputDecoration(
+                        labelText: "Product Category",
+                        border: OutlineInputBorder()),
+                    validator: (value) {
+                      if (value != null && value.isEmpty) {
+                        return 'Please enter product category';
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      setState(() {
+                        this._product["category"] = value;
                       });
                   }),
                   SizedBox(
@@ -80,17 +94,18 @@ class _AdminMachineryEditState extends State<AdminMachineryEdit> {
                     final form = _formKey.currentState;
                     if (form != null && form.validate()) {
                       form.save();
-                      final MachineryEvent event = MachineryAdminUpdate(
-                              Machinery(
-                                id: widget.argument.machinery.id,
-                                name: this._machinery['name'],
+                      final ProductEvent event = ProductAdminCreate(
+                              Product(
+                                id: null,
+                                name: this._product["name"],
+                                category: this._product["category"],
                               ),
                             );
-                      BlocProvider.of<MachineryBloc>(context).add(event);
+                      BlocProvider.of<ProductBloc>(context).add(event);
                       Navigator.of(context).pushNamedAndRemoveUntil(
-                          AdminMachineries.routeName, (route) => false);
-                    }
-                    }, title: "Edit Machinery", )
+                          AdminProducts.routeName, (route) => false);
+                    }                    
+                    }, title: "Add Product", )
                   ])
                 ],
               ))
@@ -98,4 +113,5 @@ class _AdminMachineryEditState extends State<AdminMachineryEdit> {
       ),
     ));
   }
+
 }

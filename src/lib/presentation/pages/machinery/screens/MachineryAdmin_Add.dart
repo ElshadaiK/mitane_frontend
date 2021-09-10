@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mitane_frontend/application/machinery/bloc/machinery_blocs.dart';
 import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
-import 'package:mitane_frontend/presentation/pages/admin/machineryAdmin/MachineryAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
 
 class AdminMachineryAdd extends StatefulWidget {
