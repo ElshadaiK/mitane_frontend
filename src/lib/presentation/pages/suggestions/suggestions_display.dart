@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mitane_frontend/presentation/pages/admin/screens/Admin_Home.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/vertical_tiles_display.dart';
 
 class SuggestionsDisplay extends StatefulWidget {
-  SuggestionsDisplay({Key? key}) : super(key: key);
+  static String routeToAdmin = "";
 
   @override
   _SuggestionsDisplayState createState() => _SuggestionsDisplayState();
@@ -20,6 +21,12 @@ class _SuggestionsDisplayState extends State<SuggestionsDisplay> {
         ),
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
+        leading: (SuggestionsDisplay.routeToAdmin == "") ? Container() : 
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(AdminHome.routeName);
+              },
+            icon: Icon(Icons.arrow_back)) ,
       ),
       drawer: NavDrawer(),
       body: SafeArea(

@@ -8,8 +8,8 @@ class PriceRepository {
 
   Future<List<dynamic>> getPrice(DateTime date) async {
     String year = date.year.toString();
-    String month = '';
-    String day = '';
+    String month = date.month.toString();
+    String day = date.day.toString();
 
     if (date.day < 10) {
       day = '0' + date.day.toString();
@@ -18,7 +18,7 @@ class PriceRepository {
       month = '0' + date.month.toString();
     }
     try {
-      final result = await priceProvider.getPrice('$year-$month-08');
+      final result = await priceProvider.getPrice('$year-$month-$day');
       return result;
     } catch (e) {
       throw Exception();

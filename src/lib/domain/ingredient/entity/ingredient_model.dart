@@ -1,7 +1,7 @@
 class Ingredient{
   final String? id;
   final String name;
-  final String category;
+  final String? category;
 
 
   Ingredient({required this.id, required this.name, required this.category});
@@ -10,7 +10,7 @@ class Ingredient{
     return Ingredient(
       id: json['_id'],
       name: json['name'],
-      category: json['category'][0]['name']);
+      category: json['category'][0]);
   }
 
 

@@ -30,9 +30,11 @@
 //   }
 // }
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:mitane_frontend/application/price/events/price_event.dart';
 import 'package:mitane_frontend/application/price/states/price_state.dart';
 import 'package:mitane_frontend/domain/price/entity/price_model.dart';
+import 'package:mitane_frontend/infrastructure/auth/repository/auth_repository.dart';
 import 'package:mitane_frontend/infrastructure/price/repository/price_repository.dart';
 
 class PriceBloc extends Bloc<PriceEvent, PriceState> {
@@ -60,4 +62,6 @@ class PriceBloc extends Bloc<PriceEvent, PriceState> {
     } else if (event is PriceUpdate) {
     } else if (event is PriceDelete) {}
   }
+
+
 }

@@ -1,11 +1,11 @@
 import 'dart:convert';
+
+
+
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
-import 'package:mitane_frontend/domain/user/entity/user_models.dart';
-import 'package:mitane_frontend/infrastructure/auth/data_provider/auth_provider.dart';
+import 'package:mitane_frontend/domain/user/entity/user_model.dart';
 
 class UserDataProvider {
-  static final String _baseUrl = "http://localhost:3000/users";
 
   final Dio dio;
   UserDataProvider({required this.dio});
@@ -36,6 +36,7 @@ class UserDataProvider {
   Future<List<User>> fetchAll() async {
     try {
       final response = await dio.get("http://localhost:3000/users");
+      print(response.data);
       return (response.data as List).map((u) => User.fromJson(u)).toList();
     } catch (e) {
       print(e);
@@ -66,22 +67,6 @@ class UserDataProvider {
       print(e);
       throw e;
     }
-    // final response = await http.put(Uri.parse("$_baseUrl/$id"),
-    //     headers: <String, String>{"Content-Type": "application/json"},
-    //     body: jsonEncode({
-    //       "id": id,
-    //       "name": user.name,
-    //       "phoneNo": user.phoneNo,
-    //       "roles": user.roles,
-    //       "password": user.password
-    //     }));
-
-    // if (response.statusCode == 200) {
-    //   return User.fromJson(jsonDecode(response.body));
-    // } else {
-    //   throw Exception("Could not update the user");
-    // }
-    // return user;
   }
 
   Future<void> delete(String id) async {

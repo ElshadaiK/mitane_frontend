@@ -1,11 +1,7 @@
 import 'dart:convert';
-import 'dart:html';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
 import 'package:mitane_frontend/domain/ingredient/entity/ingredient_model.dart';
-import 'package:mitane_frontend/infrastructure/auth/data_provider/auth_provider.dart';
 
 class IngredientDataProvider {
   final Dio dio;
@@ -34,8 +30,11 @@ class IngredientDataProvider {
 
   Future<List<Ingredient>> fetchAll() async {
     try {
-      final response = await dio.get("http://localhost:3000/ingredient");
-      return (response.data as List)
+      // There is a category with no value inside; ingredients route in the backend should be checked, 
+      // the other choice is to remove category(if that is the case, it'll will work)
+      final response = await dio.get("http://localhost:3000/ingredients");
+      print(response);
+      return (response.data['ingredients'] as List)
           .map((u) => Ingredient.fromJson(u))
           .toList();
     } catch (e) {
