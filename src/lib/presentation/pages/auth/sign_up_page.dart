@@ -7,14 +7,14 @@ import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/auth/signup/farmer_sign_up2_page.dart';
 
-class FarmerSignUp extends StatefulWidget {
-  FarmerSignUp({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  SignUp({Key? key}) : super(key: key);
 
   @override
   _FarmerSignUpState createState() => _FarmerSignUpState();
 }
 
-class _FarmerSignUpState extends State<FarmerSignUp> {
+class _FarmerSignUpState extends State<SignUp> {
   final phoneController = TextEditingController();
   final nameController = TextEditingController();
   final passwordController = TextEditingController();
