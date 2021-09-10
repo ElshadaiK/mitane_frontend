@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
-import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
@@ -113,7 +116,11 @@ class _AdminHomeState extends State<AdminHome> {
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
-                        // Navigator.of(context).pushNamed('/product');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AdminProducts(),
+                        ));
                       },
                       child: Card(
                           color: Color(0xDD8CC63E),
@@ -147,7 +154,11 @@ class _AdminHomeState extends State<AdminHome> {
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
-                        // Navigator.of(context).pushNamed('/inputs');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AdminIngredients(),
+                        ));
                       },
                       child: Card(
                           color: Color(0xDD8CC63E),
@@ -187,7 +198,11 @@ class _AdminHomeState extends State<AdminHome> {
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
-                        // Navigator.of(context).pushNamed('/machinery');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AdminMachineries(),
+                        ));
                       },
                       child: Card(
                           color: Color(0xDD8CC63E),
