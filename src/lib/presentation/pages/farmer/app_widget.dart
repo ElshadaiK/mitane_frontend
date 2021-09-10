@@ -84,9 +84,6 @@ class _AppWidgetState extends State<FarmerHome> {
                     },
                   ),
                 ),
-                PopupMenuItem(
-                  child: Text("Coalition"),
-                ),
               ],
               elevation: 8.0,
             );
