@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:mitane_frontend/domain/user/entity/UserModels.dart';
+=======
+import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+>>>>>>> 2ab96ebfb96dc86a786702577999f5fe7166c502
 import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Add.dart';
 import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/ingredient_page.dart';

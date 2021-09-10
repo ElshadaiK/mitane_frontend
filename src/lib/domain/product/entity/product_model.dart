@@ -1,13 +1,17 @@
 class Product{
-  final Map<String,dynamic> category;
+  final String? id;
   final String name;
+  final String category;
+
+
+  Product({required this.id, required this.name, required this.category});
 
   factory Product.fromJson(Map<String,dynamic> json){
-    return Product(category:json['user'],name:json['products']);
+    return Product(
+      id: json['_id'],
+      name: json['name'],
+      category: json['category'][0]['name']);
   }
 
-  Product({required this.category, required this.name});
 
 }
-
-class EmptyProduct{}

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+<<<<<<< HEAD
 import 'package:mitane_frontend/application/user/bloc/User_Blocs.dart';
 import 'package:mitane_frontend/domain/user/entity/UserModels.dart';
+=======
+import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
+import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+>>>>>>> 2ab96ebfb96dc86a786702577999f5fe7166c502
 // import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
 import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
@@ -22,7 +27,7 @@ class AdminUsers extends StatefulWidget {
 class _AdminUsersState extends State<AdminUsers> {
   @override
   Widget build(BuildContext context) {
-        return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text(
           "Users",
@@ -32,11 +37,13 @@ class _AdminUsersState extends State<AdminUsers> {
         iconTheme: IconThemeData(color: Colors.black),
       ),
       drawer: NavDrawer(),
-      resizeToAvoidBottomInset: false,  
+      resizeToAvoidBottomInset: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 15,
+          ),
           // Container(
           //   height: MediaQuery.of(context).size.height * 0.15,
           //   padding: EdgeInsets.symmetric(vertical: 5.0),
@@ -52,7 +59,7 @@ class _AdminUsersState extends State<AdminUsers> {
           //               children: [
           //                 Container(
           //                   margin: EdgeInsets.symmetric(horizontal: 5),
-          //                   width: MediaQuery.of(context).size.width * 0.4,                 
+          //                   width: MediaQuery.of(context).size.width * 0.4,
           //                   decoration: BoxDecoration(
           //                       color: Color(0xDD8CC63E),
           //                       borderRadius: BorderRadius.circular(20)),
@@ -73,7 +80,7 @@ class _AdminUsersState extends State<AdminUsers> {
           //       }),
           // ),
           Expanded(
-            child: BlocBuilder<UserAdminBloc, UserAdminState>(
+            child: BlocBuilder<UserBloc, UserState>(
               builder: (_, state) {
                 if (state is UserAdminOperationFailure) {
                   return Text('Could not do course operation');
@@ -82,92 +89,98 @@ class _AdminUsersState extends State<AdminUsers> {
                 if (state is UserAdminOperationSuccess) {
                   final users = state.users;
 
-                  return 
-                  ListView.builder(
-                    itemCount: users.length,
-                    itemBuilder: (_, int index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10)),
-                        margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),                    
-                        child: Dismissible(                    
+                  return ListView.builder(
+                      itemCount: users.length,
+                      itemBuilder: (_, int index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10)),
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 40, vertical: 10),
+                          child: Dismissible(
                             child: UserCard(
-                                userName: users.elementAt(index).name,
-                                phoneNo: users.elementAt(index).phoneNo,
-                                role: users.elementAt(index).roles,
+                              userName: users.elementAt(index).name,
+                              phoneNo: users.elementAt(index).phoneNo,
+                              role: users.elementAt(index).roles,
                             ),
                             background: slideRightBackground(),
                             secondaryBackground: slideLeftBackground(),
                             key: ValueKey<User>(users.elementAt(index)),
                             confirmDismiss: (direction) async {
-                            if (direction == DismissDirection.endToStart) {
-                              final bool res = await showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return AlertDialog(
-                                      content: Text(
-                                          "Are you sure you want to delete ${users.elementAt(index).name}?"),
-                                      actions: <Widget>[
-                                        TextButton(
-                                          child: Text(
-                                            "Cancel",
-                                            style: TextStyle(color: Colors.black),
+                              if (direction == DismissDirection.endToStart) {
+                                final bool res = await showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        content: Text(
+                                            "Are you sure you want to delete ${users.elementAt(index).name}?"),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            child: Text(
+                                              "Cancel",
+                                              style: TextStyle(
+                                                  color: Colors.black),
+                                            ),
+                                            onPressed: () {
+                                              Navigator.pop(context, false);
+                                            },
                                           ),
-                                          onPressed: () {                                        
-                                            Navigator.pop(context, false);
-                                          },
-                                        ),
-                                        TextButton(
-                                          child: Text(
-                                            "Delete",
-                                            style: TextStyle(color: Colors.red),
+                                          TextButton(
+                                            child: Text(
+                                              "Delete",
+                                              style:
+                                                  TextStyle(color: Colors.red),
+                                            ),
+                                            onPressed: () {
+                                              setState(() {
+                                                BlocProvider.of<UserBloc>(
+                                                        context)
+                                                    .add(UserAdminDelete(users
+                                                        .elementAt(index)
+                                                        .id
+                                                        .toString()));
+                                                Navigator.of(context)
+                                                    .pushNamedAndRemoveUntil(
+                                                        AdminUsers.routeName,
+                                                        (route) => false);
+                                              });
+                                            },
                                           ),
-                                          onPressed: () {
-                                            setState(() {
-                                              BlocProvider.of<UserAdminBloc>(context)
-                                                  .add(UserAdminDelete(users.elementAt(index).id.toString()));
-                                              Navigator.of(context).pushNamedAndRemoveUntil(
-                                                  AdminUsers.routeName, (route) => false);
-                                            });
-                                          },
-                                        ),
-                                      ],
-                                    );
-                                  });
-                              return res;
-                            } else if (direction == DismissDirection.startToEnd){
+                                        ],
+                                      );
+                                    });
+                                return res;
+                              } else if (direction ==
+                                  DismissDirection.startToEnd) {
                                 Navigator.of(context).pushNamed(
                                   AdminUserEdit.routeName,
-                                  arguments: UserArgument(user: users.elementAt(index)),
+                                  arguments: UserArgument(
+                                      user: users.elementAt(index)),
                                 );
                               }
                             },
                           ),
-                      );
-                      
-                  });
+                        );
+                      });
                 }
 
                 return CircularProgressIndicator();
               },
             ),
-            
-            
-            
-          ),         
+          ),
         ],
-        
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed(
           AdminUserAdd.routeName,
-        ),      
-        child: const Icon(Icons.add, color: Colors.green,),
+        ),
+        child: const Icon(
+          Icons.add,
+          color: Colors.green,
+        ),
         backgroundColor: Colors.white,
       ),
-      
     );
-      
   }
 }
 
@@ -187,84 +200,76 @@ class UserCard extends StatelessWidget {
     return Card(
       elevation: 8,
       child: Container(
-        padding: EdgeInsets.only(left: 20, right: 20),
-        decoration: BoxDecoration(
-            border: Border(
-                left: BorderSide(
-                    color: Color(0xDD8CC63E),
-                    width: 5))),
-        height: 100,
-        width: MediaQuery.of(context).size.width,
-        child: 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
+          padding: EdgeInsets.only(left: 20, right: 20),
+          decoration: BoxDecoration(
+              border:
+                  Border(left: BorderSide(color: Color(0xDD8CC63E), width: 5))),
+          height: 100,
+          width: MediaQuery.of(context).size.width,
+          child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
             FaIcon(
               FontAwesomeIcons.userCircle,
               color: Color(0xDD8CC63E),
               size: 50,
             ),
-
-            SizedBox(width: 15,),
+            SizedBox(
+              width: 15,
+            ),
             Column(
-
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "$userName",
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "RobotMono"),
-                  )
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Role:",
-                          style: TextStyle(fontSize: 16, fontFamily: "RobotMono"),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Text(
-                            "$role",
-                            style: TextStyle(fontSize: 16.0),
-                          ),
-                        ),
-                      ]),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "$userName",
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "RobotMono"),
+                    )
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                       Text(
-                        "Phone No:",
+                        "Role:",
                         style: TextStyle(fontSize: 16, fontFamily: "RobotMono"),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
                         child: Text(
-                          "+$phoneNo",
+                          "$role",
                           style: TextStyle(fontSize: 16.0),
                         ),
-                      )
-                    ],
-                  )
-                ],
-              )
-            ],
-          ),
-          ]
-        )
-      ),
+                      ),
+                    ]),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Phone No:",
+                          style:
+                              TextStyle(fontSize: 16, fontFamily: "RobotMono"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "+$phoneNo",
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+          ])),
     );
   }
 }

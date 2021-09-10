@@ -1,9 +1,21 @@
-abstract class ProductState{}
+import 'package:equatable/equatable.dart';
 
-class ProductInitial extends ProductState{}
+abstract class ProductState extends Equatable {
+  const ProductState();
 
-class ProductFetched extends ProductState{
-
+  @override
+  List<Object> get props => [];
 }
 
-class ProductFetching extends ProductState{}
+class ProductAdminLoading extends ProductState {}
+
+class ProductAdminOperationSuccess extends ProductState {
+  final Iterable<dynamic> products;
+
+  ProductAdminOperationSuccess([this.products = const []]);
+
+  @override
+  List<Object> get props => [products];
+}
+
+class ProductAdminOperationFailure extends ProductState {}

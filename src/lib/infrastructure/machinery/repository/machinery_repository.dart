@@ -1,9 +1,24 @@
 import 'package:mitane_frontend/infrastructure/machinery/data_provider/machinery_provider.dart';
+import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
 
-class MachineryRepository{
+class MachineryRepository {
+  final MachineryDataProvider dataProvider;
+  MachineryRepository({required this.dataProvider});
 
-  final MachineryProvider machineryProvider;
+  Future<Machinery> create(Machinery machinery) async {
+    return this.dataProvider.create(machinery);
+  }
 
-MachineryRepository({required this.machineryProvider});
+  Future<Machinery> update(String id, Machinery machinery) async {
+    return this.dataProvider.update(id, machinery);
+  }
 
+  Future<List<Machinery>> fetchAll() async {
+    print("Fetched");
+    return this.dataProvider.fetchAll();
+  }
+
+  Future<void> delete(String id) async {
+    this.dataProvider.delete(id);
+  }
 }
