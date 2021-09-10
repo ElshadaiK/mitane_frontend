@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/admin/productAdmin/bloc/ProductAdmin_Blocs.dart';
-import 'package:mitane_frontend/domain/admin/productAdmin/entity/ProductAdmin.dart';
+import 'package:mitane_frontend/application/product/bloc/Product_Blocs.dart';
+import 'package:mitane_frontend/domain/product/entity/ProductAdmin.dart';
 import 'package:mitane_frontend/presentation/pages/admin/productAdmin/ProductAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
 

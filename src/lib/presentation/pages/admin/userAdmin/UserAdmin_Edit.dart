@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/admin/userAdmin/bloc/UserAdmin_Blocs.dart';
-import 'package:mitane_frontend/domain/admin/userAdmin/entity/UserAdminModels.dart';
+import 'package:mitane_frontend/application/user/bloc/User_Blocs.dart';
+import 'package:mitane_frontend/domain/user/entity/UserModels.dart';
 import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Lists.dart';
 // import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
