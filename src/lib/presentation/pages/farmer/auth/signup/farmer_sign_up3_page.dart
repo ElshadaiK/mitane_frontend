@@ -103,7 +103,7 @@ class _FarmerSignUp3State extends State<FarmerSignUp3>  {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AppWidget()),
+                  MaterialPageRoute(builder: (context) => FarmerHome()),
                 );
               },
               child: Container(
