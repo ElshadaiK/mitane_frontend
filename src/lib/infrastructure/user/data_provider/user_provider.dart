@@ -1,7 +1,4 @@
 import 'dart:convert';
-import 'dart:html';
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:mitane_frontend/domain/user/entity/user_models.dart';
