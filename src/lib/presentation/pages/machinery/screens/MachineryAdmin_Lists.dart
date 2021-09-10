@@ -139,7 +139,12 @@ class _AdminMachineriesState extends State<AdminMachineries> {
                   });
                 }
 
-                return CircularProgressIndicator();
+                return  Center(
+                  child: SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: CircularProgressIndicator(),
+                ));
               },
             ),
             
