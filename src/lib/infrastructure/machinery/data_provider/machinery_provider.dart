@@ -1,11 +1,7 @@
 import 'dart:convert';
-import 'dart:html';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
 import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
-import 'package:mitane_frontend/infrastructure/auth/data_provider/auth_provider.dart';
 
 class MachineryDataProvider {
   final Dio dio;

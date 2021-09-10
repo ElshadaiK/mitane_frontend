@@ -81,7 +81,7 @@ void main() => runApp(MultiRepositoryProvider(
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: '/admin',
+          initialRoute: '/welcome',
           onGenerateRoute: RouteGenerator.generateRoute,
         ),
       ),
