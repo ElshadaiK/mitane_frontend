@@ -5,10 +5,10 @@ import 'package:mitane_frontend/application/ingredient/bloc/ingredient_blocs.dar
 import 'package:mitane_frontend/domain/ingredient/entity/ingredient_model.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 
 class AdminIngredientAdd extends StatefulWidget {
   static const String routeName = '/admin/ingredients/add';
-
 
   @override
   _AdminIngredientAddState createState() => _AdminIngredientAddState();
@@ -37,7 +37,27 @@ class _AdminIngredientAddState extends State<AdminIngredientAdd> {
             icon: Icon(Icons.arrow_back)),
       ),
       resizeToAvoidBottomInset: false,
-      body: Form(
+      body: Stack(children: [
+        Positioned(
+          child: Bubble(
+            height: 160.0,
+            width: 160.0,
+          ),
+          top: -5,
+          left: -160,
+        ),
+        Positioned(
+          child: Bubble(
+            height: 250.0,
+            width: 250,
+          ),
+          top: 130,
+          left: 180,
+        ),
+        SingleChildScrollView(
+          child:  Container(
+            height: MediaQuery.of(context).size.height,
+            child: Form(
         key: _formKey,
         child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,7 +131,8 @@ class _AdminIngredientAddState extends State<AdminIngredientAdd> {
               ))
         ],
       ),
-    ));
+    ))
+    )]));
   }
 
 }

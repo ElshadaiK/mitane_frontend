@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/application/machinery/bloc/machinery_blocs.dart';
 import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
@@ -12,6 +13,8 @@ import 'MachineryAdmin_Add.dart';
 
 class AdminMachineries extends StatefulWidget {
   static const routeName = '/admin/machineries';
+
+  static Machinery editArg = Machinery(id: "", name: "");
 
   get curPrice => null;
   @override
@@ -32,7 +35,27 @@ class _AdminMachineriesState extends State<AdminMachineries> {
       ),
       drawer: NavDrawer(),
       resizeToAvoidBottomInset: false,  
-      body: Column(
+      body: Stack(children: [
+        Positioned(
+          child: Bubble(
+            height: 160.0,
+            width: 160.0,
+          ),
+          top: -5,
+          left: -160,
+        ),
+        Positioned(
+          child: Bubble(
+            height: 250.0,
+            width: 250,
+          ),
+          top: 130,
+          left: 180,
+        ),
+        SingleChildScrollView(
+          child:  Container(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 15,),
@@ -98,6 +121,7 @@ class _AdminMachineriesState extends State<AdminMachineries> {
                                   });
                               return res;
                             } else if (direction == DismissDirection.startToEnd){
+                              AdminMachineries.editArg = machineries.elementAt(index);
                                 Navigator.of(context).pushNamed(
                                   AdminMachineryEdit.routeName,
                                   arguments: MachineryArgument(machinery: machineries.elementAt(index)),
@@ -120,6 +144,7 @@ class _AdminMachineriesState extends State<AdminMachineries> {
         ],
         
       ),
+      ))]),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed(
           AdminMachineryAdd.routeName,

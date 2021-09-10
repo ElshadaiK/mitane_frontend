@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mitane_frontend/application/machinery/bloc/machinery_blocs.dart';
 import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Lists.dart';
-// import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
 import 'package:mitane_frontend/route_generator.dart';
 
@@ -41,7 +41,27 @@ class _AdminMachineryEditState extends State<AdminMachineryEdit> {
             icon: Icon(Icons.arrow_back)),
       ),
       resizeToAvoidBottomInset: false,
-      body: Form(
+      body: Stack(children: [
+        Positioned(
+          child: Bubble(
+            height: 160.0,
+            width: 160.0,
+          ),
+          top: -5,
+          left: -160,
+        ),
+        Positioned(
+          child: Bubble(
+            height: 250.0,
+            width: 250,
+          ),
+          top: 130,
+          left: 180,
+        ),
+        SingleChildScrollView(
+          child:  Container(
+            height: MediaQuery.of(context).size.height,
+            child: Form(
         key: _formKey,
         child:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,6 +116,7 @@ class _AdminMachineryEditState extends State<AdminMachineryEdit> {
               ))
         ],
       ),
-    ));
+    ))
+    )]));
   }
 }

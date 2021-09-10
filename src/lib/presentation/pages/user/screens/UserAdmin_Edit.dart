@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
 import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Lists.dart';
 
 // import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
@@ -11,12 +12,6 @@ import 'package:mitane_frontend/route_generator.dart';
 
 class AdminUserEdit extends StatefulWidget {
   static const String routeName = '/admin/users/edit';
-  // static const List<String> role = [
-  //   "Farmer",
-  //   "User",
-  //   "Data Encoder",
-  // ];
-  // List<String> getrole() => role;
 
   final UserArgument argument;
   AdminUserEdit({required this.argument});
@@ -26,19 +21,9 @@ class AdminUserEdit extends StatefulWidget {
 }
 
 class _AdminUserEditState extends State<AdminUserEdit> {
-  // String? selectedrole = "";
-
-  // String? get() => selectedrole;
-
   final _formKey = GlobalKey<FormState>();
 
   final Map<String, dynamic> _user = {};
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   selectedrole = widget.getrole()[0];
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +42,27 @@ class _AdminUserEditState extends State<AdminUserEdit> {
               icon: Icon(Icons.arrow_back)),
         ),
         resizeToAvoidBottomInset: false,
-        body: Form(
+        body: Stack(children: [
+        Positioned(
+          child: Bubble(
+            height: 160.0,
+            width: 160.0,
+          ),
+          top: -5,
+          left: -160,
+        ),
+        Positioned(
+          child: Bubble(
+            height: 250.0,
+            width: 250,
+          ),
+          top: 130,
+          left: 180,
+        ),
+        SingleChildScrollView(
+          child:  Container(
+            height: MediaQuery.of(context).size.height,
+            child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +70,6 @@ class _AdminUserEditState extends State<AdminUserEdit> {
               SizedBox(
                 height: 15,
               ),
-              // DropDownComponent(context: context, title: "Role", values: AdminUserEdit.role, selected: selectedrole),
               Container(
                   margin: EdgeInsets.all(40),
                   child: Column(
@@ -112,7 +116,7 @@ class _AdminUserEditState extends State<AdminUserEdit> {
                         height: 40.0,
                       ),
                       TextFormField(
-                          initialValue: widget.argument.user.phoneNo.toString(),
+                          initialValue: widget.argument.user.roles,
                           textAlign: TextAlign.right,
                           decoration: InputDecoration(
                               labelText: "Role", border: OutlineInputBorder()),
@@ -176,6 +180,7 @@ class _AdminUserEditState extends State<AdminUserEdit> {
                   ))
             ],
           ),
-        ));
+        ))
+        )]));
   }
 }

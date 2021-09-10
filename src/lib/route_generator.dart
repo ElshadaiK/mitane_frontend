@@ -5,12 +5,16 @@ import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 
 import 'package:mitane_frontend/domain/user/entity/user_models.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Add.dart';
+import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Lists.dart';
+import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Add.dart';
+import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Add.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Add.dart';
+import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/ingredient_page.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/product_display_screen.dart';
@@ -73,8 +77,14 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => AdminIngredients());
       case '/admin/ingredients/add':
         return MaterialPageRoute(builder: (_) => AdminIngredientAdd());
-      // case '/admin/users/edit':
-      //   return MaterialPageRoute(builder: (_) => AdminUserEdit(argument: ,));
+      case '/admin/users/edit':
+        return MaterialPageRoute(builder: (_) => AdminUserEdit(argument: UserArgument(user:  AdminUsers.editArg )));  
+      case '/admin/products/edit':
+        return MaterialPageRoute(builder: (_) => AdminProductEdit(argument: ProductArgument(product:  AdminProducts.editArg )));  
+      case '/admin/machineries/edit':
+        return MaterialPageRoute(builder: (_) => AdminMachineryEdit(argument: MachineryArgument(machinery:  AdminMachineries.editArg )));  
+      case '/admin/ingredients/edit':
+        return MaterialPageRoute(builder: (_) => AdminIngredientEdit(argument: IngredientArgument(ingredient:  AdminIngredients.editArg )));  
       default:
         return MaterialPageRoute(builder: (_) => ProductScreen());
     }
