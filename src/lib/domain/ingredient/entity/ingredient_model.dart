@@ -1,12 +1,17 @@
 class Ingredient{
-  final Map<String,dynamic> user;
-  final List<Map<String,dynamic>> ingredient;
-  final Map<String,dynamic> pricePerPnit;
+  final String? id;
+  final String name;
+  final String category;
+
+
+  Ingredient({required this.id, required this.name, required this.category});
 
   factory Ingredient.fromJson(Map<String,dynamic> json){
-    return Ingredient(user:json['user'],ingredient:json['ingredients'],pricePerPnit:json['price_per_unit']);
+    return Ingredient(
+      id: json['_id'],
+      name: json['name'],
+      category: json['category'][0]['name']);
   }
 
-  Ingredient({required this.user, required this.ingredient, required this.pricePerPnit});
 
 }

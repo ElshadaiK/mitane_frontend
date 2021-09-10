@@ -1,5 +1,21 @@
-abstract class IngredientState{}
+import 'package:equatable/equatable.dart';
 
-class IngredientInitial extends IngredientState{}
-class IngredientFetching extends IngredientState{}
-class IngredientFeteched extends IngredientState{}
+abstract class IngredientState extends Equatable {
+  const IngredientState();
+
+  @override
+  List<Object> get props => [];
+}
+
+class IngredientAdminLoading extends IngredientState {}
+
+class IngredientAdminOperationSuccess extends IngredientState {
+  final Iterable<dynamic> ingredients;
+
+  IngredientAdminOperationSuccess([this.ingredients = const []]);
+
+  @override
+  List<Object> get props => [ingredients];
+}
+
+class IngredientAdminOperationFailure extends IngredientState {}

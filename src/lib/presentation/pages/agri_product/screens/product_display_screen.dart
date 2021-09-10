@@ -126,11 +126,11 @@ Widget verticalScrollList(BuildContext context) {
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: BlocBuilder<ProductBloc, ProductState>(builder: (context, state) {
         print(state);
-        if (state is ProductFetching) {
+        if (state is ProductAdminLoading) {
           return CircularProgressIndicator();
         }
 
-        if (state is ProductFetched) {
+        if (state is ProductAdminOperationSuccess) {
           return ListView.builder(
             itemCount: 20,
             itemBuilder: (BuildContext context, int itemCount) {

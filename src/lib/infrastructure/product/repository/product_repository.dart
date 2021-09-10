@@ -1,26 +1,24 @@
-import 'package:location/location.dart';
-import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 import 'package:mitane_frontend/infrastructure/product/data_provider/product_provider.dart';
-
-import '../../core/get_location.dart';
+import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 
 class ProductRepository {
-  final ProductProvider productProvider;
+  final ProductDataProvider dataProvider;
+  ProductRepository({required this.dataProvider});
 
-  ProductRepository({required this.productProvider});
-
-  Future<List<dynamic>> getProduct() async {
-    LocationData loc = await GetLocation.getLocation();
-    final latitude = loc.latitude;
-    final longitude = loc.longitude;
-
-    return await productProvider.getProduct();
+  Future<Product> create(Product product) async {
+    return this.dataProvider.create(product);
   }
 
-  Future<bool> createProduct(Product product) async {
+  Future<Product> update(String name, Product product) async {
+    return this.dataProvider.update(name, product);
+  }
 
-    final result = await productProvider.createProduct(product);
-    if (result) return true;
-    return false;
+  Future<List<Product>> fetchAll() async {
+    print("Fetched");
+    return this.dataProvider.fetchAll();
+  }
+
+  Future<void> delete(String name) async {
+    this.dataProvider.delete(name);
   }
 }
