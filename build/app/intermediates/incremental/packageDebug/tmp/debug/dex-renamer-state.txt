@@ -1,4 +1,0 @@
-#Tue Aug 31 05:35:54 EDT 2021
-base.0=/home/edenalem/Documents/Es Sachen/AMP/Mitane_Project_Frontend/mitane_frontend/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
