@@ -127,7 +127,12 @@ Widget verticalScrollList(BuildContext context) {
       child: BlocBuilder<ProductBloc, ProductState>(builder: (context, state) {
         print(state);
         if (state is ProductAdminLoading) {
-          return CircularProgressIndicator();
+          return Center(
+                      child: SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: CircularProgressIndicator(),
+                  ));
         }
 
         if (state is ProductAdminOperationSuccess) {

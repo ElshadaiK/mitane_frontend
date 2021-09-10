@@ -6,7 +6,7 @@ import 'package:mitane_frontend/domain/suggestion/entity/suggestion_model.dart';
 
 class SuggestionProvider {
   final Dio dio;
-  final baseUrl = 'http://localhost:3000';
+  final baseUrl = 'http://192.168.137.1:3000';
   SuggestionProvider({
     required this.dio,
   });
