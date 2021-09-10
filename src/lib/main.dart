@@ -86,7 +86,22 @@ void main() => runApp(MultiRepositoryProvider(
           BlocProvider(
               create: (context) => LoginStatusBloc()..add(CheckStatus())),
         ],
-        child: MaterialApp(
+        child: Mitane(),
+      ),
+    ));
+
+class Mitane extends StatefulWidget {
+  const Mitane({ Key? key }) : super(key: key);
+
+  @override
+  _MitaneState createState() => _MitaneState();
+}
+
+class _MitaneState extends State<Mitane> {
+  dynamic userData = '';
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
           home: BlocBuilder<LoginStatusBloc, StatusState>(
             builder: (context, state) {
               print(state);
@@ -111,6 +126,6 @@ void main() => runApp(MultiRepositoryProvider(
           ),
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RouteGenerator.generateRoute,
-        ),
-      ),
-    ));
+        );
+  }
+}
