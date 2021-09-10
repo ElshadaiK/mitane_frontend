@@ -21,27 +21,28 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  bloc_test: ^8.1.0
   cupertino_icons: ^1.0.2
   date_time_picker: ^2.1.0
+  dio: ^4.0.0
+  equatable: ^2.0.0
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^9.1.0
-  get_it: ^7.2.0
-  vertical_card_pager: ^1.5.0
-  supercharged: ^2.0.0
-  simple_animations: ^3.1.1
-  flutter_zoom_drawer: ^2.1.1
-  http: ^0.13.3
-  equatable: ^2.0.0
   flutter_bloc: ^7.2.0
   flutter_secure_storage: ^4.2.1
-  dio: ^4.0.0
+  flutter_zoom_drawer: ^2.1.1
+  font_awesome_flutter: ^9.1.0
   freezed_annotation: ^0.14.2
+  get_it: ^7.2.0
+  http: ^0.13.3
   location: ^4.3.0
+  mockito: ^5.0.15
+  mocktail: ^0.1.4
+  simple_animations: ^3.1.1
+  supercharged: ^2.0.0
   test: ^1.16.8
-  bloc_test: ^8.1.0
+  vertical_card_pager: ^1.5.0
 
-  
 dev_dependencies:
   flutter_test:
     sdk: flutter
