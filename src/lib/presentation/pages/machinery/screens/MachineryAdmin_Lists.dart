@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/application/machinery/bloc/machinery_blocs.dart';
 import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
+import 'package:mitane_frontend/presentation/pages/admin/screens/Admin_Home.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
@@ -32,8 +33,12 @@ class _AdminMachineriesState extends State<AdminMachineries> {
         ),
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(AdminHome.routeName);
+            },
+            icon: Icon(Icons.arrow_back)),
       ),
-      drawer: NavDrawer(),
       resizeToAvoidBottomInset: false,  
       body: Stack(children: [
         Positioned(
@@ -134,7 +139,12 @@ class _AdminMachineriesState extends State<AdminMachineries> {
                   });
                 }
 
-                return CircularProgressIndicator();
+                return  Center(
+                  child: SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: CircularProgressIndicator(),
+                ));
               },
             ),
             

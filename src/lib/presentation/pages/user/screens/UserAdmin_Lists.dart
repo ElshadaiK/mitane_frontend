@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
-import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+import 'package:mitane_frontend/domain/user/entity/user_model.dart';
+import 'package:mitane_frontend/presentation/pages/admin/screens/Admin_Home.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Edit.dart';
 
@@ -32,8 +33,12 @@ class _AdminUsersState extends State<AdminUsers> {
         ),
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(AdminHome.routeName);
+            },
+            icon: Icon(Icons.arrow_back)),
       ),
-      drawer: NavDrawer(),
       resizeToAvoidBottomInset: false,
       body: Stack(children: [
         Positioned(
@@ -146,8 +151,12 @@ class _AdminUsersState extends State<AdminUsers> {
                         );
                       });
                 }
-
-                return CircularProgressIndicator();
+                return  Center(
+                  child: SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: CircularProgressIndicator(),
+                ));
               },
             ),
           ),
