@@ -1,73 +1,75 @@
+import 'dart:convert';
+import 'dart:html';
+import 'dart:io';
+
 import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
 import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
+import 'package:mitane_frontend/infrastructure/auth/data_provider/auth_provider.dart';
 
-class MachineryProvider {
+class MachineryDataProvider {
   final Dio dio;
-  final baseUrl = 'http://192.168.127.1:3000/machinery';
-  MachineryProvider({required this.dio});
+  MachineryDataProvider({required this.dio});
 
-  Future<List<dynamic>> getMachinery() async {
+  Future<Machinery> create(Machinery machinery) async {
     try {
-      Response response = await dio.get("$baseUrl/machinery");
-      if (response.statusCode == 200) {
-        var res = response.data;
-        if (res['count'] == 0) {
-          return ["No Machineries Found"];
-        }
-        return res
-            .map((machineries) => Machinery(
-                user: machineries['user'],
-                machinery: machineries['machineries'],
-                pricePerPnit: machineries["price_per_unit"]))
-            .toList();
+      // dio.options.headers["authorization"] = AuthDataProvider.getToken().then((value) => value);
+      final response = await dio.post("http://localhost:3000/machinery",
+          data: jsonEncode({
+            "name": machinery.name,
+          }));
+
+      if (response.statusCode == 201) {
+        print(Machinery.fromJson(jsonDecode(response.data)));
+        return Machinery.fromJson(jsonDecode(response.data));
       }
-      return  ["No Machineries Found"];
+      print("Unsuccessful creation");
+      return Machinery(id: "", name: "");
     } catch (e) {
-       return ["No Machineries Found"];
+      print(e);
+      throw e;
     }
   }
 
-  Future<bool> createMachinery(Machinery machine) async{
-    try{
-    Response response = await dio.post("$baseUrl/machinery",data: {"user":machine.user,"machineries":machine.machinery,"pricePerPnit":machine.pricePerPnit});
-    if(response.statusCode == 200){
-        return true;
+  Future<List<Machinery>> fetchAll() async {
+    try {
+      final response = await dio.get("http://localhost:3000/machinery");
+      return (response.data as List).map((u) => Machinery.fromJson(u)).toList();
+    } catch (e) {
+      print(e);
+      throw e;
+    }
+  }
+
+  Future<Machinery> update(String id, Machinery machinery) async {
+    try {
+      // dio.options.headers["authorization"] = AuthDataProvider.getToken().then((value) => value);
+      final response = await dio.put("http://localhost:3000/machinery/$id",
+          data: jsonEncode({
+            "id": id,
+            "name": machinery.name,
+          }));
+
+      if (response.statusCode == 200) {
+        print(Machinery.fromJson(jsonDecode(response.data)));
+        print("Successful updation");
+        return Machinery.fromJson(jsonDecode(response.data));
       }
-      return false;
-               
-    }
-    catch (e) {
-      return false;
-    }
-  }
-
-  Future<bool> updateMachinery(Machinery machine) async{
-    try{
-      Response response = await dio.put("$baseUrl/machinery/${machine.machinery}",data: {"user":machine.user,"machinery":machine.machinery,"pricePerPnit":machine.pricePerPnit});
-
-    if(response.statusCode == 200){
-        return true;
-      }
-      return false;
-               
-    }
-    catch (e) {
-      return false;
-    }
-  }
-  Future<bool> deleteMachinery(Machinery machine) async{
-    try{
-      Response response = await dio.delete("$baseUrl/machinery/${machine.machinery}");
-
-    if(response.statusCode == 200){
-        return true;
-      }
-      return false;
-               
-    }
-    catch (e) {
-      return false;
+      print("Unsuccessful updation");
+      return Machinery(id: "", name: "");
+    } catch (e) {
+      print(e);
+      throw e;
     }
   }
 
+  Future<void> delete(String id) async {
+    // dio.options.headers["authorization"] = AuthDataProvider.getToken().then((value) => value);
+    final response = await dio.delete("http://localhost:3000/machinery/$id");
+    // final response = await http.delete(Uri.parse("$_baseUrl/$id"));
+    if (response.statusCode != 204) {
+      throw Exception("Failed to delete the user");
+    }
+    print("Successful deletion");
+  }
 }

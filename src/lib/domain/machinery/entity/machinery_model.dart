@@ -1,20 +1,16 @@
-class Machinery {
-  final Map<String, dynamic> user;
-  final List<Map<String, dynamic>> machinery;
-  final Map<String, dynamic> pricePerPnit;
+class Machinery{
+  final String? id;
+  final String name;
 
-  factory Machinery.fromJson(Map<String, dynamic> json) {
+
+  Machinery({required this.id, required this.name});
+
+  factory Machinery.fromJson(Map<String,dynamic> json){
     return Machinery(
-        user: json['user'],
-        machinery: json['machineries'],
-        pricePerPnit: json['price_per_unit']);
+      id: json['_id'],
+      name: json['name'],);
   }
 
-  Machinery(
-      {required this.user,
-      required this.machinery,
-      required this.pricePerPnit});
-}
 
 class EmptyMachinery  {
   

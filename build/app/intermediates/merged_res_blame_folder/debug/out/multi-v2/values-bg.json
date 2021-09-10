@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\Dagi's PC\\Documents\\mitane_frontend\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bg\\values-bg.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Dagi's PC\\.gradle\\caches\\transforms-2\\files-2.1\\2e94107f30f39be366a17347c2bf100b\\core-1.1.0\\res\\values-bg\\values-bg.xml",
+=======
+            "outputFile": "/home/edenalem/Documents/Es Sachen/AMP/Mitane_Project_Frontend/mitane_frontend/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-bg/values-bg.xml",
+            "map": [
+                {
+                    "source": "/home/edenalem/.gradle/caches/transforms-2/files-2.1/2e94107f30f39be366a17347c2bf100b/core-1.1.0/res/values-bg/values-bg.xml",
+>>>>>>> 2ab96ebfb96dc86a786702577999f5fe7166c502
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

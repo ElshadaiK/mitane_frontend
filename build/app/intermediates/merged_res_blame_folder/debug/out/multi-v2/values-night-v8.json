@@ -1,6 +1,7 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\Dagi's PC\\Documents\\mitane_frontend\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
@@ -12,6 +13,19 @@
                         "endLines": "7,16",
                         "endColumns": "12,12",
                         "endOffsets": "471,995"
+=======
+            "outputFile": "/home/edenalem/Documents/Es Sachen/AMP/Mitane_Project_Frontend/mitane_frontend/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "map": [
+                {
+                    "source": "/home/edenalem/Documents/Es Sachen/AMP/Mitane_Project_Frontend/mitane_frontend/android/app/src/main/res/values-night/styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "172,815",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "464,979"
+>>>>>>> 2ab96ebfb96dc86a786702577999f5fe7166c502
                     },
                     "to": {
                         "startLines": "2,7",

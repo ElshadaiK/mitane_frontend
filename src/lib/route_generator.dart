@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Add.dart';
+import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/ingredient_page.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/product_display_screen.dart';
 import 'package:mitane_frontend/presentation/pages/common/splash/splash.dart';
@@ -43,9 +46,20 @@ class RouteGenerator {
       case '/inputs':
         return MaterialPageRoute(builder: (_) => IngredientScreen());
       case '/suggestions':
-        return MaterialPageRoute(builder: (_) => SuggestionsDisplay());
+        return MaterialPageRoute(builder: (_) => Suggestions());
+      case '/admin/users':
+        return MaterialPageRoute(builder: (_) => AdminUsers());
+      case '/admin/users/add':
+        return MaterialPageRoute(builder: (_) => AdminUserAdd());
+      // case '/admin/users/edit':
+      //   return MaterialPageRoute(builder: (_) => AdminUserEdit(argument: ,));
       default:
         return MaterialPageRoute(builder: (_) => ProductScreen());
     }
   }
+}
+
+class UserArgument {
+  final User user;
+  UserArgument({required this.user});
 }

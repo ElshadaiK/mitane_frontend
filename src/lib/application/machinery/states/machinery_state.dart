@@ -1,7 +1,21 @@
-abstract class MachineryState{}
+import 'package:equatable/equatable.dart';
 
-class MachineryIntial extends MachineryState{}
+abstract class MachineryState extends Equatable {
+  const MachineryState();
 
-class MachineryFetching extends MachineryState{}
+  @override
+  List<Object> get props => [];
+}
 
-class MachineryFetched extends MachineryState{}
+class MachineryAdminLoading extends MachineryState {}
+
+class MachineryAdminOperationSuccess extends MachineryState {
+  final Iterable<dynamic> machineries;
+
+  MachineryAdminOperationSuccess([this.machineries = const []]);
+
+  @override
+  List<Object> get props => [machineries];
+}
+
+class MachineryAdminOperationFailure extends MachineryState {}

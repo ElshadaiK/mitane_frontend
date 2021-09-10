@@ -8,6 +8,8 @@ import 'package:mitane_frontend/presentation/pages/sign_in/Forgot_password.dart'
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
+  static const routeName = '/li';
+
 
   @override
   _LogInState createState() => _LogInState();

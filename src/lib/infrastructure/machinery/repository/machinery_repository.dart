@@ -3,26 +3,23 @@ import 'package:mitane_frontend/infrastructure/machinery/data_provider/machinery
 import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
 
 class MachineryRepository {
-  final MachineryProvider machineryProvider;
+  final MachineryDataProvider dataProvider;
+  MachineryRepository({required this.dataProvider});
 
-  MachineryRepository({required this.machineryProvider});
-  Future getMachinery() async {
-    final result = await machineryProvider.getMachinery();
-    return result;
+  Future<Machinery> create(Machinery machinery) async {
+    return this.dataProvider.create(machinery);
   }
-  Future<bool> createMachinery(Machinery machine) async{
-     final result = await machineryProvider.createMachinery(machine);
-    if (result) return true;
-    return false;
+
+  Future<Machinery> update(String id, Machinery machinery) async {
+    return this.dataProvider.update(id, machinery);
   }
-   Future<bool> updateMachinery(Machinery machine) async{
-     final result = await machineryProvider.updateMachinery(machine);
-    if (result) return true;
-    return false;
+
+  Future<List<Machinery>> fetchAll() async {
+    print("Fetched");
+    return this.dataProvider.fetchAll();
   }
-   Future<bool> deleteMachinery(Machinery machine) async{
-     final result = await machineryProvider.deleteMachinery(machine);
-    if (result) return true;
-    return false;
+
+  Future<void> delete(String id) async {
+    this.dataProvider.delete(id);
   }
 }

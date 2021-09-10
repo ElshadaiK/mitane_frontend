@@ -17,7 +17,11 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
+<<<<<<< HEAD
         android:label="Mitane" >
+=======
+        android:label="ap" >
+>>>>>>> 2ab96ebfb96dc86a786702577999f5fe7166c502
         <activity
             android:name="com.example.ap.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
