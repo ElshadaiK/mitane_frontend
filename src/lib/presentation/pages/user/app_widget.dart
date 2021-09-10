@@ -9,12 +9,12 @@ import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart'
 
 import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
 
-class AppWidget2 extends StatefulWidget {
+class UserHome extends StatefulWidget {
   @override
   _AppWidgetState createState() => _AppWidgetState();
 }
 
-class _AppWidgetState extends State<AppWidget2> {
+class _AppWidgetState extends State<UserHome> {
   List<Widget> pages = [
     Home(),
     PriceHub(),
@@ -38,10 +38,31 @@ class _AppWidgetState extends State<AppWidget2> {
     return Scaffold(
       body: pages[selectedPage],
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (int index) {
-          setState(() {
-            selectedPage = index;
-          });
+        onTap: (int index) async {
+          if (index == 2) {
+            await showMenu(
+              context: context,
+              position: RelativeRect.fromLTRB(1000.0, 1000.0, 0.0, 0.0),
+              items: [
+                PopupMenuItem(
+                  child: GestureDetector(
+                    child: Text("Trending"),
+                    onTap: () {
+                      setState(() {
+                        pages[2] = TrendingScreen();
+                        selectedPage = 2;
+                      });
+                    },
+                  ),
+                ),
+              ],
+              elevation: 8.0,
+            );
+          } else {
+            setState(() {
+              selectedPage = index;
+            });
+          }
         },
         currentIndex: selectedPage,
         selectedItemColor: Colors.green,

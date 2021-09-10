@@ -1,14 +1,9 @@
 import 'dart:convert';
-import 'dart:html';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
 import 'package:mitane_frontend/domain/user/entity/user_models.dart';
-import 'package:mitane_frontend/infrastructure/auth/data_provider/auth_provider.dart';
 
 class UserDataProvider {
-  static final String _baseUrl = "http://localhost:3000/users";
 
   final Dio dio;
   UserDataProvider({required this.dio});
@@ -39,6 +34,7 @@ class UserDataProvider {
   Future<List<User>> fetchAll() async {
     try {
       final response = await dio.get("http://localhost:3000/users");
+      print(response.data);
       return (response.data as List).map((u) => User.fromJson(u)).toList();
     } catch (e) {
       print(e);

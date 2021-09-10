@@ -96,7 +96,7 @@ class UserSignUp2 extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AppWidget2()),
+                  MaterialPageRoute(builder: (context) => UserHome()),
                 );
               },
               child: Container(
@@ -128,7 +128,7 @@ class UserSignUp2 extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AppWidget3()),
+                  MaterialPageRoute(builder: (context) => EncoderHome()),
                 );
               },
               child: Container(
