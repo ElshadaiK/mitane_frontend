@@ -4,7 +4,7 @@ import 'package:mitane_frontend/domain/price/entity/price_model.dart';
 
 class PriceProvider {
   final Dio dio;
-final baseUrl = 'http://192.168.127.1:3000';
+final baseUrl = 'http://localhost:3000';
   PriceProvider({required this.dio});
 
   Future<List<dynamic>> getPrice(String date) async {
