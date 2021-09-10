@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mitane_frontend/application/product/bloc/Product_Blocs.dart';
-import 'package:mitane_frontend/domain/product/entity/ProductAdmin.dart';
+import 'package:mitane_frontend/application/product/bloc/product_blocs.dart';
+import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 import 'package:mitane_frontend/presentation/pages/admin/productAdmin/ProductAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
@@ -72,7 +72,7 @@ class _AdminProductsState extends State<AdminProducts> {
           //       }),
           // ),
           Expanded(
-            child: BlocBuilder<ProductAdminBloc, ProductAdminState>(
+            child: BlocBuilder<ProductBloc, ProductState>(
               builder: (_, state) {
                 if (state is ProductAdminOperationFailure) {
                   return Text('Could not do course operation');
@@ -122,7 +122,7 @@ class _AdminProductsState extends State<AdminProducts> {
                                           ),
                                           onPressed: () {
                                             setState(() {
-                                              BlocProvider.of<ProductAdminBloc>(context)
+                                              BlocProvider.of<ProductBloc>(context)
                                                   .add(ProductAdminDelete(products.elementAt(index).name.toString()));
                                               Navigator.of(context).pushNamedAndRemoveUntil(
                                                   AdminProducts.routeName, (route) => false);

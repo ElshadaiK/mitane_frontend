@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/product/bloc/Product_Blocs.dart';
-import 'package:mitane_frontend/domain/product/entity/ProductAdmin.dart';
+import 'package:mitane_frontend/application/product/bloc/product_blocs.dart';
+import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 import 'package:mitane_frontend/presentation/pages/admin/productAdmin/ProductAdmin_Lists.dart';
 // import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
@@ -100,14 +100,14 @@ class _AdminProductEditState extends State<AdminProductEdit> {
                     final form = _formKey.currentState;
                     if (form != null && form.validate()) {
                       form.save();
-                      final ProductAdminEvent event = ProductAdminUpdate(
+                      final ProductEvent event = ProductAdminUpdate(
                               Product(
                                 id: this._product["id"],
                                 name: widget.argument.user.name,
                                 category: this._product["category"],
                               ),
                             );
-                      BlocProvider.of<ProductAdminBloc>(context).add(event);
+                      BlocProvider.of<ProductBloc>(context).add(event);
                       Navigator.of(context).pushNamedAndRemoveUntil(
                           AdminProducts.routeName, (route) => false);
                     }

@@ -3,16 +3,10 @@ import 'dart:js';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-<<<<<<< HEAD
-import 'package:mitane_frontend/application/user/bloc/User_Blocs.dart';
-import 'package:mitane_frontend/infrastructure/user/data_provider/UserAdmin_Data-Provider.dart';
-import 'package:mitane_frontend/infrastructure/user/repository/UserAdmin_Repository.dart';
-=======
-import 'package:mitane_frontend/application/user/bloc/user_bloc.dart';
+
 import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
 import 'package:mitane_frontend/infrastructure/user/data_provider/user_provider.dart';
 import 'package:mitane_frontend/infrastructure/user/repository/user_repository.dart';
->>>>>>> 2ab96ebfb96dc86a786702577999f5fe7166c502
 import 'package:mitane_frontend/application/price/bloc/price_bloc.dart';
 import 'package:mitane_frontend/application/product/bloc/product_bloc.dart';
 import 'package:mitane_frontend/application/auth/bloc/auth_bloc.dart';
