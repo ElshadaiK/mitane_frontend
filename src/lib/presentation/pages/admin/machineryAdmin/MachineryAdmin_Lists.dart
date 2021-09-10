@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mitane_frontend/application/product/bloc/product_blocs.dart';
-import 'package:mitane_frontend/domain/product/entity/product_model.dart';
-import 'package:mitane_frontend/presentation/pages/admin/productAdmin/ProductAdmin_Edit.dart';
+import 'package:mitane_frontend/application/machinery/bloc/machinery_blocs.dart';
+import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
+import 'package:mitane_frontend/presentation/pages/admin/machineryAdmin/MachineryAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/route_generator.dart';
 
-import 'ProductAdmin_Add.dart';
+import 'MachineryAdmin_Add.dart';
 
-class AdminProducts extends StatefulWidget {
-  static const routeName = '/admin/products';
+class AdminMachineries extends StatefulWidget {
+  static const routeName = '/admin/machineries';
 
   get curPrice => null;
   @override
-  _AdminProductsState createState() => _AdminProductsState();
+  _AdminMachineriesState createState() => _AdminMachineriesState();
 }
 
-class _AdminProductsState extends State<AdminProducts> {
+class _AdminMachineriesState extends State<AdminMachineries> {
   @override
   Widget build(BuildContext context) {
         return Scaffold(
       appBar: AppBar(
         title: Text(
-          "products",
+          "machineries",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -36,67 +36,31 @@ class _AdminProductsState extends State<AdminProducts> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 15,),
-          // Container(
-          //   height: MediaQuery.of(context).size.height * 0.15,
-          //   padding: EdgeInsets.symmetric(vertical: 5.0),
-          //   child: ListView.builder(
-          //       scrollDirection: Axis.horizontal,
-          //       itemCount: 6,
-          //       itemBuilder: (BuildContext context, int itemCount) {
-          //         return GestureDetector(
-          //           // onTap: () => Navigator.of(context).pushNamed("/productDetail"),
-          //           child: Container(
-          //             child: Stack(
-          //               alignment: AlignmentDirectional.center,
-          //               children: [
-          //                 Container(
-          //                   margin: EdgeInsets.symmetric(horizontal: 5),
-          //                   width: MediaQuery.of(context).size.width * 0.4,                 
-          //                   decoration: BoxDecoration(
-          //                       color: Color(0xDD8CC63E),
-          //                       borderRadius: BorderRadius.circular(20)),
-          //                 ),
-          //                 Center(
-          //                   child: Text(
-          //                     "User Role",
-          //                     style: TextStyle(
-          //                         color: Colors.white,
-          //                         fontFamily: "RobotMono",
-          //                         fontWeight: FontWeight.bold),
-          //                   ),
-          //                 )
-          //               ],
-          //             ),
-          //           ),
-          //         );
-          //       }),
-          // ),
           Expanded(
-            child: BlocBuilder<ProductBloc, ProductState>(
+            child: BlocBuilder<MachineryBloc, MachineryState>(
               builder: (_, state) {
-                if (state is ProductAdminOperationFailure) {
+                if (state is MachineryAdminOperationFailure) {
                   return Text('Could not do course operation');
                 }
 
-                if (state is ProductAdminOperationSuccess) {
-                  final products = state.products;
+                if (state is MachineryAdminOperationSuccess) {
+                  final machineries = state.machineries;
 
                   return 
                   ListView.builder(
-                    itemCount: products.length,
+                    itemCount: machineries.length,
                     itemBuilder: (_, int index) {
                       return Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10)),
                         margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),                    
                         child: Dismissible(                    
-                            child: ProductCard(
-                                productName: products.elementAt(index).name,
-                                category: products.elementAt(index).category,
+                            child: MachineryCard(
+                                machineryName: machineries.elementAt(index).name,
                             ),
                             background: slideRightBackground(),
                             secondaryBackground: slideLeftBackground(),
-                            key: ValueKey<Product>(products.elementAt(index)),
+                            key: ValueKey<Machinery>(machineries.elementAt(index)),
                             confirmDismiss: (direction) async {
                             if (direction == DismissDirection.endToStart) {
                               final bool res = await showDialog(
@@ -104,7 +68,7 @@ class _AdminProductsState extends State<AdminProducts> {
                                   builder: (BuildContext context) {
                                     return AlertDialog(
                                       content: Text(
-                                          "Are you sure you want to delete ${products.elementAt(index).name}?"),
+                                          "Are you sure you want to delete ${machineries.elementAt(index).name}?"),
                                       actions: <Widget>[
                                         TextButton(
                                           child: Text(
@@ -122,10 +86,10 @@ class _AdminProductsState extends State<AdminProducts> {
                                           ),
                                           onPressed: () {
                                             setState(() {
-                                              BlocProvider.of<ProductBloc>(context)
-                                                  .add(ProductAdminDelete(products.elementAt(index).name.toString()));
+                                              BlocProvider.of<MachineryBloc>(context)
+                                                  .add(MachineryAdminDelete(machineries.elementAt(index).id.toString()));
                                               Navigator.of(context).pushNamedAndRemoveUntil(
-                                                  AdminProducts.routeName, (route) => false);
+                                                  AdminMachineries.routeName, (route) => false);
                                             });
                                           },
                                         ),
@@ -135,8 +99,8 @@ class _AdminProductsState extends State<AdminProducts> {
                               return res;
                             } else if (direction == DismissDirection.startToEnd){
                                 Navigator.of(context).pushNamed(
-                                  AdminProductEdit.routeName,
-                                  arguments: ProductArgument(product: products.elementAt(index)),
+                                  AdminMachineryEdit.routeName,
+                                  arguments: MachineryArgument(machinery: machineries.elementAt(index)),
                                 );
                               }
                             },
@@ -158,7 +122,7 @@ class _AdminProductsState extends State<AdminProducts> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed(
-          AdminProductAdd.routeName,
+          AdminMachineryAdd.routeName,
         ),      
         child: const Icon(Icons.add, color: Colors.green,),
         backgroundColor: Colors.white,
@@ -169,13 +133,11 @@ class _AdminProductsState extends State<AdminProducts> {
   }
 }
 
-class ProductCard extends StatelessWidget {
-  final String productName;
-  final String category;
-  const ProductCard(
+class MachineryCard extends StatelessWidget {
+  final String machineryName;
+  const MachineryCard(
       {Key? key,
-      required this.productName,
-      required this.category})
+      required this.machineryName})
       : super(key: key);
 
   @override
@@ -211,7 +173,7 @@ class ProductCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "$productName",
+                    "$machineryName",
                     style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -219,27 +181,6 @@ class ProductCard extends StatelessWidget {
                   )
                 ],
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Category:",
-                          style: TextStyle(fontSize: 16, fontFamily: "RobotMono"),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Text(
-                            "$category",
-                            style: TextStyle(fontSize: 16.0),
-                          ),
-                        ),
-                      ]),
-                ],
-              )
             ],
           ),
           ]

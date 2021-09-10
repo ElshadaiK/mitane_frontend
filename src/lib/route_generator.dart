@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mitane_frontend/domain/ingredient/entity/ingredient_model.dart';
+import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
+import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 
 import 'package:mitane_frontend/domain/user/entity/user_models.dart';
 import 'package:mitane_frontend/presentation/pages/admin/userAdmin/UserAdmin_Add.dart';
@@ -63,4 +66,19 @@ class RouteGenerator {
 class UserArgument {
   final User user;
   UserArgument({required this.user});
+}
+
+class ProductArgument {
+  final Product product;
+  ProductArgument({required this.product});
+}
+
+class MachineryArgument {
+  final Machinery machinery;
+  MachineryArgument({required this.machinery});
+}
+
+class IngredientArgument {
+  final Ingredient ingredient;
+  IngredientArgument({required this.ingredient});
 }

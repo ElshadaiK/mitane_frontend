@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/product/bloc/product_blocs.dart';
-import 'package:mitane_frontend/domain/product/entity/product_model.dart';
-import 'package:mitane_frontend/presentation/pages/admin/productAdmin/ProductAdmin_Lists.dart';
+import 'package:mitane_frontend/application/ingredient/bloc/ingredient_blocs.dart';
+import 'package:mitane_frontend/domain/ingredient/entity/ingredient_model.dart';
+import 'package:mitane_frontend/presentation/pages/admin/ingredientAdmin/IngredientAdmin_Lists.dart';
 // import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
 import 'package:mitane_frontend/route_generator.dart';
 
-class AdminProductEdit extends StatefulWidget {
-  static const String routeName = '/admin/products/edit';
+class AdminIngredientEdit extends StatefulWidget {
+  static const String routeName = '/admin/ingredients/edit';
 
-  final ProductArgument argument;
-  AdminProductEdit({ required this.argument });
+  final IngredientArgument argument;
+  AdminIngredientEdit({ required this.argument });
 
   @override
-  _AdminProductEditState createState() => _AdminProductEditState();
+  _AdminIngredientEditState createState() => _AdminIngredientEditState();
 }
 
-class _AdminProductEditState extends State<AdminProductEdit> {
+class _AdminIngredientEditState extends State<AdminIngredientEdit> {
 
   final _formKey = GlobalKey<FormState>();
 
-  final Map<String, dynamic> _product = {};
+  final Map<String, dynamic> _ingredient = {};
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _AdminProductEditState extends State<AdminProductEdit> {
         iconTheme: IconThemeData(color: Colors.black),
         leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pushNamed(AdminProducts.routeName);
+              Navigator.of(context).pushNamed(AdminIngredients.routeName);
             },
             icon: Icon(Icons.arrow_back)),
       ),
@@ -54,41 +54,41 @@ class _AdminProductEditState extends State<AdminProductEdit> {
               child: Column(
                 children: [
                   TextFormField(
-                    initialValue: widget.argument.product.name,
+                    initialValue: widget.argument.ingredient.name,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
-                      labelText: "Product Name",
+                      labelText: "Ingredient Name",
                       border: OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (value != null && value.isEmpty) {
-                        return 'Please enter product name';
+                        return 'Please enter ingredient name';
                       }
                       return null;
                     },
                     onSaved: (value) {
                       setState(() {
-                        this._product["name"] = value;
+                        this._ingredient["name"] = value;
                       });
                   }),
                   SizedBox(
                     height: 40.0,
                   ),
                   TextFormField(
-                    initialValue: widget.argument.product.category,
+                    initialValue: widget.argument.ingredient.category,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
-                        labelText: "Product Category",
+                        labelText: "Ingredient Category",
                         border: OutlineInputBorder()),
                     validator: (value) {
                       if (value != null && value.isEmpty) {
-                        return 'Please enter product category';
+                        return 'Please enter ingredient category';
                       }
                       return null;
                     },
                     onSaved: (value) {
                       setState(() {
-                        this._product["category"] = value;
+                        this._ingredient["category"] = value;
                       });
                   }),
                   SizedBox(
@@ -100,18 +100,18 @@ class _AdminProductEditState extends State<AdminProductEdit> {
                     final form = _formKey.currentState;
                     if (form != null && form.validate()) {
                       form.save();
-                      final ProductEvent event = ProductAdminUpdate(
-                              Product(
-                                id: this._product["id"],
-                                name: widget.argument.product.name,
-                                category: this._product["category"],
+                      final IngredientEvent event = IngredientAdminUpdate(
+                              Ingredient(
+                                id: widget.argument.ingredient.id,
+                                name: this._ingredient['name'],
+                                category: this._ingredient["category"],
                               ),
                             );
-                      BlocProvider.of<ProductBloc>(context).add(event);
+                      BlocProvider.of<IngredientBloc>(context).add(event);
                       Navigator.of(context).pushNamedAndRemoveUntil(
-                          AdminProducts.routeName, (route) => false);
+                          AdminIngredients.routeName, (route) => false);
                     }
-                    }, title: "Edit Product", )
+                    }, title: "Edit Ingredient", )
                   ])
                 ],
               ))
