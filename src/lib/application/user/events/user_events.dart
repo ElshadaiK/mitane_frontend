@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+import 'package:mitane_frontend/domain/user/entity/user_model.dart';
 
 abstract class UserEvent extends Equatable {
   const UserEvent();

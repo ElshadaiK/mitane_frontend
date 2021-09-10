@@ -3,7 +3,7 @@ import 'package:mitane_frontend/domain/ingredient/entity/ingredient_model.dart';
 import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
 import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 
-import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+import 'package:mitane_frontend/domain/user/entity/user_model.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Add.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Lists.dart';

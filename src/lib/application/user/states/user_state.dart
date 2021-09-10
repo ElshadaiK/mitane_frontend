@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:mitane_frontend/domain/user/entity/user_models.dart';
 
 abstract class UserState extends Equatable {
   const UserState();
