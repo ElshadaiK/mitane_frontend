@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mitane_frontend/application/ingredient/bloc/ingredient_blocs.dart';
-import 'package:mitane_frontend/domain/ingredient/entity/ingredient_model.dart';
-import 'package:mitane_frontend/presentation/pages/admin/ingredientAdmin/IngredientAdmin_Edit.dart';
+import 'package:mitane_frontend/application/product/bloc/product_blocs.dart';
+import 'package:mitane_frontend/domain/product/entity/product_model.dart';
+import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/common/SlideEditAndDelete.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/route_generator.dart';
 
-import 'IngredientAdmin_Add.dart';
+import 'ProductAdmin_Add.dart';
 
-class AdminIngredients extends StatefulWidget {
-  static const routeName = '/admin/ingredients';
+class AdminProducts extends StatefulWidget {
+  static const routeName = '/admin/products';
 
   get curPrice => null;
   @override
-  _AdminIngredientsState createState() => _AdminIngredientsState();
+  _AdminProductsState createState() => _AdminProductsState();
 }
 
-class _AdminIngredientsState extends State<AdminIngredients> {
+class _AdminProductsState extends State<AdminProducts> {
   @override
   Widget build(BuildContext context) {
         return Scaffold(
       appBar: AppBar(
         title: Text(
-          "ingredients",
+          "products",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -72,31 +72,31 @@ class _AdminIngredientsState extends State<AdminIngredients> {
           //       }),
           // ),
           Expanded(
-            child: BlocBuilder<IngredientBloc, IngredientState>(
+            child: BlocBuilder<ProductBloc, ProductState>(
               builder: (_, state) {
-                if (state is IngredientAdminOperationFailure) {
+                if (state is ProductAdminOperationFailure) {
                   return Text('Could not do course operation');
                 }
 
-                if (state is IngredientAdminOperationSuccess) {
-                  final ingredients = state.ingredients;
+                if (state is ProductAdminOperationSuccess) {
+                  final products = state.products;
 
                   return 
                   ListView.builder(
-                    itemCount: ingredients.length,
+                    itemCount: products.length,
                     itemBuilder: (_, int index) {
                       return Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10)),
                         margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),                    
                         child: Dismissible(                    
-                            child: IngredientCard(
-                                productName: ingredients.elementAt(index).name,
-                                category: ingredients.elementAt(index).category,
+                            child: ProductCard(
+                                productName: products.elementAt(index).name,
+                                category: products.elementAt(index).category,
                             ),
                             background: slideRightBackground(),
                             secondaryBackground: slideLeftBackground(),
-                            key: ValueKey<Ingredient>(ingredients.elementAt(index)),
+                            key: ValueKey<Product>(products.elementAt(index)),
                             confirmDismiss: (direction) async {
                             if (direction == DismissDirection.endToStart) {
                               final bool res = await showDialog(
@@ -104,7 +104,7 @@ class _AdminIngredientsState extends State<AdminIngredients> {
                                   builder: (BuildContext context) {
                                     return AlertDialog(
                                       content: Text(
-                                          "Are you sure you want to delete ${ingredients.elementAt(index).name}?"),
+                                          "Are you sure you want to delete ${products.elementAt(index).name}?"),
                                       actions: <Widget>[
                                         TextButton(
                                           child: Text(
@@ -122,10 +122,10 @@ class _AdminIngredientsState extends State<AdminIngredients> {
                                           ),
                                           onPressed: () {
                                             setState(() {
-                                              BlocProvider.of<IngredientBloc>(context)
-                                                  .add(IngredientAdminDelete(ingredients.elementAt(index).id.toString()));
+                                              BlocProvider.of<ProductBloc>(context)
+                                                  .add(ProductAdminDelete(products.elementAt(index).name.toString()));
                                               Navigator.of(context).pushNamedAndRemoveUntil(
-                                                  AdminIngredients.routeName, (route) => false);
+                                                  AdminProducts.routeName, (route) => false);
                                             });
                                           },
                                         ),
@@ -135,8 +135,8 @@ class _AdminIngredientsState extends State<AdminIngredients> {
                               return res;
                             } else if (direction == DismissDirection.startToEnd){
                                 Navigator.of(context).pushNamed(
-                                  AdminIngredientEdit.routeName,
-                                  arguments: IngredientArgument(ingredient: ingredients.elementAt(index)),
+                                  AdminProductEdit.routeName,
+                                  arguments: ProductArgument(product: products.elementAt(index)),
                                 );
                               }
                             },
@@ -158,7 +158,7 @@ class _AdminIngredientsState extends State<AdminIngredients> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed(
-          AdminIngredientAdd.routeName,
+          AdminProductAdd.routeName,
         ),      
         child: const Icon(Icons.add, color: Colors.green,),
         backgroundColor: Colors.white,
@@ -169,10 +169,10 @@ class _AdminIngredientsState extends State<AdminIngredients> {
   }
 }
 
-class IngredientCard extends StatelessWidget {
+class ProductCard extends StatelessWidget {
   final String productName;
   final String category;
-  const IngredientCard(
+  const ProductCard(
       {Key? key,
       required this.productName,
       required this.category})
@@ -196,7 +196,7 @@ class IngredientCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             FaIcon(
-              FontAwesomeIcons.userCircle,
+              FontAwesomeIcons.spa,
               color: Color(0xDD8CC63E),
               size: 50,
             ),

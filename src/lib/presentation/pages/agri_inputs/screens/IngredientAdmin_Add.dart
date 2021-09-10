@@ -3,33 +3,29 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mitane_frontend/application/ingredient/bloc/ingredient_blocs.dart';
 import 'package:mitane_frontend/domain/ingredient/entity/ingredient_model.dart';
-import 'package:mitane_frontend/presentation/pages/admin/ingredientAdmin/IngredientAdmin_Lists.dart';
-// import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
+import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
-import 'package:mitane_frontend/route_generator.dart';
 
-class AdminIngredientEdit extends StatefulWidget {
-  static const String routeName = '/admin/ingredients/edit';
+class AdminIngredientAdd extends StatefulWidget {
+  static const String routeName = '/admin/ingredients/add';
 
-  final IngredientArgument argument;
-  AdminIngredientEdit({ required this.argument });
 
   @override
-  _AdminIngredientEditState createState() => _AdminIngredientEditState();
+  _AdminIngredientAddState createState() => _AdminIngredientAddState();
 }
 
-class _AdminIngredientEditState extends State<AdminIngredientEdit> {
-
-  final _formKey = GlobalKey<FormState>();
+class _AdminIngredientAddState extends State<AdminIngredientAdd> {
 
   final Map<String, dynamic> _ingredient = {};
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Edit Product",
+          "Add New Ingredient",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -43,7 +39,7 @@ class _AdminIngredientEditState extends State<AdminIngredientEdit> {
       resizeToAvoidBottomInset: false,
       body: Form(
         key: _formKey,
-        child:  Column(
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
@@ -54,7 +50,6 @@ class _AdminIngredientEditState extends State<AdminIngredientEdit> {
               child: Column(
                 children: [
                   TextFormField(
-                    initialValue: widget.argument.ingredient.name,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
                       labelText: "Ingredient Name",
@@ -75,7 +70,6 @@ class _AdminIngredientEditState extends State<AdminIngredientEdit> {
                     height: 40.0,
                   ),
                   TextFormField(
-                    initialValue: widget.argument.ingredient.category,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
                         labelText: "Ingredient Category",
@@ -100,18 +94,18 @@ class _AdminIngredientEditState extends State<AdminIngredientEdit> {
                     final form = _formKey.currentState;
                     if (form != null && form.validate()) {
                       form.save();
-                      final IngredientEvent event = IngredientAdminUpdate(
+                      final IngredientEvent event = IngredientAdminCreate(
                               Ingredient(
-                                id: widget.argument.ingredient.id,
-                                name: this._ingredient['name'],
+                                id: null,
+                                name: this._ingredient["name"],
                                 category: this._ingredient["category"],
                               ),
                             );
                       BlocProvider.of<IngredientBloc>(context).add(event);
                       Navigator.of(context).pushNamedAndRemoveUntil(
                           AdminIngredients.routeName, (route) => false);
-                    }
-                    }, title: "Edit Ingredient", )
+                    }                    
+                    }, title: "Add Ingredient", )
                   ])
                 ],
               ))
@@ -119,4 +113,5 @@ class _AdminIngredientEditState extends State<AdminIngredientEdit> {
       ),
     ));
   }
+
 }

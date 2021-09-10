@@ -1,45 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/ingredient/bloc/ingredient_blocs.dart';
-import 'package:mitane_frontend/domain/ingredient/entity/ingredient_model.dart';
-import 'package:mitane_frontend/presentation/pages/admin/ingredientAdmin/IngredientAdmin_Lists.dart';
+import 'package:mitane_frontend/application/product/bloc/product_blocs.dart';
+import 'package:mitane_frontend/domain/product/entity/product_model.dart';
+import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Lists.dart';
+// import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';
+import 'package:mitane_frontend/route_generator.dart';
 
-class AdminIngredientAdd extends StatefulWidget {
-  static const String routeName = '/admin/ingredients/add';
+class AdminProductEdit extends StatefulWidget {
+  static const String routeName = '/admin/products/edit';
 
+  final ProductArgument argument;
+  AdminProductEdit({ required this.argument });
 
   @override
-  _AdminIngredientAddState createState() => _AdminIngredientAddState();
+  _AdminProductEditState createState() => _AdminProductEditState();
 }
 
-class _AdminIngredientAddState extends State<AdminIngredientAdd> {
+class _AdminProductEditState extends State<AdminProductEdit> {
 
-  final Map<String, dynamic> _ingredient = {};
   final _formKey = GlobalKey<FormState>();
+
+  final Map<String, dynamic> _product = {};
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Add New Ingredient",
+          "Edit Product",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
         leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pushNamed(AdminIngredients.routeName);
+              Navigator.of(context).pushNamed(AdminProducts.routeName);
             },
             icon: Icon(Icons.arrow_back)),
       ),
       resizeToAvoidBottomInset: false,
       body: Form(
         key: _formKey,
-        child: Column(
+        child:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
@@ -50,39 +54,41 @@ class _AdminIngredientAddState extends State<AdminIngredientAdd> {
               child: Column(
                 children: [
                   TextFormField(
+                    initialValue: widget.argument.product.name,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
-                      labelText: "Ingredient Name",
+                      labelText: "Product Name",
                       border: OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (value != null && value.isEmpty) {
-                        return 'Please enter ingredient name';
+                        return 'Please enter product name';
                       }
                       return null;
                     },
                     onSaved: (value) {
                       setState(() {
-                        this._ingredient["name"] = value;
+                        this._product["name"] = value;
                       });
                   }),
                   SizedBox(
                     height: 40.0,
                   ),
                   TextFormField(
+                    initialValue: widget.argument.product.category,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
-                        labelText: "Ingredient Category",
+                        labelText: "Product Category",
                         border: OutlineInputBorder()),
                     validator: (value) {
                       if (value != null && value.isEmpty) {
-                        return 'Please enter ingredient category';
+                        return 'Please enter product category';
                       }
                       return null;
                     },
                     onSaved: (value) {
                       setState(() {
-                        this._ingredient["category"] = value;
+                        this._product["category"] = value;
                       });
                   }),
                   SizedBox(
@@ -94,18 +100,18 @@ class _AdminIngredientAddState extends State<AdminIngredientAdd> {
                     final form = _formKey.currentState;
                     if (form != null && form.validate()) {
                       form.save();
-                      final IngredientEvent event = IngredientAdminCreate(
-                              Ingredient(
-                                id: null,
-                                name: this._ingredient["name"],
-                                category: this._ingredient["category"],
+                      final ProductEvent event = ProductAdminUpdate(
+                              Product(
+                                id: this._product["id"],
+                                name: widget.argument.product.name,
+                                category: this._product["category"],
                               ),
                             );
-                      BlocProvider.of<IngredientBloc>(context).add(event);
+                      BlocProvider.of<ProductBloc>(context).add(event);
                       Navigator.of(context).pushNamedAndRemoveUntil(
-                          AdminIngredients.routeName, (route) => false);
-                    }                    
-                    }, title: "Add Ingredient", )
+                          AdminProducts.routeName, (route) => false);
+                    }
+                    }, title: "Edit Product", )
                   ])
                 ],
               ))
@@ -113,5 +119,4 @@ class _AdminIngredientAddState extends State<AdminIngredientAdd> {
       ),
     ));
   }
-
 }
