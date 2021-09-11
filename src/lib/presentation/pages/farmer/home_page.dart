@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mitane_frontend/application/store/bloc/store_bloc.dart';
+import 'package:mitane_frontend/application/store/events/store_events.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/appBar.dart';
 
@@ -98,6 +101,7 @@ class _Dashboard extends State {
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
+                        BlocProvider.of<StoreBloc>(context)..add(FetchStoreAll());
                         Navigator.of(context).pushNamed('/product');
                       },
                       child: Card(

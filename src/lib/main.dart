@@ -6,11 +6,15 @@ import 'package:mitane_frontend/application/auth/events/status_events.dart';
 import 'package:mitane_frontend/application/auth/states/status_state.dart';
 import 'package:mitane_frontend/application/ingredient/bloc/ingredient_blocs.dart';
 import 'package:mitane_frontend/application/machinery/bloc/machinery_blocs.dart';
+import 'package:mitane_frontend/application/store/bloc/store_bloc.dart';
+import 'package:mitane_frontend/application/store/events/store_events.dart';
 import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
 import 'package:mitane_frontend/infrastructure/ingredient/data_provider/ingredient_provider.dart';
 import 'package:mitane_frontend/infrastructure/ingredient/repository/ingredient_repository.dart';
 import 'package:mitane_frontend/infrastructure/machinery/data_provider/machinery_provider.dart';
 import 'package:mitane_frontend/infrastructure/machinery/repository/machinery_repository.dart';
+import 'package:mitane_frontend/infrastructure/store/data_provider/store_provider.dart';
+import 'package:mitane_frontend/infrastructure/store/repository/store_repository.dart';
 import 'package:mitane_frontend/infrastructure/user/data_provider/user_provider.dart';
 import 'package:mitane_frontend/infrastructure/user/repository/user_repository.dart';
 import 'package:mitane_frontend/application/price/bloc/price_bloc.dart';
@@ -56,6 +60,7 @@ void main() => runApp(MultiRepositoryProvider(
         RepositoryProvider(
             create: (context) => SuggestionRepository(
                 suggestionProvider: SuggestionProvider(dio: Dio()))),
+        RepositoryProvider(create: (context)=>StoreRepository(storeProvider: StoreProvider(dio: Dio())))
       ],
       child: MultiBlocProvider(
         providers: [
@@ -85,6 +90,7 @@ void main() => runApp(MultiRepositoryProvider(
                 ..add(FetchSuggestion())),
           BlocProvider(
               create: (context) => LoginStatusBloc()..add(CheckStatus())),
+          BlocProvider(create: (context)=>StoreBloc(storeRepository: context.read<StoreRepository>())..add(FetchStore())),
         ],
         child: Mitane(),
       ),

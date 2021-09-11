@@ -54,7 +54,10 @@ class PriceBloc extends Bloc<PriceEvent, PriceState> {
             yield PriceFetched(priceDaily: price);
           else
             yield PriceFetchFailed();
+        }else{
+          yield PriceFetchFailed();
         }
+
       } catch (e) {
         yield PriceFetchFailed();
       }
