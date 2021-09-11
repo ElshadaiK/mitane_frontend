@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mitane_frontend/application/trending/bloc/trending_bloc.dart';
+import 'package:mitane_frontend/application/trending/states/trending_state.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
-import 'package:mitane_frontend/presentation/pages/suggestions/vertical_tiles.dart';
-import 'package:mitane_frontend/presentation/pages/custom_widgets/appBar.dart';
+import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 
 class Trending extends StatelessWidget {
@@ -51,11 +53,45 @@ class Trending extends StatelessWidget {
               left: -20,
             ),
             SingleChildScrollView(
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                child: VerticalCardPagerDemo(),
-              ),
-            ),
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            child:
+                BlocBuilder<TrendingBloc, TrendingState>(builder: (context, state) {
+              print(state);
+              if (state is TrendingFetching) {
+                return  Center(
+                        child: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: CircularProgressIndicator(),
+                    ));
+              }
+              if (state is TrendingFetched) {
+                return ListView.builder(
+                    itemCount: state.trending.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final price = state.trending[index];
+
+                      return Container(
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                        child: PriceCard(
+                            product: price.product['name'],
+                            unit: "Kg",
+                            todayPrice:
+                                price.price[0]['price'].toStringAsFixed(2)),
+                      );
+                    });
+              }
+              return Center(
+                  child: Text(
+                "No result",
+                style: TextStyle(fontSize: 30),
+              ));
+            }),
+          ),
+        ),
+
           ]),
 
     );
