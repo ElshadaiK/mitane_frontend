@@ -102,9 +102,9 @@ void main() {
         .thenAnswer((realInvocation) => createFutureUsers());
       return UserBloc(userRepository: mockUserRepository);
     },
-    act: (bloc) => bloc.add(UserAdminUpdate(user)),
+    act: (bloc) => bloc.add(UserAdminDelete("aa")),
     expect: (){
-      return [isA<UserAdminOperationFailure>()];
+      return [isA<UserAdminOperationSuccess>()];
     },
   );
 }
