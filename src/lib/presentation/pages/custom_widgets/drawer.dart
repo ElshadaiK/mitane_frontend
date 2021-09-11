@@ -4,7 +4,7 @@ import 'package:mitane_frontend/application/auth/states/auth_state.dart';
 import 'package:mitane_frontend/presentation/pages/auth/Login_screen.dart';
 import 'package:mitane_frontend/presentation/pages/common/welcome.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
-
+import 'package:mitane_frontend/presentation/pages/farmer/profile.dart';
 class NavDrawer extends StatefulWidget {
   @override
   _NavDrawerState createState() => _NavDrawerState();
@@ -38,10 +38,14 @@ class _NavDrawerState extends State<NavDrawer> {
               child: Row(
                 children: [
                   Expanded(
-                    child: Icon(
-                      Icons.account_circle,
+                    child: IconButton(
+                      icon:Icon(Icons.account_circle),
                       color: Colors.white,
-                      size: 40,
+                    onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => FarmerProfilePage()));
+                    }
+                    ,
                     ),
                     flex: 2,
                   ),
