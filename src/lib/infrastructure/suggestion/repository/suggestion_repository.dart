@@ -7,8 +7,8 @@ class SuggestionRepository{
   
   SuggestionRepository({required this.suggestionProvider});
 
-  Future<List<dynamic>> suggestionByPrice() async{
-    final suggestions = await suggestionProvider.getSuggestionByPrice();
+  Future<List<dynamic>> SuggestionByWeather() async{
+    final suggestions = await suggestionProvider.getSuggestionByWeather();
     if(suggestions.length != 0) return suggestions;
     return [];
   }

@@ -7,7 +7,7 @@ import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
 
-import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
+import 'package:mitane_frontend/presentation/pages/trending/trending.dart';
 
 class UserHome extends StatefulWidget {
   @override
@@ -49,7 +49,7 @@ class _AppWidgetState extends State<UserHome> {
                     child: Text("Trending"),
                     onTap: () {
                       setState(() {
-                        pages[2] = TrendingScreen();
+                        pages[2] = Trending();
                         selectedPage = 2;
                       });
                     },

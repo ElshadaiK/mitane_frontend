@@ -11,10 +11,10 @@ class SuggestionProvider {
     required this.dio,
   });
 
-  Future<List<dynamic>> getSuggestionByPrice() async{
+  Future<List<dynamic>> getSuggestionByWeather() async{
 
     try {
-      final response = await dio.get('$baseUrl/suggestion/price');
+      final response = await dio.get('$baseUrl/suggestion/weather');
     if(response.statusCode == 200){
       if(response.data['data'].length == 0) return [];
       final data = response.data['data'];

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mitane_frontend/application/suggestion/bloc/suggestion_bloc.dart';
-import 'package:mitane_frontend/application/suggestion/states/suggestion_state.dart';
+import 'package:mitane_frontend/application/trending/bloc/trending_bloc.dart';
+import 'package:mitane_frontend/application/trending/states/trending_state.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 
@@ -32,9 +32,9 @@ class _ResultDisplayState extends State<ResultDisplay> {
       body: SafeArea(
         child: Container(
           width: (MediaQuery.of(context).size.width),
-          child: BlocBuilder<SuggestionBloc,SuggestionState>(builder: (context,state){
+          child: BlocBuilder<TrendingBloc,TrendingState>(builder: (context,state){
 
-            if(state is SuggestionFetching){
+            if(state is TrendingFetching){
               return  Center(
                         child: SizedBox(
                       width: 50,
@@ -42,19 +42,19 @@ class _ResultDisplayState extends State<ResultDisplay> {
                       child: CircularProgressIndicator(),
                     ));
             }
-            if(state is SuggestionFetched){
+            if(state is TrendingFetched){
 
               return ListView.builder(
-                itemCount: state.suggestion.length,
+                itemCount: state.trending.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final suggestion = state.suggestion[index];
+                  final suggestion = state.trending[index];
                   
                   return Container(
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                     child: PriceCard(
                       product: suggestion.product['name'],
-                      unit: suggestion.category['name'],
-                      todayPrice: suggestion.weather[0]['name'],
+                      unit: "Kg",
+                      todayPrice: suggestion.price[0]['price'].toStringAsFixed(2),
                     ),
                   );
                 });
