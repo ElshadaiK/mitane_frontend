@@ -14,7 +14,7 @@ class SuggestionBloc extends Bloc<SuggestionEvent, SuggestionState> {
     yield SuggestionFetching();
 
     if (event is FetchSuggestion) {
-      final result = await suggestionRepository.suggestionByPrice();
+      final result = await suggestionRepository.SuggestionByWeather();
       if (result.length != 0) {
         yield SuggestionFetched(suggestion: result);
       } else {

@@ -136,6 +136,7 @@ class _Dashboard extends State {
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
+                        BlocProvider.of<StoreBloc>(context)..add(FetchStoreAll());
                         Navigator.of(context).pushNamed('/inputs');
                       },
                       child: Card(
@@ -176,6 +177,7 @@ class _Dashboard extends State {
                     height: 160.0,
                     child: GestureDetector(
                       onTap: () {
+                        BlocProvider.of<StoreBloc>(context)..add(FetchStoreAll());
                         Navigator.of(context).pushNamed('/machinery');
                       },
                       child: Card(
