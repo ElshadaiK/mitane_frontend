@@ -20,7 +20,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       try {
         User user = await authRepository.signIn(event.login);
         print(user.name);
-        yield LoginSuccess();
+        yield LoginSuccess(user:user);
       } on InvalidCredential catch (e) {
         final msg = e.failedValue;
         print(msg);

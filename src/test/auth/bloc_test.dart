@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:mitane_frontend/application/auth/states/auth_state.dart';
 import 'package:mitane_frontend/infrastructure/auth/data_provider/auth_provider.dart';
@@ -10,17 +10,33 @@ import 'package:mitane_frontend/infrastructure/auth/repository/auth_repository.d
 import 'package:test/test.dart';
 
 class MockAuthBloc extends MockBloc<AuthEvent, AuthState> implements AuthBloc {}
+class MockAuthRepository extends MockBloc<AuthEvent, AuthState> implements AuthRepository {}
 
 void main() {
-  group('Authbloc login test', () {
-    //   blocTest<AuthBloc, AuthState>(
-    //     'emits [] when nothing is added',
-    //     build: () {
-    //       final AuthRepository authRepo = AuthRepository(AuthDataProvider(http.Client()));
-    //       return  AuthBloc(authRepo: authRepo);
-    //     },
-    //     expect: () => <AuthState>[],
-    //   );
+  MockAuthRepository authRepository = MockAuthRepository();
+  AuthBloc authenticationBloc = AuthBloc(authRepository: authRepository);
+
+  setUp(() {
+    authRepository = MockAuthRepository();
+    authenticationBloc = AuthBloc(authRepository: authRepository);
+  });
+  
+  tearDown(() {
+    authenticationBloc.close();
+  });
+
+  
+  group('Auth Bloc login test', () {
+    blocTest<AuthBloc, AuthState>(
+      'emits [] when nothing is added',
+      build: () {
+        final Dio dio = Dio();
+        final AuthRepository authRepo =
+            AuthRepository(authDataProvider: AuthDataProvider(dio: dio));
+        return AuthBloc(authRepository: authRepo);
+      },
+      expect: () => <AuthState>[],
+    );
 
     //   blocTest<AuthBloc, AuthState>(
     //     'Login Username changed',

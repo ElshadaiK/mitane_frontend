@@ -9,12 +9,12 @@ import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart'
 
 import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
 
-class AppWidget2 extends StatefulWidget {
+class UserHome extends StatefulWidget {
   @override
   _AppWidgetState createState() => _AppWidgetState();
 }
 
-class _AppWidgetState extends State<AppWidget2> {
+class _AppWidgetState extends State<UserHome> {
   List<Widget> pages = [
     Home(),
     PriceHub(),

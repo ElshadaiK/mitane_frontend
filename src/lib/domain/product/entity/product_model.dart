@@ -13,5 +13,4 @@ class Product{
       category: json['category'][0]['name']);
   }
 
-
 }
