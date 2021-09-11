@@ -4,6 +4,7 @@ import 'package:mitane_frontend/application/auth/bloc/auth_bloc.dart';
 import 'package:mitane_frontend/application/auth/events/auth_events.dart';
 import 'package:mitane_frontend/application/auth/states/auth_state.dart';
 import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
+import 'package:mitane_frontend/domain/auth/validation/invalid_validation.dart';
 import 'package:mitane_frontend/infrastructure/auth/repository/auth_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -38,6 +39,19 @@ void main() {
       act: (bloc) => bloc.add(LoginEvent(login: login)),
       expect: () {
         return [isA<LoggingIn>(), isA<LoginSuccess>()];
+      },
+    );
+
+    blocTest<AuthBloc, AuthState>(
+      'LoginEvent emits [UserAdminLoading,UserAdminOperationSuccess] when failure',
+      build: () {
+        when(() => mockAuthRepository.signIn(login))
+            .thenThrow(InvalidCredential);
+        return AuthBloc(authRepository: mockAuthRepository);
+      },
+      act: (bloc) => bloc.add(LoginEvent(login: login)),
+      expect: () {
+        return [isA<LoggingIn>()];
       },
     );
 
