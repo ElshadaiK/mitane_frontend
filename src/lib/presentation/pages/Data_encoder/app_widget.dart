@@ -7,7 +7,7 @@ import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart'
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_data_encoder_screen.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_edit.dart';
 
-import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
+import 'package:mitane_frontend/presentation/pages/trending/trending.dart';
 
 class EncoderHome extends StatefulWidget {
   @override
@@ -48,7 +48,7 @@ class _AppWidgetState extends State<EncoderHome> {
                     child: Text("Trending"),
                     onTap: () {
                       setState(() {
-                        pages[2] = TrendingScreen();
+                        pages[2] = Trending();
                         selectedPage = 2;
                       });
                     },

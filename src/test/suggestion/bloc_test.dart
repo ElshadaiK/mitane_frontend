@@ -21,7 +21,7 @@ void main() {
     'UserAdminLoad emits [UserAdminOperationSuccess] when Success',
     
     build: () {
-      when(() => mockSuggestionRepository.suggestionByPrice())
+      when(() => mockSuggestionRepository.SuggestionByWeather())
         .thenAnswer((realInvocation) => createFutureDynamic());
       return SuggestionBloc(suggestionRepository: mockSuggestionRepository);
     },
@@ -35,7 +35,7 @@ void main() {
     'UserAdminLoad emits [UserAdminOperationSuccess] when failure',
     
     build: () {
-      when(() => mockSuggestionRepository.suggestionByPrice())
+      when(() => mockSuggestionRepository.SuggestionByWeather())
         .thenAnswer((realInvocation) => createFutureDynamicZ());
       return SuggestionBloc(suggestionRepository: mockSuggestionRepository);
     },
