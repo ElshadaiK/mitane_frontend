@@ -5,12 +5,12 @@ import 'package:mitane_frontend/application/auth/events/auth_events.dart';
 import 'package:mitane_frontend/application/auth/states/auth_state.dart';
 import 'package:mitane_frontend/domain/auth/entity/auth_model.dart';
 import 'package:mitane_frontend/infrastructure/auth/repository/auth_repository.dart';
-import 'package:mitane_frontend/presentation/pages/auth/Login_screen.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockAuthRepository extends Mock implements AuthRepository {}
 
 void main() {
+  
   MockAuthRepository mockAuthRepository = MockAuthRepository();
   final login = Login(phone: '545', password: "asa");
   final registerU = Register(role: 'asd',phone: 'asd',name: 'asd',password: 'asd',confirm: 'asd');
@@ -21,7 +21,7 @@ void main() {
     return true;
   }
   blocTest<AuthBloc , AuthState>(
-    'UserAdminLoad emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
+    'LoginEvent emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
     
     build: () {
       when(() => mockAuthRepository.signIn(login))
@@ -35,7 +35,7 @@ void main() {
   );
 
   blocTest<AuthBloc , AuthState>(
-    'UserAdminLoad emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
+    'RegisterEvent emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
     
     build: () {
       when(() => mockAuthRepository.signUp(registerU))
@@ -48,4 +48,4 @@ void main() {
     },
   );
 
-  }
+}
