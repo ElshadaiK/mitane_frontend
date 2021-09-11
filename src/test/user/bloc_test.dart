@@ -1,5 +1,4 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mitane_frontend/application/user/bloc/user_bloc.dart';
 import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
@@ -26,13 +25,17 @@ void main() {
   Future<User> createFutureUser() async {
     return User(id: "aa",password: "aa",roles: "aa",phoneNo: 5612,name: "aa");
   }
+  Future<void> createFutureVoid() async {
+    return;
+  }
+
   setUp(() {
     mockUserRepository = MockUserRepository();
     
   });
 
   blocTest<UserBloc , UserState>(
-    'emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
+    'UserAdminLoad emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
     
     build: () {
       when(() => mockUserRepository.fetchAll())
@@ -46,7 +49,7 @@ void main() {
   );
 
   blocTest<UserBloc , UserState>(
-    'emits [UserAdminLoading,UserAdminOperationFailure] when failure',
+    'UserAdminLoad emits [UserAdminLoading,UserAdminOperationFailure] when failure',
     
     build: () {
       return UserBloc(userRepository: mockUserRepository);
@@ -58,7 +61,7 @@ void main() {
   );
 
   blocTest<UserBloc , UserState>(
-    'emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
+    'UserAdminCreate emits [UserAdminOperationSuccess] when Success',
     
     build: () {
       when(() => mockUserRepository.create(user))
@@ -68,6 +71,38 @@ void main() {
       return UserBloc(userRepository: mockUserRepository);
     },
     act: (bloc) => bloc.add(UserAdminCreate(user)),
+    expect: (){
+      return [isA<UserAdminOperationSuccess>()];
+    },
+  );
+
+  blocTest<UserBloc , UserState>(
+    'UserAdminUpdate emits [UserAdminOperationSuccess] when Success',
+    
+    build: () {
+      when(() => mockUserRepository.update("aa", user))
+        .thenAnswer((realInvocation) => createFutureUser());
+      when(() => mockUserRepository.fetchAll())
+        .thenAnswer((realInvocation) => createFutureUsers());
+      return UserBloc(userRepository: mockUserRepository);
+    },
+    act: (bloc) => bloc.add(UserAdminUpdate(user)),
+    expect: (){
+      return [isA<UserAdminOperationSuccess>()];
+    },
+  );
+
+  blocTest<UserBloc , UserState>(
+    'UserAdminDelete emits [UserAdminOperationSuccess] when failure',
+    
+    build: () {
+      when(() => mockUserRepository.delete("aa"))
+        .thenAnswer((realInvocation) => createFutureVoid());
+      when(() => mockUserRepository.fetchAll())
+        .thenAnswer((realInvocation) => createFutureUsers());
+      return UserBloc(userRepository: mockUserRepository);
+    },
+    act: (bloc) => bloc.add(UserAdminDelete("aa")),
     expect: (){
       return [isA<UserAdminOperationSuccess>()];
     },
