@@ -35,6 +35,9 @@ dependencies:
   freezed_annotation: ^0.14.2
   get_it: ^7.2.0
   http: ^0.13.3
+  integration_test: 
+    sdk: flutter
+    version: ^0.0.0
   location: ^4.3.0
   mockito: ^5.0.15
   mocktail: ^0.1.4
