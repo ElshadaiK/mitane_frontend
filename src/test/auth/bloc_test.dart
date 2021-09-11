@@ -10,42 +10,48 @@ import 'package:mocktail/mocktail.dart';
 class MockAuthRepository extends Mock implements AuthRepository {}
 
 void main() {
-  
   MockAuthRepository mockAuthRepository = MockAuthRepository();
   final login = Login(phone: '545', password: "asa");
-  final registerU = Register(role: 'asd',phone: 'asd',name: 'asd',password: 'asd',confirm: 'asd');
+  final registerU = Register(
+      role: 'asd', phone: 'asd', name: 'asd', password: 'asd', confirm: 'asd');
   Future<User> createFutureUser() async {
-    return User(password: "aa",name: "aa",token: "aa",phone: "545",roles: ["admin"]);
+    return User(
+        password: "aa",
+        name: "aa",
+        token: "aa",
+        phone: "545",
+        roles: ["admin"]);
   }
+
   Future<bool> createFutureBool() async {
     return true;
   }
-  blocTest<AuthBloc , AuthState>(
-    'LoginEvent emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
-    
-    build: () {
-      when(() => mockAuthRepository.signIn(login))
-        .thenAnswer((realInvocation) => createFutureUser());
-      return AuthBloc(authRepository: mockAuthRepository);
-    },
-    act: (bloc) => bloc.add(LoginEvent(login: login)),
-    expect: (){
-      return [ isA<LoggingIn>(),isA<LoginSuccess>()];
-    },
-  );
 
-  blocTest<AuthBloc , AuthState>(
-    'RegisterEvent emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
-    
-    build: () {
-      when(() => mockAuthRepository.signUp(registerU))
-        .thenAnswer((realInvocation) => createFutureBool());
-      return AuthBloc(authRepository: mockAuthRepository);
-    },
-    act: (bloc) => bloc.add(RegisterEvent(register: registerU)),
-    expect: (){
-      return [ isA<Registering>(),isA<RegisterSuccess>()];
-    },
-  );
+  group('auth tests', () {
+    blocTest<AuthBloc, AuthState>(
+      'LoginEvent emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
+      build: () {
+        when(() => mockAuthRepository.signIn(login))
+            .thenAnswer((realInvocation) => createFutureUser());
+        return AuthBloc(authRepository: mockAuthRepository);
+      },
+      act: (bloc) => bloc.add(LoginEvent(login: login)),
+      expect: () {
+        return [isA<LoggingIn>(), isA<LoginSuccess>()];
+      },
+    );
 
+    blocTest<AuthBloc, AuthState>(
+      'RegisterEvent emits [UserAdminLoading,UserAdminOperationSuccess] when Success',
+      build: () {
+        when(() => mockAuthRepository.signUp(registerU))
+            .thenAnswer((realInvocation) => createFutureBool());
+        return AuthBloc(authRepository: mockAuthRepository);
+      },
+      act: (bloc) => bloc.add(RegisterEvent(register: registerU)),
+      expect: () {
+        return [isA<Registering>(), isA<RegisterSuccess>()];
+      },
+    );
+  });
 }
