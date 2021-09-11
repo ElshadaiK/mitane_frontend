@@ -1,7 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mitane_frontend/application/store/bloc/store_bloc.dart';
+import 'package:mitane_frontend/application/store/states/store_state.dart';
 import 'package:mitane_frontend/models/store-model.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/bottom_nav.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
@@ -27,7 +30,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
   }
 
   Widget slideRightBackground() {
-  return Container(
+    return Container(
       child: Align(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -44,7 +47,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
               Icons.edit,
               color: Colors.green,
               size: 30,
-            ),            
+            ),
           ],
         ),
         alignment: Alignment.centerLeft,
@@ -90,16 +93,19 @@ class _StoreDisplayState extends State<StoreDisplay> {
         iconTheme: IconThemeData(color: Colors.black),
       ),
       drawer: NavDrawer(),
-      resizeToAvoidBottomInset: false,  
+      resizeToAvoidBottomInset: false,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Container(
             decoration: BoxDecoration(
                 color: Color(0xFF8CC63E),
                 borderRadius: BorderRadius.circular(20)),
-            padding: const EdgeInsets.only(top: 10, bottom: 10, left: 2, right: 2),
+            padding:
+                const EdgeInsets.only(top: 10, bottom: 10, left: 2, right: 2),
             margin: EdgeInsets.only(top: 10, bottom: 0, left: 10, right: 10),
             width: MediaQuery.of(context).size.width,
             child: Column(
@@ -107,90 +113,117 @@ class _StoreDisplayState extends State<StoreDisplay> {
               children: [
                 Text(
                   "Decide your share of the market!",
-                  style: TextStyle(fontSize: 20, fontFamily: "RobotMono", color: Colors.white),                  
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: "RobotMono",
+                      color: Colors.white),
                 ),
                 Text(
                   "Date will be displayed here",
-                  style: TextStyle(fontSize: 10, fontFamily: "RobotMono", color: Colors.white),
+                  style: TextStyle(
+                      fontSize: 10,
+                      fontFamily: "RobotMono",
+                      color: Colors.white),
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-                itemCount: widget.items.length,
-                itemBuilder: (BuildContext context, int index) {
-                  Store curPrice = widget.items[index];
-                  return Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10)),
-                    margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),                    
-                    child: Dismissible(                    
+          Expanded(child:
+              BlocBuilder<StoreBloc, StoreState>(builder: (context, state) {
+                print(state);
+            if (state is StoreFetching) {
+              return Center(
+                child: SizedBox(
+                  height: 30,
+                  width: 30,
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }
+            if(state is StoreFetchFailed){
+              
+              return Center(child: Text('No Result to display'));
+            }
+            if (state is StoreFetched) {
+              final store = state.stores['product_items'];
+              return ListView.builder(
+                  itemCount: store.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final curPrice = store[index];
+                    return Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10)),
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                      child: Dismissible(
                         child: StoreItemCard(
-                            productName: curPrice.productName,
-                            quantity: curPrice.quantity,
-                            price: curPrice.price
-                        ),
+                            productName: "",
+                            quantity: curPrice['quantity'].toString(),
+                            price: curPrice['price_per_kg'].toStringAsFixed(2)),
                         background: slideRightBackground(),
                         secondaryBackground: slideLeftBackground(),
                         key: ValueKey<Store>(widget.items[index]),
                         confirmDismiss: (direction) async {
-                        if (direction == DismissDirection.endToStart) {
-                          final bool res = await showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  content: Text(
-                                      "Are you sure you want to delete ${widget.items[index].productName}?"),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      child: Text(
-                                        "Cancel",
-                                        style: TextStyle(color: Colors.black),
+                          if (direction == DismissDirection.endToStart) {
+                            final bool res = await showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    content: Text(
+                                        "Are you sure you want to delete ${widget.items[index].productName}?"),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: Text(
+                                          "Cancel",
+                                          style: TextStyle(color: Colors.black),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pop(context, false);
+                                        },
                                       ),
-                                      onPressed: () {                                        
-                                        Navigator.pop(context, false);
-                                      },
-                                    ),
-                                    TextButton(
-                                      child: Text(
-                                        "Delete",
-                                        style: TextStyle(color: Colors.red),
+                                      TextButton(
+                                        child: Text(
+                                          "Delete",
+                                          style: TextStyle(color: Colors.red),
+                                        ),
+                                        onPressed: () {
+                                          setState(() {
+                                            widget.items.removeAt(index);
+                                          });
+                                          Navigator.pop(context, true);
+                                        },
                                       ),
-                                      onPressed: () {
-                                        setState(() {
-                                          widget.items.removeAt(index);
-                                        });
-                                        Navigator.pop(context, true);
-                                      },
-                                    ),
-                                  ],
-                                );
-                              });
-                          return res;
-                        } else if (direction == DismissDirection.startToEnd){
+                                    ],
+                                  );
+                                });
+                            return res;
+                          } else if (direction == DismissDirection.startToEnd) {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => StoreEdit()),
+                              MaterialPageRoute(
+                                  builder: (context) => StoreEdit()),
                             );
                           }
                         },
                       ),
-                  );
-                   
-                }),
-          ),         
+                    );
+                  });
+            }
+            return Center(child: Text('No Result to display'));
+          })),
         ],
-        
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await Navigator.push(
+          Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => StoreAdd()),
           );
-        },        
-        child: const Icon(Icons.add, color: Colors.green,),
+        },
+        child: const Icon(
+          Icons.add,
+          color: Colors.green,
+        ),
         backgroundColor: Colors.white,
       ),
     );
@@ -199,8 +232,8 @@ class _StoreDisplayState extends State<StoreDisplay> {
 
 class StoreItemCard extends StatelessWidget {
   final String productName;
-  final int price;
-  final int quantity;
+  final String price;
+  final String quantity;
   const StoreItemCard(
       {Key? key,
       required this.productName,

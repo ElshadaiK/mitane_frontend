@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mitane_frontend/application/store/bloc/store_bloc.dart';
+import 'package:mitane_frontend/application/store/events/store_events.dart';
+import 'package:mitane_frontend/application/store/states/store_state.dart';
+import 'package:mitane_frontend/domain/store/entity/store_model.dart';
 import 'package:mitane_frontend/models/store-model.dart';
 import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
@@ -37,6 +42,9 @@ class _StoreAddState extends State<StoreAdd> {
   String? selectedItem = "";
 
   String? getI() => selectedItem;
+  final priceController = TextEditingController();
+  final quantityController = TextEditingController();
+
 
   @override
   void initState() {
@@ -57,7 +65,8 @@ class _StoreAddState extends State<StoreAdd> {
         iconTheme: IconThemeData(color: Colors.black),
         leading: IconButton(
             onPressed: () {
-              Navigator.of(context).pushNamed('/');
+              BlocProvider.of<StoreBloc>(context)..add(FetchStore());
+              Navigator.of(context).pushReplacementNamed('/');
             },
             icon: Icon(Icons.arrow_back)),
       ),
@@ -75,6 +84,7 @@ class _StoreAddState extends State<StoreAdd> {
               child: Column(
                 children: [
                   TextFormField(
+                    controller: priceController,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
                       labelText: "Price",
@@ -85,6 +95,7 @@ class _StoreAddState extends State<StoreAdd> {
                     height: 40.0,
                   ),
                   TextFormField(
+                    controller: quantityController,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
                         labelText: "Quantity Unit",
@@ -94,20 +105,34 @@ class _StoreAddState extends State<StoreAdd> {
                     height: 30.0,
                   ),
                   Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text('Add to Store'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Color(0xFF8CC63E),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 40, vertical: 20),
-                          textStyle: TextStyle(fontSize: 20),
-                          shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0),
-                          ),
-                        ))
+                    BlocBuilder<StoreBloc,StoreState>(builder: (context,state){
+                      Widget text = Text("Add to Store");
+                      if(state is StoreAdding){
+                        return Center(child:SizedBox(height: 25,width: 25,child:CircularProgressIndicator()));
+                      }
+                      if(state is StoreAdd){
+                        print('successful');
+                      }
+                      if(state is StoreAddFailed){
+                        print('failed adding');
+                      }
+
+                      return ElevatedButton(
+                          onPressed: () {
+                            final storeBloc = context.read<StoreBloc>();
+                            storeBloc..add(AddStore(item: StoreItem(price: double.parse(priceController.text)+0.00, product: selectedItem, quantity: int.parse(quantityController.text))));
+                          },
+                          child: text,
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF8CC63E),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 40, vertical: 20),
+                            textStyle: TextStyle(fontSize: 20),
+                            shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0),
+                            ),
+                          ));
+                    })
                   ])
                 ],
               ))
