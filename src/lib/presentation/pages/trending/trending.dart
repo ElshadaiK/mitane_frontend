@@ -19,7 +19,7 @@ class Trending extends StatelessWidget {
             backgroundColor: Colors.white,
             iconTheme: IconThemeData(color: Colors.black),
             title: Text(
-          "Trending Products",
+          "Top 10 Trending Products",
           style: TextStyle(color: Colors.black),
         ),
           ),
