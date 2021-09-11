@@ -143,22 +143,29 @@ Widget verticalScrollList(BuildContext context) {
           return ListView.builder(
             itemCount: state.stores.length,
             itemBuilder: (BuildContext context, int itemCount) {
-              final current = state.stores[itemCount]['product_items'][0];
-              final i = current.length;
-              
-              return GestureDetector(
-                onTap: () => {},
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 8.0, vertical: 3.0),
-                  child: CustomTile(
-                    product: "Wheat",
-                    quantity: "2",
-                    price:current['price_per_kg'].toStringAsFixed(2),
-                    category: "crop",
+              final data = state.stores[itemCount]['product_items'];
+             
+              if (data != null) {
+                final current = data[0];
+                return GestureDetector(
+                  onTap: () => {},
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 3.0),
+                    child: CustomTile(
+                      product: "Wheat",
+                      quantity: "2",
+                      price: current['price_per_kg'].toStringAsFixed(2),
+                      category: "crop",
+                    ),
                   ),
-                ),
-              );
+                );
+              }
+              return Center(
+                  child: Text(
+                "No result",
+                style: TextStyle(fontSize: 30),
+              ));
             },
           );
         }

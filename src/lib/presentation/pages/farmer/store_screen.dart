@@ -158,7 +158,7 @@ class _StoreDisplayState extends State<StoreDisplay> {
                       child: Dismissible(
                         child: StoreItemCard(
                             productName: "",
-                            quantity: curPrice['quantity'],
+                            quantity: curPrice['quantity'].toString(),
                             price: curPrice['price_per_kg'].toStringAsFixed(2)),
                         background: slideRightBackground(),
                         secondaryBackground: slideLeftBackground(),
