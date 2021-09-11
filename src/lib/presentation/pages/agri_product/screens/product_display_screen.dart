@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mitane_frontend/application/product/bloc/product_bloc.dart';
 import 'package:mitane_frontend/application/product/states/product_state.dart';
+import 'package:mitane_frontend/application/store/bloc/store_bloc.dart';
+import 'package:mitane_frontend/application/store/states/store_state.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/custom_list_tile.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
@@ -124,34 +126,46 @@ Widget verticalScrollList(BuildContext context) {
   return Expanded(
     child: Container(
       padding: EdgeInsets.symmetric(horizontal: 20.0),
-      child: BlocBuilder<ProductBloc, ProductState>(builder: (context, state) {
+      child: BlocBuilder<StoreBloc, StoreState>(builder: (context, state) {
         print(state);
-        if (state is ProductAdminLoading) {
+        if (state is StoreFetching) {
           return Center(
-                      child: SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: CircularProgressIndicator(),
-                  ));
+              child: SizedBox(
+            width: 20,
+            height: 20,
+            child: CircularProgressIndicator(),
+          ));
         }
 
-        if (state is ProductAdminOperationSuccess) {
+        if (state is StoreAllFetched) {
+          
+
           return ListView.builder(
-            itemCount: 20,
+            itemCount: state.stores.length,
             itemBuilder: (BuildContext context, int itemCount) {
-              return GestureDetector(
-                onTap: () => {},
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 8.0, vertical: 3.0),
-                  child: CustomTile(
-                    product: "Wheat",
-                    quantity: "100Kg",
-                    price: "300",
-                    category: "crop",
+              final data = state.stores[itemCount]['product_items'];
+             
+              if (data != null) {
+                final current = data[0];
+                return GestureDetector(
+                  onTap: () => {},
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 3.0),
+                    child: CustomTile(
+                      product: "Wheat",
+                      quantity: "2",
+                      price: current['price_per_kg'].toStringAsFixed(2),
+                      category: "crop",
+                    ),
                   ),
-                ),
-              );
+                );
+              }
+              return Center(
+                  child: Text(
+                "No result",
+                style: TextStyle(fontSize: 30),
+              ));
             },
           );
         }
