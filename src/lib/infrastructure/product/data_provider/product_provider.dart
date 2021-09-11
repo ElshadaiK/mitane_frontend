@@ -19,7 +19,6 @@ class ProductDataProvider {
           }));
 
       if (response.statusCode == 201) {
-        print(Product.fromJson(jsonDecode(response.data['data'])));
         return Product.fromJson(jsonDecode(response.data['data']));
       }
       print("Unsuccessful creation");
@@ -33,7 +32,6 @@ class ProductDataProvider {
   Future<List<Product>> fetchAll() async {
     try {
       final response = await dio.get("$baseUrl/products");
-      print(response.data);
       return (response.data['data'] as List).map((u) => Product.fromJson(u)).toList();
     } catch (e) {
       print(e);
@@ -52,7 +50,6 @@ class ProductDataProvider {
           }));
 
       if (response.statusCode == 200) {
-        print(Product.fromJson(jsonDecode(response.data['data'])));
         print("Successful updation");
         return Product.fromJson(jsonDecode(response.data['data']));
       }

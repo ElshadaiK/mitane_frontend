@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mitane_frontend/models/store-model.dart';
 import 'package:mitane_frontend/presentation/pages/common/DropdownComponent.dart';
-import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
-import 'package:mitane_frontend/presentation/pages/farmer/store_screen.dart';
+
 
 class StoreEdit extends StatefulWidget {
   static const String routeName = '/editstore';
