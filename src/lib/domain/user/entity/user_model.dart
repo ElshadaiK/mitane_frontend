@@ -21,5 +21,3 @@ class User {
         password: json['password']);
   }
 }
-
-// class UserEmpty{}

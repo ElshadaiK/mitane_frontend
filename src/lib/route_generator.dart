@@ -3,14 +3,16 @@ import 'package:mitane_frontend/domain/ingredient/entity/ingredient_model.dart';
 import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
 import 'package:mitane_frontend/domain/product/entity/product_model.dart';
 
-import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+import 'package:mitane_frontend/domain/user/entity/user_model.dart';
 import 'package:mitane_frontend/presentation/pages/Data_encoder/app_widget.dart';
+import 'package:mitane_frontend/presentation/pages/admin/screens/Admin_Home.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Add.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/agri_inputs/screens/IngredientAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/agri_product/screens/ProductAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/auth/Login_screen.dart';
 import 'package:mitane_frontend/presentation/pages/auth/sign_up_page.dart';
+import 'package:mitane_frontend/presentation/pages/farmer/app_widget.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Add.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Edit.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/MachineryAdmin_Lists.dart';
@@ -54,8 +56,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => IngredientScreen());
       case '/suggestions':
         return MaterialPageRoute(builder: (_) => Suggestions());
+      case '/farmer':
+        return MaterialPageRoute(builder: (_) => FarmerHome());
       case '/encoder':
         return MaterialPageRoute(builder: (_) => EncoderHome());
+      case '/admin':
+        return MaterialPageRoute(builder: (_) => AdminHome());
       case '/admin/users':
         return MaterialPageRoute(builder: (_) => AdminUsers());
       case '/admin/users/add':

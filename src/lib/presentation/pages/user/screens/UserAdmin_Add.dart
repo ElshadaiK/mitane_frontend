@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:mitane_frontend/application/user/bloc/user_blocs.dart';
-import 'package:mitane_frontend/domain/user/entity/user_models.dart';
+import 'package:mitane_frontend/domain/user/entity/user_model.dart';
 import 'package:mitane_frontend/presentation/pages/custom_widgets/widgets/bubbles.dart';
 import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Lists.dart';
 import 'package:mitane_frontend/presentation/pages/common/mitaneButton.dart';

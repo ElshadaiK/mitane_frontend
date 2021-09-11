@@ -16,7 +16,7 @@ class EncoderHome extends StatefulWidget {
 
 class _AppWidgetState extends State<EncoderHome> {
   List<Widget> pages = [
-    Home(),
+    HomeDE(),
     PriceHubDisplay(
       items: [
         new Price("Banana", 'kg', 25, 30),
