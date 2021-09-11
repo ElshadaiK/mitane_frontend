@@ -78,4 +78,40 @@ void main() {
           isA<IngredientAdminOperationSuccess>()
         ];
       });
+
+      blocTest<IngredientBloc, IngredientState>(
+      'emits [IngredientAdminOperationSuccess] when successful',
+      build: () {
+        when(() => ingredientRepository.update("1",ingredient))
+            .thenAnswer((invocation) => createIngredient());
+        when(() => ingredientRepository.fetchAll())
+            .thenAnswer((invocation) => createIngredients());
+        return IngredientBloc(ingredientRepository: ingredientRepository);
+      },
+      act: (bloc) => bloc.add(IngredientAdminUpdate(ingredient)),
+      expect: () {
+        return [
+         
+          isA<IngredientAdminOperationSuccess>()
+        ];
+      });
+
+      blocTest<IngredientBloc, IngredientState>(
+      'emits [IngredientAdminOperationSuccess] when successful',
+      build: () {
+        when(() => ingredientRepository.delete("1"))
+            .thenAnswer((invocation) => createIngredient());
+        when(() => ingredientRepository.fetchAll())
+            .thenAnswer((invocation) => createIngredients());
+        return IngredientBloc(ingredientRepository: ingredientRepository);
+      },
+      act: (bloc) => bloc.add(IngredientAdminDelete("1")),
+      expect: () {
+        return [
+         
+          isA<IngredientAdminOperationSuccess>()
+        ];
+      });
+
+
 }
