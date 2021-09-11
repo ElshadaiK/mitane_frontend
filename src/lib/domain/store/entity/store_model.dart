@@ -36,18 +36,26 @@ class Product{
 
 class EmptyProduct{}
 class Store{
-  final Map<String,dynamic> user;
-  final List<Map<String,dynamic>> store;
-  final Map<String,dynamic> pricePerUnit;
-  final Map<String,dynamic> latitude;
-  final Map<String,dynamic> longitude;
+  final String user;
+  final String id;
+  final Map<String,dynamic> location;
+
+  List<Map<String,dynamic>> productItems = [];
+  List<Map<String,dynamic>> machineryItems = [];
+  List<Map<String,dynamic>> ingredientItems = [];
 
   factory Store.fromJson(Map<String,dynamic> json){
-    return Store(user:json['user'],store:json['stores'],pricePerUnit:json['price_per_unit'],
-    latitude:json['location[coordinates[1]]'], longitude:json['location[coordinates[0]]']);
+    return Store(json['machinery_items'],json['ingredient_items'],json['product_items'],user:json['user'],id: json['_id'],location: json['location']);
   }
 
-  Store({required this.user, required this.store, required this.pricePerUnit, 
-  required this.latitude, required this.longitude});
+  Store(this.machineryItems, this.ingredientItems,this.productItems,{required this.user, required this.id,required this.location});
 
+}
+
+class StoreItem{
+  final String? product;
+  final double price;
+  final int quantity;
+
+  StoreItem({required this.price,required this.product,required this.quantity});
 }
