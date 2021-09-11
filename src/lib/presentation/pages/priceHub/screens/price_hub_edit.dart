@@ -71,20 +71,21 @@ class _PriceHubEditState extends State<PriceHubEdit> {
           SizedBox(
             height: 15,
           ),
-          DropDownComponent(context: context, title: "Category", values: PriceHubEdit.category, selected: selectedCategory),
-          DropDownComponent(context: context, title: "Item", values: PriceHubEdit.item, selected: selectedItem),
+          DropDownComponent(
+              context: context,
+              title: "Category",
+              values: PriceHubEdit.category,
+              selected: selectedCategory),
+          DropDownComponent(
+              context: context,
+              title: "Item",
+              values: PriceHubEdit.item,
+              selected: selectedItem),
           Container(
               margin: EdgeInsets.all(40),
               child: Column(
                 children: [
-                  TextFormField(
-                    initialValue: '150 Birr',
-                    textAlign: TextAlign.right,
-                    decoration: InputDecoration(
-                      labelText: "Yesterday's Price",
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
+                  
                   TextFormField(
                     initialValue: '150 Birr',
                     textAlign: TextAlign.right,
@@ -96,16 +97,7 @@ class _PriceHubEditState extends State<PriceHubEdit> {
                   SizedBox(
                     height: 40.0,
                   ),
-                  TextFormField(
-                    initialValue: 'kg',
-                    textAlign: TextAlign.right,
-                    decoration: InputDecoration(
-                        labelText: "Quantity Unit",
-                        border: OutlineInputBorder()),
-                  ),
-                  SizedBox(
-                    height: 40.0,
-                  ),
+                  
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -132,5 +124,4 @@ class _PriceHubEditState extends State<PriceHubEdit> {
       ),
     );
   }
-
 }

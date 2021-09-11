@@ -29,6 +29,7 @@ import 'package:mitane_frontend/presentation/pages/common/welcome.dart';
 import 'package:mitane_frontend/presentation/pages/machinery/screens/machinery_screen.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
 import 'package:mitane_frontend/presentation/pages/suggestions/suggestions.dart';
+import 'package:mitane_frontend/presentation/pages/trending/trending.dart';
 
 
 class RouteGenerator {
@@ -56,6 +57,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => IngredientScreen());
       case '/suggestions':
         return MaterialPageRoute(builder: (_) => Suggestions());
+      case '/trending':
+        return MaterialPageRoute(builder: (_) => Trending());
       case '/farmer':
         return MaterialPageRoute(builder: (_) => FarmerHome());
       case '/encoder':

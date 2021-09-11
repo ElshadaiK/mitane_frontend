@@ -1,3 +1,4 @@
+import 'package:http/http.dart';
 import 'package:mitane_frontend/infrastructure/machinery/data_provider/machinery_provider.dart';
 import 'package:mitane_frontend/domain/machinery/entity/machinery_model.dart';
 

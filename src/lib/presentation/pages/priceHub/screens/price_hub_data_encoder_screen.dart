@@ -81,34 +81,21 @@ class _PriceHubState  extends State<PriceHubDisplay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(),
+      appBar: AppBar(
+        title: Text(
+          "Price Hub",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
       drawer: NavDrawer(),
       resizeToAvoidBottomInset: false,  
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 10,),
-          Container(
-            decoration: BoxDecoration(
-                color: Color(0xFF8CC63E),
-                borderRadius: BorderRadius.circular(20)),
-            padding: const EdgeInsets.only(top: 10, bottom: 10, left: 2, right: 2),
-            margin: EdgeInsets.only(top: 10, bottom: 0, left: 10, right: 10),
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  "Decide your share of the market!",
-                  style: TextStyle(fontSize: 20, fontFamily: "RobotMono", color: Colors.white),                  
-                ),
-                Text(
-                  "Date will be displayed here",
-                  style: TextStyle(fontSize: 10, fontFamily: "RobotMono", color: Colors.white),
-                ),
-              ],
-            ),
-          ),
+          
           Expanded(
             child: ListView.builder(
                 itemCount: widget.items.length,

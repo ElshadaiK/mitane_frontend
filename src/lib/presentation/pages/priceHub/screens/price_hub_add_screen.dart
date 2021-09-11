@@ -83,32 +83,18 @@ class _PriceHubAddState extends State<PriceHubAdd> {
               margin: EdgeInsets.all(40),
               child: Column(
                 children: [
+                  
                   TextFormField(
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
-                      labelText: "Last Week's Price",
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  TextFormField(
-                    textAlign: TextAlign.right,
-                    decoration: InputDecoration(
-                      labelText: "Latest Price",
+                      labelText: "Today's Price per Kg",
                       border: OutlineInputBorder(),
                     ),
                   ),
                   SizedBox(
                     height: 40.0,
                   ),
-                  TextFormField(
-                    textAlign: TextAlign.right,
-                    decoration: InputDecoration(
-                        labelText: "Quantity Unit",
-                        border: OutlineInputBorder()),
-                  ),
-                  SizedBox(
-                    height: 30.0,
-                  ),
+                 
                   Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                     ElevatedButton(
                         onPressed: () {

@@ -8,7 +8,7 @@ import 'package:mitane_frontend/presentation/pages/user/screens/UserAdmin_Lists.
 import 'package:mitane_frontend/presentation/pages/custom_widgets/drawer.dart';
 import 'package:mitane_frontend/presentation/pages/farmer/home_page.dart';
 import 'package:mitane_frontend/presentation/pages/priceHub/screens/price_hub_screen.dart';
-import 'package:mitane_frontend/presentation/pages/trending/trending_screen.dart';
+import 'package:mitane_frontend/presentation/pages/trending/trending.dart';
 
 class AdminHome extends StatefulWidget {
   const AdminHome({Key? key}) : super(key: key);
@@ -302,7 +302,7 @@ class _AdminHomeState extends State<AdminHome> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => TrendingScreen(),
+                            builder: (context) => Trending(),
                       ));
                     },
                   ),
